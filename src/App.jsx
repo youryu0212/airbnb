@@ -1,6 +1,6 @@
 import React from "react";
 
-App = () => {
+const App = () => {
     return <div className="App">adfasdfadsfasdf</div>;
 };
 
