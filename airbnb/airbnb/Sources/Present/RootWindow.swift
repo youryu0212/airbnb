@@ -12,7 +12,7 @@ class RootWindow: UIWindow {
     override init(windowScene: UIWindowScene) {
         super.init(windowScene: windowScene)
         overrideUserInterfaceStyle = .light
-        rootViewController = MainViewController(viewModel: MainViewModel())
+        rootViewController = MainTabBarController()
     }
     
     @available(*, unavailable)

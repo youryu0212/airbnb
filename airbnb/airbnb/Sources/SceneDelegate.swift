@@ -16,6 +16,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = RootWindow(windowScene: scene)
         window?.makeKeyAndVisible()
     }
-
 }
-

@@ -29,6 +29,13 @@
 		E0108D64283B2E9000CC736C /* RootWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D63283B2E9000CC736C /* RootWindow.swift */; };
 		E0108D67283B2ED500CC736C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D66283B2ED500CC736C /* MainViewController.swift */; };
 		E0108D69283B2F0E00CC736C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D68283B2F0E00CC736C /* MainViewModel.swift */; };
+		E0108D6C283B4B9300CC736C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D6B283B4B9300CC736C /* MainTabBarController.swift */; };
+		E0108D6F283B4BC700CC736C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */; };
+		E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D71283B4E3500CC736C /* WishListViewController.swift */; };
+		E0108D75283B4E6800CC736C /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D74283B4E6800CC736C /* MyReservationViewController.swift */; };
+		E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D77283B54A200CC736C /* SearchBarView.swift */; };
+		E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */; };
+		E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,13 @@
 		E0108D63283B2E9000CC736C /* RootWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindow.swift; sourceTree = "<group>"; };
 		E0108D66283B2ED500CC736C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E0108D68283B2F0E00CC736C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E0108D6B283B4B9300CC736C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E0108D71283B4E3500CC736C /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		E0108D74283B4E6800CC736C /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
+		E0108D77283B54A200CC736C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +171,7 @@
 				E0108D4D283B2DDE00CC736C /* API */,
 				E0108D4B283B2DDE00CC736C /* Repository */,
 				E0108D62283B2E7100CC736C /* Present */,
+				E0108D6D283B4BB800CC736C /* Extension */,
 				E0108D43283B2DDE00CC736C /* Common */,
 				E0108D0E283B271000CC736C /* AppDelegate.swift */,
 				E0108D10283B271000CC736C /* SceneDelegate.swift */,
@@ -233,7 +248,10 @@
 		E0108D62283B2E7100CC736C /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				E0108D6A283B4B7F00CC736C /* MainTabBar */,
 				E0108D65283B2EC900CC736C /* Main */,
+				E0108D70283B4E2500CC736C /* WishList */,
+				E0108D73283B4E3800CC736C /* MyReservation */,
 				E0108D63283B2E9000CC736C /* RootWindow.swift */,
 			);
 			path = Present;
@@ -242,10 +260,53 @@
 		E0108D65283B2EC900CC736C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E0108D76283B549900CC736C /* View */,
 				E0108D66283B2ED500CC736C /* MainViewController.swift */,
 				E0108D68283B2F0E00CC736C /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E0108D6A283B4B7F00CC736C /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E0108D6B283B4B9300CC736C /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		E0108D6D283B4BB800CC736C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */,
+				E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */,
+				E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E0108D70283B4E2500CC736C /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				E0108D71283B4E3500CC736C /* WishListViewController.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		E0108D73283B4E3800CC736C /* MyReservation */ = {
+			isa = PBXGroup;
+			children = (
+				E0108D74283B4E6800CC736C /* MyReservationViewController.swift */,
+			);
+			path = MyReservation;
+			sourceTree = "<group>";
+		};
+		E0108D76283B549900CC736C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0108D77283B54A200CC736C /* SearchBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,9 +513,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0108D59283B2DDE00CC736C /* UserDefault.swift in Sources */,
+				E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */,
+				E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */,
 				E0108D5F283B2DDE00CC736C /* BaseTarget.swift in Sources */,
 				E0108D5D283B2DDE00CC736C /* HTTPContentType.swift in Sources */,
 				E0108D5A283B2DDE00CC736C /* Inject.swift in Sources */,
+				E0108D75283B4E6800CC736C /* MyReservationViewController.swift in Sources */,
 				E0108D56283B2DDE00CC736C /* ImageManager.swift in Sources */,
 				E0108D57283B2DDE00CC736C /* Log.swift in Sources */,
 				E0108D0F283B271000CC736C /* AppDelegate.swift in Sources */,
@@ -463,12 +527,16 @@
 				E0108D61283B2DDE00CC736C /* Response.swift in Sources */,
 				E0108D60283B2DDE00CC736C /* HTTPMethod.swift in Sources */,
 				E0108D58283B2DDE00CC736C /* Container.swift in Sources */,
+				E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */,
 				E0108D55283B2DDE00CC736C /* UserStore.swift in Sources */,
+				E0108D6C283B4B9300CC736C /* MainTabBarController.swift in Sources */,
+				E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */,
 				E0108D5E283B2DDE00CC736C /* Provider.swift in Sources */,
 				E0108D5B283B2DDE00CC736C /* NetworkRepository.swift in Sources */,
 				E0108D11283B271000CC736C /* SceneDelegate.swift in Sources */,
 				E0108D5C283B2DDE00CC736C /* APIError.swift in Sources */,
 				E0108D69283B2F0E00CC736C /* MainViewModel.swift in Sources */,
+				E0108D6F283B4BC700CC736C /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
