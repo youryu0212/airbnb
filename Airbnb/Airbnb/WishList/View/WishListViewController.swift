@@ -6,24 +6,32 @@
 //
 
 import UIKit
+import SnapKit
 
 class WishListViewController: UIViewController {
 
+    private let testLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Wish View"
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        layout()
+        attribute()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func attribute() {
+        view.backgroundColor = .white
     }
-    */
-
+    
+    private func layout() {
+        view.addSubview(testLabel)
+        
+        testLabel.translatesAutoresizingMaskIntoConstraints = false
+        testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
 }
