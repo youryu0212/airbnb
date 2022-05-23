@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //23px
+
+    <style name="HeadLine5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="HeadLine5.Black">
+        <item name="color">@color/black</item>
+    </style>
+
+    //20px
+
+    <style name="HeadLine6" parent="TextAppearance.MaterialComponents.Headline6"></style>
+
+    //16px
+
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+
+    </style>
+
+    //14px
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+
+    </style>
+
+    //12px
+
+    <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
+
+    </style>
+
+    //10px
+
+    <style name="Overline" parent="TextAppearance.MaterialComponents.Overline">
+
+    </style>
+
+</resources>
