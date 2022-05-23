@@ -29,6 +29,12 @@ final class SearchBarView: UIView {
         return textField
     }()
     
+    private let bottomBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .grey4
+        return view
+    }()
+    
     init() {
         super.init(frame: .zero)
         bind()
@@ -55,6 +61,8 @@ final class SearchBarView: UIView {
         searchBar.addSubview(icon)
         searchBar.addSubview(textField)
         
+        addSubview(bottomBar)
+        
         snp.makeConstraints {
             $0.bottom.equalTo(searchBar).offset(16)
         }
@@ -74,6 +82,11 @@ final class SearchBarView: UIView {
             $0.top.equalToSuperview().offset(7)
             $0.leading.equalTo(icon.snp.trailing).offset(6.3)
             $0.trailing.equalToSuperview().offset(10)
+        }
+        
+        bottomBar.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
 }

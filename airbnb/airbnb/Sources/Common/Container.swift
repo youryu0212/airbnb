@@ -12,6 +12,8 @@ class Container {
     
     private init() { }
     
+    lazy var homeRepository: HomeRepository = HomeRepositoryImpl()
+    
     lazy var imageManager = ImageManager()
     
     lazy var userStore = UserStore()

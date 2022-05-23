@@ -36,6 +36,19 @@
 		E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D77283B54A200CC736C /* SearchBarView.swift */; };
 		E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */; };
 		E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */; };
+		E0108D7E283B784300CC736C /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7D283B784300CC736C /* HeroImageView.swift */; };
+		E094188B283B7C63004A19F4 /* HomeTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094188A283B7C63004A19F4 /* HomeTravelView.swift */; };
+		E094188E283B7E6A004A19F4 /* HomeTravelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094188D283B7E6A004A19F4 /* HomeTravelViewCell.swift */; };
+		E0941891283B802A004A19F4 /* AroundTraval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941890283B802A004A19F4 /* AroundTraval.swift */; };
+		E0941894283B80A3004A19F4 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941893283B80A3004A19F4 /* HomeRepository.swift */; };
+		E0941896283B80A9004A19F4 /* HomeRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941895283B80A9004A19F4 /* HomeRepositoryImpl.swift */; };
+		E0941898283B80D3004A19F4 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941897283B80D3004A19F4 /* HomeTarget.swift */; };
+		E094189A283B83D6004A19F4 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941899283B83D6004A19F4 /* Result+Extension.swift */; };
+		E094189C283B8843004A19F4 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = E094189B283B8843004A19F4 /* mock.json */; };
+		E09418A0283B90C4004A19F4 /* RecommandTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094189E283B90C4004A19F4 /* RecommandTravelView.swift */; };
+		E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */; };
+		E09418A3283B91AA004A19F4 /* RecommandTraval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418A2283B91AA004A19F4 /* RecommandTraval.swift */; };
+		E09418A7283B92E3004A19F4 /* recommandTravalMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E09418A6283B92E2004A19F4 /* recommandTravalMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +98,19 @@
 		E0108D77283B54A200CC736C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		E0108D7D283B784300CC736C /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
+		E094188A283B7C63004A19F4 /* HomeTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTravelView.swift; sourceTree = "<group>"; };
+		E094188D283B7E6A004A19F4 /* HomeTravelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTravelViewCell.swift; sourceTree = "<group>"; };
+		E0941890283B802A004A19F4 /* AroundTraval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundTraval.swift; sourceTree = "<group>"; };
+		E0941893283B80A3004A19F4 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		E0941895283B80A9004A19F4 /* HomeRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepositoryImpl.swift; sourceTree = "<group>"; };
+		E0941897283B80D3004A19F4 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
+		E0941899283B83D6004A19F4 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
+		E094189B283B8843004A19F4 /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
+		E094189E283B90C4004A19F4 /* RecommandTravelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandTravelView.swift; sourceTree = "<group>"; };
+		E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandTravelViewCell.swift; sourceTree = "<group>"; };
+		E09418A2283B91AA004A19F4 /* RecommandTraval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandTraval.swift; sourceTree = "<group>"; };
+		E09418A6283B92E2004A19F4 /* recommandTravalMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recommandTravalMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +194,7 @@
 		E0108D3F283B28F300CC736C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E094188F283B7FE5004A19F4 /* Model */,
 				E0108D4D283B2DDE00CC736C /* API */,
 				E0108D4B283B2DDE00CC736C /* Repository */,
 				E0108D62283B2E7100CC736C /* Present */,
@@ -183,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				E0108D17283B271200CC736C /* Assets.xcassets */,
+				E09418A6283B92E2004A19F4 /* recommandTravalMock.json */,
+				E094189B283B8843004A19F4 /* mock.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -219,6 +248,7 @@
 		E0108D4B283B2DDE00CC736C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				E0941892283B808B004A19F4 /* Home */,
 				E0108D4C283B2DDE00CC736C /* NetworkRepository.swift */,
 			);
 			path = Repository;
@@ -228,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				E0108D4E283B2DDE00CC736C /* Base */,
+				E0941897283B80D3004A19F4 /* HomeTarget.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -281,6 +312,7 @@
 				E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */,
 				E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */,
 				E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */,
+				E0941899283B83D6004A19F4 /* Result+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,9 +336,48 @@
 		E0108D76283B549900CC736C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E094189D283B90C4004A19F4 /* RecommandTravel */,
+				E094188C283B7E4C004A19F4 /* HomeTravel */,
 				E0108D77283B54A200CC736C /* SearchBarView.swift */,
+				E0108D7D283B784300CC736C /* HeroImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E094188C283B7E4C004A19F4 /* HomeTravel */ = {
+			isa = PBXGroup;
+			children = (
+				E094188A283B7C63004A19F4 /* HomeTravelView.swift */,
+				E094188D283B7E6A004A19F4 /* HomeTravelViewCell.swift */,
+			);
+			path = HomeTravel;
+			sourceTree = "<group>";
+		};
+		E094188F283B7FE5004A19F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0941890283B802A004A19F4 /* AroundTraval.swift */,
+				E09418A2283B91AA004A19F4 /* RecommandTraval.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E0941892283B808B004A19F4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E0941893283B80A3004A19F4 /* HomeRepository.swift */,
+				E0941895283B80A9004A19F4 /* HomeRepositoryImpl.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E094189D283B90C4004A19F4 /* RecommandTravel */ = {
+			isa = PBXGroup;
+			children = (
+				E094189E283B90C4004A19F4 /* RecommandTravelView.swift */,
+				E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */,
+			);
+			path = RecommandTravel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +467,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0108D18283B271200CC736C /* Assets.xcassets in Resources */,
+				E094189C283B8843004A19F4 /* mock.json in Resources */,
+				E09418A7283B92E3004A19F4 /* recommandTravalMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,23 +589,34 @@
 				E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */,
 				E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */,
 				E0108D5F283B2DDE00CC736C /* BaseTarget.swift in Sources */,
+				E09418A3283B91AA004A19F4 /* RecommandTraval.swift in Sources */,
 				E0108D5D283B2DDE00CC736C /* HTTPContentType.swift in Sources */,
 				E0108D5A283B2DDE00CC736C /* Inject.swift in Sources */,
+				E0108D7E283B784300CC736C /* HeroImageView.swift in Sources */,
 				E0108D75283B4E6800CC736C /* MyReservationViewController.swift in Sources */,
+				E0941896283B80A9004A19F4 /* HomeRepositoryImpl.swift in Sources */,
 				E0108D56283B2DDE00CC736C /* ImageManager.swift in Sources */,
 				E0108D57283B2DDE00CC736C /* Log.swift in Sources */,
+				E0941894283B80A3004A19F4 /* HomeRepository.swift in Sources */,
+				E094189A283B83D6004A19F4 /* Result+Extension.swift in Sources */,
 				E0108D0F283B271000CC736C /* AppDelegate.swift in Sources */,
 				E0108D67283B2ED500CC736C /* MainViewController.swift in Sources */,
 				E0108D64283B2E9000CC736C /* RootWindow.swift in Sources */,
+				E094188E283B7E6A004A19F4 /* HomeTravelViewCell.swift in Sources */,
 				E0108D61283B2DDE00CC736C /* Response.swift in Sources */,
 				E0108D60283B2DDE00CC736C /* HTTPMethod.swift in Sources */,
+				E09418A0283B90C4004A19F4 /* RecommandTravelView.swift in Sources */,
 				E0108D58283B2DDE00CC736C /* Container.swift in Sources */,
 				E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */,
 				E0108D55283B2DDE00CC736C /* UserStore.swift in Sources */,
+				E0941891283B802A004A19F4 /* AroundTraval.swift in Sources */,
 				E0108D6C283B4B9300CC736C /* MainTabBarController.swift in Sources */,
 				E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */,
 				E0108D5E283B2DDE00CC736C /* Provider.swift in Sources */,
+				E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */,
 				E0108D5B283B2DDE00CC736C /* NetworkRepository.swift in Sources */,
+				E094188B283B7C63004A19F4 /* HomeTravelView.swift in Sources */,
+				E0941898283B80D3004A19F4 /* HomeTarget.swift in Sources */,
 				E0108D11283B271000CC736C /* SceneDelegate.swift in Sources */,
 				E0108D5C283B2DDE00CC736C /* APIError.swift in Sources */,
 				E0108D69283B2F0E00CC736C /* MainViewModel.swift in Sources */,
