@@ -8,8 +8,8 @@
 import RxSwift
 import UIKit
 
-final class HomeTravelViewCell: UICollectionViewCell {
-    static let identifier = "HomeTravelViewCell"
+final class AroundTravelViewCell: UICollectionViewCell {
+    static let identifier = "AroundTravelViewCell"
     
     let icon: UIImageView = {
         let imageView = UIImageView()
@@ -45,7 +45,6 @@ final class HomeTravelViewCell: UICollectionViewCell {
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {
@@ -54,8 +53,8 @@ final class HomeTravelViewCell: UICollectionViewCell {
         addSubview(distance)
         
         icon.snp.makeConstraints {
-            $0.top.leading.equalToSuperview()
-            $0.width.height.equalTo(74)
+            $0.top.bottom.leading.equalToSuperview()
+            $0.width.equalTo(icon.snp.height)
         }
         
         travalName.snp.makeConstraints {

@@ -39,7 +39,6 @@ final class RecommandTravelViewCell: UICollectionViewCell {
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {

@@ -18,8 +18,7 @@ final class MainViewController: UIViewController {
     }()
     
     private let searchBarView: SearchBarView = {
-        let searchView = SearchBarView()
-        
+        let searchView = SearchBarView(isUseTapped: true)
         return searchView
     }()
     
@@ -87,21 +86,29 @@ final class MainViewController: UIViewController {
         viewModel.state().loadedRecommandTraval
             .bind(to: recommandTravelView.updateCell)
             .disposed(by: disposeBag)
+        
+        searchBarView.tapped
+            .withUnretained(self)
+            .bind(onNext: { vc, _ in
+                let viewController = SearchViewController(viewModel: SearchViewModel())
+                vc.navigationItem.backButtonTitle = ""
+                vc.navigationController?.pushViewController(viewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {
-        view.addSubview(headerView)
-        headerView.addSubview(searchBarView)
-        
         view.addSubview(scrollView)
         scrollView.addSubview(contentStackView)
         contentStackView.addArrangedSubview(heroImageView)
         contentStackView.addArrangedSubview(homeTravelView)
         contentStackView.addArrangedSubview(recommandTravelView)
+        
+        view.addSubview(headerView)
+        headerView.addSubview(searchBarView)
         
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -114,8 +121,7 @@ final class MainViewController: UIViewController {
         }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(searchBarView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         

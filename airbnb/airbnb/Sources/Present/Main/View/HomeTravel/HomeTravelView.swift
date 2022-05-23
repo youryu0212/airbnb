@@ -34,7 +34,7 @@ final class HomeTravelView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(HomeTravelViewCell.self, forCellWithReuseIdentifier: HomeTravelViewCell.identifier)
+        collectionView.register(AroundTravelViewCell.self, forCellWithReuseIdentifier: AroundTravelViewCell.identifier)
         return collectionView
     }()
     
@@ -56,7 +56,7 @@ final class HomeTravelView: UIView {
     
     private func bind() {
         updateCell
-            .bind(to: collectionView.rx.items(cellIdentifier: HomeTravelViewCell.identifier, cellType: HomeTravelViewCell.self)) { _, model, cell in
+            .bind(to: collectionView.rx.items(cellIdentifier: AroundTravelViewCell.identifier, cellType: AroundTravelViewCell.self)) { _, model, cell in
                 cell.setTraval(model)
             }
             .disposed(by: disposeBag)

@@ -37,7 +37,7 @@ final class MainViewModel: MainViewModelBinding, MainViewModelAction, MainViewMo
     let loadedAroundTraval = PublishRelay<[AroundTraval]>()
     let loadedRecommandTraval = PublishRelay<[RecommandTraval]>()
     
-    @Inject(\.homeRepository) private var homeRepository: HomeRepository
+    @Inject(\.homeRepository) private var homeRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
     init() {

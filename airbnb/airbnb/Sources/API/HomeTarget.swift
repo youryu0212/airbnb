@@ -26,7 +26,7 @@ extension HomeTarget: BaseTarget {
         }
     }
     
-    var parameter: [String : Any]? {
+    var parameter: [String: Any]? {
         switch self {
         case .requestAroundTraval:
             return nil

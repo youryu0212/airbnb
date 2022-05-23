@@ -31,11 +31,9 @@ final class HeroImageView: UIView {
     }
     
     private func bind() {
-        
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {

@@ -12,7 +12,7 @@ class Container {
     
     private init() { }
     
-    lazy var homeRepository: HomeRepository = HomeRepositoryImpl()
+    lazy var homeRepository: TravalRepository = TravalRepositoryImpl()
     
     lazy var imageManager = ImageManager()
     

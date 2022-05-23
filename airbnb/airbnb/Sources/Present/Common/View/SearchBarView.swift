@@ -5,6 +5,8 @@
 //  Created by seongha shin on 2022/05/23.
 //
 
+import RxRelay
+import RxSwift
 import UIKit
 
 final class SearchBarView: UIView {
@@ -35,8 +37,16 @@ final class SearchBarView: UIView {
         return view
     }()
     
-    init() {
+    private let overlapButton = UIButton()
+    
+    private let disposeBag = DisposeBag()
+    
+    let tapped = PublishSubject<Void>()
+    let text = PublishSubject<String?>()
+        
+    init(isUseTapped: Bool = false) {
         super.init(frame: .zero)
+        overlapButton.isHidden = !isUseTapped
         bind()
         attribute()
         layout()
@@ -48,15 +58,21 @@ final class SearchBarView: UIView {
     }
     
     private func bind() {
+        overlapButton.rx.tap
+            .bind(to: tapped)
+            .disposed(by: disposeBag)
         
+        textField.rx.text
+            .bind(to: text)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {
         addSubview(searchBar)
+        addSubview(overlapButton)
         searchBar.addSubview(icon)
         searchBar.addSubview(icon)
         searchBar.addSubview(textField)
@@ -87,6 +103,10 @@ final class SearchBarView: UIView {
         bottomBar.snp.makeConstraints {
             $0.bottom.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
+        }
+        
+        overlapButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
 }
