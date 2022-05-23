@@ -26,8 +26,7 @@
 
 ### 프로젝트 폴더 구조
 
-![img.png](img.png)
-
+![image](https://user-images.githubusercontent.com/62360009/169815552-d7ab951e-e966-434f-a0e2-f4156dedc598.png)
 
 <br>
 
