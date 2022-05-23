@@ -1,5 +1,11 @@
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Headers />
+      <Main />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
