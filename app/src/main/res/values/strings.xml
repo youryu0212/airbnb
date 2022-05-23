@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">airbnb</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_github_login_title">GitHub 로그인</string>
+    <string name="label_login_skip_title">로그인 하지 않고 진행하기</string>
 </resources>

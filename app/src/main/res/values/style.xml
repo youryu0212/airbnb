@@ -27,11 +27,17 @@
 
     </style>
 
+    <style name="Subtitle2.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     //12px
 
     <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
 
     </style>
+
+
 
     //10px
 
