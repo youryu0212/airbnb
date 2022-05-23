@@ -23,27 +23,23 @@ class TabBarViewController: UITabBarController {
     private func attribute() {
         self.view.backgroundColor = .white
         self.selectedIndex = defaultIndex
-        tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .systemGray3
+        tabBar.tintColor = UIColor(named: "Grey1")
+        tabBar.unselectedItemTintColor = UIColor(named: "Grey3")
         setUpTabBar()
-    }
-    
-    private func layout() {
-        
     }
     
     private func setUpTabBar() {
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
         searchNavigationController.tabBarItem.title = "검색"
-        searchNavigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        searchNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Search")
         
         let wishListNavigationController = UINavigationController(rootViewController: WishListViewController())
         wishListNavigationController.tabBarItem.title = "위시리스트"
-        wishListNavigationController.tabBarItem.image = UIImage(systemName: "heart")
+        wishListNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Heart")
         
         let myInfomationNavigationController = UINavigationController(rootViewController: MyInfoViewController())
         myInfomationNavigationController.tabBarItem.title = "내 예약"
-        myInfomationNavigationController.tabBarItem.image = UIImage(systemName: "person")
+        myInfomationNavigationController.tabBarItem.image = #imageLiteral(resourceName: "User")
         
         viewControllers = [
             searchNavigationController, wishListNavigationController, myInfomationNavigationController

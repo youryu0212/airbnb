@@ -10,10 +10,15 @@ import SnapKit
 
 class SearchViewController: UIViewController {
     
-    private let testLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Search View"
-        return label
+    private let backgroundScroll: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        return view
     }()
     
     override func viewDidLoad() {
@@ -24,13 +29,22 @@ class SearchViewController: UIViewController {
     
     private func attribute() {
         view.backgroundColor = .white
+        contentView.backgroundColor = .brown
     }
     
     private func layout() {
-        view.addSubview(testLabel)
-        
-        testLabel.translatesAutoresizingMaskIntoConstraints = false
-        testLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        testLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(backgroundScroll)
+        backgroundScroll.addSubview(contentView)
+
+        //MARK: - SnapKit
+        backgroundScroll.snp.makeConstraints {
+            $0.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
+
+        contentView.snp.makeConstraints {
+            $0.top.bottom.leading.trailing.equalTo(backgroundScroll.contentLayoutGuide)
+            $0.width.equalTo(backgroundScroll.frameLayoutGuide)
+            $0.height.greaterThanOrEqualTo(view).priority(.low)
+        }
     }
 }
