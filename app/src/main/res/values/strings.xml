@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="label_github_login_title">GitHub 로그인</string>
     <string name="label_login_skip_title">로그인 하지 않고 진행하기</string>
+    <string name="menu_search">검색</string>
+    <string name="menu_wish">위시리스트</string>
+    <string name="menu_reservation">내 예약</string>
+    <string name="home_search_title">어디로 여행하세요</string>
 </resources>
