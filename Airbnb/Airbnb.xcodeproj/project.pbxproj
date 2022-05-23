@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00230CE7283BAE4E00802765 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00230CE6283BAE4E00802765 /* SnapKit */; };
+		00230CEC283BAE7700802765 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00230CEB283BAE7700802765 /* Alamofire */; };
+		00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00230CF0283BB77500802765 /* TabBarViewController.swift */; };
 		005AF78F283B775300546D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF78E283B775300546D5B /* AppDelegate.swift */; };
 		005AF791283B775300546D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF790283B775300546D5B /* SceneDelegate.swift */; };
 		005AF798283B775300546D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005AF797283B775300546D5B /* Assets.xcassets */; };
-		005AF79B283B775300546D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 005AF799283B775300546D5B /* LaunchScreen.storyboard */; };
 		005AF7A6283B775300546D5B /* AirbnbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF7A5283B775300546D5B /* AirbnbTests.swift */; };
 		005AF7B0283B775300546D5B /* AirbnbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF7AF283B775300546D5B /* AirbnbUITests.swift */; };
 		005AF7B2283B775300546D5B /* AirbnbUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF7B1283B775300546D5B /* AirbnbUITestsLaunchTests.swift */; };
@@ -39,12 +41,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		00230CEE283BAF3300802765 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		00230CF0283BB77500802765 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		005AF78B283B775300546D5B /* Airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005AF78E283B775300546D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005AF790283B775300546D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		005AF797283B775300546D5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		005AF79A283B775300546D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		005AF79C283B775300546D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		005AF7A1283B775300546D5B /* AirbnbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbnbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		005AF7A5283B775300546D5B /* AirbnbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirbnbTests.swift; sourceTree = "<group>"; };
@@ -64,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00230CEC283BAE7700802765 /* Alamofire in Frameworks */,
+				00230CE7283BAE4E00802765 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00230CEF283BB74600802765 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				00230CF0283BB77500802765 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		005AF782283B775200546D5B = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +116,7 @@
 				005AF7A4283B775300546D5B /* AirbnbTests */,
 				005AF7AE283B775300546D5B /* AirbnbUITests */,
 				005AF78C283B775300546D5B /* Products */,
+				00EFB723283BA7D600BBDC71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,7 +165,6 @@
 				005AF78E283B775300546D5B /* AppDelegate.swift */,
 				005AF790283B775300546D5B /* SceneDelegate.swift */,
 				005AF797283B775300546D5B /* Assets.xcassets */,
-				005AF799283B775300546D5B /* LaunchScreen.storyboard */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -165,6 +190,7 @@
 		00A85F32283B870700EA32E0 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
+				00230CEF283BB74600802765 /* TabBar */,
 				00A85F42283B87AA00EA32E0 /* Model */,
 				00A85F3F283B878200EA32E0 /* View */,
 			);
@@ -219,6 +245,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		00EFB723283BA7D600BBDC71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,12 +262,17 @@
 				005AF787283B775300546D5B /* Sources */,
 				005AF788283B775300546D5B /* Frameworks */,
 				005AF789283B775300546D5B /* Resources */,
+				00230CEE283BAF3300802765 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Airbnb;
+			packageProductDependencies = (
+				00230CE6283BAE4E00802765 /* SnapKit */,
+				00230CEB283BAE7700802765 /* Alamofire */,
+			);
 			productName = Airbnb;
 			productReference = 005AF78B283B775300546D5B /* Airbnb.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +345,10 @@
 				Base,
 			);
 			mainGroup = 005AF782283B775200546D5B;
+			packageReferences = (
+				00230CE5283BAE4E00802765 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				00230CEA283BAE7700802765 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 005AF78C283B775300546D5B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -323,7 +365,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				005AF79B283B775300546D5B /* LaunchScreen.storyboard in Resources */,
 				005AF798283B775300546D5B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +394,7 @@
 				00A85F35283B872800EA32E0 /* SearchModel.swift in Sources */,
 				00A85F3C283B876A00EA32E0 /* WishListViewController.swift in Sources */,
 				00A85F41283B87A300EA32E0 /* MyInfoViewController.swift in Sources */,
+				00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */,
 				005AF78F283B775300546D5B /* AppDelegate.swift in Sources */,
 				00A85F38283B873F00EA32E0 /* SearchViewController.swift in Sources */,
 				005AF791283B775300546D5B /* SceneDelegate.swift in Sources */,
@@ -391,17 +433,6 @@
 			targetProxy = 005AF7AC283B775300546D5B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		005AF799283B775300546D5B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				005AF79A283B775300546D5B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		005AF7B3283B775300546D5B /* Debug */ = {
@@ -533,7 +564,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Airbnb1-8";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -563,7 +593,6 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Airbnb1-8";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -716,6 +745,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00230CE5283BAE4E00802765 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		00230CEA283BAE7700802765 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00230CE6283BAE4E00802765 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00230CE5283BAE4E00802765 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		00230CEB283BAE7700802765 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00230CEA283BAE7700802765 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 005AF783283B775200546D5B /* Project object */;
 }
