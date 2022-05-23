@@ -1,0 +1,14 @@
+#### 기능 개발
+#[#1]feat :sparkles::
+#### 버그수정
+#[#1]fix :bug::
+#### 문서 작업
+#[#1]docs :memo::
+#### 테스트 코드 작성
+#[#1]test :white_check_mark::
+#### 리팩토링
+#[#1]refact :recycle::
+#### 간단한 수정
+#[#1]chore :adhesive_bandage::
+
+#### 본문 ####
