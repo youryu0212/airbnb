@@ -1,25 +1,27 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createTheme } from '@material-ui/core';
 
-export const GlobalStyles = createGlobalStyle`
-	${reset};
-	* { 
-		margin: 0; 
-		padding: 0; 
-		box-sizing: border-box; 
-	} 
-	body { 
-		font-family: 'Noto Sans KR', sans-serif; 
-	} 
-	a {
-		text-decoration: none; 
-		color: transparent;
-	}
-	button { 
-		border: none;
-		outline: none; 
-		background: transparent; 
-		cursor: pointer; 
-	}
-
-`;
+export const theme = createTheme({
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*': {
+          margin: 0,
+          padding: 0,
+          boxSizing: 'border-box',
+          fontFamily: 'Noto Sans KR',
+        },
+        button: {
+          border: 'none',
+          outline: 'none',
+          background: 'transparent',
+          cursor: 'pointer',
+          fontFamily: 'Noto Sans KR',
+        },
+        a: {
+          textDecoration: 'none',
+          color: 'inherit',
+        },
+      },
+    },
+  },
+});

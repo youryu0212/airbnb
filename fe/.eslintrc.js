@@ -9,6 +9,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: { jsx: true },
