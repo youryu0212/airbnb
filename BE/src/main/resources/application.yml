@@ -6,9 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${username}
     password: ${password}
-  sql:
-    init:
-      mode: always
+
   jpa:
     hibernate:
       ddl-auto: create
@@ -18,10 +16,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
 server:
-  port: 8080
+  port: 80
 
-logging:
-  level:
-    org:
-      hibernate:
-        sql: debug
+logging.level:
+  org.hibernate.SQL: debug
