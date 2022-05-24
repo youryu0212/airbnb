@@ -10,10 +10,12 @@
 		6D77C14CD0C71F86C79B5949 /* Pods_Airbnb_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */; };
 		D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD0283C868300C97D16 /* AppDelegate.swift */; };
 		D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */; };
-		D2FFBFD5283C868300C97D16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD4283C868300C97D16 /* ViewController.swift */; };
-		D2FFBFD8283C868300C97D16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2FFBFD6283C868300C97D16 /* Main.storyboard */; };
+		D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD4283C868300C97D16 /* TabBarController.swift */; };
 		D2FFBFDA283C868400C97D16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2FFBFD9283C868400C97D16 /* Assets.xcassets */; };
 		D2FFBFDD283C868400C97D16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */; };
+		D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */; };
+		D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */; };
+		D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +25,13 @@
 		D2FFBFCD283C868300C97D16 /* Airbnb_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FFBFD0283C868300C97D16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2FFBFD4283C868300C97D16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2FFBFD7283C868300C97D16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2FFBFD4283C868300C97D16 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D2FFBFD9283C868400C97D16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2FFBFDC283C868400C97D16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2FFBFDE283C868400C97D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,15 +75,33 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2FFBFEB283CA74600C97D16 /* ViewController */,
 				D2FFBFD0283C868300C97D16 /* AppDelegate.swift */,
 				D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */,
-				D2FFBFD4283C868300C97D16 /* ViewController.swift */,
-				D2FFBFD6283C868300C97D16 /* Main.storyboard */,
 				D2FFBFD9283C868400C97D16 /* Assets.xcassets */,
 				D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */,
 				D2FFBFDE283C868400C97D16 /* Info.plist */,
 			);
 			path = Airbnb_iOS;
+			sourceTree = "<group>";
+		};
+		D2FFBFEB283CA74600C97D16 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFEC283CA75700C97D16 /* Container */,
+				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
+				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
+				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D2FFBFEC283CA75700C97D16 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFD4283C868300C97D16 /* TabBarController.swift */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 		E7A3368721565D9E71A79B8F /* Pods */ = {
@@ -158,7 +180,6 @@
 			files = (
 				D2FFBFDD283C868400C97D16 /* LaunchScreen.storyboard in Resources */,
 				D2FFBFDA283C868400C97D16 /* Assets.xcassets in Resources */,
-				D2FFBFD8283C868300C97D16 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,23 +232,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2FFBFD5283C868300C97D16 /* ViewController.swift in Sources */,
+				D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */,
 				D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */,
+				D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */,
+				D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */,
 				D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */,
+				D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D2FFBFD6283C868300C97D16 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2FFBFD7283C868300C97D16 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +382,6 @@
 				INFOPLIST_FILE = Airbnb_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -396,7 +411,6 @@
 				INFOPLIST_FILE = Airbnb_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
