@@ -1,4 +1,4 @@
-package ui.login
+package com.example.airbnb.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
