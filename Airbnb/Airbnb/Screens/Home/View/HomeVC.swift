@@ -11,6 +11,17 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primary
+        configureDisplay()
+
     }
+
+    private func configureDisplay() {
+        self.view.backgroundColor = .gray6
+        let navigationBar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBar?.backgroundColor = .gray6
+        navigationBarAppearance.shadowColor = .black
+        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
+    }
+
 }
