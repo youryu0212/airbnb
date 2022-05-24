@@ -13,12 +13,17 @@ final class SearchViewModel: SearchViewModelBinding, SearchViewModelProperty, Se
     func action() -> SearchViewModelAction { self }
     
     let loadAroundTraval = PublishRelay<Void>()
-    let inputSearchText = PublishRelay<String>()
+    let inputSearchText = PublishRelay<String?>()
+    let clearSearchText = PublishRelay<Void>()
     
     func state() -> SearchViewModelState { self }
     
     let loadedAroundTraval = PublishRelay<[ArroundTraval]>()
     let presentSearchOption = PublishRelay<String>()
+    let showArroundTravalView = PublishRelay<Bool>()
+    let showSearchResultView = PublishRelay<Bool>()
+    let enabledClearButton = PublishRelay<Bool>()
+    let clearedSearchText = PublishRelay<Void>()
     
     let arroundTravelViewModel: ArroundTravalViewModelProtocol = ArroundTravalViewModel()
     let searchResultTravelViewModel: SearchResultViewModelProtocol = SearchResultViewModel()
@@ -40,7 +45,32 @@ final class SearchViewModel: SearchViewModelBinding, SearchViewModelProperty, Se
             .disposed(by: disposeBag)
         
         inputSearchText
+            .compactMap { $0 }
             .bind(to: searchResultTravelViewModel.action().inputSearchText)
+            .disposed(by: disposeBag)
+        
+        inputSearchText
+            .map { !$0.isNilOrEmpty }
+            .bind(to: showArroundTravalView)
+            .disposed(by: disposeBag)
+        
+        inputSearchText
+            .map { $0.isNilOrEmpty }
+            .bind(to: showSearchResultView)
+            .disposed(by: disposeBag)
+        
+        inputSearchText
+            .map { !$0.isNilOrEmpty }
+            .bind(to: enabledClearButton)
+            .disposed(by: disposeBag)
+        
+        clearSearchText
+            .map { "" }
+            .bind(to: inputSearchText)
+            .disposed(by: disposeBag)
+        
+        clearSearchText
+            .bind(to: clearedSearchText)
             .disposed(by: disposeBag)
         
         Observable

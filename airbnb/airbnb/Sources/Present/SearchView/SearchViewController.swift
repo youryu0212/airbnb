@@ -12,9 +12,20 @@ import RxSwift
 import UIKit
 
 final class SearchViewController: UIViewController {
-    private let searchBarView: SearchBarView = {
-        let searchView = SearchBarView()
-        return searchView
+    
+    private let searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.placeholder = "어디로 여행가세요?"
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.automaticallyShowsCancelButton = false
+        return searchController
+    }()
+    
+    private let clearButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "지우기"
+        button.isEnabled = false
+        return button
     }()
     
     private lazy var arroundTravalViewController: ArroundTravalLargeViewController = {
@@ -57,6 +68,16 @@ final class SearchViewController: UIViewController {
             .disposed(by: disposeBag)
         
         rx.viewWillAppear
+            .mapVoid()
+            .withUnretained(self)
+            .bind(onNext: { vc, _ in
+                vc.navigationItem.searchController = vc.searchController
+                vc.navigationItem.rightBarButtonItem = vc.clearButton
+                vc.navigationItem.hidesSearchBarWhenScrolling = false
+            })
+            .disposed(by: disposeBag)
+        
+        rx.viewWillAppear
             .withUnretained(self)
             .bind(onNext: { vc, _ in
                 vc.tabBarController?.tabBar.isHidden = true
@@ -70,28 +91,29 @@ final class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        searchBarView.text
-            .compactMap { $0 }
+        searchController.searchBar.rx.value
             .bind(to: viewModel.action().inputSearchText)
             .disposed(by: disposeBag)
-        
-        searchBarView.text
-            .map { text -> Bool in
-                if let text = text {
-                    return text.isEmpty
-                }
-                return true
-            }
-            .withUnretained(self)
-            .bind(onNext: { vc, isEmpty in
-                vc.arroundTravalViewController.view.isHidden = !isEmpty
-                vc.searchResultViewController.view.isHidden = isEmpty
-            })
+
+        viewModel.state().showArroundTravalView
+            .bind(to: arroundTravalViewController.view.rx.isHidden)
             .disposed(by: disposeBag)
         
-        searchClearButton.rx.tap
-            .mapVoid()
-            .bind(to: searchBarView.clear)
+        viewModel.state().showSearchResultView
+            .bind(to: searchResultViewController.view.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.state().enabledClearButton
+            .bind(to: clearButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        clearButton.rx.tap
+            .bind(to: viewModel.action().clearSearchText)
+            .disposed(by: disposeBag)
+        
+        viewModel.state().clearedSearchText
+            .map { _ in "" }
+            .bind(to: searchController.searchBar.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.state().presentSearchOption
@@ -104,28 +126,21 @@ final class SearchViewController: UIViewController {
     
     private func attribute() {
         title = "숙소 찾기"
-        navigationItem.rightBarButtonItem = searchClearButton
         view.backgroundColor = .white
     }
     
     private func layout() {
-        view.addSubview(searchBarView)
         view.addSubview(arroundTravalViewController.view)
         view.addSubview(searchResultViewController.view)
         
-        searchBarView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
-        }
-        
         arroundTravalViewController.view.snp.makeConstraints {
-            $0.top.equalTo(searchBarView.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         searchResultViewController.view.snp.makeConstraints {
-            $0.top.equalTo(searchBarView.snp.bottom).offset(24)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(24)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }

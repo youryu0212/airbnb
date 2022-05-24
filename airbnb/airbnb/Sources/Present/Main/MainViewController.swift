@@ -11,15 +11,10 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    private let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .grey6
-        return view
-    }()
-    
-    private let searchBarView: SearchBarView = {
-        let searchView = SearchBarView(isUseTapped: true)
-        return searchView
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "어디로 여행가세요?"
+        return searchBar
     }()
     
     private let scrollView: UIScrollView = {
@@ -69,14 +64,23 @@ final class MainViewController: UIViewController {
         rx.viewWillAppear
             .withUnretained(self)
             .bind(onNext: { vc, animated in
-                vc.navigationController?.setNavigationBarHidden(true, animated: animated)
+                let appearance = UINavigationBarAppearance()
+                appearance.backgroundColor = .grey6
+                appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+                appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+
+                vc.navigationController?.navigationBar.tintColor = .black
+                vc.navigationController?.navigationBar.standardAppearance = appearance
+                vc.navigationController?.navigationBar.compactAppearance = appearance
+                vc.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+                vc.navigationItem.titleView = vc.searchBar
             })
             .disposed(by: disposeBag)
         
         rx.viewWillDisappear
             .withUnretained(self)
             .bind(onNext: { vc, animated in
-                vc.navigationController?.setNavigationBarHidden(false, animated: animated)
+                vc.navigationItem.titleView = nil
             })
             .disposed(by: disposeBag)
         
@@ -84,7 +88,7 @@ final class MainViewController: UIViewController {
             .bind(onNext: heroImageView.setImage)
             .disposed(by: disposeBag)
         
-        searchBarView.tapped
+        searchBar.rx.textDidBeginEditing
             .withUnretained(self)
             .bind(onNext: { vc, _ in
                 let viewController = SearchViewController(viewModel: SearchViewModel())
@@ -92,6 +96,15 @@ final class MainViewController: UIViewController {
                 vc.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: disposeBag)
+        
+//        searchBarView.tapped
+//            .withUnretained(self)
+//            .bind(onNext: { vc, _ in
+//                let viewController = SearchViewController(viewModel: SearchViewModel())
+//                vc.navigationItem.backButtonTitle = ""
+//                vc.navigationController?.pushViewController(viewController, animated: true)
+//            })
+//            .disposed(by: disposeBag)
     }
     
     private func layout() {
@@ -100,19 +113,6 @@ final class MainViewController: UIViewController {
         contentStackView.addArrangedSubview(heroImageView)
         contentStackView.addArrangedSubview(arroundTravalViewController.view)
         contentStackView.addArrangedSubview(recommandTravelViewController.view)
-        
-        view.addSubview(headerView)
-        headerView.addSubview(searchBarView)
-        
-        headerView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(searchBarView)
-        }
-        
-        searchBarView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
-        }
         
         scrollView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()

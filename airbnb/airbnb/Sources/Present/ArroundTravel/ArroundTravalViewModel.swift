@@ -43,10 +43,6 @@ final class ArroundTravalViewModel: ArroundTravalViewModelBinding, ArroundTraval
                 }
                 return .merge(tappedCells)
             }
-            .do { address in
-                print(address.name)
-                
-            }
             .bind(to: selectedAddress)
             .disposed(by: disposeBag)
     }
