@@ -14,13 +14,14 @@ public class ReservationRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reservation_room_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "room_id")
     private Room room;
 }

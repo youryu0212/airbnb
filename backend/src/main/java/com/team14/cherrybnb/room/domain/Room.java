@@ -42,11 +42,11 @@ public class Room {
     private BigDecimal tax;
 
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "room")

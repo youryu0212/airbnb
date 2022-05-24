@@ -26,10 +26,10 @@ public class Review {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "room_id")
     private Room room;
 }

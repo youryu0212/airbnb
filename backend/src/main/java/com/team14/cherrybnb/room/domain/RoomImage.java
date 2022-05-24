@@ -13,6 +13,7 @@ public class RoomImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "room_image_id")
     private Long id;
 
     private String imageUrl;
@@ -20,6 +21,6 @@ public class RoomImage {
     private int imageSeq;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "room_id")
     private Room room;
 }
