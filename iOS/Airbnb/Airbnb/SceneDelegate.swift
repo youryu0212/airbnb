@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         tabBarController.tabBar.tintColor = .black
         tabBarController.tabBar.barTintColor = .gray
+        tabBarController.tabBar.backgroundColor = .systemGray6
         tabBarController.tabBar.clipsToBounds = true
         
         if let tabBarItems = tabBarController.tabBar.items {
