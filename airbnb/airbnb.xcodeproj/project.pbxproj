@@ -9,24 +9,26 @@
 /* Begin PBXBuildFile section */
 		00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B60283CA53F00201F55 /* AppDelegate.swift */; };
 		00489B63283CA53F00201F55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B62283CA53F00201F55 /* SceneDelegate.swift */; };
-		00489B65283CA53F00201F55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B64283CA53F00201F55 /* ViewController.swift */; };
+		00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B64283CA53F00201F55 /* MainTabBarController.swift */; };
 		00489B68283CA53F00201F55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00489B66283CA53F00201F55 /* Main.storyboard */; };
 		00489B6A283CA54000201F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00489B69283CA54000201F55 /* Assets.xcassets */; };
 		00489B6D283CA54000201F55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00489B6B283CA54000201F55 /* LaunchScreen.storyboard */; };
 		00489B76283CA5CC00201F55 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B75283CA5CC00201F55 /* RxCocoa */; };
 		00489B78283CA5CC00201F55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B77283CA5CC00201F55 /* RxSwift */; };
 		00489B7B283CA61800201F55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B7A283CA61800201F55 /* Alamofire */; };
+		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00489B5D283CA53F00201F55 /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00489B60283CA53F00201F55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00489B62283CA53F00201F55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		00489B64283CA53F00201F55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00489B64283CA53F00201F55 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		00489B67283CA53F00201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00489B69283CA54000201F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00489B6C283CA54000201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00489B6E283CA54000201F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +64,40 @@
 		00489B5F283CA53F00201F55 /* airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				00489B7E283CC1A800201F55 /* ViewController */,
+				00489B7D283CC19F00201F55 /* ViewModel */,
+				00489B7C283CC19900201F55 /* View */,
 				00489B60283CA53F00201F55 /* AppDelegate.swift */,
 				00489B62283CA53F00201F55 /* SceneDelegate.swift */,
-				00489B64283CA53F00201F55 /* ViewController.swift */,
 				00489B66283CA53F00201F55 /* Main.storyboard */,
 				00489B69283CA54000201F55 /* Assets.xcassets */,
 				00489B6B283CA54000201F55 /* LaunchScreen.storyboard */,
 				00489B6E283CA54000201F55 /* Info.plist */,
 			);
 			path = airbnb;
+			sourceTree = "<group>";
+		};
+		00489B7C283CC19900201F55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00489B7D283CC19F00201F55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		00489B7E283CC1A800201F55 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				00489B64283CA53F00201F55 /* MainTabBarController.swift */,
+				00489B83283CC26E00201F55 /* SearchViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00489B65283CA53F00201F55 /* ViewController.swift in Sources */,
+				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
+				00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */,
 				00489B63283CA53F00201F55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
