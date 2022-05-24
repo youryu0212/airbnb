@@ -1,16 +1,17 @@
-import React from 'react';
-
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from 'styles/GlobalStyles';
-import { theme } from 'styles/theme';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { theme as globalTheme } from 'styles/GlobalStyles';
+import { theme as StyledTheme } from 'styles/theme';
 
 import Router from 'Router';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Router />
+    <ThemeProvider theme={globalTheme}>
+      <CssBaseline />
+      <StyledThemeProvider theme={StyledTheme}>
+        <Router />
+      </StyledThemeProvider>
     </ThemeProvider>
   );
 }
