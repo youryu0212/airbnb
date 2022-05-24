@@ -20,10 +20,21 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func setUpViewControllers() {
-        mainViewController.title = "검색"
-        wishListViewController.title = "위시리스트"
-        reservationViewController.title = "내 예약"
+        UITabBar.appearance().tintColor = .black
         
-        setViewControllers([mainViewController, wishListViewController, reservationViewController], animated: true)
+        let viewControllers = [mainViewController, wishListViewController, reservationViewController]
+        setViewControllers(viewControllers, animated: true)
+        
+        if let tabBarItems = tabBar.items {
+            tabBarItems[0].title = "검색"
+            tabBarItems[1].title = "위시리스트"
+            tabBarItems[2].title = "내 예약"
+            
+            tabBarItems[0].image = UIImage(named: "magnifyingglass")
+            tabBarItems[1].image = UIImage(named: "heart")
+            tabBarItems[1].selectedImage = UIImage(named: "heart.fill")
+            tabBarItems[2].image = UIImage(named: "person")
+            tabBarItems[2].selectedImage = UIImage(named: "person.fill")
+        }
     }
 }
