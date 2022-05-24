@@ -1,7 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function Main() {
-  return <div>메인영역</div>;
+  return <Div>메인영역</Div>;
 }
-
+const Div = styled.div`
+  height: 600px;
+`;
 export default Main;

@@ -3,7 +3,10 @@ import reset from 'reset-css';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}; 
+    *{
+      width: 100%;
 
+    }
     button{
       background: none;
       cursor: pointer;
