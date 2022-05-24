@@ -9,21 +9,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search Root View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="SearchRootViewController" customModule="Cherrybnb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="어디로 여행가세요?" translatesAutoresizingMaskIntoConstraints="NO" id="OXQ-0d-HlG">
+                                <rect key="frame" x="8" y="96" width="398" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_hero_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sv1-qD-VkT">
+                                <rect key="frame" x="0.0" y="155" width="414" height="539"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sv1-qD-VkT" secondAttribute="height" multiplier="375:488" id="TSm-Nl-gXc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="체리비앤비와 함께" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-ky-a0j">
+                                <rect key="frame" x="24" y="179" width="222" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여행을 떠나보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it5-KY-Nyf">
+                                <rect key="frame" x="24" y="216" width="222" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzc-Kq-jeK">
+                                <rect key="frame" x="24" y="269" width="129" height="31"/>
+                                <color key="tintColor" red="1" green="0.47843137254901957" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="여행 아이디어 얻기"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zfx-ky-a0j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="2x0-A6-Xk3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sv1-qD-VkT" secondAttribute="trailing" id="3T0-zM-JHt"/>
+                            <constraint firstItem="it5-KY-Nyf" firstAttribute="top" secondItem="Zfx-ky-a0j" secondAttribute="bottom" id="DBQ-Sb-RuN"/>
+                            <constraint firstItem="nzc-Kq-jeK" firstAttribute="top" secondItem="it5-KY-Nyf" secondAttribute="bottom" constant="16" id="LOb-Zb-AR1"/>
+                            <constraint firstItem="OXQ-0d-HlG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="Ppt-gT-hYa"/>
+                            <constraint firstItem="OXQ-0d-HlG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="UF9-pp-p5l"/>
+                            <constraint firstItem="sv1-qD-VkT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bX6-HM-cPL"/>
+                            <constraint firstItem="nzc-Kq-jeK" firstAttribute="leading" secondItem="Zfx-ky-a0j" secondAttribute="leading" id="hDS-Yx-iil"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OXQ-0d-HlG" secondAttribute="trailing" constant="8" id="iAm-7o-hCh"/>
+                            <constraint firstItem="Zfx-ky-a0j" firstAttribute="top" secondItem="sv1-qD-VkT" secondAttribute="top" constant="24" id="p5L-Iw-H66"/>
+                            <constraint firstItem="sv1-qD-VkT" firstAttribute="top" secondItem="OXQ-0d-HlG" secondAttribute="bottom" constant="8" id="r4V-Cz-C7i"/>
+                            <constraint firstItem="it5-KY-Nyf" firstAttribute="leading" secondItem="Zfx-ky-a0j" secondAttribute="leading" id="xBz-9e-S3R"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eCq-ff-zg7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1795.6521739130437" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1242.0289855072465" y="138.61607142857142"/>
         </scene>
         <!--검색-->
         <scene sceneID="sYM-KV-mEV">
@@ -63,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="-683" y="139"/>
         </scene>
-        <!--내 예약-->
+        <!--위시리스트-->
         <scene sceneID="67V-1q-mwN">
             <objects>
                 <viewController id="cvg-q5-BmV" sceneMemberID="viewController">
@@ -71,28 +115,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Booking will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-gj-jSa">
-                                <rect key="frame" x="116.5" y="437.5" width="181" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-gj-jSa">
+                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eef-iJ-rME">
+                                <rect key="frame" x="185" y="378.5" width="44" height="41.5"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="4Wx-cB-PEy"/>
+                                    <constraint firstAttribute="height" constant="44" id="cie-hA-YpS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Cb-O0-bGM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dYD-gj-jSa" firstAttribute="centerX" secondItem="QrK-aC-kxH" secondAttribute="centerX" id="GcF-Mi-3NS"/>
+                            <constraint firstItem="dYD-gj-jSa" firstAttribute="top" secondItem="eef-iJ-rME" secondAttribute="bottom" constant="16" id="NuA-Qn-12D"/>
+                            <constraint firstItem="eef-iJ-rME" firstAttribute="centerX" secondItem="QrK-aC-kxH" secondAttribute="centerX" id="fwQ-sG-Fy3"/>
                             <constraint firstItem="dYD-gj-jSa" firstAttribute="centerY" secondItem="QrK-aC-kxH" secondAttribute="centerY" id="txu-OF-kZ8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="내 예약" image="heart" catalog="system" id="xuQ-4D-gjd"/>
+                    <tabBarItem key="tabBarItem" title="위시리스트" image="heart" catalog="system" id="xuQ-4D-gjd"/>
                     <navigationItem key="navigationItem" id="Fes-2A-xFf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKX-V1-Egf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1410" y="911"/>
         </scene>
-        <!--위시리스트-->
+        <!--내 예약-->
         <scene sceneID="uyE-Yq-Sah">
             <objects>
                 <viewController id="qSU-XH-g80" sceneMemberID="viewController">
@@ -100,21 +154,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-U0-wSa">
-                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My booking will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-U0-wSa">
+                                <rect key="frame" x="117" y="437.5" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.badge.questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BqK-or-6Xf">
+                                <rect key="frame" x="185" y="378.5" width="45.5" height="41.5"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="31W-DO-MnA"/>
+                                    <constraint firstAttribute="height" constant="44" id="Bgy-3q-vP6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="CBU-n8-CMD"/>
+                                    <constraint firstAttribute="width" constant="44" id="dLy-Tl-sSh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JfH-yu-lJr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BqK-or-6Xf" firstAttribute="centerX" secondItem="Di8-Sv-vRi" secondAttribute="centerX" id="VFO-mr-1VD"/>
                             <constraint firstItem="Z49-U0-wSa" firstAttribute="centerX" secondItem="Di8-Sv-vRi" secondAttribute="centerX" id="XHn-T2-Jcg"/>
+                            <constraint firstItem="Z49-U0-wSa" firstAttribute="top" secondItem="BqK-or-6Xf" secondAttribute="bottom" constant="16" id="cEa-Dv-x9S"/>
                             <constraint firstItem="Z49-U0-wSa" firstAttribute="centerY" secondItem="Di8-Sv-vRi" secondAttribute="centerY" id="sWV-xx-xz2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="위시리스트" image="person" catalog="system" id="Ec7-zu-78V"/>
+                    <tabBarItem key="tabBarItem" title="내 예약" image="person" catalog="system" id="Ec7-zu-78V"/>
                     <navigationItem key="navigationItem" id="2nF-By-uL5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gE-N0-SBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,14 +189,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Home_hero_2.jpg" width="450" height="388"/>
+        <image name="folder.badge.questionmark" catalog="system" width="128" height="91"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <systemColor name="placeholderTextColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="questionmark.folder.fill" catalog="system" width="128" height="97"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
