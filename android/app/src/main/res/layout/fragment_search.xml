@@ -12,16 +12,70 @@
         android:layout_height="match_parent"
         tools:context=".SearchFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/tb_search"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_search_title"
+                style="@style/TextHeadline5.bold.20.black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/label_search_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="어디로 여행하세요?" />
+
+            <ImageButton
+                android:id="@+id/btn_search_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/label_btn_search_icon"
+                android:src="@drawable/ic_baseline_search_24"
+                app:tint="@color/primary" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <ImageView
+            android:id="@+id/iv_search_hero_image"
+            android:layout_width="match_parent"
+            android:layout_height="440dp"
+            android:contentDescription="@string/label_hero_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tb_search" />
+
+        <TextView
+            android:id="@+id/tv_search_close_travel"
+            style="@style/TextHeadline5.20.black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/label_search_middle_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_search_hero_image"
+            tools:text="가까운 여행지 둘러보기" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_close_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_search_close_travel" />
+
+
 
         <Button
             android:id="@+id/btn_temp"
