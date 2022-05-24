@@ -1,6 +1,8 @@
 package com.example.airbnb.dto
 
 import com.example.airbnb.model.City
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
