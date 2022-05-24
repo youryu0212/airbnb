@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02874048283D37B50009C62D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874047283D37B50009C62D /* UIColor+.swift */; };
 		02DF0CD5283CB2C6003D0679 /* HeroImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* HeroImageCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* RecommendCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* LivingTravelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* LivingTravelCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02874047283D37B50009C62D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* HeroImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* LivingTravelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivingTravelCell.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02874046283D37AA0009C62D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				02874047283D37B50009C62D /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		02DF0CD3283CB2B9003D0679 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				02874046283D37AA0009C62D /* Extension */,
 				02DF0CD3283CB2B9003D0679 /* View */,
 				D2FFBFEB283CA74600C97D16 /* ViewController */,
 				D2FFBFD0283C868300C97D16 /* AppDelegate.swift */,
@@ -268,9 +279,9 @@
 				D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */,
 				D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */,
 				02DF0CDD283CBAB6003D0679 /* SearchViewCollectionDataSource.swift in Sources */,
+				02874048283D37B50009C62D /* UIColor+.swift in Sources */,
 				02DF0CD5283CB2C6003D0679 /* HeroImageCell.swift in Sources */,
 				D2FFBFEE283CB33700C97D16 /* BrowseViewController.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

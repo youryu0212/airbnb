@@ -22,7 +22,7 @@ final class LivingTravelCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .init(red: 51/255, green: 51/255, blue: 51/255, alpha: 1) // Gray1
+        label.textColor = .gray1
         label.font = .systemFont(ofSize: 17, weight: .init(600))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

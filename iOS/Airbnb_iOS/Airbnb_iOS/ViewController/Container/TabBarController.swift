@@ -35,11 +35,11 @@ private extension TabBarController {
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(red: 0.961, green: 0.961, blue: 0.969, alpha: 1)
+            appearance.backgroundColor = .gray6
             self.tabBar.standardAppearance = appearance
             self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
         } else {
-            self.tabBar.barTintColor = UIColor(red: 0.961, green: 0.961, blue: 0.969, alpha: 1)
+            self.tabBar.barTintColor = .gray6
         }
     }
 }
