@@ -129,6 +129,8 @@ private extension SearchViewController {
     func setSearchBar() {
         self.searchBar.placeholder = "어디로 여행가세요?"
         self.navigationItem.titleView = searchBar
+        
+        self.navigationController?.hidesBarsOnSwipe = true
         self.searchBar.delegate = self
     }
 }
