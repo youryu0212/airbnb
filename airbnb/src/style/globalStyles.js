@@ -3,9 +3,9 @@ import reset from 'reset-css';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}; 
-    *{
-      width: 100%;
-
+    body{
+      width: 1600px;
+      margin: 0 auto;
     }
     button{
       background: none;
