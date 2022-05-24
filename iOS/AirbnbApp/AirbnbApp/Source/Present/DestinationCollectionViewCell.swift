@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class DestinationCollectionViewCell: UICollectionViewCell {
     
@@ -15,23 +16,20 @@ final class DestinationCollectionViewCell: UICollectionViewCell {
     
     private lazy var cityImageView: UIImageView = {
         let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .red
         image.layer.cornerRadius = 10
         return image
     }()
     
     private lazy var cityTitleLabel: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel()
         label.font = .NotoSans.medium
         label.textColor = .Custom.gray1
         return label
     }()
     
     private lazy var distanceLabel: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel()
         label.text = "차로 30분 거리"
         label.font = .NotoSans.regular
         label.textColor = .Custom.gray3
@@ -39,15 +37,14 @@ final class DestinationCollectionViewCell: UICollectionViewCell {
     }()
     
     private lazy var informationStackView: UIStackView = {
-       let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let stackView = UIStackView()
         stackView.alignment = .leading
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 4
         return stackView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutCityImageView()
@@ -68,35 +65,35 @@ private extension DestinationCollectionViewCell {
     func layoutCityImageView() {
         addSubview(cityImageView)
         
-        cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        cityImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        cityImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        cityImageView.heightAnchor.constraint(equalToConstant: 74).isActive = true
-        cityImageView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+        cityImageView.snp.makeConstraints { make in
+            make.top.leading.bottom.equalToSuperview()
+            make.height.width.equalTo(74)
+        }
     }
     
     func layoutInformationStackView() {
         addSubview(informationStackView)
-        
         informationStackView.addArrangedSubview(cityTitleLabel)
         informationStackView.addArrangedSubview(distanceLabel)
         
-        informationStackView.leadingAnchor.constraint(equalTo: cityImageView.trailingAnchor, constant: 16).isActive = true
-        informationStackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        informationStackView.centerYAnchor.constraint(equalTo: cityImageView.centerYAnchor).isActive = true
+        informationStackView.snp.makeConstraints { make in
+            make.leading.equalTo(cityImageView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview()
+            make.centerY.equalTo(cityImageView.snp.centerY)
+        }
     }
-
+    
 }
 
 // MARK: - Providing Function
 
 extension DestinationCollectionViewCell {
     
-    func configure(cityName: String) {
-        cityTitleLabel.text = cityName
+    func setCityTitle(text: String) {
+        cityTitleLabel.text = text
     }
     
-    func configure(distance: String) {
-        distanceLabel.text = distance
+    func setDistance(text: String) {
+        distanceLabel.text = text
     }
 }
