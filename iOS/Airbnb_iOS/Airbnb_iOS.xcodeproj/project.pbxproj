@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02874048283D37B50009C62D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874047283D37B50009C62D /* UIColor+.swift */; };
+		0287404A283D3B6D0009C62D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874049283D3B6D0009C62D /* HomeView.swift */; };
 		02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		02874047283D37B50009C62D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		02874049283D3B6D0009C62D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundSpotCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSpotCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */,
 				02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */,
 				02DF0CDA283CB980003D0679 /* CollectionHeaderView.swift */,
+				02874049283D3B6D0009C62D /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */,
+				0287404A283D3B6D0009C62D /* HomeView.swift in Sources */,
 				02DF0CDB283CB980003D0679 /* CollectionHeaderView.swift in Sources */,
 				D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */,
 				02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */,
