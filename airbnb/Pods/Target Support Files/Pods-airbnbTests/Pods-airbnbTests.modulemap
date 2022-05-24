@@ -1,6 +1,0 @@
-framework module Pods_airbnbTests {
-  umbrella header "Pods-airbnbTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
