@@ -22,7 +22,11 @@ const LoginButton = () => {
                     stroke="currentColor"
                     strokeWidth="2"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
                 </svg>
             </Icon>
             <UserIcon>
@@ -50,6 +54,10 @@ const LoginButtonBox = styled(Cylindrical)`
     gap: 10px;
     padding: 0px 0px 0px 4px;
     cursor: pointer;
+    &:hover {
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+    }
 `;
 
 const Icon = styled.div`
