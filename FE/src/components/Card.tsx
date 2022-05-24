@@ -1,15 +1,12 @@
-import React from 'react';
-
-interface props {
+interface Props {
   content: string;
   msg: string;
 }
 
-function Card({ content, msg }: props) {
+function Card({ content, msg }: Props) {
   return (
     <h1>
       {content} {msg}
-      <span>asdf</span>
     </h1>
   );
 }

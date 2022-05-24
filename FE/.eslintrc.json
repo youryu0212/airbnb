@@ -23,7 +23,10 @@
   "plugins": ["react", "import", "@typescript-eslint"],
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "no-undef": "off",
+    "@typescript-eslint/no-var-require": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "import/no-unresolved": "off",
     "no-use-before-define": ["error", { "functions": false }],
     "react/react-in-jsx-scope": "off",
