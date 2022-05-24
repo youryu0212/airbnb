@@ -29,6 +29,4 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Room> rooms;
-
-    private Long addressId;
 }
