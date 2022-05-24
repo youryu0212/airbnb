@@ -29,7 +29,9 @@ private extension SearchViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        self.nextVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nextVC, animated: false)
+        
         return false
     }
 }
