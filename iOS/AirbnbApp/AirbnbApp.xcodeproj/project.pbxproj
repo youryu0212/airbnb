@@ -15,6 +15,7 @@
 		8D0AD77A283C61D700575C3B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD779283C61D700575C3B /* Alamofire */; };
 		8D0AD77D283C62F800575C3B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD77C283C62F800575C3B /* SnapKit */; };
 		8D0AD781283C718200575C3B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AD780283C718200575C3B /* MapViewController.swift */; };
+		8D2241FD283CA470006A9043 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2241FC283CA470006A9043 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8D0AD76F283C5EE000575C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D0AD771283C5EE000575C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0AD780283C718200575C3B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8D2241FC283CA470006A9043 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0AD767283C5EDD00575C3B /* MainViewController.swift */,
-				8D0AD780283C718200575C3B /* MapViewController.swift */,
+				8D224200283CA7C2006A9043 /* Map */,
 				8D0AD771283C5EE000575C3B /* Info.plist */,
 				8D0AD777283C600C00575C3B /* SupportingFiles */,
 			);
@@ -77,6 +79,15 @@
 				8D0AD76E283C5EE000575C3B /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8D224200283CA7C2006A9043 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8D0AD780283C718200575C3B /* MapViewController.swift */,
+				8D2241FC283CA470006A9043 /* MapView.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			files = (
 				8D0AD768283C5EDD00575C3B /* MainViewController.swift in Sources */,
 				8D0AD764283C5EDD00575C3B /* AppDelegate.swift in Sources */,
+				8D2241FD283CA470006A9043 /* MapView.swift in Sources */,
 				8D0AD766283C5EDD00575C3B /* SceneDelegate.swift in Sources */,
 				8D0AD781283C718200575C3B /* MapViewController.swift in Sources */,
 			);
