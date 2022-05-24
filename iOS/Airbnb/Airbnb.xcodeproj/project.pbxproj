@@ -99,10 +99,12 @@
 		5BDDCC59283C807300632526 /* Airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				5BDDCC8D283C918100632526 /* ViewController */,
+				5BDDCC8C283C917400632526 /* View */,
+				5BDDCC8B283C916C00632526 /* Model */,
 				5BDDCC8A283C8D0700632526 /* Resource */,
 				5BDDCC5A283C807300632526 /* AppDelegate.swift */,
 				5BDDCC5C283C807300632526 /* SceneDelegate.swift */,
-				5BDDCC5E283C807300632526 /* ViewController.swift */,
 				5BDDCC68283C807600632526 /* Info.plist */,
 			);
 			path = Airbnb;
@@ -133,6 +135,28 @@
 				5BDDCC65283C807600632526 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		5BDDCC8B283C916C00632526 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BDDCC8C283C917400632526 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BDDCC8D283C918100632526 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5BDDCC5E283C807300632526 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
