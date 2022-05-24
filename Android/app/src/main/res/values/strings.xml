@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">airbnb</string>
+    <string name="label_search">검색</string>
+    <string name="label_wish">위시리스트</string>
+    <string name="label_my">내 예약</string>
 </resources>
