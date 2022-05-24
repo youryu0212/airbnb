@@ -22,7 +22,8 @@ class MainTabBarViewController: UITabBarController {
     private func setUpViewControllers() {
         UITabBar.appearance().tintColor = .black
         
-        let viewControllers = [mainViewController, wishListViewController, reservationViewController]
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        let viewControllers = [navigationController, wishListViewController, reservationViewController]
         setViewControllers(viewControllers, animated: true)
         
         if let tabBarItems = tabBar.items {
