@@ -33,6 +33,17 @@ class SearchHomeViewController: UIViewController {
         return flowLayout
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +74,7 @@ private extension SearchHomeViewController {
         view.addSubview(searchTextField)
         
         searchTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(32)
+            make.top.equalToSuperview().offset(60)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(36)
         }
@@ -75,7 +86,7 @@ private extension SearchHomeViewController {
         ideaImageView.snp.makeConstraints { make in
             make.top.equalTo(searchTextField.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(488)
+            make.height.equalTo(view.frame.width)
         }
     }
     
