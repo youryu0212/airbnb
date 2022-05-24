@@ -9,10 +9,8 @@ import UIKit
 import SnapKit
 
 class SearchHomeViewController: UIViewController {
-    
-    private let textFieldDelegate = TextFieldDelegate()
-    
-    private let searchTextField = SearchTextField()
+    private let searchBar = DestinationSearchBar()
+    private let searchBarDelegate = DestinationSearchBarDelegate()
     
     private lazy var destinationCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
@@ -52,9 +50,9 @@ class SearchHomeViewController: UIViewController {
 private extension SearchHomeViewController {
     
     func layoutSearchTextField() {
-        view.addSubview(searchTextField)
+        view.addSubview(searchBar)
         
-        searchTextField.snp.makeConstraints { make in
+        searchBar.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(60)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(36)
@@ -65,7 +63,7 @@ private extension SearchHomeViewController {
         view.addSubview(destinationCollectionView)
         
         destinationCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom)
+            make.top.equalTo(searchBar.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
