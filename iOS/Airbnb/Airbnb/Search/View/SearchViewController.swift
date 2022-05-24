@@ -179,10 +179,8 @@ extension SearchViewController: UISearchBarDelegate {
         let locationVC = LocationViewController()
         locationVC.navigationItem.title = "숙소 찾기"
         let backButton = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
-//        let removeButton = UIBarButtonItem(title: "지우기", style: .done, target: nil, action: nil)
-//        self.navigationItem.rightBarButtonItem = removeButton
-        
         backButton.tintColor = .gray
+        
         self.navigationItem.backBarButtonItem = backButton
         self.navigationController?.navigationBar.backgroundColor = .red
         show(locationVC, sender: self)
