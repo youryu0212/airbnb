@@ -135,10 +135,8 @@ private extension SearchViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let navigationVC = UINavigationController(rootViewController: nextVC)
-        
-        navigationVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(navigationVC, animated: true)
+        self.nextVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
         
         return false
     }
