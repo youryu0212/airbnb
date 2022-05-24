@@ -5,17 +5,24 @@ import LoginButton from "./LoginButton";
 
 const Header = () => {
     return (
-        <HeaderBox>
-            <Logo>LOGO</Logo>
-            <Gnb />
-            <LoginButton />
-        </HeaderBox>
+        <Background>
+            <HeaderBox>
+                <Logo>LOGO</Logo>
+                <Gnb />
+                <LoginButton />
+            </HeaderBox>
+        </Background>
     );
 };
 
+const Background = styled.div`
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 640px;
+`;
+
 const HeaderBox = styled.header`
     ${({theme}) => theme.layout.flexLayoutMixin("row", "space-between", "center")}
-    margin: 24px 80px;
+    padding: 24px 80px;
 `;
 
 const Logo = styled.h1`
