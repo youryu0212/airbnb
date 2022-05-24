@@ -13,7 +13,14 @@
 
     //20px
 
-    <style name="HeadLine6" parent="TextAppearance.MaterialComponents.Headline6"></style>
+    <style name="HeadLine6" parent="TextAppearance.MaterialComponents.Headline6"/>
+    <style name="HeadLine6.Black">
+        <item name="color">@color/black</item>
+    </style>
+
+    <style name="HeadLine6.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
 
     //16px
 
