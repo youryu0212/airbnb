@@ -15,12 +15,13 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setTabBar()
+        self.setTabBarItem()
+        self.setTabBarBackgroundColor()
     }
 }
 
 private extension TabBarController {
-    func setTabBar() {
+    func setTabBarItem() {
         let navigationVC = UINavigationController(rootViewController: searchVC)
         
         navigationVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 0)
@@ -28,5 +29,17 @@ private extension TabBarController {
         reserveVC.tabBarItem = UITabBarItem(title: "내 예약", image: UIImage(systemName: "person"), tag: 2)
         
         self.viewControllers = [navigationVC, wishlistVC, reserveVC]
+    }
+    
+    func setTabBarBackgroundColor() {
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 0.961, green: 0.961, blue: 0.969, alpha: 1)
+            self.tabBar.standardAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
+        } else {
+            self.tabBar.barTintColor = UIColor(red: 0.961, green: 0.961, blue: 0.969, alpha: 1)
+        }
     }
 }
