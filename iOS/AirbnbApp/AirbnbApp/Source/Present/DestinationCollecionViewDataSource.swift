@@ -20,7 +20,7 @@ class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setCityName(text: mockCells[indexPath.item])
+        cell.configure(cityName: mockCells[indexPath.item])
         return cell
     }
 }

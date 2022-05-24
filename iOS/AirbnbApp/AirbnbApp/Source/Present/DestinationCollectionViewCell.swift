@@ -12,56 +12,91 @@ final class DestinationCollectionViewCell: UICollectionViewCell {
     static var identifier: String {
         return "\(self)"
     }
- 
-    private lazy var cellView = UIView()
     
+    private lazy var cityImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .red
+        image.layer.cornerRadius = 10
+        return image
+    }()
+    
+    private lazy var cityTitleLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .NotoSans.medium
+        label.textColor = .Custom.gray1
+        return label
+    }()
+    
+    private lazy var distanceLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "차로 30분 거리"
+        label.font = .NotoSans.regular
+        label.textColor = .Custom.gray3
+        return label
+    }()
+    
+    private lazy var informationStackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .leading
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        return stackView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpView()
+        layoutCityImageView()
+        layoutInformationStackView()
     }
     
-    @available(*, unavailable) required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
         fatalError("init with coder is unavailable")
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        prepareForReuse(stackView: menuStackView.priceStackView)
-//        prepareForReuse(stackView: menuStackView.badgeStackView)
-//    }
-    
-//    private func prepareForReuse(stackView: UIStackView) {
-//        stackView.subviews.forEach {
-//            $0.removeFromSuperview()
-//        }
-//    }
-    
-    private func setUpView() {
-        contentView.addSubview(cellView)
-        cellView.backgroundColor = .red
-        
-        
-        layoutCellView()
-    }
 }
 
 // MARK: - View Layout
 
-extension DestinationCollectionViewCell {
-    private func layoutCellView() {
-        cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+private extension DestinationCollectionViewCell {
+    
+    func layoutCityImageView() {
+        addSubview(cityImageView)
+        
+        cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        cityImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        cityImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        cityImageView.heightAnchor.constraint(equalToConstant: 74).isActive = true
+        cityImageView.widthAnchor.constraint(equalToConstant: 74).isActive = true
     }
+    
+    func layoutInformationStackView() {
+        addSubview(informationStackView)
+        
+        informationStackView.addArrangedSubview(cityTitleLabel)
+        informationStackView.addArrangedSubview(distanceLabel)
+        
+        informationStackView.leadingAnchor.constraint(equalTo: cityImageView.trailingAnchor, constant: 16).isActive = true
+        informationStackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        informationStackView.centerYAnchor.constraint(equalTo: cityImageView.centerYAnchor).isActive = true
+    }
+
 }
 
 // MARK: - Providing Function
 
 extension DestinationCollectionViewCell {
-    func setCityName(text: String) {
-        
+    
+    func configure(cityName: String) {
+        cityTitleLabel.text = cityName
+    }
+    
+    func configure(distance: String) {
+        distanceLabel.text = distance
     }
 }
-
