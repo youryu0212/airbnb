@@ -2,12 +2,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
         
     }
     
@@ -22,7 +18,8 @@ class MainTabBarController: UITabBarController {
         searchTabVC.tabBarItem = searchTabBarItem
 
         self.viewControllers = [searchTabVC]
-
+        self.tabBar.backgroundColor = .systemGray6
+        
     }
     
 }
