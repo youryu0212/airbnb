@@ -8,6 +8,9 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    let searchBar = UISearchBar()
+    let nextVC = BrowseViewController()
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getCollectionViewLayout())
@@ -31,6 +34,8 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.setSearchBar()
         setCollectionViewLayout()
         collectionView.dataSource = dataSource
     }
@@ -116,6 +121,25 @@ class SearchViewController: UIViewController {
 
                 return section
             }
-        }
+        }       
+    }
+}
+
+private extension SearchViewController {
+    func setSearchBar() {
+        self.searchBar.placeholder = "어디로 여행가세요?"
+        self.navigationItem.titleView = searchBar
+        self.searchBar.delegate = self
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let navigationVC = UINavigationController(rootViewController: nextVC)
+        
+        navigationVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(navigationVC, animated: true)
+        
+        return false
     }
 }
