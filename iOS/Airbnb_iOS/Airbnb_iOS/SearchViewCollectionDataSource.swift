@@ -32,14 +32,14 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch items[indexPath.section] {
         case let .first(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroImageCell.identifier, for: indexPath) as? HeroImageCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainEventCell.identifier, for: indexPath) as? MainEventCell else {
                 return UICollectionViewCell()
             }
             cell.configure(image: _items[indexPath.item].image)
             
             return cell
         case let .second(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCell.identifier, for: indexPath) as? RecommendCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AroundSpotCell.identifier, for: indexPath) as? AroundSpotCell else {
                 return UICollectionViewCell()
             }
             let item = _items[indexPath.item]
@@ -47,7 +47,7 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
             
             return cell
         case let .third(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LivingTravelCell.identifier, for: indexPath) as? LivingTravelCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThemeSpotCell.identifier, for: indexPath) as? ThemeSpotCell else {
                 return UICollectionViewCell()
             }
             let item = _items[indexPath.item]

@@ -1,5 +1,5 @@
 //
-//  RecommendCell.swift
+//  AroundSpotCell.swift
 //  Airbnb_iOS
 //
 //  Created by 김한솔 on 2022/05/24.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class RecommendCell: UICollectionViewCell {
+final class AroundSpotCell: UICollectionViewCell {
 
-    static let identifier = "RecommendCell"
+    static let identifier = "AroundSpotCell"
 
     private let imageView : UIImageView = {
         let imageView = UIImageView()

@@ -1,5 +1,5 @@
 //
-//  LivingTravelCell.swift
+//  ThemeSpotCell.swift
 //  Airbnb_iOS
 //
 //  Created by 김한솔 on 2022/05/24.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class LivingTravelCell: UICollectionViewCell {
+final class ThemeSpotCell: UICollectionViewCell {
 
-    static let identifier = "LivingTravelCell"
+    static let identifier = "ThemeSpotCell"
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()

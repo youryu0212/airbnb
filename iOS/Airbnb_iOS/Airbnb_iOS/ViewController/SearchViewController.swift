@@ -21,9 +21,9 @@ class SearchViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.clipsToBounds = true
 
-        collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: HeroImageCell.identifier)
-        collectionView.register(RecommendCell.self, forCellWithReuseIdentifier: RecommendCell.identifier)
-        collectionView.register(LivingTravelCell.self, forCellWithReuseIdentifier: LivingTravelCell.identifier)
+        collectionView.register(MainEventCell.self, forCellWithReuseIdentifier: MainEventCell.identifier)
+        collectionView.register(AroundSpotCell.self, forCellWithReuseIdentifier: AroundSpotCell.identifier)
+        collectionView.register(ThemeSpotCell.self, forCellWithReuseIdentifier: ThemeSpotCell.identifier)
 
         collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
