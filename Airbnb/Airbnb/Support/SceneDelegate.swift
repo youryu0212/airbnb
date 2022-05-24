@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabVC.tabBar.backgroundColor = .gray6
         tabVC.tabBar.tintColor = .gray1
 
-
         let lineView = UIView(frame: CGRect(x: 0, y: 0, width: tabVC.tabBar.frame.size.width, height: 1))
         lineView.backgroundColor = .gray4
         tabVC.tabBar.addSubview(lineView)
