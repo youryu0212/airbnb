@@ -12,6 +12,7 @@ final class LivingTravelCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
@@ -20,6 +21,7 @@ final class LivingTravelCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textColor = .init(red: 51/255, green: 51/255, blue: 51/255, alpha: 1) // Gray1
         label.font = .systemFont(ofSize: 17, weight: .init(600))
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -36,27 +38,28 @@ final class LivingTravelCell: UICollectionViewCell {
         contentView.addSubViews([imageView, titleLabel])
 
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: 308)
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 44)
         ])
 
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -16)
         ])
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        configure(image: nil)
+        configure(image: nil, title: nil)
     }
 
-    func configure(image: UIImage?) {
+    func configure(image: UIImage?, title: String?) {
         imageView.image = image
+        titleLabel.text = title
     }
 }
 

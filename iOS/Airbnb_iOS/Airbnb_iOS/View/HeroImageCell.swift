@@ -8,7 +8,11 @@
 import UIKit
 
 final class HeroImageCell: UICollectionViewCell {
-    private let imageView = UIImageView()
+    private let imageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

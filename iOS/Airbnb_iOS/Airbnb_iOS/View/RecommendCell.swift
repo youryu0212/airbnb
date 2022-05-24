@@ -8,12 +8,17 @@
 import UIKit
 
 final class RecommendCell: UICollectionViewCell {
-    private let imageView = UIImageView()
+    private let imageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.init(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0) // Gray1
         label.font = .systemFont(ofSize: 17, weight: .init(rawValue: 600))
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -21,11 +26,13 @@ final class RecommendCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor.init(red: 130/255, green: 130/255, blue: 130/255, alpha: 1.0) // Gray3
         label.font = .systemFont(ofSize: 17, weight: .init(rawValue: 400))
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setLayout()
     }
 
     @available(*, unavailable)
@@ -37,9 +44,11 @@ final class RecommendCell: UICollectionViewCell {
         addSubViews([imageView, titleLabel, distanceLabel])
 
         NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 74)
+            imageView.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 74)
         ])
 
         NSLayoutConstraint.activate([
