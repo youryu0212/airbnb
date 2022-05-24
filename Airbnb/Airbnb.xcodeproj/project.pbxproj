@@ -10,6 +10,7 @@
 		00230CE7283BAE4E00802765 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 00230CE6283BAE4E00802765 /* SnapKit */; };
 		00230CEC283BAE7700802765 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00230CEB283BAE7700802765 /* Alamofire */; };
 		00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00230CF0283BB77500802765 /* TabBarViewController.swift */; };
+		00330A9D283BF91A009014AF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00330A9C283BF91A009014AF /* LocationViewController.swift */; };
 		005AF78F283B775300546D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF78E283B775300546D5B /* AppDelegate.swift */; };
 		005AF791283B775300546D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005AF790283B775300546D5B /* SceneDelegate.swift */; };
 		005AF798283B775300546D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 005AF797283B775300546D5B /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		00230CF0283BB77500802765 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		00330A9C283BF91A009014AF /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		005AF78B283B775300546D5B /* Airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005AF78E283B775300546D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		005AF790283B775300546D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				00A85F37283B873F00EA32E0 /* SearchViewController.swift */,
+				00330A9C283BF91A009014AF /* LocationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				00A85F3C283B876A00EA32E0 /* WishListViewController.swift in Sources */,
 				00A85F41283B87A300EA32E0 /* MyInfoViewController.swift in Sources */,
 				00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */,
+				00330A9D283BF91A009014AF /* LocationViewController.swift in Sources */,
 				005AF78F283B775300546D5B /* AppDelegate.swift in Sources */,
 				00A85F38283B873F00EA32E0 /* SearchViewController.swift in Sources */,
 				005AF791283B775300546D5B /* SceneDelegate.swift in Sources */,

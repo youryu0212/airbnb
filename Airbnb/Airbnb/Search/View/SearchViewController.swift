@@ -30,12 +30,13 @@ class SearchViewController: UIViewController {
     private func attribute() {
         view.backgroundColor = .white
         contentView.backgroundColor = .brown
+        setUpSearchController()
     }
     
     private func layout() {
         view.addSubview(backgroundScroll)
         backgroundScroll.addSubview(contentView)
-
+    
         //MARK: - SnapKit
         backgroundScroll.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -48,3 +49,26 @@ class SearchViewController: UIViewController {
         }
     }
 }
+
+extension SearchViewController: UISearchResultsUpdating {
+    private func setUpSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "어디로 여행가세요?"
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.automaticallyShowsCancelButton = false
+        
+        searchController.searchResultsUpdater = self
+        
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        //TODO: - delegate 를 이용해서 필드가 활성화되면 1. 백버튼 추가, 2. 타이틀 추가
+        if searchController.isActive {
+            self.navigationItem.title = "숙소 찾기"
+            self.navigationItem.hidesBackButton = false
+        }
+    }
+}
+

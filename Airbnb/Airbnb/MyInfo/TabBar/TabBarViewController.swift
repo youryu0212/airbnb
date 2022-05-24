@@ -30,6 +30,8 @@ class TabBarViewController: UITabBarController {
     
     private func setUpTabBar() {
         let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
+        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: searchNavigationController, action: nil)
+        searchNavigationController.navigationItem.backBarButtonItem = backBarButtonItem
         searchNavigationController.tabBarItem.title = "검색"
         searchNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Search")
         
