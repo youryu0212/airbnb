@@ -67,6 +67,15 @@ final class SearchViewController: UIViewController {
             .bind(to: viewModel.action().loadAroundTraval)
             .disposed(by: disposeBag)
         
+        rx.viewDidAppear
+            .mapVoid()
+            .observe(on: MainScheduler.asyncInstance)
+            .withUnretained(self)
+            .bind(onNext: { vc, _ in
+                vc.searchController.searchBar.becomeFirstResponder()
+            })
+            .disposed(by: disposeBag)
+        
         rx.viewWillAppear
             .mapVoid()
             .withUnretained(self)
@@ -74,12 +83,6 @@ final class SearchViewController: UIViewController {
                 vc.navigationItem.searchController = vc.searchController
                 vc.navigationItem.rightBarButtonItem = vc.clearButton
                 vc.navigationItem.hidesSearchBarWhenScrolling = false
-            })
-            .disposed(by: disposeBag)
-        
-        rx.viewWillAppear
-            .withUnretained(self)
-            .bind(onNext: { vc, _ in
                 vc.tabBarController?.tabBar.isHidden = true
             })
             .disposed(by: disposeBag)
@@ -127,6 +130,7 @@ final class SearchViewController: UIViewController {
     private func attribute() {
         title = "숙소 찾기"
         view.backgroundColor = .white
+        searchController.isActive = true
     }
     
     private func layout() {

@@ -63,7 +63,7 @@ final class MainViewController: UIViewController {
         
         rx.viewWillAppear
             .withUnretained(self)
-            .bind(onNext: { vc, animated in
+            .bind(onNext: { vc, _ in
                 let appearance = UINavigationBarAppearance()
                 appearance.backgroundColor = .grey6
                 appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -79,7 +79,7 @@ final class MainViewController: UIViewController {
         
         rx.viewWillDisappear
             .withUnretained(self)
-            .bind(onNext: { vc, animated in
+            .bind(onNext: { vc, _ in
                 vc.navigationItem.titleView = nil
             })
             .disposed(by: disposeBag)
@@ -91,20 +91,12 @@ final class MainViewController: UIViewController {
         searchBar.rx.textDidBeginEditing
             .withUnretained(self)
             .bind(onNext: { vc, _ in
+                vc.searchBar.resignFirstResponder()
                 let viewController = SearchViewController(viewModel: SearchViewModel())
                 vc.navigationItem.backButtonTitle = ""
                 vc.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: disposeBag)
-        
-//        searchBarView.tapped
-//            .withUnretained(self)
-//            .bind(onNext: { vc, _ in
-//                let viewController = SearchViewController(viewModel: SearchViewModel())
-//                vc.navigationItem.backButtonTitle = ""
-//                vc.navigationController?.pushViewController(viewController, animated: true)
-//            })
-//            .disposed(by: disposeBag)
     }
     
     private func layout() {
