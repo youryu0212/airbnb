@@ -78,10 +78,8 @@ final class MainViewController: UIViewController {
             .disposed(by: disposeBag)
         
         rx.viewWillDisappear
-            .withUnretained(self)
-            .bind(onNext: { vc, _ in
-                vc.navigationItem.titleView = nil
-            })
+            .map { _ in nil }
+            .bind(to: navigationItem.rx.titleView)
             .disposed(by: disposeBag)
         
         viewModel.state().loadedHeroImage
@@ -90,8 +88,10 @@ final class MainViewController: UIViewController {
         
         searchBar.rx.textDidBeginEditing
             .withUnretained(self)
-            .bind(onNext: { vc, _ in
+            .do { vc, _ in
                 vc.searchBar.resignFirstResponder()
+            }
+            .bind(onNext: { vc, _ in
                 let viewController = SearchViewController(viewModel: SearchViewModel())
                 vc.navigationItem.backButtonTitle = ""
                 vc.navigationController?.pushViewController(viewController, animated: true)

@@ -34,10 +34,7 @@ final class SearchResultViewModel: NSObject, SearchResultViewModelBinding, Searc
         super.init()
         
         inputSearchText
-            .withUnretained(self)
-            .bind(onNext: { model, text in
-                model.searchCompleter.queryFragment = text
-            })
+            .bind(to: searchCompleter.rx.queryFragment)
             .disposed(by: disposeBag)
         
         updatedSearchResult

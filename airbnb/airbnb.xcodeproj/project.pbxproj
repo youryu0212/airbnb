@@ -38,7 +38,6 @@
 		E0108D6F283B4BC700CC736C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */; };
 		E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D71283B4E3500CC736C /* WishListViewController.swift */; };
 		E0108D75283B4E6800CC736C /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D74283B4E6800CC736C /* MyReservationViewController.swift */; };
-		E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D77283B54A200CC736C /* SearchBarView.swift */; };
 		E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */; };
 		E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */; };
 		E0108D7E283B784300CC736C /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7D283B784300CC736C /* HeroImageView.swift */; };
@@ -120,7 +119,6 @@
 		E0108D6E283B4BC700CC736C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E0108D71283B4E3500CC736C /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		E0108D74283B4E6800CC736C /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
-		E0108D77283B54A200CC736C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E0108D7D283B784300CC736C /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 				E094189D283B90C4004A19F4 /* RecommandTravel */,
 				E09418A8283B9A16004A19F4 /* SearchView */,
 				E09418D0283C9B7D004A19F4 /* SearchResult */,
-				E09418B2283BC832004A19F4 /* Common */,
 				E0108D63283B2E9000CC736C /* RootWindow.swift */,
 			);
 			path = Present;
@@ -438,22 +435,6 @@
 				E09418BF283C6B2B004A19F4 /* SearchViewModelProtocol.swift */,
 			);
 			path = SearchView;
-			sourceTree = "<group>";
-		};
-		E09418B2283BC832004A19F4 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E09418B6283BDA89004A19F4 /* View */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		E09418B6283BDA89004A19F4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E0108D77283B54A200CC736C /* SearchBarView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E09418C8283C915A004A19F4 /* View */ = {
@@ -745,7 +726,6 @@
 				E09418B8283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift in Sources */,
 				E0108D6C283B4B9300CC736C /* MainTabBarController.swift in Sources */,
 				E09418AA283B9A25004A19F4 /* SearchViewController.swift in Sources */,
-				E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */,
 				E0108D5E283B2DDE00CC736C /* Provider.swift in Sources */,
 				E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */,
 				E09418D4283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift in Sources */,

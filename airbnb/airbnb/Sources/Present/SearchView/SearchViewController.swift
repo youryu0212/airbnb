@@ -18,6 +18,7 @@ final class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = "어디로 여행가세요?"
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.automaticallyShowsCancelButton = false
+        searchController.searchBar.searchTextField.clearButtonMode = .never
         searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.searchBar.keyboardType = .default
         searchController.searchBar.returnKeyType = .done
