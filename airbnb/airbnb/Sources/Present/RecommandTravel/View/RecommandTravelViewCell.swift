@@ -31,11 +31,16 @@ final class RecommandTravelViewCell: UICollectionViewCell {
     }
     
     @Inject(\.imageManager) private var imageManager: ImageManager
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     private func layout() {

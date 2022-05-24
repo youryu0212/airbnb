@@ -36,13 +36,16 @@ final class ArroundTravalViewModel: ArroundTravalViewModelBinding, ArroundTraval
             .bind(to: loadedAroundTraval)
             .disposed(by: disposeBag)
         
-        loadedAroundTraval
+        let tappedCells = loadedAroundTraval
             .flatMapLatest { viewModels -> Observable<ArroundTraval> in
                 let tappedCells = viewModels.map {
                     $0.action().tappedCell.asObservable()
                 }
                 return .merge(tappedCells)
             }
+            .share()
+        
+        tappedCells
             .bind(to: selectedAddress)
             .disposed(by: disposeBag)
     }

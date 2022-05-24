@@ -10,6 +10,7 @@ target 'airbnb' do
   pod 'RxCocoa', '6.5.0'
   pod 'RxAppState', '~> 1.6'
   pod 'RxDataSources'
+  pod 'RxGesture'
 end
 
 target 'airbnbTests' do

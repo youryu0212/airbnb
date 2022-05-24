@@ -27,7 +27,7 @@ final class SearchResultCellView: UICollectionViewCell {
     
       private let cellButton = UIButton()
       
-      private let disposeBag = DisposeBag()
+      private var disposeBag = DisposeBag()
       
       override init(frame: CGRect) {
           super.init(frame: frame)
@@ -38,6 +38,11 @@ final class SearchResultCellView: UICollectionViewCell {
       required init?(coder: NSCoder) {
           fatalError("init(coder:) has not been implemented")
       }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
       
       func setViewModel(_ viewModel: SearchResultCellViewModelProtocol) {
           bind(to: viewModel)

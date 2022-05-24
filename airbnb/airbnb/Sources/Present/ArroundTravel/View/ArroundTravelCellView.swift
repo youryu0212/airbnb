@@ -34,7 +34,7 @@ final class ArroundTravelCellView: UICollectionViewCell {
     private let cellButton = UIButton()
     
     @Inject(\.imageManager) private var imageManager: ImageManager
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +44,11 @@ final class ArroundTravelCellView: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     func setViewModel(_ viewModel: ArroundTravelCellViewModelProtocol) {
