@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		027938E3283C89C100404D1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 027938E2283C89C100404D1D /* Alamofire */; };
 		6D77C14CD0C71F86C79B5949 /* Pods_Airbnb_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */; };
 		D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD0283C868300C97D16 /* AppDelegate.swift */; };
 		D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */; };
@@ -36,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				027938E3283C89C100404D1D /* Alamofire in Frameworks */,
 				6D77C14CD0C71F86C79B5949 /* Pods_Airbnb_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +88,6 @@
 				C1C9C3510E21BC4268E4F21D /* Pods-Airbnb_iOS.debug.xcconfig */,
 				1E326D4FAA083AF8388B21BD /* Pods-Airbnb_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -113,7 +110,6 @@
 			);
 			name = Airbnb_iOS;
 			packageProductDependencies = (
-				027938E2283C89C100404D1D /* Alamofire */,
 			);
 			productName = Airbnb_iOS;
 			productReference = D2FFBFCD283C868300C97D16 /* Airbnb_iOS.app */;
@@ -144,7 +140,7 @@
 			);
 			mainGroup = D2FFBFC4283C868300C97D16;
 			packageReferences = (
-				027938E1283C89C100404D1D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				027938E7283C8D5000404D1D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D2FFBFCE283C868300C97D16 /* Products */;
 			projectDirPath = "";
@@ -171,7 +167,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		D2FFBFE4283C8AD600C97D16 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -182,7 +178,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
@@ -441,23 +437,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		027938E1283C89C100404D1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		027938E7283C8D5000404D1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		027938E2283C89C100404D1D /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 027938E1283C89C100404D1D /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D2FFBFC5283C868300C97D16 /* Project object */;
 }
