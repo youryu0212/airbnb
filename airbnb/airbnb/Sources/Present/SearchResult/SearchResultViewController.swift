@@ -24,6 +24,7 @@ final class SearchResultViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.bounces = true
         collectionView.register(SearchResultCellView.self, forCellWithReuseIdentifier: SearchResultCellView.identifier)
         return collectionView
     }()

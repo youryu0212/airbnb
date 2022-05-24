@@ -7,7 +7,6 @@
 
 import RxDataSources
 import RxGesture
-import RxGesture
 import RxRelay
 import RxSwift
 import UIKit
@@ -29,6 +28,7 @@ final class ArroundTravalLargeViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.bounces = true
         collectionView.register(ArroundTravelCellView.self, forCellWithReuseIdentifier: ArroundTravelCellView.identifier)
         collectionView.register(ArroundTravalCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArroundTravalCollectionHeaderView.identifier)
         return collectionView

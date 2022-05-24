@@ -18,6 +18,9 @@ final class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = "어디로 여행가세요?"
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.automaticallyShowsCancelButton = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.keyboardType = .default
+        searchController.searchBar.returnKeyType = .done
         return searchController
     }()
     
@@ -132,13 +135,18 @@ final class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        NotificationCenter.default.rx.notification(UIWindow.keyboardWillShowNotification)
-            .compactMap { $0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue }
+        Observable
+            .merge(
+                NotificationCenter.default.rx.notification(UIWindow.keyboardWillShowNotification)
+                    .compactMap { ($0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height }.asObservable(),
+                NotificationCenter.default.rx.notification(UIWindow.keyboardWillHideNotification)
+                    .map { _ in 0 }.asObservable()
+            )
             .withUnretained(self)
             .bind(onNext: { vc, value in
                 UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseOut, animations: {
                     vc.contentView.snp.updateConstraints {
-                        $0.bottom.equalToSuperview().inset(value.cgRectValue.height)
+                        $0.bottom.equalToSuperview().inset(value)
                     }
                     vc.contentView.superview?.layoutIfNeeded()
                 })
