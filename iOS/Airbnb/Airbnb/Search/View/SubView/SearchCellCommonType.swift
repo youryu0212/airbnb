@@ -6,7 +6,14 @@
 //
 
 import Foundation
-protocol SearchCellCommonType {
-    static var reuseIdentifier: String { get }
-    func setData(model: SearchFavoriteLocationModel)
+import UIKit
+
+//protocol SearchCellCommonType {
+//    static var reuseIdentifier: String { get }
+//    func setData(model: SearchFavoriteLocationModel)
+//}
+
+class SearchCellCommonType: UICollectionViewCell {
+    static var reuseIdentifier: String { String(describing: Self.self) }
+    func setData(model: SearchFavoriteLocationModel) { }
 }

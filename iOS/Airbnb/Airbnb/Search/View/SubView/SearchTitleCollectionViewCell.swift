@@ -7,18 +7,14 @@
 
 import UIKit
 
-class SearchTitleCollectionViewCell: UICollectionViewCell, SearchCellCommonType {
-    
-    static var reuseIdentifier: String {
-        String(describing: Self.self)
-    }
+class SearchTitleCollectionViewCell: SearchCellCommonType {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    func setData(model: SearchFavoriteLocationModel) {
+    override func setData(model: SearchFavoriteLocationModel) {
         self.titleLabel.text = model.titleLabel
     }
     

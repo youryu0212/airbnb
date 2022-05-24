@@ -7,11 +7,7 @@
 
 import UIKit
 
-class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonType {
-    
-    static var reuseIdentifier: String {
-        String(describing: Self.self)
-    }
+class SearchTwoInARowCollectionViewCell: SearchCellCommonType {
     
     private var mainView: UIView = {
         let view = UIView()
@@ -33,7 +29,7 @@ class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonT
         return label
     }()
     
-    func setData(model: SearchFavoriteLocationModel) {
+    override func setData(model: SearchFavoriteLocationModel) {
         mainImageView.image = UIImage(data: model.imageData)
         titleLabel.text = model.titleLabel
         subTitleLabel.text = model.subTitleLabel

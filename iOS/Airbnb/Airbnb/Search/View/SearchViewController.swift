@@ -24,46 +24,19 @@ class SearchViewController: UIViewController {
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(0.05))
         let titleItem = NSCollectionLayoutItem(layoutSize: titleSize)
+        titleItem.contentInsets = inset
         
-        // 2줄 가로 레이아웃
-        let horizontalTwoRowSize = NSCollectionLayoutSize(
+        let twoRowSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
+            heightDimension: .fractionalHeight(0.2))
+        let twoRowItem = NSCollectionLayoutItem(layoutSize: twoRowSize)
+        twoRowItem.contentInsets = inset
         
-        let horizontalTwoRowItem = NSCollectionLayoutItem(layoutSize: horizontalTwoRowSize)
-        
-        let horizontalGroupRow = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(1.0)),
-            subitem: horizontalTwoRowItem,
-            count: 2)
-        
-        horizontalGroupRow.contentInsets = inset
-        
-        let horizontalGroupTwoInARow = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(2.7),
-                heightDimension: .absolute(172)),
-            subitem: horizontalGroupRow,
-            count: 4
-        )
-        
-        // 1줄 가로 레이아웃
-        let horizontalOneRowSize = NSCollectionLayoutSize(
+        let oneRowSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
-        
-        let horizontalOneRowItem = NSCollectionLayoutItem(layoutSize: horizontalOneRowSize)
-        
-        let horizontalGroupOneInARow = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize.init(
-                widthDimension: .fractionalWidth(7.5),
-                heightDimension: .absolute(370)),
-            subitem: horizontalOneRowItem,
-            count: 8)
-        
-        horizontalGroupOneInARow.contentInsets = inset
+            heightDimension: .fractionalHeight(0.44))
+        let oneRowItem = NSCollectionLayoutItem(layoutSize: oneRowSize)
+        oneRowItem.contentInsets = inset
         
         let resultLayoutGroup = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
@@ -71,9 +44,9 @@ class SearchViewController: UIViewController {
                 heightDimension: .fractionalHeight(1.0)),
             subitems: [
                 titleItem,
-                horizontalGroupTwoInARow,
+                twoRowItem,
                 titleItem,
-                horizontalGroupOneInARow
+                oneRowItem
             ]
         )
         
@@ -83,45 +56,76 @@ class SearchViewController: UIViewController {
         return layout
     }
     
-    private var backgroundDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource<Section, SearchFavoriteLocationModel> =
+    private var backgroundDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]> =
     { collectionView in
-        UICollectionViewDiffableDataSource<Section, SearchFavoriteLocationModel>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+        UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             var cell: UICollectionViewCell?
             
-            if indexPath.item == 0 || indexPath.item == 9 {
+            if indexPath.item == 0 || indexPath.item == 2 {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchTitleCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchTitleCollectionViewCell
-            } else if indexPath.item < 9 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchTwoInARowCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchTwoInARowCollectionViewCell
-            } else if indexPath.item < 19 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchOneInARowCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchOneInARowCollectionViewCell
+                
+                if let model = itemIdentifier.first {
+                    (cell as? SearchTitleCollectionViewCell)?.setData(model: model)
+                }
+                
+            } else if indexPath.item == 1 {
+                
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier, for: indexPath)
+                (cell as? MultipleRowsCollectionViewContainerCell)?
+                    .applyAttributes(
+                        cellType: SearchTwoInARowCollectionViewCell.self,
+                        models: itemIdentifier,
+                        width: collectionView.frame.width * 2/3,
+                        rowCount: 2)
+            } else if indexPath.item == 3 {
+                
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier, for: indexPath)
+                (cell as? MultipleRowsCollectionViewContainerCell)?
+                    .applyAttributes(
+                        cellType: SearchOneInARowCollectionViewCell.self,
+                        models: itemIdentifier,
+                        width: collectionView.frame.width * 4/5,
+                        rowCount: 1)
             }
-            
-            (cell as? SearchCellCommonType)?.setData(model: itemIdentifier)
-            
+                        
             return cell
         }
     }
     
-    func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, SearchFavoriteLocationModel> {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, SearchFavoriteLocationModel>()
+    func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]> {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]>()
         snapshot.appendSections([Section.albumBody])
         
-        var items = [SearchFavoriteLocationModel]()
+        var items = [[SearchFavoriteLocationModel]]()
+        var oneRowItems = [SearchFavoriteLocationModel]()
+        var twoRowItems = [SearchFavoriteLocationModel]()
+        
         for i in 0 ..< 18 {
-            items.append(SearchFavoriteLocationModel(imageData: Data(), titleLabel: "\(i)", subTitleLabel: "\(i)\(i)"))
+            
+            let model = SearchFavoriteLocationModel(imageData: Data(), titleLabel: "\(i)", subTitleLabel: "\(i)\(i)")
+            
+            if i == 0 || i == 9 {
+                items.append([model])
+            } else if 1...8 ~= i {
+                twoRowItems.append(model)
+            } else if i > 9 {
+                oneRowItems.append(model)
+            }
         }
+        
+        items.insert(twoRowItems, at: 1)
+        items.append(oneRowItems)
         
         snapshot.appendItems(items)
         return snapshot
     }
     
-    private var backgroundCollectionViewDataSource: UICollectionViewDiffableDataSource<Section, SearchFavoriteLocationModel>?
+    private var backgroundCollectionViewDataSource: UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]>?
     private lazy var backgroundCollectionView: UICollectionView = {
         
         let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.register(SearchTitleCollectionViewCell.self, forCellWithReuseIdentifier: SearchTitleCollectionViewCell.reuseIdentifier)
-        collectionView.register(SearchTwoInARowCollectionViewCell.self, forCellWithReuseIdentifier: SearchTwoInARowCollectionViewCell.reuseIdentifier)
-        collectionView.register(SearchOneInARowCollectionViewCell.self, forCellWithReuseIdentifier: SearchOneInARowCollectionViewCell.reuseIdentifier)
+        collectionView.register(MultipleRowsCollectionViewContainerCell.self, forCellWithReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier)
         
         let snapshot = snapshotForCurrentState()
         backgroundCollectionViewDataSource = backgroundDataSource(collectionView)

@@ -1,0 +1,50 @@
+//
+//  MultipleRowsCollectionViewContainerCell.swift
+//  Airbnb
+//
+//  Created by 백상휘 on 2022/05/24.
+//
+
+import UIKit
+import SnapKit
+
+class MultipleRowsCollectionViewContainerCell: UICollectionViewCell {
+    
+    static var reuseIdentifier: String {
+        String(describing: Self.self)
+    }
+    
+    private var multipleRowCollectionViewController: MultipleRowsCollectionViewController?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func applyAttributes(cellType: SearchCellCommonType.Type, models: [SearchFavoriteLocationModel], width: CGFloat, rowCount: UInt) {
+        
+        multipleRowCollectionViewController = MultipleRowsCollectionViewController(
+            cellType: cellType,
+            models: models,
+            width: width,
+            rowCount: rowCount)
+        
+        contentView.subviews.forEach({ $0.removeFromSuperview() })
+        contentView.addSubview(multipleRowCollectionViewController!.collectionView)
+        
+        layout()
+    }
+    
+    private func layout() {
+        multipleRowCollectionViewController?.collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
