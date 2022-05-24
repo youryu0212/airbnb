@@ -7,11 +7,7 @@
 
 import UIKit
 
-class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonType {
-    
-    static var reuseIdentifier: String {
-        String(describing: Self.self)
-    }
+class SearchTwoInARowCollectionViewCell: SearchCellCommonType {
     
     private var mainView: UIView = {
         let view = UIView()
@@ -33,7 +29,7 @@ class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonT
         return label
     }()
     
-    func setData(model: SearchFavoriteLocationModel) {
+    override func setData(model: SearchFavoriteLocationModel) {
         mainImageView.image = UIImage(data: model.imageData)
         titleLabel.text = model.titleLabel
         subTitleLabel.text = model.subTitleLabel
@@ -57,26 +53,28 @@ class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonT
         mainView.addSubview(mainImageView)
         
         mainImageView.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview().offset(8)
-            make.width.equalTo(60)
+            make.top.leading.equalToSuperview().offset(8)
+            make.bottom.equalToSuperview().inset(8)
+            make.width.lessThanOrEqualTo(60)
+            make.width.equalTo(mainImageView.snp.height).multipliedBy(1)
         }
         
-        mainImageView.addSubview(titleLabel)
-        mainImageView.addSubview(subTitleLabel)
+        mainView.addSubview(titleLabel)
+        mainView.addSubview(subTitleLabel)
         
         titleLabel.snp.makeConstraints { make in
-            make.top.trailing.equalToSuperview().offset(8)
-            make.leading.equalTo(mainImageView).offset(8)
+            make.top.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().inset(8)
+            make.leading.equalTo(mainImageView.snp.trailing).offset(8)
         }
         
         subTitleLabel.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview().offset(8)
-            make.leading.equalTo(mainImageView).offset(8)
+            make.top.greaterThanOrEqualTo(titleLabel.snp.bottom)
+            make.bottom.trailing.equalToSuperview().inset(8)
+            make.leading.equalTo(mainImageView.snp.trailing).offset(8)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(subTitleLabel).offset(8)
-        }
+        mainImageView.backgroundColor = .white
         
         contentView.backgroundColor = UIColor.init(displayP3Red: CGFloat.random(in: 0.0...1.0), green: CGFloat.random(in: 0.0...1.0), blue: CGFloat.random(in: 0.0...1.0), alpha: 1)
     }
