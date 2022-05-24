@@ -22,35 +22,44 @@ class SearchViewController: UIViewController {
         // Title
         let titleSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(28))
+            heightDimension: .fractionalHeight(0.05))
         let titleItem = NSCollectionLayoutItem(layoutSize: titleSize)
         
         // 2줄 가로 레이아웃
         let horizontalTwoRowSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalHeight(2/3),
-            heightDimension: .absolute(60))
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
         
         let horizontalTwoRowItem = NSCollectionLayoutItem(layoutSize: horizontalTwoRowSize)
         
-        let horizontalGroupTwoInARow = NSCollectionLayoutGroup.horizontal(
+        let horizontalGroupRow = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(120)),
-            subitems: [horizontalTwoRowItem, horizontalTwoRowItem])
+                heightDimension: .fractionalHeight(1.0)),
+            subitem: horizontalTwoRowItem,
+            count: 2)
         
-        horizontalGroupTwoInARow.contentInsets = inset
+        horizontalGroupRow.contentInsets = inset
+        
+        let horizontalGroupTwoInARow = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(2.7),
+                heightDimension: .absolute(172)),
+            subitem: horizontalGroupRow,
+            count: 4
+        )
         
         // 1줄 가로 레이아웃
         let horizontalOneRowSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(4/5),
-            heightDimension: .fractionalWidth(1))
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
         
         let horizontalOneRowItem = NSCollectionLayoutItem(layoutSize: horizontalOneRowSize)
         
         let horizontalGroupOneInARow = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize.init(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(200)),
+                widthDimension: .fractionalWidth(7.5),
+                heightDimension: .absolute(370)),
             subitem: horizontalOneRowItem,
             count: 8)
         
@@ -60,7 +69,12 @@ class SearchViewController: UIViewController {
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)),
-            subitems: [titleItem, horizontalGroupTwoInARow, titleItem, horizontalGroupOneInARow]
+            subitems: [
+                titleItem,
+                horizontalGroupTwoInARow,
+                titleItem,
+                horizontalGroupOneInARow
+            ]
         )
         
         let section = NSCollectionLayoutSection(group: resultLayoutGroup)
@@ -93,7 +107,7 @@ class SearchViewController: UIViewController {
         snapshot.appendSections([Section.albumBody])
         
         var items = [SearchFavoriteLocationModel]()
-        for i in 0..<14 {
+        for i in 0 ..< 18 {
             items.append(SearchFavoriteLocationModel(imageData: Data(), titleLabel: "\(i)", subTitleLabel: "\(i)\(i)"))
         }
         
