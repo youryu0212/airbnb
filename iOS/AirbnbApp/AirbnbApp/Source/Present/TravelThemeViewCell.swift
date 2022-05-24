@@ -54,7 +54,6 @@ private extension TravelThemeViewCell {
         
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(300)
         }
     }
     

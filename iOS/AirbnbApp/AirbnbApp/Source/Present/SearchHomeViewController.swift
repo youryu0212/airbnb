@@ -14,29 +14,20 @@ class SearchHomeViewController: UIViewController {
     
     private let searchTextField = SearchTextField()
     
-    private let ideaImageView: UIImageView = {
-        let image = UIImage(systemName: "pencil")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .blue
-        return imageView
+    private lazy var destinationCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
+        collectionView.register(HeroImageViewCell.self, forCellWithReuseIdentifier: HeroImageViewCell.identifier)
+        collectionView.register(NearDestinationViewCell.self, forCellWithReuseIdentifier: NearDestinationViewCell.identifier)
+        collectionView.register(TravelThemeViewCell.self, forCellWithReuseIdentifier: TravelThemeViewCell.identifier)
+        collectionView.dataSource = self.destinationCollectionViewDataSource
+        return collectionView
     }()
-    
-    private let destinationCollecionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    private var destinationCollecionViewDataSource = DestinationCollecionViewDataSource()
-    
-    private var collectionViewFlowLayout: UICollectionViewFlowLayout {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: 253, height: 74)
-        flowLayout.minimumInteritemSpacing = 16
-        flowLayout.scrollDirection = .horizontal
-        return flowLayout
-    }
+    private var destinationCollectionViewDataSource = DestinationCollecionViewDataSource()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,24 +37,14 @@ class SearchHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         layoutSearchTextField()
-        layoutIdeaImageVeiw()
         layoutDestinationCollecionView()
-        configureDestinationCollecionView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    private func configureDestinationCollecionView() {
-        destinationCollecionView.register(DestinationCollectionViewCell.self, forCellWithReuseIdentifier: DestinationCollectionViewCell.identifier)
-        destinationCollecionView.register(DestinationHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DestinationHeaderView.identifier)
-        
-        destinationCollecionView.dataSource = destinationCollecionViewDataSource
-        destinationCollecionView.collectionViewLayout = collectionViewFlowLayout
-    }
 }
 
 // MARK: - View Layout
@@ -80,23 +61,144 @@ private extension SearchHomeViewController {
         }
     }
     
-    func layoutIdeaImageVeiw() {
-        view.addSubview(ideaImageView)
+    func layoutDestinationCollecionView() {
+        view.addSubview(destinationCollectionView)
         
-        ideaImageView.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.frame.width)
+        destinationCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
-    func layoutDestinationCollecionView() {
-        view.addSubview(destinationCollecionView)
-        
-        destinationCollecionView.snp.makeConstraints { make in
-            make.top.equalTo(ideaImageView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(164)
+    func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout { (sectionNumber, _) -> NSCollectionLayoutSection? in
+            guard let sectionKind = DestinationCollectionViewSection(rawValue: sectionNumber) else { return nil }
+            let section: NSCollectionLayoutSection
+            switch sectionKind {
+            case .image:
+                section = self.heroImageLayoutSection()
+            case .nearby:
+                section = self.nearDestinationLayoutSection()
+            case .theme:
+                section = self.themeLayoutSection()
+            }
+            return section
         }
+    }
+    
+    func heroImageLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize)
+        item.contentInsets.bottom = 15
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(1.0)
+        )
+        
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: groupSize,
+            subitems: [item])
+        group.contentInsets = .init(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .estimated(44)),
+                elementKind: DestinationHeaderView.identifier,
+                alignment: .topLeading)
+        ]
+        
+        return section
+        
+    }
+    func nearDestinationLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.7),
+            heightDimension: .fractionalHeight(0.2)
+        )
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(
+            top: 0,
+            leading: 0,
+            bottom: 15,
+            trailing: 0
+        )
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.25)
+        )
+        
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets.leading = 15
+        
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .estimated(44)),
+                elementKind: DestinationHeaderView.identifier,
+                alignment: .topLeading)
+        ]
+        section.orthogonalScrollingBehavior = .groupPaging
+        return section
+    }
+    func themeLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize)
+        item.contentInsets.bottom = 15
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.8),
+            heightDimension: .fractionalWidth(0.8)
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+        group.contentInsets = .init(
+            top: 0,
+            leading: 15,
+            bottom: 0,
+            trailing: 2
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.orthogonalScrollingBehavior = .continuous
+        
+        section.boundarySupplementaryItems = [
+            NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .estimated(44)),
+                elementKind: DestinationHeaderView.identifier,
+                alignment: .topLeading)
+        ]
+        
+        return section
     }
 }
