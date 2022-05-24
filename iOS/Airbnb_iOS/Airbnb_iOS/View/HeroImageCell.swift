@@ -8,6 +8,9 @@
 import UIKit
 
 final class HeroImageCell: UICollectionViewCell {
+
+    static let identifier = "HeroImageCell"
+
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

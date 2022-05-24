@@ -8,6 +8,9 @@
 import UIKit
 
 final class LivingTravelCell: UICollectionViewCell {
+
+    static let identifier = "LivingTravelCell"
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true

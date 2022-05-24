@@ -5,7 +5,6 @@
 //  Created by 김한솔 on 2022/05/24.
 //
 
-import Foundation
 import UIKit
 
 final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource {
@@ -33,14 +32,14 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch items[indexPath.section] {
         case let .first(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroImageCell", for: indexPath) as? HeroImageCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroImageCell.identifier, for: indexPath) as? HeroImageCell else {
                 return UICollectionViewCell()
             }
             cell.configure(image: _items[indexPath.item].image)
             
             return cell
         case let .second(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendCell", for: indexPath) as? RecommendCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendCell.identifier, for: indexPath) as? RecommendCell else {
                 return UICollectionViewCell()
             }
             let item = _items[indexPath.item]
@@ -48,7 +47,7 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
             
             return cell
         case let .third(_items):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LivingTravelCell", for: indexPath) as? LivingTravelCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LivingTravelCell.identifier, for: indexPath) as? LivingTravelCell else {
                 return UICollectionViewCell()
             }
             let item = _items[indexPath.item]
@@ -61,7 +60,7 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionHeaderView", for: indexPath) as? CollectionHeaderView else {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else {
                 return UICollectionReusableView()
             }
             

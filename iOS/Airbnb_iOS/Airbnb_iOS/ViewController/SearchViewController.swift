@@ -21,11 +21,11 @@ class SearchViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.clipsToBounds = true
 
-        collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: "HeroImageCell")
-        collectionView.register(RecommendCell.self, forCellWithReuseIdentifier: "RecommendCell")
-        collectionView.register(LivingTravelCell.self, forCellWithReuseIdentifier: "LivingTravelCell")
+        collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: HeroImageCell.identifier)
+        collectionView.register(RecommendCell.self, forCellWithReuseIdentifier: RecommendCell.identifier)
+        collectionView.register(LivingTravelCell.self, forCellWithReuseIdentifier: LivingTravelCell.identifier)
 
-        collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionHeaderView")
+        collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()

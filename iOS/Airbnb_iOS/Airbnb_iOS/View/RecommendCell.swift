@@ -8,6 +8,9 @@
 import UIKit
 
 final class RecommendCell: UICollectionViewCell {
+
+    static let identifier = "RecommendCell"
+
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
