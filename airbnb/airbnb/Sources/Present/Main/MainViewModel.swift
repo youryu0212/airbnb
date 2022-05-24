@@ -21,7 +21,7 @@ final class MainViewModel: MainViewModelProtocol {
     let arroundTravelViewModel: ArroundTravalViewModelProtocol = ArroundTravalViewModel()
     let recommandTravelViewModel: RecommandTravelViewModelProtocol = RecommandTravelViewModel()
     
-    @Inject(\.homeRepository) private var homeRepository: TravalRepository
+    @Inject(\.travalRepository) private var travalRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
     init() {

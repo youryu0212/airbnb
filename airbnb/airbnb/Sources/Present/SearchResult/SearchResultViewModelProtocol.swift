@@ -9,10 +9,12 @@ import Foundation
 import RxRelay
 
 protocol SearchResultViewModelAction {
+    var inputSearchText: PublishRelay<String> { get }
 }
 
 protocol SearchResultViewModelState {
-    var updatedSearchResult: PublishRelay<[String]> { get }
+    var updatedSearchResult: PublishRelay<[SearchResultCellViewModel]> { get }
+    var selectedAddress: PublishRelay<String> { get }
 }
 
 protocol SearchResultViewModelBinding {

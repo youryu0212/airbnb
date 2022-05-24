@@ -13,7 +13,8 @@ protocol ArroundTravalViewModelAction {
 }
 
 protocol ArroundTravalViewModelState {
-    var loadedAroundTraval: PublishRelay<[AroundTraval]> { get }
+    var loadedAroundTraval: PublishRelay<[ArroundTravelCellViewModel]> { get }
+    var selectedAddress: PublishRelay<ArroundTraval> { get }
 }
 
 protocol ArroundTravalViewModelBinding {

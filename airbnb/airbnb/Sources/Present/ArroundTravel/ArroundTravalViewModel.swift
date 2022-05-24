@@ -16,22 +16,38 @@ final class ArroundTravalViewModel: ArroundTravalViewModelBinding, ArroundTraval
     
     func state() -> ArroundTravalViewModelState { self }
     
-    let loadedAroundTraval = PublishRelay<[AroundTraval]>()
+    let loadedAroundTraval = PublishRelay<[ArroundTravelCellViewModel]>()
+    let selectedAddress = PublishRelay<ArroundTraval>()
     
-    @Inject(\.homeRepository) private var homeRepository: TravalRepository
+    @Inject(\.travalRepository) private var travalRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
     init() {
         let requestAroundTraval = loadArroundTravel
             .withUnretained(self)
             .flatMapLatest { model, _ in
-                model.homeRepository.requestAroundTraval()
+                model.travalRepository.requestAroundTraval()
             }
             .share()
         
         requestAroundTraval
             .compactMap { $0.value }
+            .map { $0.map { ArroundTravelCellViewModel(arroundTraval: $0) } }
             .bind(to: loadedAroundTraval)
+            .disposed(by: disposeBag)
+        
+        loadedAroundTraval
+            .flatMapLatest { viewModels -> Observable<ArroundTraval> in
+                let tappedCells = viewModels.map {
+                    $0.action().tappedCell.asObservable()
+                }
+                return .merge(tappedCells)
+            }
+            .do { address in
+                print(address.name)
+                
+            }
+            .bind(to: selectedAddress)
             .disposed(by: disposeBag)
     }
 }

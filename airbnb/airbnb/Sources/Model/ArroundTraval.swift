@@ -8,10 +8,10 @@
 import Foundation
 
 struct AroundTravals: Decodable {
-    let list: [AroundTraval]
+    let list: [ArroundTraval]
 }
 
-struct AroundTraval: Decodable {
+struct ArroundTraval: Decodable {
     let imageUrl: URL
     let name: String
     let distance: String

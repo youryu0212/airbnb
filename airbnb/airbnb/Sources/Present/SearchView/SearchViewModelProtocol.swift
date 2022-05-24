@@ -10,11 +10,12 @@ import RxRelay
 
 protocol SearchViewModelAction {
     var loadAroundTraval: PublishRelay<Void> { get }
-    var updateSearchResult: PublishRelay<[String]> { get }
+    var inputSearchText: PublishRelay<String> { get }
 }
 
 protocol SearchViewModelState {
-    var loadedAroundTraval: PublishRelay<[AroundTraval]> { get }
+    var loadedAroundTraval: PublishRelay<[ArroundTraval]> { get }
+    var presentSearchOption: PublishRelay<String> { get }
 }
 
 protocol SearchViewModelBinding {

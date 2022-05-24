@@ -13,16 +13,17 @@ final class SearchViewModel: SearchViewModelBinding, SearchViewModelProperty, Se
     func action() -> SearchViewModelAction { self }
     
     let loadAroundTraval = PublishRelay<Void>()
-    let updateSearchResult = PublishRelay<[String]>()
+    let inputSearchText = PublishRelay<String>()
     
     func state() -> SearchViewModelState { self }
     
-    let loadedAroundTraval = PublishRelay<[AroundTraval]>()
+    let loadedAroundTraval = PublishRelay<[ArroundTraval]>()
+    let presentSearchOption = PublishRelay<String>()
     
     let arroundTravelViewModel: ArroundTravalViewModelProtocol = ArroundTravalViewModel()
     let searchResultTravelViewModel: SearchResultViewModelProtocol = SearchResultViewModel()
     
-    @Inject(\.homeRepository) private var homeRepository: TravalRepository
+    @Inject(\.travalRepository) private var homeRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
     init() {
@@ -38,8 +39,16 @@ final class SearchViewModel: SearchViewModelBinding, SearchViewModelProperty, Se
             .bind(to: loadedAroundTraval)
             .disposed(by: disposeBag)
         
-        updateSearchResult
-            .bind(to: searchResultTravelViewModel.state().updatedSearchResult)
+        inputSearchText
+            .bind(to: searchResultTravelViewModel.action().inputSearchText)
+            .disposed(by: disposeBag)
+        
+        Observable
+            .merge(
+                arroundTravelViewModel.state().selectedAddress.map { $0.name }.asObservable(),
+                searchResultTravelViewModel.state().selectedAddress.asObservable()
+            )
+            .bind(to: presentSearchOption)
             .disposed(by: disposeBag)
     }
 }

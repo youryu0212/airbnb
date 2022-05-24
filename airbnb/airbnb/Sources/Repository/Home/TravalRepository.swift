@@ -9,6 +9,6 @@ import Foundation
 import RxSwift
 
 protocol TravalRepository {
-    func requestAroundTraval() -> Single<Swift.Result<[AroundTraval], APIError>>
+    func requestAroundTraval() -> Single<Swift.Result<[ArroundTraval], APIError>>
     func requestRecommandTraval() -> Single<Swift.Result<[RecommandTraval], APIError>>
 }

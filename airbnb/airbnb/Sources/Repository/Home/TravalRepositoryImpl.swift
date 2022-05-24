@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 class TravalRepositoryImpl: NetworkRepository<HomeTarget>, TravalRepository {
-    func requestAroundTraval() -> Single<Result<[AroundTraval], APIError>> {
+    func requestAroundTraval() -> Single<Result<[ArroundTraval], APIError>> {
         Single.create { observer in
             guard let url = Bundle.main.url(forResource: "mock", withExtension: "json"),
                   let data = try? Data(contentsOf: url) else {

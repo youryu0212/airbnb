@@ -45,7 +45,7 @@ final class SearchResultViewController: UIViewController {
     private func bind() {
         viewModel.state().updatedSearchResult
             .bind(to: collectionView.rx.items(cellIdentifier: SearchResultCellView.identifier, cellType: SearchResultCellView.self)) { _, model, cell in
-                cell.setAddress(model)
+                cell.setViewModel(model)
             }
             .disposed(by: disposeBag)
     }
@@ -58,7 +58,4 @@ final class SearchResultViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(Contants.collectionViewInset)
         }
     }
-}
-
-final class SearchResultView: UIView {
 }

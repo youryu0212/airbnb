@@ -18,14 +18,14 @@ final class RecommandTravelViewModel: RecommandTravelViewModelBinding, Recommand
     
     let loadedRecommandTraval = PublishRelay<[RecommandTraval]>()
     
-    @Inject(\.homeRepository) private var homeRepository: TravalRepository
+    @Inject(\.travalRepository) private var travalRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
     init() {
         let requestRecommandTraval = loadRecommandTravel
             .withUnretained(self)
             .flatMapLatest { model, _ in
-                model.homeRepository.requestRecommandTraval()
+                model.travalRepository.requestRecommandTraval()
             }
             .share()
         

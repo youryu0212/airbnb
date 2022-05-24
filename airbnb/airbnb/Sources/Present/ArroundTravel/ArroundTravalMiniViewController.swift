@@ -34,7 +34,7 @@ final class ArroundTravalMiniViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(AroundTravelViewCell.self, forCellWithReuseIdentifier: AroundTravelViewCell.identifier)
+        collectionView.register(ArroundTravelCellView.self, forCellWithReuseIdentifier: ArroundTravelCellView.identifier)
         return collectionView
     }()
     
@@ -59,8 +59,8 @@ final class ArroundTravalMiniViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.state().loadedAroundTraval
-            .bind(to: collectionView.rx.items(cellIdentifier: AroundTravelViewCell.identifier, cellType: AroundTravelViewCell.self)) { _, model, cell in
-                cell.setTraval(model)
+            .bind(to: collectionView.rx.items(cellIdentifier: ArroundTravelCellView.identifier, cellType: ArroundTravelCellView.self)) { _, model, cell in
+                cell.setViewModel(model)
             }
             .disposed(by: disposeBag)
     }

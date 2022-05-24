@@ -26,13 +26,13 @@ final class ArroundTravalLargeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(AroundTravelViewCell.self, forCellWithReuseIdentifier: AroundTravelViewCell.identifier)
+        collectionView.register(ArroundTravelCellView.self, forCellWithReuseIdentifier: ArroundTravelCellView.identifier)
         collectionView.register(ArroundTravalCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ArroundTravalCollectionHeaderView.identifier)
         return collectionView
     }()
     
-    private typealias ConfigureCell = (CollectionViewSectionedDataSource<SectionModel<String, AroundTraval>>, UICollectionView, IndexPath, AroundTraval) -> UICollectionViewCell
-    private typealias ConfigureSupplementaryView = (CollectionViewSectionedDataSource<SectionModel<String, AroundTraval>>, UICollectionView, String, IndexPath) -> UICollectionReusableView
+    private typealias ConfigureCell = (CollectionViewSectionedDataSource<SectionModel<String, ArroundTravelCellViewModel>>, UICollectionView, IndexPath, ArroundTravelCellViewModel) -> UICollectionViewCell
+    private typealias ConfigureSupplementaryView = (CollectionViewSectionedDataSource<SectionModel<String, ArroundTravelCellViewModel>>, UICollectionView, String, IndexPath) -> UICollectionReusableView
     
     private let viewModel: ArroundTravalViewModelProtocol
     private let disposeBag = DisposeBag()
@@ -55,10 +55,10 @@ final class ArroundTravalLargeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         let configureCell: ConfigureCell = { _, collectionView, indexPath, model -> UICollectionViewCell in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AroundTravelViewCell.identifier, for: indexPath) as? AroundTravelViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArroundTravelCellView.identifier, for: indexPath) as? ArroundTravelCellView else {
                 return UICollectionViewCell()
             }
-            cell.setTraval(model)
+            cell.setViewModel(model)
             return cell
         }
     
@@ -73,7 +73,7 @@ final class ArroundTravalLargeViewController: UIViewController {
             return UICollectionReusableView()
         }
         
-        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, AroundTraval>>(configureCell: configureCell, configureSupplementaryView: configureSupplementaryView)
+        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, ArroundTravelCellViewModel>>(configureCell: configureCell, configureSupplementaryView: configureSupplementaryView)
         
         viewModel.state().loadedAroundTraval
             .map { [SectionModel(model: "", items: $0)] }

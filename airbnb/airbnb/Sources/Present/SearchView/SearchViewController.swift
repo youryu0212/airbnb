@@ -36,13 +36,6 @@ final class SearchViewController: UIViewController {
     private let viewModel: SearchViewModelProtocol
     private let disposeBag = DisposeBag()
     
-    private var searchCompleter: MKLocalSearchCompleter = {
-        let completer = MKLocalSearchCompleter()
-        completer.resultTypes = .address
-        completer.region = MKCoordinateRegion(MKMapRect.world)
-        return completer
-    }()
-    
     var completerResults: [MKLocalSearchCompletion]?
     
     init(viewModel: SearchViewModelProtocol) {
@@ -79,10 +72,7 @@ final class SearchViewController: UIViewController {
         
         searchBarView.text
             .compactMap { $0 }
-            .withUnretained(self)
-            .bind(onNext: { vc, text in
-                vc.searchCompleter.queryFragment = text
-            })
+            .bind(to: viewModel.action().inputSearchText)
             .disposed(by: disposeBag)
         
         searchBarView.text
@@ -103,13 +93,19 @@ final class SearchViewController: UIViewController {
             .mapVoid()
             .bind(to: searchBarView.clear)
             .disposed(by: disposeBag)
+        
+        viewModel.state().presentSearchOption
+            .withUnretained(self)
+            .bind(onNext: { vc, address in
+                print(address)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
         title = "숙소 찾기"
         navigationItem.rightBarButtonItem = searchClearButton
         view.backgroundColor = .white
-        searchCompleter.delegate = self
     }
     
     private func layout() {
@@ -133,11 +129,5 @@ final class SearchViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-}
-
-extension SearchViewController: MKLocalSearchCompleterDelegate {
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        viewModel.action().updateSearchResult.accept(completer.results.map { $0.title })
     }
 }
