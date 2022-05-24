@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_search_confirm"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="9"
-            app:layout_constraintStart_toEndOf="@+id/btn_place_search"
+            app:layout_constraintStart_toEndOf="@+id/btn_place_search_back"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
