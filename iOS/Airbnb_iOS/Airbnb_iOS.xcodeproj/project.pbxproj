@@ -16,6 +16,7 @@
 		D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */; };
 		D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */; };
 		D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */; };
+		D2FFBFEE283CB33700C97D16 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				D2FFBFEC283CA75700C97D16 /* Container */,
 				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
+				D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */,
 				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
 				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
 			);
@@ -238,6 +241,7 @@
 				D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */,
 				D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */,
 				D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */,
+				D2FFBFEE283CB33700C97D16 /* BrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
