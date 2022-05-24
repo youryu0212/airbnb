@@ -14,7 +14,9 @@ public class AccommodationInfo {
     @Id @GeneratedValue
     private Long id;
 
-    // 숙소 ID FK 필요
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "accommodation_id")
+    private Accommodation accommodation;
 
     private String description;
 
