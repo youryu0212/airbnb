@@ -1,5 +1,7 @@
-package com.codesquad.airbnb.accommodation.controller;
+package com.codesquad.airbnb.accommodation.web;
 
+import com.codesquad.airbnb.accommodation.web.dto.ListConditionDto;
+import com.codesquad.airbnb.accommodation.web.dto.PriceConditionDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccommodationController {
 
     @GetMapping
-    public String showList() {
+    public String showListWithCondition(ListConditionDto dto) {
         /**
          * TO-DO
          * - Parameter: 숙소 검색 조건
@@ -30,7 +32,7 @@ public class AccommodationController {
     }
 
     @GetMapping("/prices")
-    public String showPriceList() {
+    public String showPriceList(PriceConditionDto dto) {
         /**
          * TO-DO
          * - Parameter: (체크인 날짜, 체크아웃 날짜가 담긴 검색 조건)
