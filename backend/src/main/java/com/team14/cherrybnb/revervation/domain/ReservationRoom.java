@@ -1,20 +1,26 @@
 package com.team14.cherrybnb.revervation.domain;
 
 import com.team14.cherrybnb.room.domain.Room;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ReservationRoom {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservation_room_id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn
     @ManyToOne
+    @JoinColumn
     private Reservation reservation;
 
-    @JoinColumn
     @ManyToOne
+    @JoinColumn
     private Room room;
 }
