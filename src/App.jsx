@@ -1,7 +1,14 @@
 import React from "react";
+import {ThemeProvider} from "styled-components";
+import theme from "./theme";
+import Header from "./components/header/Header";
 
 const App = () => {
-    return <div className="App">adfasdfadsfasdf</div>;
+    return (
+        <ThemeProvider theme={theme}>
+            <Header />
+        </ThemeProvider>
+    );
 };
 
 export default App;
