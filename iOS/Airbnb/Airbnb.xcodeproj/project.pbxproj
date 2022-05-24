@@ -225,7 +225,6 @@
 		00A85F36283B872E00EA32E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B69F367283CD4EF001A2860 /* CollectionViews */,
 				1B27E22D283CA11200FCB990 /* SubView */,
 				00A85F37283B873F00EA32E0 /* SearchViewController.swift */,
 				00330A9C283BF91A009014AF /* LocationViewController.swift */,
@@ -279,17 +278,10 @@
 				1B27E22E283CA12D00FCB990 /* SearchTitleCollectionViewCell.swift */,
 				1B27E230283CA14200FCB990 /* SearchTwoInARowCollectionViewCell.swift */,
 				1B27E232283CA14900FCB990 /* SearchOneInARowCollectionViewCell.swift */,
+				1B69F368283CD506001A2860 /* MultipleRowsCollectionViewController.swift */,
 				1B69F36A283D0D9C001A2860 /* MultipleRowsCollectionViewContainerCell.swift */,
 			);
 			path = SubView;
-			sourceTree = "<group>";
-		};
-		1B69F367283CD4EF001A2860 /* CollectionViews */ = {
-			isa = PBXGroup;
-			children = (
-				1B69F368283CD506001A2860 /* MultipleRowsCollectionViewController.swift */,
-			);
-			path = CollectionViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
