@@ -14,7 +14,7 @@
 		8D0AD770283C5EE000575C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D0AD76E283C5EE000575C3B /* LaunchScreen.storyboard */; };
 		8D0AD77A283C61D700575C3B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD779283C61D700575C3B /* Alamofire */; };
 		8D0AD77D283C62F800575C3B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD77C283C62F800575C3B /* SnapKit */; };
-		8D0AD77F283C62F800575C3B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD77E283C62F800575C3B /* SnapKit-Dynamic */; };
+		8D0AD781283C718200575C3B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AD780283C718200575C3B /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +25,7 @@
 		8D0AD76C283C5EE000575C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D0AD76F283C5EE000575C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D0AD771283C5EE000575C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0AD780283C718200575C3B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +35,6 @@
 			files = (
 				8D0AD77A283C61D700575C3B /* Alamofire in Frameworks */,
 				8D0AD77D283C62F800575C3B /* SnapKit in Frameworks */,
-				8D0AD77F283C62F800575C3B /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0AD767283C5EDD00575C3B /* MainViewController.swift */,
+				8D0AD780283C718200575C3B /* MapViewController.swift */,
 				8D0AD771283C5EE000575C3B /* Info.plist */,
 				8D0AD777283C600C00575C3B /* SupportingFiles */,
 			);
@@ -97,7 +98,6 @@
 			packageProductDependencies = (
 				8D0AD779283C61D700575C3B /* Alamofire */,
 				8D0AD77C283C62F800575C3B /* SnapKit */,
-				8D0AD77E283C62F800575C3B /* SnapKit-Dynamic */,
 			);
 			productName = AirbnbApp;
 			productReference = 8D0AD760283C5EDD00575C3B /* AirbnbApp.app */;
@@ -160,6 +160,7 @@
 				8D0AD768283C5EDD00575C3B /* MainViewController.swift in Sources */,
 				8D0AD764283C5EDD00575C3B /* AppDelegate.swift in Sources */,
 				8D0AD766283C5EDD00575C3B /* SceneDelegate.swift in Sources */,
+				8D0AD781283C718200575C3B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,11 +398,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8D0AD77B283C62F700575C3B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		8D0AD77E283C62F800575C3B /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8D0AD77B283C62F700575C3B /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

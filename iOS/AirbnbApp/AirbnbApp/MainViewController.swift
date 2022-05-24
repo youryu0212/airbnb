@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import SnapKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
