@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/title_menu_search" />
+
+    <item
+        android:id="@+id/wishListFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/title_menu_wish" />
+
+    <item
+        android:id="@+id/myReservationFragment"
+        android:icon="@drawable/ic_outline_account_circle_24"
+        android:title="@string/title_menu_my_reservation" />
+</menu>
