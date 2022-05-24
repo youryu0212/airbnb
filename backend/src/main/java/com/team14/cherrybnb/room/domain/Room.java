@@ -1,9 +1,11 @@
 package com.team14.cherrybnb.room.domain;
 
-import com.team14.cherrybnb.revervation.domain.Member;
+import com.team14.cherrybnb.auth.domain.Member;
+import com.team14.cherrybnb.common.domain.Address;
 
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
 public class Room {
@@ -32,9 +34,11 @@ public class Room {
 
     private BigDecimal tax;
 
-    // Address
+    @OneToOne
+    @JoinColumn
+    private Address address;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn
     private Member member;
 }

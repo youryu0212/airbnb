@@ -1,6 +1,6 @@
 package com.team14.cherrybnb.room.domain;
 
-import com.team14.cherrybnb.revervation.domain.Member;
+import com.team14.cherrybnb.auth.domain.Member;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.JoinColumn;

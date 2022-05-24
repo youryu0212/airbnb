@@ -1,4 +1,4 @@
-package com.team14.cherrybnb.revervation.domain;
+package com.team14.cherrybnb.auth.domain;
 
 import com.team14.cherrybnb.room.domain.Room;
 
@@ -23,4 +23,6 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Room> rooms;
+
+    private Long addressId;
 }
