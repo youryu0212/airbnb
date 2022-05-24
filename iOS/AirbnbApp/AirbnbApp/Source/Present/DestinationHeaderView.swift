@@ -22,6 +22,8 @@ class DestinationHeaderView: UICollectionReusableView {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.text = "가까운 여행지 둘러보기"
+        label.font = UIFont.SFProDisplay.regular
+        label.textColor = .Custom.black
         return label
     }()
     
