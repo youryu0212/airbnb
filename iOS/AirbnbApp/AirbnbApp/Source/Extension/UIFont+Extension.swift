@@ -15,4 +15,8 @@ extension UIFont {
 //        static let medium = UIFont(name: "NotoSansKR-Medium", size: 17)
 //        static let medium: UIFont = UIFont(name: "NotoSansKR-Medium", size: 17)
     }
+    enum SFProDisplay {
+        static let medium = UIFont(name: "SFProDisplay-Medium", size: 34)
+        static let regular = UIFont(name: "SFProDisplay-Regular", size: 17)
+    }
 }
