@@ -37,7 +37,7 @@
 		E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */; };
 		E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */; };
 		E0108D7E283B784300CC736C /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D7D283B784300CC736C /* HeroImageView.swift */; };
-		E094188B283B7C63004A19F4 /* HomeTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094188A283B7C63004A19F4 /* HomeTravelView.swift */; };
+		E094188B283B7C63004A19F4 /* ArroundTravalMiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094188A283B7C63004A19F4 /* ArroundTravalMiniViewController.swift */; };
 		E094188E283B7E6A004A19F4 /* AroundTravelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094188D283B7E6A004A19F4 /* AroundTravelViewCell.swift */; };
 		E0941891283B802A004A19F4 /* AroundTraval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941890283B802A004A19F4 /* AroundTraval.swift */; };
 		E0941894283B80A3004A19F4 /* TravalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941893283B80A3004A19F4 /* TravalRepository.swift */; };
@@ -45,16 +45,25 @@
 		E0941898283B80D3004A19F4 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941897283B80D3004A19F4 /* HomeTarget.swift */; };
 		E094189A283B83D6004A19F4 /* Result+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0941899283B83D6004A19F4 /* Result+Extension.swift */; };
 		E094189C283B8843004A19F4 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = E094189B283B8843004A19F4 /* mock.json */; };
-		E09418A0283B90C4004A19F4 /* RecommandTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094189E283B90C4004A19F4 /* RecommandTravelView.swift */; };
+		E09418A0283B90C4004A19F4 /* RecommandTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094189E283B90C4004A19F4 /* RecommandTravelViewController.swift */; };
 		E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */; };
 		E09418A3283B91AA004A19F4 /* RecommandTraval.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418A2283B91AA004A19F4 /* RecommandTraval.swift */; };
 		E09418A7283B92E3004A19F4 /* recommandTravalMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E09418A6283B92E2004A19F4 /* recommandTravalMock.json */; };
 		E09418AA283B9A25004A19F4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418A9283B9A25004A19F4 /* SearchViewController.swift */; };
 		E09418AC283B9A2B004A19F4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418AB283B9A2B004A19F4 /* SearchViewModel.swift */; };
-		E09418AF283BBAE6004A19F4 /* SearchCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418AE283BBAE6004A19F4 /* SearchCollectionHeaderView.swift */; };
-		E09418B8283BDB0A004A19F4 /* SearchAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418B7283BDB0A004A19F4 /* SearchAroundView.swift */; };
-		E09418BA283BE14B004A19F4 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418B9283BE14B004A19F4 /* SearchResultView.swift */; };
+		E09418AF283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418AE283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift */; };
+		E09418B8283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418B7283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift */; };
+		E09418BA283BE14B004A19F4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418B9283BE14B004A19F4 /* SearchResultViewController.swift */; };
 		E09418BC283BE184004A19F4 /* SearchResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418BB283BE184004A19F4 /* SearchResultCellView.swift */; };
+		E09418BE283C6AF4004A19F4 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418BD283C6AF4004A19F4 /* MainViewProtocol.swift */; };
+		E09418C0283C6B2B004A19F4 /* SearchViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418BF283C6B2B004A19F4 /* SearchViewModelProtocol.swift */; };
+		E09418C2283C6ED6004A19F4 /* RxSwift+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418C1283C6ED6004A19F4 /* RxSwift+Extension.swift */; };
+		E09418C7283C9144004A19F4 /* RecommandTravelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418C6283C9144004A19F4 /* RecommandTravelViewModel.swift */; };
+		E09418CA283C91A3004A19F4 /* RecommandTravelViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418C9283C91A3004A19F4 /* RecommandTravelViewModelProtocol.swift */; };
+		E09418CC283C96DF004A19F4 /* ArroundTravalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418CB283C96DF004A19F4 /* ArroundTravalViewModel.swift */; };
+		E09418CE283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418CD283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift */; };
+		E09418D2283C9BCB004A19F4 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418D1283C9BCB004A19F4 /* SearchResultViewModel.swift */; };
+		E09418D4283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09418D3283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +114,7 @@
 		E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		E0108D7D283B784300CC736C /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
-		E094188A283B7C63004A19F4 /* HomeTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTravelView.swift; sourceTree = "<group>"; };
+		E094188A283B7C63004A19F4 /* ArroundTravalMiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArroundTravalMiniViewController.swift; sourceTree = "<group>"; };
 		E094188D283B7E6A004A19F4 /* AroundTravelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundTravelViewCell.swift; sourceTree = "<group>"; };
 		E0941890283B802A004A19F4 /* AroundTraval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundTraval.swift; sourceTree = "<group>"; };
 		E0941893283B80A3004A19F4 /* TravalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravalRepository.swift; sourceTree = "<group>"; };
@@ -113,16 +122,25 @@
 		E0941897283B80D3004A19F4 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		E0941899283B83D6004A19F4 /* Result+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extension.swift"; sourceTree = "<group>"; };
 		E094189B283B8843004A19F4 /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
-		E094189E283B90C4004A19F4 /* RecommandTravelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandTravelView.swift; sourceTree = "<group>"; };
+		E094189E283B90C4004A19F4 /* RecommandTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandTravelViewController.swift; sourceTree = "<group>"; };
 		E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommandTravelViewCell.swift; sourceTree = "<group>"; };
 		E09418A2283B91AA004A19F4 /* RecommandTraval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandTraval.swift; sourceTree = "<group>"; };
 		E09418A6283B92E2004A19F4 /* recommandTravalMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recommandTravalMock.json; sourceTree = "<group>"; };
 		E09418A9283B9A25004A19F4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E09418AB283B9A2B004A19F4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		E09418AE283BBAE6004A19F4 /* SearchCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionHeaderView.swift; sourceTree = "<group>"; };
-		E09418B7283BDB0A004A19F4 /* SearchAroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAroundView.swift; sourceTree = "<group>"; };
-		E09418B9283BE14B004A19F4 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		E09418AE283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArroundTravalCollectionHeaderView.swift; sourceTree = "<group>"; };
+		E09418B7283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArroundTravalLargeViewController.swift; sourceTree = "<group>"; };
+		E09418B9283BE14B004A19F4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		E09418BB283BE184004A19F4 /* SearchResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellView.swift; sourceTree = "<group>"; };
+		E09418BD283C6AF4004A19F4 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		E09418BF283C6B2B004A19F4 /* SearchViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelProtocol.swift; sourceTree = "<group>"; };
+		E09418C1283C6ED6004A19F4 /* RxSwift+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extension.swift"; sourceTree = "<group>"; };
+		E09418C6283C9144004A19F4 /* RecommandTravelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandTravelViewModel.swift; sourceTree = "<group>"; };
+		E09418C9283C91A3004A19F4 /* RecommandTravelViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandTravelViewModelProtocol.swift; sourceTree = "<group>"; };
+		E09418CB283C96DF004A19F4 /* ArroundTravalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArroundTravalViewModel.swift; sourceTree = "<group>"; };
+		E09418CD283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArroundTravalViewModelProtocol.swift; sourceTree = "<group>"; };
+		E09418D1283C9BCB004A19F4 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		E09418D3283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,8 +309,11 @@
 		E0108D62283B2E7100CC736C /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				E09418D0283C9B7D004A19F4 /* SearchResult */,
 				E09418B2283BC832004A19F4 /* Common */,
 				E0108D6A283B4B7F00CC736C /* MainTabBar */,
+				E094188C283B7E4C004A19F4 /* ArroundTravel */,
+				E094189D283B90C4004A19F4 /* RecommandTravel */,
 				E0108D65283B2EC900CC736C /* Main */,
 				E0108D70283B4E2500CC736C /* WishList */,
 				E0108D73283B4E3800CC736C /* MyReservation */,
@@ -308,6 +329,7 @@
 				E0108D76283B549900CC736C /* View */,
 				E0108D66283B2ED500CC736C /* MainViewController.swift */,
 				E0108D68283B2F0E00CC736C /* MainViewModel.swift */,
+				E09418BD283C6AF4004A19F4 /* MainViewProtocol.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -327,6 +349,7 @@
 				E0108D79283B75CC00CC736C /* NSMutableAttributedString+Extension.swift */,
 				E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */,
 				E0941899283B83D6004A19F4 /* Result+Extension.swift */,
+				E09418C1283C6ED6004A19F4 /* RxSwift+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -350,19 +373,21 @@
 		E0108D76283B549900CC736C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E094189D283B90C4004A19F4 /* RecommandTravel */,
-				E094188C283B7E4C004A19F4 /* HomeTravel */,
 				E0108D7D283B784300CC736C /* HeroImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		E094188C283B7E4C004A19F4 /* HomeTravel */ = {
+		E094188C283B7E4C004A19F4 /* ArroundTravel */ = {
 			isa = PBXGroup;
 			children = (
-				E094188A283B7C63004A19F4 /* HomeTravelView.swift */,
+				E09418CF283C98AB004A19F4 /* View */,
+				E094188A283B7C63004A19F4 /* ArroundTravalMiniViewController.swift */,
+				E09418B7283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift */,
+				E09418CB283C96DF004A19F4 /* ArroundTravalViewModel.swift */,
+				E09418CD283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift */,
 			);
-			path = HomeTravel;
+			path = ArroundTravel;
 			sourceTree = "<group>";
 		};
 		E094188F283B7FE5004A19F4 /* Model */ = {
@@ -386,8 +411,10 @@
 		E094189D283B90C4004A19F4 /* RecommandTravel */ = {
 			isa = PBXGroup;
 			children = (
-				E094189E283B90C4004A19F4 /* RecommandTravelView.swift */,
-				E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */,
+				E09418C8283C915A004A19F4 /* View */,
+				E094189E283B90C4004A19F4 /* RecommandTravelViewController.swift */,
+				E09418C6283C9144004A19F4 /* RecommandTravelViewModel.swift */,
+				E09418C9283C91A3004A19F4 /* RecommandTravelViewModelProtocol.swift */,
 			);
 			path = RecommandTravel;
 			sourceTree = "<group>";
@@ -395,39 +422,19 @@
 		E09418A8283B9A16004A19F4 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				E09418AD283B9D50004A19F4 /* View */,
 				E09418A9283B9A25004A19F4 /* SearchViewController.swift */,
 				E09418AB283B9A2B004A19F4 /* SearchViewModel.swift */,
+				E09418BF283C6B2B004A19F4 /* SearchViewModelProtocol.swift */,
 			);
 			path = SearchView;
-			sourceTree = "<group>";
-		};
-		E09418AD283B9D50004A19F4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E09418AE283BBAE6004A19F4 /* SearchCollectionHeaderView.swift */,
-				E09418B7283BDB0A004A19F4 /* SearchAroundView.swift */,
-				E09418B9283BE14B004A19F4 /* SearchResultView.swift */,
-				E09418BB283BE184004A19F4 /* SearchResultCellView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E09418B2283BC832004A19F4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				E09418B6283BDA89004A19F4 /* View */,
-				E09418B3283BC849004A19F4 /* Cell */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		E09418B3283BC849004A19F4 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E094188D283B7E6A004A19F4 /* AroundTravelViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		E09418B6283BDA89004A19F4 /* View */ = {
@@ -436,6 +443,34 @@
 				E0108D77283B54A200CC736C /* SearchBarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E09418C8283C915A004A19F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E094189F283B90C4004A19F4 /* RecommandTravelViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E09418CF283C98AB004A19F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E094188D283B7E6A004A19F4 /* AroundTravelViewCell.swift */,
+				E09418AE283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E09418D0283C9B7D004A19F4 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				E09418B9283BE14B004A19F4 /* SearchResultViewController.swift */,
+				E09418BB283BE184004A19F4 /* SearchResultCellView.swift */,
+				E09418D1283C9BCB004A19F4 /* SearchResultViewModel.swift */,
+				E09418D3283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift */,
+			);
+			path = SearchResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,9 +681,11 @@
 				E0108D59283B2DDE00CC736C /* UserDefault.swift in Sources */,
 				E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */,
 				E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */,
+				E09418C2283C6ED6004A19F4 /* RxSwift+Extension.swift in Sources */,
 				E0108D5F283B2DDE00CC736C /* BaseTarget.swift in Sources */,
 				E09418AC283B9A2B004A19F4 /* SearchViewModel.swift in Sources */,
 				E09418A3283B91AA004A19F4 /* RecommandTraval.swift in Sources */,
+				E09418C7283C9144004A19F4 /* RecommandTravelViewModel.swift in Sources */,
 				E0108D5D283B2DDE00CC736C /* HTTPContentType.swift in Sources */,
 				E0108D5A283B2DDE00CC736C /* Inject.swift in Sources */,
 				E0108D7E283B784300CC736C /* HeroImageView.swift in Sources */,
@@ -657,29 +694,36 @@
 				E0108D56283B2DDE00CC736C /* ImageManager.swift in Sources */,
 				E0108D57283B2DDE00CC736C /* Log.swift in Sources */,
 				E0941894283B80A3004A19F4 /* TravalRepository.swift in Sources */,
-				E09418BA283BE14B004A19F4 /* SearchResultView.swift in Sources */,
+				E09418BA283BE14B004A19F4 /* SearchResultViewController.swift in Sources */,
 				E09418BC283BE184004A19F4 /* SearchResultCellView.swift in Sources */,
 				E094189A283B83D6004A19F4 /* Result+Extension.swift in Sources */,
 				E0108D0F283B271000CC736C /* AppDelegate.swift in Sources */,
 				E0108D67283B2ED500CC736C /* MainViewController.swift in Sources */,
-				E09418AF283BBAE6004A19F4 /* SearchCollectionHeaderView.swift in Sources */,
+				E09418CE283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift in Sources */,
+				E09418AF283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift in Sources */,
 				E0108D64283B2E9000CC736C /* RootWindow.swift in Sources */,
 				E094188E283B7E6A004A19F4 /* AroundTravelViewCell.swift in Sources */,
 				E0108D61283B2DDE00CC736C /* Response.swift in Sources */,
 				E0108D60283B2DDE00CC736C /* HTTPMethod.swift in Sources */,
-				E09418A0283B90C4004A19F4 /* RecommandTravelView.swift in Sources */,
+				E09418A0283B90C4004A19F4 /* RecommandTravelViewController.swift in Sources */,
+				E09418CA283C91A3004A19F4 /* RecommandTravelViewModelProtocol.swift in Sources */,
 				E0108D58283B2DDE00CC736C /* Container.swift in Sources */,
 				E0108D7A283B75CC00CC736C /* NSMutableAttributedString+Extension.swift in Sources */,
 				E0108D55283B2DDE00CC736C /* UserStore.swift in Sources */,
+				E09418BE283C6AF4004A19F4 /* MainViewProtocol.swift in Sources */,
+				E09418D2283C9BCB004A19F4 /* SearchResultViewModel.swift in Sources */,
 				E0941891283B802A004A19F4 /* AroundTraval.swift in Sources */,
-				E09418B8283BDB0A004A19F4 /* SearchAroundView.swift in Sources */,
+				E09418C0283C6B2B004A19F4 /* SearchViewModelProtocol.swift in Sources */,
+				E09418B8283BDB0A004A19F4 /* ArroundTravalLargeViewController.swift in Sources */,
 				E0108D6C283B4B9300CC736C /* MainTabBarController.swift in Sources */,
 				E09418AA283B9A25004A19F4 /* SearchViewController.swift in Sources */,
 				E0108D78283B54A200CC736C /* SearchBarView.swift in Sources */,
 				E0108D5E283B2DDE00CC736C /* Provider.swift in Sources */,
 				E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */,
+				E09418D4283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift in Sources */,
+				E09418CC283C96DF004A19F4 /* ArroundTravalViewModel.swift in Sources */,
 				E0108D5B283B2DDE00CC736C /* NetworkRepository.swift in Sources */,
-				E094188B283B7C63004A19F4 /* HomeTravelView.swift in Sources */,
+				E094188B283B7C63004A19F4 /* ArroundTravalMiniViewController.swift in Sources */,
 				E0941898283B80D3004A19F4 /* HomeTarget.swift in Sources */,
 				E0108D11283B271000CC736C /* SceneDelegate.swift in Sources */,
 				E0108D5C283B2DDE00CC736C /* APIError.swift in Sources */,

@@ -9,29 +9,18 @@ import Foundation
 import RxRelay
 import RxSwift
 
-protocol SearchViewModelAction {
-    var loadAroundTraval: PublishRelay<Void> { get }
-}
-
-protocol SearchViewModelState {
-    var loadedAroundTraval: PublishRelay<[AroundTraval]> { get }
-}
-
-protocol SearchViewModelBinding {
-    func action() -> SearchViewModelAction
-    func state() -> SearchViewModelState
-}
-
-typealias SearchViewModelProtocol = SearchViewModelBinding
-
-final class SearchViewModel: SearchViewModelBinding, SearchViewModelAction, SearchViewModelState {
+final class SearchViewModel: SearchViewModelBinding, SearchViewModelProperty, SearchViewModelAction, SearchViewModelState {
     func action() -> SearchViewModelAction { self }
     
     let loadAroundTraval = PublishRelay<Void>()
+    let updateSearchResult = PublishRelay<[String]>()
     
     func state() -> SearchViewModelState { self }
     
     let loadedAroundTraval = PublishRelay<[AroundTraval]>()
+    
+    let arroundTravelViewModel: ArroundTravalViewModelProtocol = ArroundTravalViewModel()
+    let searchResultTravelViewModel: SearchResultViewModelProtocol = SearchResultViewModel()
     
     @Inject(\.homeRepository) private var homeRepository: TravalRepository
     private let disposeBag = DisposeBag()
@@ -48,6 +37,9 @@ final class SearchViewModel: SearchViewModelBinding, SearchViewModelAction, Sear
             .compactMap { $0.value }
             .bind(to: loadedAroundTraval)
             .disposed(by: disposeBag)
+        
+        updateSearchResult
+            .bind(to: searchResultTravelViewModel.state().updatedSearchResult)
+            .disposed(by: disposeBag)
     }
-    
 }

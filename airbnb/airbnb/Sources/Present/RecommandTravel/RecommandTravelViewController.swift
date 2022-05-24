@@ -9,14 +9,14 @@ import RxRelay
 import RxSwift
 import UIKit
 
-final class RecommandTravelView: UIView {
+final class RecommandTravelViewController: UIViewController {
     enum Constants {
         static let cellSize = CGSize(width: 253, height: 368)
     }
     
     private let contentView = UIView()
     
-    private let title: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "어디에서나, 여행은\n살아보는거야!"
         label.font = .systemFont(ofSize: 22, weight: .regular)
@@ -37,14 +37,13 @@ final class RecommandTravelView: UIView {
         return collectionView
     }()
     
-    let updateCell = PublishRelay<[RecommandTraval]>()
-    
+    private let viewModel: RecommandTravelViewModelProtocol
     private let disposeBag = DisposeBag()
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    init(viewModel: RecommandTravelViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
         bind()
-        attribute()
         layout()
     }
     
@@ -54,22 +53,23 @@ final class RecommandTravelView: UIView {
     }
     
     private func bind() {
-        updateCell
+        rx.viewDidLoad
+            .bind(to: viewModel.action().loadRecommandTravel)
+            .disposed(by: disposeBag)
+        
+        viewModel.state().loadedRecommandTraval
             .bind(to: collectionView.rx.items(cellIdentifier: RecommandTravelViewCell.identifier, cellType: RecommandTravelViewCell.self)) { _, model, cell in
                 cell.setTraval(model)
             }
             .disposed(by: disposeBag)
     }
     
-    private func attribute() {
-    }
-    
     private func layout() {
-        addSubview(contentView)
-        contentView.addSubview(title)
+        view.addSubview(contentView)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(collectionView)
         
-        snp.makeConstraints {
+        view.snp.makeConstraints {
             $0.bottom.equalTo(contentView)
         }
         
@@ -79,12 +79,12 @@ final class RecommandTravelView: UIView {
             $0.bottom.equalTo(collectionView)
         }
         
-        title.snp.makeConstraints {
+        titleLabel.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(title.snp.bottom).offset(28)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(28)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(Constants.cellSize.height)
         }

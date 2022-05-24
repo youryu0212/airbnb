@@ -43,12 +43,12 @@ final class SearchBarView: UIView {
     
     let tapped = PublishSubject<Void>()
     let text = PublishSubject<String?>()
+    let clear = PublishRelay<Void>()
         
     init(isUseTapped: Bool = false) {
         super.init(frame: .zero)
         overlapButton.isHidden = !isUseTapped
         bind()
-        attribute()
         layout()
     }
     
@@ -65,9 +65,15 @@ final class SearchBarView: UIView {
         textField.rx.text
             .bind(to: text)
             .disposed(by: disposeBag)
-    }
-    
-    private func attribute() {
+        
+        clear
+            .withUnretained(self)
+            .do { view, _ in
+                view.textField.text = ""
+            }
+            .map { _ in "" }
+            .bind(to: text)
+            .disposed(by: disposeBag)
     }
     
     private func layout() {

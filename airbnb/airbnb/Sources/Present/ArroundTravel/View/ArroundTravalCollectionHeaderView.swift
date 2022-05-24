@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class SearchCollectoinHeaderView: UICollectionReusableView {
-    static let identifier = "SearchCollectoinHeaderView"
+final class ArroundTravalCollectionHeaderView: UICollectionReusableView {
+    static var identifier: String { .init(describing: self) }
     
     private let titleLabel: UILabel = {
         let label = UILabel()

@@ -9,7 +9,7 @@ import RxRelay
 import RxSwift
 import UIKit
 
-final class SearchResultView: UIView {
+final class SearchResultViewController: UIViewController {
     enum Contants {
         static let collectionViewInset = 16.0
         static let cellSize = CGSize(width: UIScreen.main.bounds.width - collectionViewInset * 2, height: 64)
@@ -27,14 +27,13 @@ final class SearchResultView: UIView {
         return collectionView
     }()
     
+    private let viewModel: SearchResultViewModelProtocol
     private let disposeBag = DisposeBag()
     
-    let updateDataSource = PublishRelay<[String]>()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: SearchResultViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
         bind()
-        attribute()
         layout()
     }
     
@@ -44,22 +43,22 @@ final class SearchResultView: UIView {
     }
     
     private func bind() {
-        updateDataSource
+        viewModel.state().updatedSearchResult
             .bind(to: collectionView.rx.items(cellIdentifier: SearchResultCellView.identifier, cellType: SearchResultCellView.self)) { _, model, cell in
                 cell.setAddress(model)
             }
             .disposed(by: disposeBag)
     }
     
-    private func attribute() {
-    }
-    
     private func layout() {
-        addSubview(collectionView)
+        view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints {
             $0.top.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(Contants.collectionViewInset)
         }
     }
+}
+
+final class SearchResultView: UIView {
 }

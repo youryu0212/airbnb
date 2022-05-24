@@ -8,20 +8,26 @@
 import RxSwift
 import UIKit
 
-final class RecommandTravelViewCell: UICollectionViewCell {
-    static let identifier = "RecommandTravelViewCell"
+final class AroundTravelViewCell: UICollectionViewCell {
+    static var identifier: String { .init(describing: self) }
     
-    let thumbnail: UIImageView = {
+    let icon: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 10
         return imageView
     }()
     
-    let title: UILabel = {
+    let travalName: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .semibold)
         label.textColor = .grey1
-        label.numberOfLines = 2
+        return label
+    }()
+    
+    let distance: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .regular)
+        label.textColor = .grey3
         return label
     }()
     
@@ -38,33 +44,37 @@ final class RecommandTravelViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func attribute() {
-    }
-    
     private func layout() {
-        addSubview(thumbnail)
-        addSubview(title)
+        addSubview(icon)
+        addSubview(travalName)
+        addSubview(distance)
         
-        thumbnail.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(308)
+        icon.snp.makeConstraints {
+            $0.top.bottom.leading.equalToSuperview()
+            $0.width.equalTo(icon.snp.height)
         }
         
-        title.snp.makeConstraints {
-            $0.top.equalTo(thumbnail.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview()
+        travalName.snp.makeConstraints {
+            $0.bottom.equalTo(snp.centerY).inset(2)
+            $0.leading.equalTo(icon.snp.trailing).offset(16)
+        }
+        
+        distance.snp.makeConstraints {
+            $0.top.equalTo(snp.centerY).offset(2)
+            $0.leading.equalTo(icon.snp.trailing).offset(16)
         }
     }
     
-    func setTraval(_ traval: RecommandTraval) {
+    func setTraval(_ traval: AroundTraval) {
         imageManager.loadImage(url: traval.imageUrl).asObservable()
             .withUnretained(self)
             .observe(on: MainScheduler.asyncInstance)
             .bind(onNext: { cell, image in
-                cell.thumbnail.image = image
+                cell.icon.image = image
             })
             .disposed(by: disposeBag)
         
-        title.text = traval.title
+        travalName.text = traval.name
+        distance.text = traval.distance
     }
 }

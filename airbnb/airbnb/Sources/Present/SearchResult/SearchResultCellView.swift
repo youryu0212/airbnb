@@ -34,9 +34,6 @@ final class SearchResultCellView: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func attribute() {
-    }
-    
     private func layout() {
         addSubview(icon)
         addSubview(addressName)

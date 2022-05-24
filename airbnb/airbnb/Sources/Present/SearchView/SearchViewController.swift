@@ -5,10 +5,10 @@
 //  Created by seongha shin on 2022/05/23.
 //
 
+import MapKit
 import RxAppState
 import RxDataSources
 import RxSwift
-import MapKit
 import UIKit
 
 final class SearchViewController: UIViewController {
@@ -17,11 +17,20 @@ final class SearchViewController: UIViewController {
         return searchView
     }()
     
-    private let aroundView = SearchAroundView()
-    private let searchResultView: SearchResultView = {
-        let searchView = SearchResultView()
-        searchView.isHidden = true
-        return searchView
+    private lazy var arroundTravalViewController: ArroundTravalLargeViewController = {
+        ArroundTravalLargeViewController(viewModel: viewModel.arroundTravelViewModel)
+    }()
+    
+    private lazy var searchResultViewController: SearchResultViewController = {
+        let viewController = SearchResultViewController(viewModel: viewModel.searchResultTravelViewModel)
+        viewController.view.isHidden = true
+        return viewController
+    }()
+    
+    private let searchClearButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "지우기"
+        return button
     }()
     
     private let viewModel: SearchViewModelProtocol
@@ -68,10 +77,6 @@ final class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.state().loadedAroundTraval
-            .bind(to: aroundView.updateDataSource)
-            .disposed(by: disposeBag)
-        
         searchBarView.text
             .compactMap { $0 }
             .withUnretained(self)
@@ -89,35 +94,41 @@ final class SearchViewController: UIViewController {
             }
             .withUnretained(self)
             .bind(onNext: { vc, isEmpty in
-                vc.aroundView.isHidden = !isEmpty
-                vc.searchResultView.isHidden = isEmpty
+                vc.arroundTravalViewController.view.isHidden = !isEmpty
+                vc.searchResultViewController.view.isHidden = isEmpty
             })
+            .disposed(by: disposeBag)
+        
+        searchClearButton.rx.tap
+            .mapVoid()
+            .bind(to: searchBarView.clear)
             .disposed(by: disposeBag)
     }
     
     private func attribute() {
         title = "숙소 찾기"
+        navigationItem.rightBarButtonItem = searchClearButton
         view.backgroundColor = .white
         searchCompleter.delegate = self
     }
     
     private func layout() {
         view.addSubview(searchBarView)
-        view.addSubview(aroundView)
-        view.addSubview(searchResultView)
+        view.addSubview(arroundTravalViewController.view)
+        view.addSubview(searchResultViewController.view)
         
         searchBarView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
         }
         
-        aroundView.snp.makeConstraints {
+        arroundTravalViewController.view.snp.makeConstraints {
             $0.top.equalTo(searchBarView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
-        searchResultView.snp.makeConstraints {
+        searchResultViewController.view.snp.makeConstraints {
             $0.top.equalTo(searchBarView.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -127,7 +138,6 @@ final class SearchViewController: UIViewController {
 
 extension SearchViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        
-        searchResultView.updateDataSource.accept(completer.results.map { $0.title })
+        viewModel.action().updateSearchResult.accept(completer.results.map { $0.title })
     }
 }

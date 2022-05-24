@@ -9,7 +9,7 @@ import RxRelay
 import RxSwift
 import UIKit
 
-final class HomeTravelView: UIView {
+final class ArroundTravalMiniViewController: UIViewController {
     enum Constants {
         static let cellSize = CGSize(width: 253, height: 74)
         static let minimumLineSpacing = 24.0
@@ -17,7 +17,7 @@ final class HomeTravelView: UIView {
     
     private let contentView = UIView()
     
-    private let title: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "가까운 여행지 둘러보기"
         label.font = .systemFont(ofSize: 22, weight: .regular)
@@ -38,14 +38,13 @@ final class HomeTravelView: UIView {
         return collectionView
     }()
     
-    let updateCell = PublishRelay<[AroundTraval]>()
-    
+    private let viewModel: ArroundTravalViewModelProtocol
     private let disposeBag = DisposeBag()
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    init(viewModel: ArroundTravalViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
         bind()
-        attribute()
         layout()
     }
     
@@ -55,22 +54,23 @@ final class HomeTravelView: UIView {
     }
     
     private func bind() {
-        updateCell
+        rx.viewDidLoad
+            .bind(to: viewModel.action().loadArroundTravel)
+            .disposed(by: disposeBag)
+        
+        viewModel.state().loadedAroundTraval
             .bind(to: collectionView.rx.items(cellIdentifier: AroundTravelViewCell.identifier, cellType: AroundTravelViewCell.self)) { _, model, cell in
                 cell.setTraval(model)
             }
             .disposed(by: disposeBag)
     }
     
-    private func attribute() {
-    }
-    
     private func layout() {
-        addSubview(contentView)
-        contentView.addSubview(title)
+        view.addSubview(contentView)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(collectionView)
         
-        snp.makeConstraints {
+        view.snp.makeConstraints {
             $0.bottom.equalTo(contentView)
         }
         
@@ -80,12 +80,12 @@ final class HomeTravelView: UIView {
             $0.bottom.equalTo(collectionView)
         }
         
-        title.snp.makeConstraints {
+        titleLabel.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(title.snp.bottom).offset(24)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo((Constants.cellSize.height * 2) + Constants.minimumLineSpacing)
         }
