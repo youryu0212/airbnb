@@ -21,6 +21,7 @@ final class SearchResultViewController: UIViewController {
         flowLayout.minimumLineSpacing = 16
         flowLayout.itemSize = Contants.cellSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(SearchResultCellView.self, forCellWithReuseIdentifier: SearchResultCellView.identifier)

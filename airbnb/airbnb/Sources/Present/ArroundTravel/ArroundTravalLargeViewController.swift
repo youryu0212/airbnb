@@ -24,6 +24,7 @@ final class ArroundTravalLargeViewController: UIViewController {
         flowLayout.itemSize = Contants.cellSize
         flowLayout.headerReferenceSize = Contants.headerSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(ArroundTravelCellView.self, forCellWithReuseIdentifier: ArroundTravelCellView.identifier)

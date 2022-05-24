@@ -28,6 +28,8 @@ final class SearchViewController: UIViewController {
         return button
     }()
     
+    private let contentView = UIView()
+    
     private lazy var arroundTravalViewController: ArroundTravalLargeViewController = {
         ArroundTravalLargeViewController(viewModel: viewModel.arroundTravelViewModel)
     }()
@@ -125,6 +127,19 @@ final class SearchViewController: UIViewController {
                 print(address)
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(UIWindow.keyboardWillShowNotification)
+            .compactMap { $0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue }
+            .withUnretained(self)
+            .bind(onNext: { vc, value in
+                UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseOut, animations: {
+                    vc.contentView.snp.updateConstraints {
+                        $0.bottom.equalToSuperview().inset(value.cgRectValue.height)
+                    }
+                    vc.contentView.superview?.layoutIfNeeded()
+                })
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -134,19 +149,23 @@ final class SearchViewController: UIViewController {
     }
     
     private func layout() {
-        view.addSubview(arroundTravalViewController.view)
-        view.addSubview(searchResultViewController.view)
+        view .addSubview(contentView)
+        contentView.addSubview(arroundTravalViewController.view)
+        contentView.addSubview(searchResultViewController.view)
         
-        arroundTravalViewController.view.snp.makeConstraints {
+        contentView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
+        }
+        
+        arroundTravalViewController.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         searchResultViewController.view.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(24)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
 }
