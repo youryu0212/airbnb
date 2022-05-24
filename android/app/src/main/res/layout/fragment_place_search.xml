@@ -33,13 +33,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:textSize="20sp"
-            android:layout_marginStart="20dp"
-            android:hint="@string/whereToGo"
             android:id="@+id/et_search_word"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:background="@null"
+            android:hint="@string/whereToGo"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/view_place_search"
             app:layout_constraintEnd_toStartOf="@+id/btn_search_confirm"
             app:layout_constraintHorizontal_bias="0.5"
@@ -75,11 +75,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_place"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/view_place_search"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_place_search" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
