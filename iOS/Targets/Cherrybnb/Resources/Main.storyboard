@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Of9-Dh-U9z">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eCq-ff-zg7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1795.6521739130437" y="138.61607142857142"/>
+        </scene>
+        <!--검색-->
+        <scene sceneID="sYM-KV-mEV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3ah-aJ-Pws" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="SzN-V3-0OP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iym-O9-OXa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="G5A-qF-5pI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0i1-yB-P3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YoG-nG-XVy">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Of9-Dh-U9z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zk7-el-acG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3ah-aJ-Pws" kind="relationship" relationship="viewControllers" id="RsJ-ID-6NG"/>
+                        <segue destination="cvg-q5-BmV" kind="relationship" relationship="viewControllers" id="SBA-5J-Ibh"/>
+                        <segue destination="qSU-XH-g80" kind="relationship" relationship="viewControllers" id="7U7-Mx-OuQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diD-UL-xNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-683" y="139"/>
+        </scene>
+        <!--내 예약-->
+        <scene sceneID="67V-1q-mwN">
+            <objects>
+                <viewController id="cvg-q5-BmV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QrK-aC-kxH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Booking will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-gj-jSa">
+                                <rect key="frame" x="116.5" y="437.5" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Cb-O0-bGM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dYD-gj-jSa" firstAttribute="centerX" secondItem="QrK-aC-kxH" secondAttribute="centerX" id="GcF-Mi-3NS"/>
+                            <constraint firstItem="dYD-gj-jSa" firstAttribute="centerY" secondItem="QrK-aC-kxH" secondAttribute="centerY" id="txu-OF-kZ8"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="내 예약" image="heart" catalog="system" id="xuQ-4D-gjd"/>
+                    <navigationItem key="navigationItem" id="Fes-2A-xFf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKX-V1-Egf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1410" y="911"/>
+        </scene>
+        <!--위시리스트-->
+        <scene sceneID="uyE-Yq-Sah">
+            <objects>
+                <viewController id="qSU-XH-g80" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Di8-Sv-vRi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist will be here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-U0-wSa">
+                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="placeholderTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JfH-yu-lJr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z49-U0-wSa" firstAttribute="centerX" secondItem="Di8-Sv-vRi" secondAttribute="centerX" id="XHn-T2-Jcg"/>
+                            <constraint firstItem="Z49-U0-wSa" firstAttribute="centerY" secondItem="Di8-Sv-vRi" secondAttribute="centerY" id="sWV-xx-xz2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="위시리스트" image="person" catalog="system" id="Ec7-zu-78V"/>
+                    <navigationItem key="navigationItem" id="2nF-By-uL5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gE-N0-SBg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="911"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
