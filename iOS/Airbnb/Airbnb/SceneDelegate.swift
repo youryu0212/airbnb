@@ -13,7 +13,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let tabBarController = self.window?.rootViewController as? UITabBarController else {
+            return
+        }
+        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.barTintColor = .gray
+        tabBarController.tabBar.clipsToBounds = true
+        
+        if let tabBarItems = tabBarController.tabBar.items {
+            tabBarItems[0].title = "검색"
+            tabBarItems[1].title = "위시리스트"
+            tabBarItems[2].title = "내 예약"
+            
+            tabBarItems[0].image = UIImage(named: "magnifyingglass")
+            tabBarItems[1].image = UIImage(named: "heart")
+            tabBarItems[2].image = UIImage(named: "person.fill")
+            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
