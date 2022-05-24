@@ -46,7 +46,7 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
         
         let horizontalLayoutGroup = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize.init(
-                widthDimension: .fractionalWidth(contentSizeWidth),
+                widthDimension: .absolute(width*contentSizeWidth + 2*contentSizeWidth),
                 heightDimension: .fractionalHeight(1.0)),
             subitem: verticalLayoutGroup,
             count: Int(contentSizeWidth))

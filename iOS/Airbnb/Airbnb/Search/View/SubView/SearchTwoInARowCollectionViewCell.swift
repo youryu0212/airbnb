@@ -56,6 +56,7 @@ class SearchTwoInARowCollectionViewCell: SearchCellCommonType {
             make.top.leading.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().inset(8)
             make.width.lessThanOrEqualTo(60)
+            make.width.equalTo(mainImageView.snp.height).multipliedBy(1)
         }
         
         mainView.addSubview(titleLabel)

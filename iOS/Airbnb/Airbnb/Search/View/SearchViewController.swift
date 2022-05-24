@@ -11,7 +11,7 @@ import SnapKit
 class SearchViewController: UIViewController {
     
     enum Section {
-        case albumBody
+        case mainSearchBody
     }
     
     private var flowLayout: UICollectionViewLayout {
@@ -87,14 +87,14 @@ class SearchViewController: UIViewController {
                         width: collectionView.frame.width * 4/5,
                         rowCount: 1)
             }
-                        
+            
             return cell
         }
     }
     
     func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]>()
-        snapshot.appendSections([Section.albumBody])
+        snapshot.appendSections([Section.mainSearchBody])
         
         var items = [[SearchFavoriteLocationModel]]()
         var oneRowItems = [SearchFavoriteLocationModel]()
