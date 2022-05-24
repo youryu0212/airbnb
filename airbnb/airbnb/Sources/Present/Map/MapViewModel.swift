@@ -9,13 +9,21 @@ import RxSwift
 import RxRelay
 import RxAppState
 
+
+struct MapDTO {
+    let title: String = "aaaa"
+}
+
 protocol MapViewModelAction {
-    var viewLifeChanged: PublishRelay<ViewControllerViewState> { get }
-    
+    var collectionSelected: PublishRelay<Int> { get }
+    var loadCollectionData: PublishRelay<Void> { get }
+    var loadPinData: PublishRelay<Void> { get }
 }
 
 protocol MapViewModelState {
-    var viewLifeCycle: PublishRelay<ViewControllerViewState> { get }
+    var collectionSelectedData: PublishRelay<[String]> { get }
+    var loadedCollectionData: PublishRelay<[MapDTO]> { get }
+    var loadedPin: PublishRelay<[CGPoint]> { get }
 }
 
 protocol MapViewModelBinding {
@@ -26,18 +34,34 @@ protocol MapViewModelBinding {
 typealias MapViewModelProtocol = MapViewModelBinding
 
 final class MapViewModel: MapViewModelBinding, MapViewModelAction, MapViewModelState {
+    var collectionSelected = PublishRelay<Int>()
+    
     private let disposeBag = DisposeBag()
     
-    var viewLifeCycle = PublishRelay<ViewControllerViewState>()
-    var viewLifeChanged = PublishRelay<ViewControllerViewState>()
-    
     func action() -> MapViewModelAction { self }
+    
+    var loadPinData = PublishRelay<Void>()
+    var loadCollectionData = PublishRelay<Void>()
+    
     func state() -> MapViewModelState { self }
     
+    var loadedPin = PublishRelay<[CGPoint]>()
+    var loadedCollectionData = PublishRelay<[MapDTO]>()
+    var collectionSelectedData = PublishRelay<[String]>()
+    
     init() {
-        viewLifeCycle
-            .filter { $0 == .viewDidLoad }
-            .bind(to: viewLifeCycle)
+        loadPinData
+            .map { _ in
+                [CGPoint(x: 37.4908205, y: 127.0334173)]
+            }
+            .bind(to: loadedPin)
+            .disposed(by: disposeBag)
+        
+        loadCollectionData
+            .map { _ in
+                [MapDTO](repeating: MapDTO(), count: 5)
+            }
+            .bind(to: loadedCollectionData)
             .disposed(by: disposeBag)
     }
 }

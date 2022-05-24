@@ -12,7 +12,6 @@ final class MapCollectionDataSource: NSObject {
 }
 extension MapCollectionDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("section check")
         return 3
     }
     

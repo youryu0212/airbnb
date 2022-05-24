@@ -7,12 +7,14 @@
 
 import RxAppState
 import RxSwift
+import MapKit
 
 final class MapViewController: UIViewController {
     
     private lazy var mapView = MapView(frame: view.frame)
     private let mapCollectionDataSource = MapCollectionDataSource()
-    private var abc = MapCollectionDelegate()
+    private let mapCollectionFlow = MapCollectionDelegate()
+    private let mkMapViewManager = MapDelegate()
     private let viewModel: MapViewModelProtocol
     private let disposeBag = DisposeBag()
     
@@ -20,6 +22,8 @@ final class MapViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         bind()
+        attribute()
+        layout()
     }
     
     @available(*, unavailable)
@@ -28,21 +32,41 @@ final class MapViewController: UIViewController {
     }
     
     private func bind() {
-        rx.viewState
-            .bind(to: viewModel.action().viewLifeChanged)
+        rx.viewWillAppear
+            .compactMap{ _ in }
+            .bind(to: viewModel.action().loadPinData)
             .disposed(by: disposeBag)
 
-        viewModel.state().viewLifeCycle
-            .filter { $0 == .viewDidLoad }
-            .bind { [weak self] _ in
-                self?.setupUI()
-            }
+        rx.viewWillAppear
+            .compactMap { _ in }
+            .bind(to: viewModel.action().loadCollectionData)
+            .disposed(by: disposeBag)
+        
+        viewModel.state().loadedPin
+            .map { $0.map { PriceAnnotation(coordenate: CLLocationCoordinate2D(latitude: $0.x, longitude: $0.y)) } }
+            .bind(onNext: mapView.mkMapView.addAnnotations)
+            .disposed(by: disposeBag)
+
+        viewModel.state().loadedCollectionData
+            .bind(to: mapView.collectionView.rx.items(cellIdentifier: MapCollectionCell.identifier, cellType: MapCollectionCell.self)){index, model, cell in
+                //print("\(index) \(model) \(cell)")
+        }
+        .disposed(by: disposeBag)
+        
+        // TODO : 화면전환 구현예정
+//        viewModel.state().collectionSelectedData
+//            .bind(onNext: presentDetailViewController)
+//            .disposed(by: disposeBag)
     }
-}
-extension MapViewController {
-    private func setupUI() {
+    
+    private func attribute() {
         view = mapView
-        mapView.collectionView.dataSource = mapCollectionDataSource
-        mapView.collectionView.delegate = abc
+//        mapView.collectionView.dataSource = mapCollectionDataSource
+        mapView.collectionView.delegate = mapCollectionFlow
+        mapView.mkMapView.delegate = mkMapViewManager
+    }
+    
+    private func layout() {
+        
     }
 }

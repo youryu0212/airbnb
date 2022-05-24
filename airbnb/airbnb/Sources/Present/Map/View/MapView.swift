@@ -13,25 +13,28 @@ final class MapView: UIView {
     lazy var mkMapView: MKMapView = {
         let mkMapView = MKMapView()
         mkMapView.mapType = .standard
+        let zoomLevel = 15.0
+        let centerPoint = CLLocationCoordinate2D(latitude: 37.4908205, longitude: 127.0334173)
+        let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 360 / pow(2, zoomLevel) * Double(self.frame.width) / 256)
+        mkMapView.setRegion(MKCoordinateRegion(center: centerPoint, span: span), animated: true)
+        mkMapView.register(PriceAnnotationView.self, forAnnotationViewWithReuseIdentifier: PriceAnnotationView.identifier)
         return mkMapView
     }()
     
     lazy var menuButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
-        button.layer.cornerRadius = 25
+        button.layer.cornerRadius = 30
         return button
     }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let itemSize = CGSize(width: frame.width - 60, height: 120)
-        print("itemsize \(itemSize)")
-        layout.itemSize = itemSize
+        layout.itemSize = CGSize(width: frame.width - 60, height: 130)
         layout.minimumLineSpacing = 15
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.layer.backgroundColor = UIColor.blue.cgColor.copy(alpha: 0.0)
+        collectionView.backgroundColor = .clear
         collectionView.decelerationRate = .fast
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(MapCollectionCell.self, forCellWithReuseIdentifier: MapCollectionCell.identifier)
@@ -52,21 +55,21 @@ final class MapView: UIView {
         addSubview(mkMapView)
         addSubview(menuButton)
         addSubview(collectionView)
+        
         mkMapView.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalTo(self)
+            make.edges.equalToSuperview()
         }
-        mkMapView.backgroundColor = .yellow
     
         menuButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(10)
-            make.leading.equalTo(self).offset(20)
-            make.width.height.equalTo(50)
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.width.height.equalTo(60)
         }
         
         collectionView.snp.makeConstraints { make in
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
+            make.bottom.equalTo(safeAreaLayoutGuide)
             make.height.equalTo(150)
-            make.width.equalTo(self)
+            make.width.equalToSuperview()
         }
     }
 }
