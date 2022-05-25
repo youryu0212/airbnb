@@ -1,9 +1,7 @@
 package com.example.airbnb.di
 
-import com.example.airbnb.dataSource.HomeDataImpl
-import com.example.airbnb.dataSource.HomeDataSource
-import com.example.airbnb.repository.HomeRepository
-import com.example.airbnb.repository.HomeRepositoryImpl
+import com.example.airbnb.datasource.HomeDataImpl
+import com.example.airbnb.datasource.HomeDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

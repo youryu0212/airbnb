@@ -1,13 +1,11 @@
 package com.example.airbnb.dto
 
 import com.example.airbnb.model.City
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class HomeContentDTO(
+data class CityDto(
     @SerialName("cities")
     val cities: List<City>?
 ) {
@@ -30,16 +28,16 @@ data class HomeContentDTO(
     )
 }
 
-fun HomeContentDTO.toCity(): List<City> {
+fun CityDto.toCity(): List<City> {
     val cities = requireNotNull(cities)
 
     val cityList = mutableListOf<City>()
 
-    cities.forEach { homeContentDTO ->
-        val cityName = requireNotNull(homeContentDTO.cityName)
-        val image = homeContentDTO.image.orEmpty()
-        val latitude = homeContentDTO.coord?.latitude ?: 0.0
-        val longitude = homeContentDTO.coord?.longitude ?: 0.0
+    cities.forEach { cityDto ->
+        val cityName = requireNotNull(cityDto.cityName)
+        val image = cityDto.image.orEmpty()
+        val latitude = cityDto.coord?.latitude ?: 0.0
+        val longitude = cityDto.coord?.longitude ?: 0.0
 
         val city = City(
             cityName = cityName,
