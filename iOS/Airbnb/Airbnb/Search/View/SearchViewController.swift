@@ -11,57 +11,58 @@ import SnapKit
 class SearchViewController: UIViewController {
     
     enum Section {
-        case mainSearchBody
+        case searchMainBody
     }
     
-    private var flowLayout: UICollectionViewLayout {
-        
+    private var searchMainCollectionViewLayout: UICollectionViewLayout {
         let inset = NSDirectionalEdgeInsets(
             top: 2, leading: 2, bottom: 2, trailing: 2)
         
         let titleSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(0.05))
-        let titleItem = NSCollectionLayoutItem(layoutSize: titleSize)
-        titleItem.contentInsets = inset
+        let titleLayoutItem = NSCollectionLayoutItem(layoutSize: titleSize)
+        titleLayoutItem.contentInsets = inset
         
-        let twoRowSize = NSCollectionLayoutSize(
+        let twoRowCellSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(0.2))
-        let twoRowItem = NSCollectionLayoutItem(layoutSize: twoRowSize)
-        twoRowItem.contentInsets = inset
+        let twoRowLayoutItem = NSCollectionLayoutItem(layoutSize: twoRowCellSize)
+        twoRowLayoutItem.contentInsets = inset
         
-        let oneRowSize = NSCollectionLayoutSize(
+        let oneRowCellSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(0.44))
-        let oneRowItem = NSCollectionLayoutItem(layoutSize: oneRowSize)
-        oneRowItem.contentInsets = inset
+        let oneRowLayoutItem = NSCollectionLayoutItem(layoutSize: oneRowCellSize)
+        oneRowLayoutItem.contentInsets = inset
         
-        let resultLayoutGroup = NSCollectionLayoutGroup.vertical(
+        let mainViewLayoutGroup = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)),
             subitems: [
-                titleItem,
-                twoRowItem,
-                titleItem,
-                oneRowItem
+                titleLayoutItem,
+                twoRowLayoutItem,
+                titleLayoutItem,
+                oneRowLayoutItem
             ]
         )
         
-        let section = NSCollectionLayoutSection(group: resultLayoutGroup)
+        let section = NSCollectionLayoutSection(group: mainViewLayoutGroup)
         let layout = UICollectionViewCompositionalLayout(section: section)
         
         return layout
     }
     
-    private var backgroundDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]> =
-    { collectionView in
-        UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+    private var searchCollectionViewDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource = { collectionView in
+        UICollectionViewDiffableDataSource<Section, [SearchViewModel]>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             var cell: UICollectionViewCell?
             
             if indexPath.item == 0 || indexPath.item == 2 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchTitleCollectionViewCell.reuseIdentifier, for: indexPath) as? SearchTitleCollectionViewCell
+                
+                cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: SearchTitleCollectionViewCell.reuseIdentifier,
+                    for: indexPath)
                 
                 if let model = itemIdentifier.first {
                     (cell as? SearchTitleCollectionViewCell)?.setData(model: model)
@@ -69,21 +70,25 @@ class SearchViewController: UIViewController {
                 
             } else if indexPath.item == 1 {
                 
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier, for: indexPath)
+                cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier,
+                    for: indexPath)
+                
                 (cell as? MultipleRowsCollectionViewContainerCell)?
                     .applyAttributes(
                         cellType: SearchTwoInARowCollectionViewCell.self,
-                        models: itemIdentifier,
-                        width: collectionView.frame.width * 2/3,
+                        items: itemIdentifier,
+                        cellWidth: collectionView.frame.width * 2/3,
                         rowCount: 2)
+                
             } else if indexPath.item == 3 {
                 
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier, for: indexPath)
                 (cell as? MultipleRowsCollectionViewContainerCell)?
                     .applyAttributes(
                         cellType: SearchOneInARowCollectionViewCell.self,
-                        models: itemIdentifier,
-                        width: collectionView.frame.width * 4/5,
+                        items: itemIdentifier,
+                        cellWidth: collectionView.frame.width * 4/5,
                         rowCount: 1)
             }
             
@@ -91,17 +96,17 @@ class SearchViewController: UIViewController {
         }
     }
     
-    func snapshotForCurrentState() -> NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]> {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, [SearchFavoriteLocationModel]>()
-        snapshot.appendSections([Section.mainSearchBody])
+    func getSnapshotForSearchMainCollectionView() -> NSDiffableDataSourceSnapshot<Section, [SearchViewModel]> {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, [SearchViewModel]>()
+        snapshot.appendSections([Section.searchMainBody])
         
-        var items = [[SearchFavoriteLocationModel]]()
-        var oneRowItems = [SearchFavoriteLocationModel]()
-        var twoRowItems = [SearchFavoriteLocationModel]()
+        var items = [[SearchViewModel]]()
+        var oneRowItems = [SearchViewModel]()
+        var twoRowItems = [SearchViewModel]()
         
         for i in 0 ..< 18 {
             
-            let model = SearchFavoriteLocationModel(imageData: Data(), titleLabel: "\(i)", subTitleLabel: "\(i)\(i)")
+            let model = SearchViewModel(imageData: Data(), titleLabel: "\(i)", subTitleLabel: "\(i)\(i)")
             
             if i == 0 || i == 9 {
                 items.append([model])
@@ -119,26 +124,21 @@ class SearchViewController: UIViewController {
         return snapshot
     }
     
-    private var backgroundCollectionViewDataSource: UICollectionViewDiffableDataSource<Section, [SearchFavoriteLocationModel]>?
-    private lazy var backgroundCollectionView: UICollectionView = {
-        
-        let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flowLayout)
+    private var dataSourceContainer: UICollectionViewDiffableDataSource<Section, [SearchViewModel]>?
+    
+    private lazy var searchMainCollectionView: UICollectionView = {
+        let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: searchMainCollectionViewLayout)
         collectionView.register(SearchTitleCollectionViewCell.self, forCellWithReuseIdentifier: SearchTitleCollectionViewCell.reuseIdentifier)
         collectionView.register(MultipleRowsCollectionViewContainerCell.self, forCellWithReuseIdentifier: MultipleRowsCollectionViewContainerCell.reuseIdentifier)
         
-        let snapshot = snapshotForCurrentState()
-        backgroundCollectionViewDataSource = backgroundDataSource(collectionView)
-        collectionView.dataSource = backgroundCollectionViewDataSource
-        backgroundCollectionViewDataSource?.apply(snapshot, animatingDifferences: false)
+        let snapshot = getSnapshotForSearchMainCollectionView()
+        dataSourceContainer = searchCollectionViewDataSource(collectionView)
+        collectionView.dataSource = dataSourceContainer
+        dataSourceContainer?.apply(snapshot, animatingDifferences: false)
         
         return collectionView
     }()
   
-    private let contentView: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
@@ -157,15 +157,14 @@ class SearchViewController: UIViewController {
     
     private func attribute() {
         view.backgroundColor = .white
-        contentView.backgroundColor = .white
         setUpSearchController()
         navAppearance()
     }
     
     private func layout() {
-        view.addSubview(backgroundCollectionView)
+        view.addSubview(searchMainCollectionView)
 
-        backgroundCollectionView.snp.makeConstraints { make in
+        searchMainCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

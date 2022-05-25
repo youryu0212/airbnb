@@ -14,7 +14,7 @@ class SearchTitleCollectionViewCell: SearchCellCommonType {
         return label
     }()
     
-    override func setData(model: SearchFavoriteLocationModel) {
+    override func setData(model: SearchViewModel) {
         self.titleLabel.text = model.titleLabel
     }
     

@@ -17,39 +17,43 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
     
     private var rowCountInMultipleCollectionView: Int = 1
     
-    private var customCellType: SearchCellCommonType.Type!
+    private var unitCellType: SearchCellCommonType.Type!
     
-    private(set) var customLayout: UICollectionViewLayout!
+    private var customLayout: UICollectionViewLayout!
     
-    var modelArray = [SearchFavoriteLocationModel]()
+    var items = [SearchViewModel]() {
+        didSet {
+            applySnapshot()
+        }
+    }
     
-    private var diffableDataSource: UICollectionViewDiffableDataSource<Section, SearchFavoriteLocationModel>?
+    private var diffableDataSource: UICollectionViewDiffableDataSource<Section, SearchViewModel>?
     
-    convenience init?(cellType: SearchCellCommonType.Type, models: [SearchFavoriteLocationModel], width: CGFloat, rowCount: UInt) {
+    convenience init?(cellType: SearchCellCommonType.Type, items: [SearchViewModel], cellWidth: CGFloat, rowCount: UInt) {
         
-        let contentSizeWidth = ceil(CGFloat(models.count / Int(rowCount)))
+        let horizontalUnitCount = ceil(CGFloat(items.count / Int(rowCount)))
         
-        let itemRowSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(width),
+        let rowItemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(cellWidth),
             heightDimension: .fractionalHeight(1.0))
-        let horizontalRowLayout = NSCollectionLayoutItem(layoutSize: itemRowSize)
+        let eachCellLayoutItem = NSCollectionLayoutItem(layoutSize: rowItemSize)
         
-        horizontalRowLayout.contentInsets = NSDirectionalEdgeInsets(
+        eachCellLayoutItem.contentInsets = NSDirectionalEdgeInsets(
             top: 2, leading: 0, bottom: 2, trailing: 0)
                 
         let verticalLayoutGroup = NSCollectionLayoutGroup.vertical(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(width),
+                widthDimension: .absolute(cellWidth),
                 heightDimension: .fractionalHeight(1.0)),
-            subitem: horizontalRowLayout,
+            subitem: eachCellLayoutItem,
             count: Int(rowCount))
         
         let horizontalLayoutGroup = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize.init(
-                widthDimension: .absolute(width*contentSizeWidth + 2*contentSizeWidth),
+                widthDimension: .absolute(cellWidth*horizontalUnitCount + 2*horizontalUnitCount),
                 heightDimension: .fractionalHeight(1.0)),
             subitem: verticalLayoutGroup,
-            count: Int(contentSizeWidth))
+            count: Int(horizontalUnitCount))
         
         horizontalLayoutGroup.contentInsets = NSDirectionalEdgeInsets(
             top: 0, leading: 2, bottom: 2, trailing: 0)
@@ -57,18 +61,23 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
         let section = NSCollectionLayoutSection(group: horizontalLayoutGroup)
         let layout = UICollectionViewCompositionalLayout(section: section)
         
-        let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 0
-        config.scrollDirection = .horizontal
+        let configurationLayout = UICollectionViewCompositionalLayoutConfiguration()
+        configurationLayout.interSectionSpacing = 0
+        configurationLayout.scrollDirection = .horizontal
         
-        layout.configuration = config
+        layout.configuration = configurationLayout
         
         self.init(collectionViewLayout: layout)
+        collectionView.register(cellType, forCellWithReuseIdentifier: cellType.reuseIdentifier)
         
-        self.customCellType = cellType
+        self.unitCellType = cellType
         self.customLayout = layout
-        self.modelArray = models
+        self.items = items
         self.rowCountInMultipleCollectionView = Int(rowCount)
+        
+        self.diffableDataSource = getDiffableDataSource()
+        collectionView.dataSource = self.diffableDataSource
+        
         self.applySnapshot()
     }
     
@@ -76,18 +85,12 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
     }
     
-    func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, SearchFavoriteLocationModel>()
-        snapshot.appendSections([Section.SearchMainBody])
-        snapshot.appendItems(modelArray)
-        
-        collectionView!.register(customCellType, forCellWithReuseIdentifier: customCellType.reuseIdentifier)
-        
-        diffableDataSource = UICollectionViewDiffableDataSource<Section, SearchFavoriteLocationModel>(
+    private func getDiffableDataSource() -> UICollectionViewDiffableDataSource<Section, SearchViewModel> {
+        UICollectionViewDiffableDataSource<Section, SearchViewModel>(
             collectionView: collectionView,
             cellProvider: { [weak self] collectionView, indexPath, itemIdentifier in
                 
-                guard let cellType = self?.customCellType else { return nil }
+                guard let cellType = self?.unitCellType else { return nil }
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath)
                 let concreteCell: SearchCellCommonType? = (cell as? SearchCellCommonType)
@@ -95,8 +98,12 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
                 
                 return concreteCell
             })
-        
-        collectionView.dataSource = diffableDataSource
+    }
+    
+    func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, SearchViewModel>()
+        snapshot.appendSections([Section.SearchMainBody])
+        snapshot.appendItems(items)
         diffableDataSource?.apply(snapshot,animatingDifferences: true)
     }
 }
