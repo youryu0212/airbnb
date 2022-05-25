@@ -11,7 +11,9 @@ import CoreLocation
 
 class SearchRootViewController: UIViewController {
 
+    var nextViewController: ListCollectionViewController?
     var locationManager = CLLocationManager()
+    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +36,13 @@ class SearchRootViewController: UIViewController {
 extension SearchRootViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // TODO: Handling updated location
+    }
+ 
+}
+
+extension SearchRootViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        nextViewController = ListCollectionViewController()
+        self.navigationController?.pushViewController(nextViewController ?? UIViewController(), animated: true)
     }
 }
