@@ -1,0 +1,12 @@
+## profile
+spring:
+  profiles:
+    active: ${profile}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
