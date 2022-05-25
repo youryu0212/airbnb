@@ -1,5 +1,8 @@
+import { CustomThemeProvider } from './custom-styled-component/CustomThemeProvider';
+import theme from './common/theme';
+
 function App() {
-  return <></>;
+  return <CustomThemeProvider theme={theme}></CustomThemeProvider>;
 }
 
 export default App;
