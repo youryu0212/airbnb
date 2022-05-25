@@ -28,7 +28,7 @@ public class WishList {
 	@Column(name = "wishlist_id")
 	private Long id;
 
-	@OneToOne(mappedBy = "wishlist", fetch = LAZY)
+	@OneToOne(mappedBy = "wishList", fetch = LAZY)
 	private Member member;
 
 	@ManyToOne(fetch = LAZY)
