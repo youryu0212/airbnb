@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Link } from '@material-ui/core';
 import { ReactComponent as HamburgerIcon } from 'images/FE_숙소예약서비스/Property 1=menu.svg';
+import { ReactComponent as LogoImg } from 'images/logo.svg';
 
 import Menu from 'components/Header/Menu';
 import SearchBar from 'components/Header/SearchBar/index';
@@ -22,7 +23,9 @@ function Header() {
   };
   return (
     <HeaderWrap position={location.pathname}>
-      <Logo>LOGO</Logo>
+      <Link href="/" style={{ height: '26px' }}>
+        <LogoImg aria-label="로고이미지" />
+      </Link>
       {location.pathname === '/' ? (
         <SearchWrap>
           <Menu />
@@ -36,14 +39,18 @@ function Header() {
         />
       )}
       <UserWrapper>
-        <Hamburger>햄버거</Hamburger>
-        <CustomAvatar src="images/FE_숙소예약서비스/Property 1=user.svg" />
+        <CustomButton type="button" aria-label="유저 정보 메뉴">
+          <Hamburger>햄버거</Hamburger>
+        </CustomButton>
+        <button type="button" aria-label="유저 아바타">
+          <CustomAvatar src="images/FE_숙소예약서비스/Property 1=user.svg" />
+        </button>
       </UserWrapper>
     </HeaderWrap>
   );
 }
 
-const HeaderWrap = styled.div<Position>`
+const HeaderWrap = styled.header<Position>`
   display: flex;
   justify-content: space-between;
   padding: 24px;
@@ -53,11 +60,6 @@ const HeaderWrap = styled.div<Position>`
   }};
   top: 0;
   width: 1440px;
-`;
-
-const Logo = styled.span`
-  ${({ theme }) => theme.fontStyles.logo};
-  color: ${({ theme }) => theme.colors.grey1};
 `;
 
 const UserWrapper = styled.div`
@@ -71,10 +73,13 @@ const UserWrapper = styled.div`
   background: ${({ theme }) => theme.colors.white};
 `;
 
+const CustomButton = styled.button`
+  padding: 16px 8px;
+`;
+
 const Hamburger = styled(HamburgerIcon)`
   width: 16px;
   height: 16px;
-  margin: 0 8px 0 12px;
 
   path {
     stroke: ${({ theme }) => theme.colors.grey2};
