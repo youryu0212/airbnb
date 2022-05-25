@@ -19,6 +19,7 @@
 		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
 		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
 		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
+		008FD752283DF41B002441E5 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD751283DF41B002441E5 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		008FD751283DF41B002441E5 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				00489B83283CC26E00201F55 /* SearchViewController.swift */,
 				008FD74D283DD94E002441E5 /* WishViewController.swift */,
 				008FD74F283DD96F002441E5 /* UserViewController.swift */,
+				008FD751283DF41B002441E5 /* LocationViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008FD752283DF41B002441E5 /* LocationViewController.swift in Sources */,
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,

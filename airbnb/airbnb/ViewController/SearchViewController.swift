@@ -1,7 +1,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     private var searchBar: UISearchBar = {
         var searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
         let widthScaleRatio = self.view.bounds.width / image.size.width
         
         let scaleFactor = widthScaleRatio
-
+        
         let scaledImageSize = CGSize(
             width: image.size.width * scaleFactor,
             height: image.size.height * scaleFactor
@@ -70,6 +70,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.searchBar.delegate = self
+        
         setUI()
         setConstraints()
     }
@@ -115,4 +117,27 @@ class SearchViewController: UIViewController {
             ideaButton.leadingAnchor.constraint(equalTo: heroImageView.leadingAnchor, constant: labelSpace)
         ])
     }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // 검색키워드에 따라 테이블뷰 리로드
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        let pushVC = LocationViewController()
+        pushVC.view.backgroundColor = .green
+        self.navigationController?.pushViewController(pushVC, animated: true)
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    // 검색내용 기반으로 검색 결과 업데이트
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    
 }
