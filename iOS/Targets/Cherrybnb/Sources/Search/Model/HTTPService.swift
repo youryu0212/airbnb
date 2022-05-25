@@ -9,10 +9,10 @@
 import Foundation
 
 protocol HTTPService {
-    func getRecommendation(for location: Location, completion: ([Place]?) -> Void)
+    func getRecommendation(for location: Location, completion: @escaping ([Place]?) -> Void)
 }
 
-struct RecommendationStub: HTTPService {
+struct ResponseSuccessStub: HTTPService {
 
     let dummy = [
         Place(name: "서울", location: .makeRandomInKR(), estimatedTime: Minute(30).toSeconds),
@@ -25,7 +25,19 @@ struct RecommendationStub: HTTPService {
         Place(name: "부천시", location: .makeRandomInKR(), estimatedTime: Minute(30).toSeconds)
     ]
 
-    func getRecommendation(for location: Location, completion: ([Place]?) -> Void) {
-        completion(dummy)
+    func getRecommendation(for location: Location, completion: @escaping ([Place]?) -> Void) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            completion(dummy)
+        }
     }
 }
+
+struct ResponseFailureStub: HTTPService {
+
+    func getRecommendation(for location: Location, completion: @escaping ([Place]?) -> Void) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            completion(nil)
+        }
+    }
+}
+

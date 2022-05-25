@@ -9,14 +9,14 @@
 import Foundation
 
 protocol PlaceRecommanding {
-    func recommend(for location: Location, completion: ([Place]?) -> Void)
+    func recommend(for location: Location, completion: @escaping ([Place]?) -> Void)
 }
 
 struct DefaultRecommendator: PlaceRecommanding {
 
     let httpService: HTTPService
 
-    func recommend(for location: Location, completion: ([Place]?) -> Void) {
+    func recommend(for location: Location, completion: @escaping ([Place]?) -> Void) {
         httpService.getRecommendation(for: location) { places in
             completion(places)
         }
