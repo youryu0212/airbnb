@@ -21,7 +21,7 @@ final class FindAccomodationView: UIView {
         return tableView
     }()
 
-    private lazy var calendarView = CalendarView(frame: selectView.frame)
+    private lazy var calendarView = SelectCalendarView(frame: selectView.frame)
     private lazy var budgetView = BudgetView(frame: selectView.frame)
 
     override init(frame: CGRect) {
