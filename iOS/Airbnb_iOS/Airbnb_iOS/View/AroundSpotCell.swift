@@ -79,11 +79,3 @@ final class AroundSpotCell: UICollectionViewCell {
         distanceLabel.text = distance
     }
 }
-
-private extension UIView {
-    func addSubViews(_ subViews: [UIView]) {
-        subViews.forEach {
-            self.addSubview($0)
-        }
-    }
-}

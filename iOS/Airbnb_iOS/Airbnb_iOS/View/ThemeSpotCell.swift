@@ -65,11 +65,3 @@ final class ThemeSpotCell: UICollectionViewCell {
         titleLabel.text = title
     }
 }
-
-private extension UIView {
-    func addSubViews(_ subViews: [UIView]) {
-        subViews.forEach {
-            self.addSubview($0)
-        }
-    }
-}

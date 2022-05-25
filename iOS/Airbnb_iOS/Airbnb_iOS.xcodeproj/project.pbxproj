@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02874048283D37B50009C62D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874047283D37B50009C62D /* UIColor+.swift */; };
 		0287404A283D3B6D0009C62D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874049283D3B6D0009C62D /* HomeView.swift */; };
+		0287404C283DBE810009C62D /* UiView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287404B283DBE810009C62D /* UiView+.swift */; };
 		02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		02874047283D37B50009C62D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		02874049283D3B6D0009C62D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0287404B283DBE810009C62D /* UiView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+.swift"; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundSpotCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSpotCell.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				02874047283D37B50009C62D /* UIColor+.swift */,
+				0287404B283DBE810009C62D /* UiView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */,
 				02DF0CDD283CBAB6003D0679 /* SearchViewCollectionDataSource.swift in Sources */,
 				02874048283D37B50009C62D /* UIColor+.swift in Sources */,
+				0287404C283DBE810009C62D /* UiView+.swift in Sources */,
 				02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */,
 				D2FFBFEE283CB33700C97D16 /* BrowseViewController.swift in Sources */,
 			);
