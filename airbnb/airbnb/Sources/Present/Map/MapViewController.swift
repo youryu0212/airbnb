@@ -1,24 +1,46 @@
 //
-//  MapViewController.swift
+//  NewMapViewController.swift
 //  airbnb
 //
-//  Created by 김동준 on 2022/05/23.
+//  Created by seongha shin on 2022/05/25.
 //
 
-import RxAppState
-import RxSwift
 import MapKit
+import RxSwift
+import UIKit
 
 final class MapViewController: UIViewController {
     
-    private lazy var mapView = MapView(frame: view.frame)
-    private let mapCollectionDataSource = MapCollectionDataSource()
-    private let mapCollectionFlow = MapCollectionDelegate()
-    private let mkMapViewManager = MapDelegate()
-    private let viewModel: MapViewModelProtocol
+    enum Contants {
+        static let spacing = 16.0
+        static let cellSize = CGSize(width: UIScreen.main.bounds.width - 60, height: 120)
+    }
+    
+    private let mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.mapType = .standard
+        mapView.register(PriceAnnotationView.self, forAnnotationViewWithReuseIdentifier: PriceAnnotationView.identifier)
+        return mapView
+    }()
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = Contants.cellSize
+        layout.minimumLineSpacing = Contants.spacing
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 50)
+        collectionView.backgroundColor = .clear
+        collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(MapCollectionCell.self, forCellWithReuseIdentifier: MapCollectionCell.identifier)
+        return collectionView
+    }()
+    
+    private let viewModel: MapViewModel
     private let disposeBag = DisposeBag()
     
-    init(viewModel: MapViewModelProtocol) {
+    init(viewModel: MapViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         bind()
@@ -32,46 +54,92 @@ final class MapViewController: UIViewController {
     }
     
     private func bind() {
-        rx.viewWillAppear
-            .compactMap { _ in }
-            .bind(to: viewModel.action().loadPinData)
-            .disposed(by: disposeBag)
-
-        rx.viewWillAppear
-            .compactMap { _ in }
-            .bind(to: viewModel.action().loadCollectionData)
+        rx.viewDidLoad
+            .bind(to: viewModel.viewDidLoad)
             .disposed(by: disposeBag)
         
-        mapCollectionFlow.selectedCellRelay
-            .bind(to: viewModel.action().collectionSelected)
+        viewModel.updateRegion
+            .map { ($0, true) }
+            .bind(onNext: mapView.setRegion)
             .disposed(by: disposeBag)
         
-        viewModel.state().loadedPin
-            .map { $0.map { PriceAnnotation(coordenate: CLLocationCoordinate2D(latitude: $0.x, longitude: $0.y)) } }
-            .bind(onNext: mapView.mkMapView.addAnnotations)
-            .disposed(by: disposeBag)
-
-        viewModel.state().loadedCollectionData
-            .bind(to: mapView.collectionView.rx.items(cellIdentifier: MapCollectionCell.identifier, cellType: MapCollectionCell.self)) {index, model, cell in
-                print("\(index) \(model) \(cell)") }
+        viewModel.updateLodging
+            .bind(to: collectionView.rx.items(cellIdentifier: MapCollectionCell.identifier, cellType: MapCollectionCell.self)) { _, _, _ in
+            }
             .disposed(by: disposeBag)
         
-        viewModel.state().collectionSelectedData
-            .bind(onNext: presentDetailViewController)
+        viewModel.updatePin
+            .map { $0.map { PriceAnnotation(coordenate: CLLocationCoordinate2D(latitude: $0.coordX, longitude: $0.coordY)) } }
+            .bind(onNext: mapView.addAnnotations)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.willEndDragging
+            .bind(onNext: customPaging)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .bind(to: viewModel.selectedCell)
             .disposed(by: disposeBag)
     }
     
     private func attribute() {
-        view = mapView
-        mapView.collectionView.delegate = mapCollectionFlow
-        mapView.mkMapView.delegate = mkMapViewManager
     }
     
-    private func layout() {}
+    private func layout() {
+        view.addSubview(mapView)
+        view.addSubview(collectionView)
+        
+        mapView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(120)
+        }
+        
+        collectionView.frameLayoutGuide.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.width.height.equalTo(300)
+        }
+    }
     
-    private func presentDetailViewController(selectedData: MapDTO) {
-        let detailViewContller = DetailViewController()
-        detailViewContller.modalPresentationStyle = .fullScreen
-        present(detailViewContller, animated: true, completion: nil)
+    private func customPaging(withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let cellWidthIncludingSpacing = Contants.cellSize.width + Contants.spacing
+        let offset = targetContentOffset.pointee
+        let index = (offset.x + collectionView.contentInset.left) / cellWidthIncludingSpacing
+        var roundedIndex = round(index)
+        if collectionView.contentOffset.x > targetContentOffset.pointee.x {
+            roundedIndex = floor(index)
+        } else {
+            roundedIndex = ceil(index)
+        }
+        let offsetX = roundedIndex * cellWidthIncludingSpacing - collectionView.contentInset.left
+        targetContentOffset.pointee = CGPoint(x: offsetX, y: 0)
+        collectionView.layoutIfNeeded()
+    }
+    
+    private func makeAnnotationV(_ annotation: MKAnnotation) {
+        
     }
 }
+
+//extension MapDelegate: MKMapViewDelegate {
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        guard let annotation = annotation as? PriceAnnotation else { return nil }
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PriceAnnotationView.identifier)
+//        if annotationView == nil {
+//            let priceAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: PriceAnnotationView.identifier)
+//            annotationView = priceAnnotationView
+//            annotationView?.canShowCallout = false
+//        } else {
+//            annotationView?.annotation = annotation
+//        }
+//        print("map delegate called")
+//        guard let priceAnnotationView = annotationView as? PriceAnnotationView else { return nil }
+//        priceAnnotationView.setPrice(price: "₩3,000")
+//        return annotationView
+//    }
+//}

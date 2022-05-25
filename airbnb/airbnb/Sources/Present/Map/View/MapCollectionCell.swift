@@ -58,6 +58,14 @@ final class MapCollectionCell: UICollectionViewCell {
         setupUI()
     }
     
+    private func attribute() {
+        
+    }
+    
+    private func layout() {
+        
+    }
+    
     private func setupUI() {
         contentView.addSubview(imageView)
         contentView.addSubview(reviewLabel)
@@ -82,7 +90,7 @@ final class MapCollectionCell: UICollectionViewCell {
         }
         
         heartButton.snp.makeConstraints { make in
-            make.trailing.equalTo(contentView.snp.trailing).offset(-10)
+            make.trailing.equalToSuperview().offset(-10)
             make.centerY.equalTo(reviewLabel.snp.centerY)
             make.width.height.equalTo(30)
         }

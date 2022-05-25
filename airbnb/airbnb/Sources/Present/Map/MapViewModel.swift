@@ -1,72 +1,55 @@
 //
-//  MapViewModel.swift
+//  NewMapViewModel.swift
 //  airbnb
 //
-//  Created by 김동준 on 2022/05/23.
+//  Created by seongha shin on 2022/05/25.
 //
 
-import RxSwift
+import Foundation
+import MapKit
 import RxRelay
-import RxAppState
+import RxSwift
 
-
-struct MapDTO {
-    let title: String = "aaaa"
-}
-
-protocol MapViewModelAction {
-    var collectionSelected: PublishRelay<Int> { get }
-    var loadCollectionData: PublishRelay<Void> { get }
-    var loadPinData: PublishRelay<Void> { get }
-}
-
-protocol MapViewModelState {
-    var collectionSelectedData: PublishRelay<MapDTO> { get }
-    var loadedCollectionData: PublishRelay<[MapDTO]> { get }
-    var loadedPin: PublishRelay<[CGPoint]> { get }
-}
-
-protocol MapViewModelBinding {
-    func action() -> MapViewModelAction
-    func state() -> MapViewModelState
-}
-
-typealias MapViewModelProtocol = MapViewModelBinding
-
-final class MapViewModel: MapViewModelBinding, MapViewModelAction, MapViewModelState {
-    var collectionSelected = PublishRelay<Int>()
+final class MapViewModel {
+    let viewDidLoad = PublishRelay<Void>()
+    let selectedCell = PublishRelay<IndexPath>()
+    
+    let updateRegion = PublishRelay<MKCoordinateRegion>()
+    let updateLodging = PublishRelay<[Lodging]>()
+    let updatePin = PublishRelay<[Lodging]>()
     
     private let disposeBag = DisposeBag()
     
-    func action() -> MapViewModelAction { self }
-    
-    var loadPinData = PublishRelay<Void>()
-    var loadCollectionData = PublishRelay<Void>()
-    
-    func state() -> MapViewModelState { self }
-    
-    var loadedPin = PublishRelay<[CGPoint]>()
-    var loadedCollectionData = PublishRelay<[MapDTO]>()
-    var collectionSelectedData = PublishRelay<MapDTO>()
-    
     init() {
-        loadPinData
-            .map { _ in
-                [CGPoint(x: 37.4908205, y: 127.0334173)]
+        viewDidLoad
+            .map { _ -> MKCoordinateRegion in
+                let center = CLLocationCoordinate2D(latitude: 37.4908205, longitude: 127.0334173)
+                let span = MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0.005)
+                return MKCoordinateRegion(center: center, span: span)
             }
-            .bind(to: loadedPin)
+            .bind(to: updateRegion)
             .disposed(by: disposeBag)
         
-        loadCollectionData
+        let requestLodging = viewDidLoad
             .map { _ in
-                [MapDTO](repeating: MapDTO(), count: 5)
+                [
+                    Lodging(name: "1", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "2", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "3", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "4", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "5", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "6", coordX: 37.4908205, coordY: 127.0334173),
+                    Lodging(name: "7", coordX: 37.4908205, coordY: 127.0334173)
+                ]
             }
-            .bind(to: loadedCollectionData)
+            .share()
+        
+        requestLodging
+            .bind(to: updatePin)
             .disposed(by: disposeBag)
         
-        collectionSelected
-            .map { _ in MapDTO() }
-            .bind(to: collectionSelectedData)
+        requestLodging
+            .bind(to: updateLodging)
             .disposed(by: disposeBag)
     }
 }

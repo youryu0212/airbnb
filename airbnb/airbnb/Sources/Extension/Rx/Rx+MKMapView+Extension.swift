@@ -17,12 +17,19 @@ extension Reactive where Base: MKMapView {
         RxMKMapViewDelegateProxy.proxy(for: self.base)
     }
 
-    var regionDidChangeAnimated: Observable<Bool> {
-        delegate.methodInvoked(#selector(MKMapViewDelegate.mapView(_:regionDidChangeAnimated:)))
-            .map({ parameters in
-                parameters[1] as? Bool ?? false
-            })
-    }
+//    var regionDidChangeAnimated: Observable<Bool> {
+//        delegate.methodInvoked(#selector(MKMapViewDelegate.mapView(_:regionDidChangeAnimated:)))
+//            .map({ parameters in
+//                parameters[1] as? Bool ?? false
+//            })
+//    }
+//
+////    var viewFor: Observable<MKAnnotation?> {
+////        delegate.methodInvoked(#selector(MKMapViewDelegate.mapView(_:viewFor:)))
+////            .map { parameters in
+////                parameters[1] as? MKAnnotation
+////            }
+////    }
 }
 
 class RxMKMapViewDelegateProxy: DelegateProxy<MKMapView, MKMapViewDelegate>, DelegateProxyType, MKMapViewDelegate {
