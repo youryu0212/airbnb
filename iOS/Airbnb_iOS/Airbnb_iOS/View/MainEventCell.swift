@@ -1,5 +1,5 @@
 //
-//  HeroImageCell.swift
+//  MainEventCell.swift
 //  Airbnb_iOS
 //
 //  Created by 김한솔 on 2022/05/24.
@@ -7,7 +7,10 @@
 
 import UIKit
 
-final class HeroImageCell: UICollectionViewCell {
+final class MainEventCell: UICollectionViewCell {
+
+    static let identifier = "MainEventCell"
+
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

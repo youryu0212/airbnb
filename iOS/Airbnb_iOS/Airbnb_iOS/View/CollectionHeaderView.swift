@@ -8,6 +8,9 @@
 import UIKit
 
 final class CollectionHeaderView: UICollectionReusableView {
+
+    static let identifier = "HeaderView"
+
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textColor = .black

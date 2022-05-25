@@ -1,5 +1,5 @@
 //
-//  LivingTravelCell.swift
+//  ThemeSpotCell.swift
 //  Airbnb_iOS
 //
 //  Created by 김한솔 on 2022/05/24.
@@ -7,7 +7,10 @@
 
 import UIKit
 
-final class LivingTravelCell: UICollectionViewCell {
+final class ThemeSpotCell: UICollectionViewCell {
+
+    static let identifier = "ThemeSpotCell"
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -19,7 +22,7 @@ final class LivingTravelCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .init(red: 51/255, green: 51/255, blue: 51/255, alpha: 1) // Gray1
+        label.textColor = .gray1
         label.font = .systemFont(ofSize: 17, weight: .init(600))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,13 +63,5 @@ final class LivingTravelCell: UICollectionViewCell {
     func configure(image: UIImage?, title: String?) {
         imageView.image = image
         titleLabel.text = title
-    }
-}
-
-private extension UIView {
-    func addSubViews(_ subViews: [UIView]) {
-        subViews.forEach {
-            self.addSubview($0)
-        }
     }
 }

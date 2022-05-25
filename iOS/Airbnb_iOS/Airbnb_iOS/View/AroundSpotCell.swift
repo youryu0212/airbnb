@@ -1,5 +1,5 @@
 //
-//  RecommendCell.swift
+//  AroundSpotCell.swift
 //  Airbnb_iOS
 //
 //  Created by 김한솔 on 2022/05/24.
@@ -7,7 +7,10 @@
 
 import UIKit
 
-final class RecommendCell: UICollectionViewCell {
+final class AroundSpotCell: UICollectionViewCell {
+
+    static let identifier = "AroundSpotCell"
+
     private let imageView : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -16,7 +19,7 @@ final class RecommendCell: UICollectionViewCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.init(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0) // Gray1
+        label.textColor = .gray1
         label.font = .systemFont(ofSize: 17, weight: .init(rawValue: 600))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -24,7 +27,7 @@ final class RecommendCell: UICollectionViewCell {
 
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.init(red: 130/255, green: 130/255, blue: 130/255, alpha: 1.0) // Gray3
+        label.textColor = .gray3
         label.font = .systemFont(ofSize: 17, weight: .init(rawValue: 400))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +47,6 @@ final class RecommendCell: UICollectionViewCell {
         addSubViews([imageView, titleLabel, distanceLabel])
 
         NSLayoutConstraint.activate([
-//            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -75,13 +77,5 @@ final class RecommendCell: UICollectionViewCell {
         imageView.image = image
         titleLabel.text = title
         distanceLabel.text = distance
-    }
-}
-
-private extension UIView {
-    func addSubViews(_ subViews: [UIView]) {
-        subViews.forEach {
-            self.addSubview($0)
-        }
     }
 }
