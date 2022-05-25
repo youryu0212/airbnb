@@ -10,15 +10,15 @@ import Foundation
 
 struct Hour {
     let value: Float
-    
+
     init(_ value: Float) {
         self.value = value
     }
-    
+
     var toMinutes: Float {
         value * 60
     }
-    
+
     var toSeconds: Float {
         toMinutes * 60
     }

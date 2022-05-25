@@ -13,7 +13,7 @@ protocol HTTPService {
 }
 
 struct RecommendationStub: HTTPService {
-    
+
     let dummy = [
         Place(name: "서울", location: .makeRandomInKR(), estimatedTime: Minute(30).toSeconds),
         Place(name: "광주", location: .makeRandomInKR(), estimatedTime: Hour(4).toSeconds),
@@ -22,9 +22,9 @@ struct RecommendationStub: HTTPService {
         Place(name: "대구", location: .makeRandomInKR(), estimatedTime: Hour(3.5).toSeconds),
         Place(name: "울산", location: .makeRandomInKR(), estimatedTime: Hour(3.5).toSeconds),
         Place(name: "대전", location: .makeRandomInKR(), estimatedTime: Hour(2).toSeconds),
-        Place(name: "부천시", location: .makeRandomInKR(), estimatedTime: Minute(30).toSeconds),
+        Place(name: "부천시", location: .makeRandomInKR(), estimatedTime: Minute(30).toSeconds)
     ]
-    
+
     func getRecommendation(for location: Location, completion: ([Place]?) -> Void) {
         completion(dummy)
     }

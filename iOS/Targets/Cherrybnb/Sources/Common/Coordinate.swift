@@ -10,7 +10,7 @@ import Foundation
 
 struct Coordinate {
     typealias Degree = Double
-    
+
     let latitude: Degree
     let longitude: Degree
 }

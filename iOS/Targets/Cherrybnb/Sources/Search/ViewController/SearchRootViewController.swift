@@ -12,17 +12,17 @@ import CoreLocation
 class SearchRootViewController: UIViewController {
 
     var locationManager = CLLocationManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBar()
         askPermission()
     }
-    
+
     private func configureNavBar() {
         navigationController?.navigationBar.isHidden = true
     }
-    
+
     private func askPermission() {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()

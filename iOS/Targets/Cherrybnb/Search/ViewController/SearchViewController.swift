@@ -14,5 +14,5 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
+
 }
