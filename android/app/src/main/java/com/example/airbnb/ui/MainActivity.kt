@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,8 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.DiffUtil
+import com.example.airbnb.R
+import com.example.airbnb.ViewModel
 import com.example.airbnb.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

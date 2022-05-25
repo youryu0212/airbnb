@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.airbnb.R
 import com.example.airbnb.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
