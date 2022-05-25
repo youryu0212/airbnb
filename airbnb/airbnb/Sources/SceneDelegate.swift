@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene) // 이름을 만들어준 그 UIWindowScene을 SceneDelegate의 window 프로퍼티에 대입
-        let mainViewController = HeaderViewController() // 맨 처음 보여줄 VC
+        let mainViewController = NavigationBarController() // 맨 처음 보여줄 VC
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
         window?.rootViewController = navigationController

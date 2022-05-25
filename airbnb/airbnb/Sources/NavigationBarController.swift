@@ -1,5 +1,5 @@
 //
-//  HeaderViewController.swift
+//  NavigationBarController.swift
 //  airbnb
 //
 //  Created by Jihee hwang on 2022/05/25.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HeaderViewController: UIViewController {
+class NavigationBarController: UIViewController {
     
     private let navigationBarUnderLineView: UIView = {
         let view = UIView()
