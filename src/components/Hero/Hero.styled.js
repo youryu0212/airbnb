@@ -1,7 +1,12 @@
 import styled from 'styled-components';
+import { WrapperMarginCenter } from 'common/utils';
 
 export const Header = styled.header`
-  // 이미지 추가 예정
+  ${WrapperMarginCenter}
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/assets/images/hero-img.png');
 `;
 
 export const Logo = styled.h1`
