@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import Cylindrical from "../../cylindrical";
 import PriceBox from "./PriceBox";
@@ -18,14 +18,15 @@ const SearchBar = () => {
         length: "44px",
         backgroundColor: "#E0E0E0",
     };
+    const [clickedPart, setClickedPart] = useState(null);
 
     return (
         <SearchBarBox style={cylindricalStyle}>
-            <DateBox />
+            <DateBox clickedPart={clickedPart} setClickedPart={setClickedPart} />
             <Boundary condition={boundaryCondition} />
-            <PriceBox />
+            <PriceBox clickedPart={clickedPart} setClickedPart={setClickedPart} />
             <Boundary condition={boundaryCondition} />
-            <GuestBox />
+            <GuestBox clickedPart={clickedPart} setClickedPart={setClickedPart} />
         </SearchBarBox>
     );
 };
