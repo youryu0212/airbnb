@@ -96,10 +96,10 @@
 			children = (
 				02874050283DFDCE0009C62D /* FindAccomodationView.swift */,
 				02874054283E0DF40009C62D /* SelectCalendarView.swift */,
-				02874056283E0E600009C62D /* BudgetView.swift */,
 				02874052283E01E70009C62D /* FindAccomodationCell.swift */,
 				0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */,
 				0287405E283E3BA40009C62D /* DayLabel.swift */,
+				02874056283E0E600009C62D /* BudgetView.swift */,
 			);
 			path = FindAccomodationView;
 			sourceTree = "<group>";

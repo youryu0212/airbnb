@@ -64,7 +64,7 @@ private extension FindAccomodationCell {
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
 }

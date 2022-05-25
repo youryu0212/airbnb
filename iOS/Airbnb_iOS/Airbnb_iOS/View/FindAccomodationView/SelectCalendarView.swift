@@ -13,6 +13,7 @@ final class SelectCalendarView: UIView {
     private lazy var calendarView = CalendarView(initialContent: makeContent())
     private var selectedDay1: Day?
     private var selectedDay2: Day?
+    weak var delegate: SelectCalendarDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,13 +34,15 @@ private extension SelectCalendarView {
 
         let startDate = calendar.date(from: DateComponents(year: 2022, month: 05, day: 01)) ?? Date()
         let endDate = calendar.date(from: DateComponents(year: 2022, month: 12, day: 31)) ?? Date()
-        var dateRangeToHighlight = startDate...startDate
+        let mockDate = calendar.date(from: DateComponents(year: 1999, month: 05, day: 01)) ?? Date()
+        var dateRangeToHighlight = mockDate...mockDate
         if let selectedDay1 = selectedDay1, let selectedDay2 = selectedDay2 {
-            let date1 = calendar.date(from: DateComponents(year: selectedDay1.month.year, month: selectedDay1.month.month, day: selectedDay1.day))!
-            let date2 = calendar.date(from: DateComponents(year: selectedDay2.month.year, month: selectedDay2.month.month, day: selectedDay2.day))!
+            let date1 = calendar.date(from: DateComponents(year: selectedDay1.month.year, month: selectedDay1.month.month, day: selectedDay1.day)) ?? Date()
+            let date2 = calendar.date(from: DateComponents(year: selectedDay2.month.year, month: selectedDay2.month.month, day: selectedDay2.day)) ?? Date()
             let min = [date1, date2].min() ?? date1
             let max = [date1, date2].max() ?? date2
             dateRangeToHighlight = min...max
+            delegate?.didSetDate(dateRangeToHighlight)
         }
 
         return CalendarViewContent(calendar: calendar,
@@ -92,9 +95,12 @@ private extension SelectCalendarView {
             } else {
                 self.selectedDay1 = day
             }
-            print("\(self.selectedDay1), \(self.selectedDay2)")
             let newContent = self.makeContent()
             self.calendarView.setContent(newContent)
         }
     }
+}
+
+protocol SelectCalendarDelegate: AnyObject {
+    func didSetDate(_ dateRange: ClosedRange<Date>?)
 }

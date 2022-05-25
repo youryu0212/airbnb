@@ -34,12 +34,16 @@ final class FindAccomodationView: UIView {
         fatalError()
     }
 
-    func setDateSource(_ dataSource: UITableViewDataSource) {
+    func setTableViewDateSource(_ dataSource: UITableViewDataSource) {
         infoTableView.dataSource = dataSource
     }
 
-    func setDelegate(_ delegate: UITableViewDelegate) {
+    func setTableViewDelegate(_ delegate: UITableViewDelegate) {
         infoTableView.delegate = delegate
+    }
+
+    func setCalendarDelegate(_ delegate: SelectCalendarDelegate) {
+        calendarView.delegate = delegate
     }
 
     func next() {
@@ -52,6 +56,10 @@ final class FindAccomodationView: UIView {
             budgetView.leadingAnchor.constraint(equalTo: selectView.leadingAnchor),
             budgetView.trailingAnchor.constraint(equalTo: selectView.trailingAnchor)
         ])
+    }
+
+    func reloadCell() {
+        infoTableView.reloadData()
     }
 }
 
