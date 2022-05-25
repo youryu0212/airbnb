@@ -15,6 +15,7 @@ export const SearchBarWrap = styled.div`
   border-radius: 999px;
   padding: 16px 0px 16px 20px;
   justify-content: space-around;
+  background: ${({ theme }) => theme.colors.white};
 `;
 export const Period = styled.div`
   height: 100%;
