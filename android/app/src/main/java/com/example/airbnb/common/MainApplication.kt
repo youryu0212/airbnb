@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.common
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

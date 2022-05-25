@@ -1,13 +1,16 @@
-package com.example.airbnb
+package com.example.airbnb.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.airbnb.network.dto.CloseTravelContents
 import com.example.airbnb.databinding.ItemCloseTravelBinding
 
-class SearchCloseTravelAdapter : ListAdapter<CloseTravelContents, SearchCloseTravelAdapter.SearchCloseTravelAdapterHolder>(FileDiffCallBack) {
+class SearchCloseTravelAdapter : ListAdapter<CloseTravelContents, SearchCloseTravelAdapter.SearchCloseTravelAdapterHolder>(
+    FileDiffCallBack
+) {
 
     private lateinit var binding: ItemCloseTravelBinding
 

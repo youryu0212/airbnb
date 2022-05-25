@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui.placesearch
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,9 +1,11 @@
-package com.example.airbnb
+package com.example.airbnb.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.airbnb.network.dto.CloseTravelContents
+import com.example.airbnb.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch

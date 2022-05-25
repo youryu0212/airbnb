@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.common
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext

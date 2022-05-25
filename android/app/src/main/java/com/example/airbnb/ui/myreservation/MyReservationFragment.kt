@@ -1,10 +1,11 @@
-package com.example.airbnb
+package com.example.airbnb.ui.myreservation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.airbnb.R
 
 
 class MyReservationFragment : Fragment() {

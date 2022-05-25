@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -7,7 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.example.airbnb.R
 import com.example.airbnb.databinding.ActivityMainBinding
+import com.example.airbnb.ui.search.ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -6,7 +6,7 @@
     app:startDestination="@id/searchFragment">
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.airbnb.SearchFragment"
+        android:name="com.example.airbnb.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -20,12 +20,12 @@
         tools:layout="@layout/fragment_wish_list" />
     <fragment
         android:id="@+id/myReservationFragment"
-        android:name="com.example.airbnb.MyReservationFragment"
+        android:name="com.example.airbnb.ui.myreservation.MyReservationFragment"
         android:label="fragment_my_reservation"
         tools:layout="@layout/fragment_my_reservation" />
     <fragment
         android:id="@+id/placeSearchFragment"
-        android:name="com.example.airbnb.PlaceSearchFragment"
+        android:name="com.example.airbnb.ui.placesearch.PlaceSearchFragment"
         android:label="fragment_place_search"
         tools:layout="@layout/fragment_place_search" >
         <action

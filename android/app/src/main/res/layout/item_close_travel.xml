@@ -7,7 +7,7 @@
 
         <variable
             name="travels"
-            type="com.example.airbnb.CloseTravelContents" />
+            type="com.example.airbnb.network.dto.CloseTravelContents" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

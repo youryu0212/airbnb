@@ -1,5 +1,7 @@
-package com.example.airbnb
+package com.example.airbnb.common
 
+import com.example.airbnb.data.repository.DataSource
+import com.example.airbnb.data.repository.DataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

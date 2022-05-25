@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.network.dto
 
 import com.google.gson.annotations.SerializedName
 

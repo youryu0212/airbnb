@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.airbnb.ViewModel" />
+            type="com.example.airbnb.ui.search.ViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="70dp"
-        tools:context="SearchFragment">
+        tools:context=".ui.search.SearchFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -68,7 +68,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".SearchFragment">
+                tools:context=".ui.search.SearchFragment">
 
                 <ImageView
                     android:id="@+id/iv_search_hero_image"

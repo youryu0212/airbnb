@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.airbnb.R
 import com.example.airbnb.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
