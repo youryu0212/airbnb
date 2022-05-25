@@ -6,14 +6,14 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.team16.airbnb.HomeFragment"
+        android:name="com.team16.airbnb.ui.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/myBookFragment"
-        android:name="com.team16.airbnb.MyBookFragment"
+        android:name="com.team16.airbnb.ui.MyBookFragment"
         android:label="MyBookFragment" />
     <fragment
         android:id="@+id/wishFragment"
-        android:name="com.team16.airbnb.WishFragment"
+        android:name="com.team16.airbnb.ui.WishFragment"
         android:label="WishFragment" />
 </navigation>

@@ -1,10 +1,11 @@
-package com.team16.airbnb
+package com.team16.airbnb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.team16.airbnb.R
 import com.team16.airbnb.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

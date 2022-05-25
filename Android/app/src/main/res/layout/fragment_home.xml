@@ -9,12 +9,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        tools:context=".ui.HomeFragment">
 
-        <TextView
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView_in_home"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/label_search" />
+            android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
