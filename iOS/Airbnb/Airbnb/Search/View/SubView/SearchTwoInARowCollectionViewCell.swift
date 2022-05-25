@@ -29,7 +29,7 @@ class SearchTwoInARowCollectionViewCell: SearchCellCommonType {
         return label
     }()
     
-    override func setData(model: SearchFavoriteLocationModel) {
+    override func setData(model: SearchViewModel) {
         mainImageView.image = UIImage(data: model.imageData)
         titleLabel.text = model.titleLabel
         subTitleLabel.text = model.subTitleLabel

@@ -1,5 +1,5 @@
 //
-//  SearchFavoriteLocationModel.swift
+//  SearchViewModel.swift
 //  Airbnb
 //
 //  Created by 백상휘 on 2022/05/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchFavoriteLocationModel: Hashable {
+struct SearchViewModel: Hashable {
     let imageData: Data
     let titleLabel: String
     let subTitleLabel: String

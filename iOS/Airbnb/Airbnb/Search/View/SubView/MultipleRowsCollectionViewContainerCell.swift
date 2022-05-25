@@ -28,12 +28,12 @@ class MultipleRowsCollectionViewContainerCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func applyAttributes(cellType: SearchCellCommonType.Type, models: [SearchFavoriteLocationModel], width: CGFloat, rowCount: UInt) {
+    func applyAttributes(cellType: SearchCellCommonType.Type, items: [SearchViewModel], cellWidth: CGFloat, rowCount: UInt) {
         
         multipleRowCollectionViewController = MultipleRowsCollectionViewController(
             cellType: cellType,
-            models: models,
-            width: width,
+            items: items,
+            cellWidth: cellWidth,
             rowCount: rowCount)
         
         contentView.subviews.forEach({ $0.removeFromSuperview() })
