@@ -13,32 +13,26 @@ class SearchViewController: UIViewController {
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = SearchViewCollectionDataSource()
     
-    let searchBarVC: UISearchController = {
-        let searcher = UISearchController(searchResultsController: nil)
-        searcher.searchBar.showsCancelButton = false
-        searcher.hidesNavigationBarDuringPresentation = false
-        searcher.searchBar.placeholder = "어디로 여행가세요?"
+    let searchBar: UISearchBar = {
+        let searcher = UISearchBar()
+        searcher.placeholder = "어디로 여행가세요?"
         return searcher
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addChild(nextVC)
+        self.setSearchBar()
         self.view = homeView
         self.homeView.setDataSource(dataSource)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setSearchBar()
     }
 }
 
 private extension SearchViewController {
     func setSearchBar() {
-        searchBarVC.searchBar.delegate = self
+        searchBar.delegate = self
         
-        self.navigationItem.titleView = searchBarVC.searchBar
+        self.navigationItem.titleView = searchBar
         self.navigationController?.hidesBarsOnSwipe = true
     }
 }
@@ -48,9 +42,6 @@ extension SearchViewController: UISearchBarDelegate {
         nextVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextVC, animated: true)
         
-        self.navigationItem.titleView = nil
-        searchBarVC.searchBar.delegate = nil
-
-        return true
+        return false
     }
 }

@@ -9,31 +9,24 @@ import UIKit
 
 class BrowseViewController: UIViewController {
     
-    private var searchBarVC: UISearchController?
     private let dataSource = BrowseViewCollectionDataSource()
     private lazy var browseView = BrowseCollectionView(frame: view.frame)
+    
+    let searchBarVC: UISearchController = {
+        let searcher = UISearchController(searchResultsController: nil)
+        searcher.searchBar.showsCancelButton = false
+        searcher.hidesNavigationBarDuringPresentation = false
+        searcher.searchBar.placeholder = "어디로 여행가세요?"
+        return searcher
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationItem()
+        self.setSearchBar()
         self.view.addSubview(browseView)
         self.browseView.setDataSource(dataSource)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setSearchBar()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationItem.searchController = nil
-    }
-    
-    override func willMove(toParent parent: UIViewController?) {
-        guard let searchVC = parent as? SearchViewController else { return }
-        
-        searchBarVC = searchVC.searchBarVC
+        self.setViewConstraint()
     }
 }
 
@@ -45,8 +38,15 @@ private extension BrowseViewController {
     }
     
     func setSearchBar() {
-        guard let searchBarVC = searchBarVC else { return }
-        
         self.navigationItem.searchController = searchBarVC
+    }
+    
+    func setViewConstraint() {
+        NSLayoutConstraint.activate([
+            browseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            browseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            browseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            browseView.topAnchor.constraint(equalTo: self.navigationItem.titleView?.bottomAnchor ?? view.topAnchor)
+        ])
     }
 }
