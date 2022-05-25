@@ -13,16 +13,9 @@ class DestinationHeaderView: UICollectionReusableView {
         return "\(self)"
     }
     
-    private let sectionHeaderView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
     private let headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "가까운 여행지 둘러보기"
-        label.font = UIFont.SFProDisplay.regular
+        label.font = .SFProDisplay.regular(22)
         label.textColor = .Custom.black
         return label
     }()
@@ -40,11 +33,21 @@ class DestinationHeaderView: UICollectionReusableView {
 // MARK: - View Layout
 
 private extension DestinationHeaderView {
+    
     func layoutHeaderLabel() {
         addSubview(headerLabel)
         
         headerLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+// MARK: - Providing Function
+
+extension DestinationHeaderView {
+    
+    func setHeaderLabel(text: String) {
+        headerLabel.text = text
     }
 }
