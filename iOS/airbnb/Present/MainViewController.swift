@@ -27,6 +27,38 @@ class MainViewController: UIViewController {
         return scrollView
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 34, weight: .medium)
+        label.numberOfLines = 0
+        let attributedString = NSMutableAttributedString(string: "슬기로운\n자연생활")
+        label.attributedText = attributedString
+        return label
+    }()
+    
+    private let detailLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .gray1
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.numberOfLines = 0
+        let attributedString = NSMutableAttributedString(string: "에어비앤비가 엄선한\n위시리스트를 만나보세요.")
+        label.attributedText = attributedString
+        return label
+    }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("여행 아이디어 얻기", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = .black
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +81,9 @@ class MainViewController: UIViewController {
     private func addViews() {
         view.addSubview(scrollView)
         scrollView.addSubview(heroImageView)
+        scrollView.addSubview(titleLabel)
+        scrollView.addSubview(detailLabel)
+        scrollView.addSubview(button)
     }
     
     private func setLayout() {
@@ -68,5 +103,14 @@ class MainViewController: UIViewController {
             .isActive = true
         scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: heroImageView.bottomAnchor).isActive = true
+    
+        titleLabel.leadingAnchor.constraint(equalTo: heroImageView.leadingAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: heroImageView.topAnchor, constant: 20).isActive = true
+        
+        detailLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
+        detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        
+        button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 20).isActive = true
     }
 }
