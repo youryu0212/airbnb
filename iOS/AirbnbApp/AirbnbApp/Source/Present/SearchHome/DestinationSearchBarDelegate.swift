@@ -8,6 +8,7 @@
 import UIKit
 
 final class DestinationSearchBarDelegate: NSObject, UISearchBarDelegate {
+    
     let tapTextField = PublishRelay<Void>()
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
