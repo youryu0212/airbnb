@@ -15,6 +15,9 @@ public class Discount {
     @Column(name = "discount_id")
     private Long id;
 
+    private String name;
+    private Integer price;
+
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;

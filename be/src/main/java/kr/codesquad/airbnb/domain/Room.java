@@ -23,6 +23,8 @@ public class Room {
     private String name;
     private String image;
     private String details;
+    private Integer pricePerNight;
+    private Integer maxNumberOfGuest;
 
     @Embedded
     private Location location;
