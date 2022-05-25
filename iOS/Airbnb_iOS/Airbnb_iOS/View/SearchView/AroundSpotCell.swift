@@ -43,7 +43,21 @@ final class AroundSpotCell: UICollectionViewCell {
         fatalError()
     }
 
-    private func setLayout() {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        configure(image: nil, title: nil, distance: nil)
+    }
+
+    func configure(image: UIImage?, title: String?, distance: String?) {
+        imageView.image = image
+        titleLabel.text = title
+        distanceLabel.text = distance
+    }
+}
+
+private extension AroundSpotCell {
+    
+    func setLayout() {
         addSubViews([imageView, titleLabel, distanceLabel])
 
         NSLayoutConstraint.activate([
@@ -66,16 +80,5 @@ final class AroundSpotCell: UICollectionViewCell {
             distanceLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             distanceLabel.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
         ])
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        configure(image: nil, title: nil, distance: nil)
-    }
-
-    func configure(image: UIImage?, title: String?, distance: String?) {
-        imageView.image = image
-        titleLabel.text = title
-        distanceLabel.text = distance
     }
 }

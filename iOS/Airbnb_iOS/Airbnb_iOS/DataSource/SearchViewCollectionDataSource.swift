@@ -66,14 +66,16 @@ final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource
             
             switch indexPath.section {
             case 1:
-                headerView.configure(text: "가까운 여행지 둘러보기")
+                headerView.setHeaderText(text: "가까운 여행지 둘러보기")
+                headerView.setHeaderFontSize(size: 22)
             case 2:
-                headerView.configure(text: """
+                headerView.setHeaderText(text: """
                                            어디에서나,
                                            여행은 살아보는거야!
                                            """)
+                headerView.setHeaderFontSize(size: 22)
             default:
-                headerView.configure(text: nil)
+                headerView.setHeaderText(text: nil)
             }
             
             return headerView

@@ -35,7 +35,14 @@ final class HomeView: UIView {
         fatalError()
     }
 
-    private func setUpLayout() {
+    func setDataSource(_ dataSource: UICollectionViewDataSource) {
+        collectionView.dataSource = dataSource
+    }
+}
+
+private extension HomeView {
+    
+    func setUpLayout() {
         addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -45,7 +52,7 @@ final class HomeView: UIView {
         ])
     }
 
-    private func getCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+    func getCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
             switch section {
             case 0:
@@ -113,9 +120,5 @@ final class HomeView: UIView {
                 return section
             }
         }
-    }
-
-    func setDataSource(_ dataSource: UICollectionViewDataSource) {
-        collectionView.dataSource = dataSource
     }
 }

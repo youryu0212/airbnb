@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let searchBar = UISearchBar()
+    let searchBar = SearchBarView()
     let nextVC = BrowseViewController()
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = SearchViewCollectionDataSource()
@@ -25,7 +25,6 @@ class SearchViewController: UIViewController {
 
 private extension SearchViewController {
     func setSearchBar() {
-        self.searchBar.placeholder = "어디로 여행가세요?"
         self.navigationItem.titleView = searchBar
         
         self.navigationController?.hidesBarsOnSwipe = true

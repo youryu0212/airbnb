@@ -16,6 +16,7 @@
 		02DF0CDB283CB980003D0679 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CDA283CB980003D0679 /* CollectionHeaderView.swift */; };
 		02DF0CDD283CBAB6003D0679 /* SearchViewCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CDC283CBAB6003D0679 /* SearchViewCollectionDataSource.swift */; };
 		6D77C14CD0C71F86C79B5949 /* Pods_Airbnb_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */; };
+		D2562ED3283DCD8300336E49 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562ED2283DCD8300336E49 /* SearchBarView.swift */; };
 		D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD0283C868300C97D16 /* AppDelegate.swift */; };
 		D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */; };
 		D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD4283C868300C97D16 /* TabBarController.swift */; };
@@ -39,6 +40,7 @@
 		1E326D4FAA083AF8388B21BD /* Pods-Airbnb_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb_iOS.release.xcconfig"; path = "Target Support Files/Pods-Airbnb_iOS/Pods-Airbnb_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Airbnb_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C9C3510E21BC4268E4F21D /* Pods-Airbnb_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Airbnb_iOS.debug.xcconfig"; path = "Target Support Files/Pods-Airbnb_iOS/Pods-Airbnb_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D2562ED2283DCD8300336E49 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		D2FFBFCD283C868300C97D16 /* Airbnb_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FFBFD0283C868300C97D16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +78,9 @@
 		02DF0CD3283CB2B9003D0679 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */,
-				02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */,
-				02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */,
 				02DF0CDA283CB980003D0679 /* CollectionHeaderView.swift */,
-				02874049283D3B6D0009C62D /* HomeView.swift */,
+				D2562ED5283DCDFA00336E49 /* SearchBar */,
+				D2562ED4283DCDD800336E49 /* SearchView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -91,6 +91,51 @@
 				9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2562ED4283DCDD800336E49 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */,
+				02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */,
+				02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */,
+				02874049283D3B6D0009C62D /* HomeView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		D2562ED5283DCDFA00336E49 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				D2562ED2283DCD8300336E49 /* SearchBarView.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		D2562ED6283DCE0900336E49 /* TabBarItemVC */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
+				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
+				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
+			);
+			path = TabBarItemVC;
+			sourceTree = "<group>";
+		};
+		D2562ED7283DCE2A00336E49 /* BrowsingVC */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */,
+			);
+			path = BrowsingVC;
+			sourceTree = "<group>";
+		};
+		D2562ED8283DCE3B00336E49 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				02DF0CDC283CBAB6003D0679 /* SearchViewCollectionDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		D2FFBFC4283C868300C97D16 = {
@@ -114,6 +159,7 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2562ED8283DCE3B00336E49 /* DataSource */,
 				02874046283D37AA0009C62D /* Extension */,
 				02DF0CD3283CB2B9003D0679 /* View */,
 				D2FFBFEB283CA74600C97D16 /* ViewController */,
@@ -122,7 +168,6 @@
 				D2FFBFD9283C868400C97D16 /* Assets.xcassets */,
 				D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */,
 				D2FFBFDE283C868400C97D16 /* Info.plist */,
-				02DF0CDC283CBAB6003D0679 /* SearchViewCollectionDataSource.swift */,
 			);
 			path = Airbnb_iOS;
 			sourceTree = "<group>";
@@ -131,10 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				D2FFBFEC283CA75700C97D16 /* Container */,
-				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
-				D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */,
-				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
-				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
+				D2562ED6283DCE0900336E49 /* TabBarItemVC */,
+				D2562ED7283DCE2A00336E49 /* BrowsingVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -279,6 +322,7 @@
 				0287404A283D3B6D0009C62D /* HomeView.swift in Sources */,
 				02DF0CDB283CB980003D0679 /* CollectionHeaderView.swift in Sources */,
 				D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */,
+				D2562ED3283DCD8300336E49 /* SearchBarView.swift in Sources */,
 				02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */,
 				D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */,
 				D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */,
