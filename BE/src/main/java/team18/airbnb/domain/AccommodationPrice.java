@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class AccommodationPrice {
 
     @Id @GeneratedValue
+    @Column(name = "accommdationPrice_id")
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)

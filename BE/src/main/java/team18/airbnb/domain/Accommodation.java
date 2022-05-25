@@ -6,8 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Getter
@@ -18,6 +21,11 @@ public class Accommodation {
     @Column(name = "accommodation_id")
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
     private String accommodationName;
     private String accommodationAddress;
+    private String accommodationImg;
 }

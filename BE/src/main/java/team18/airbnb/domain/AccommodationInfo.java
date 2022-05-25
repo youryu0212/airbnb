@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class AccommodationInfo {
 
     @Id @GeneratedValue
+    @Column(name = "accommdationInfo_id")
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -23,7 +24,8 @@ public class AccommodationInfo {
     @Enumerated(EnumType.STRING)
     private AccommodationType type;
 
-    private int nBed;
-    private int nBath;
+    private int numberOfBed;
+    private int numberOfBath;
     private int discountOfWeek;
+    private int maximumNumberOfGuests;
 }
