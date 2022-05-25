@@ -19,7 +19,7 @@ public class GeoCodeService {
 
     public GeoCodeResponseDto convertAddressToCoordinate(Address address) throws ParseException {
         String addressString = address.toValue();
-        GeoCode geoCode = GeoCode.getGeoCode(addressString, apiKey);
+        GeoCode geoCode = GeoCode.getGeoCodeFromNaverApi(addressString, apiKey);
         log.info("[Accomm. Service] (latitude, longitude): ({}, {})",
                 geoCode.getLatitude(), geoCode.getLongitude());
         return new GeoCodeResponseDto(geoCode.getLatitude(), geoCode.getLongitude());

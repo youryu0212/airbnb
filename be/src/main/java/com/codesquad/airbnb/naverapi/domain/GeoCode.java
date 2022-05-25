@@ -1,5 +1,6 @@
 package com.codesquad.airbnb.naverapi.domain;
 
+import com.codesquad.airbnb.common.CalculatorUtils;
 import com.codesquad.airbnb.naverapi.ApiKey;
 import lombok.Getter;
 import org.json.simple.JSONArray;
@@ -23,12 +24,12 @@ public class GeoCode {
     private String latitude;
     private String longitude;
 
-    private GeoCode(String latitude, String longitude) {
+    public GeoCode(String latitude, String longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public static GeoCode getGeoCode(String address, ApiKey apiKey) throws ParseException {
+    public static GeoCode getGeoCodeFromNaverApi(String address, ApiKey apiKey) throws ParseException {
         URI uri = getUri(address);
 
         RestTemplate restTemplate = new RestTemplate();
@@ -43,7 +44,7 @@ public class GeoCode {
 
         JSONObject addressJSONObject = getJsonObject(result);
 
-        return new GeoCode(getLatitude(addressJSONObject), getLongitude(addressJSONObject));
+        return new GeoCode(addressJSONObject.get("y").toString(), addressJSONObject.get("x").toString());
     }
 
     private static URI getUri(String addressString) {
@@ -59,17 +60,30 @@ public class GeoCode {
     private static JSONObject getJsonObject(ResponseEntity<String> result) throws ParseException {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(result.getBody());
+        Long count = (Long) ((JSONObject) jsonObject.get("meta")).get("count");
+        if (count <= 0) {
+            throw new IllegalArgumentException("해당 주소로 조회한 결과가 없습니다.");
+        }
+
         JSONArray addresses = (JSONArray) jsonObject.get("addresses");
 
         return (JSONObject) addresses.get(0);
     }
 
-
-    private static String getLatitude(JSONObject addressJSONObject) {
-        return addressJSONObject.get("y").toString();
+    public String getLatitude() {
+        return latitude;
     }
 
-    private static String getLongitude(JSONObject addressJSONObject) {
-        return addressJSONObject.get("x").toString();
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public int calculateDistance(String latitude, String longitude) {
+        double baseLatitude = Double.parseDouble(this.latitude);
+        double baseLongitude = Double.parseDouble(this.longitude);
+        double referenceLatitude = Double.parseDouble(latitude);
+        double referenceLongitude = Double.parseDouble(longitude);
+
+        return CalculatorUtils.calculateDistance(baseLatitude, baseLongitude, referenceLatitude, referenceLongitude);
     }
 }
