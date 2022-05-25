@@ -77,7 +77,6 @@ class HeroCell: UICollectionViewCell {
             stackView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 24),
             stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -105),
             stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -210),
 
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             button.widthAnchor.constraint(equalToConstant: 165),

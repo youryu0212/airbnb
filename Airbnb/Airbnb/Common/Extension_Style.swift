@@ -7,14 +7,14 @@
 
 import UIKit
 extension UIColor {
-    static var gray1 = UIColor(named: "Gray1")
-    static var gray2 = UIColor(named: "Gray2")
-    static var gray3 = UIColor(named: "Gray3")
-    static var gray4 = UIColor(named: "Gray4")
-    static var gray5 = UIColor(named: "Gray5")
-    static var gray6 = UIColor(named: "Gray6")
-    static var primary = UIColor(named: "Primary")
-    static var secondary = UIColor(named: "Secondary")
+    static let gray1 = UIColor(named: "Gray1")
+    static let gray2 = UIColor(named: "Gray2")
+    static let gray3 = UIColor(named: "Gray3")
+    static let gray4 = UIColor(named: "Gray4")
+    static let gray5 = UIColor(named: "Gray5")
+    static let gray6 = UIColor(named: "Gray6")
+    static let primary = UIColor(named: "Primary")
+    static let secondary = UIColor(named: "Secondary")
 }
 
 extension UIFont {
