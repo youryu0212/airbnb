@@ -128,7 +128,9 @@ final class SearchViewController: UIViewController {
         viewModel.state().presentSearchOption
             .withUnretained(self)
             .bind(onNext: { vc, address in
-                print(address)
+                let viewController = TravalOptionViewController(viewModel: TravalOptionViewModel(location: address))
+                vc.navigationItem.backButtonTitle = ""
+                vc.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: disposeBag)
         
