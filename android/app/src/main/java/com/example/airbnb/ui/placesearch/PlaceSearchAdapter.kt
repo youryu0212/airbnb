@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui.placesearch
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.airbnb.R
 import com.example.airbnb.data.model.PlaceData
 import com.example.airbnb.databinding.ItemPopularPlaceDetailBinding
 import com.example.airbnb.databinding.ItemSearchPlaceDetailBinding

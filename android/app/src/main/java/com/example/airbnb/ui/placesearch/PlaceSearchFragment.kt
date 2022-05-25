@@ -1,4 +1,4 @@
-package com.example.airbnb
+package com.example.airbnb.ui.placesearch
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.airbnb.R
 import com.example.airbnb.databinding.FragmentPlaceSearchBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
