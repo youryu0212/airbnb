@@ -15,8 +15,21 @@ class MainTabBarController: UITabBarController {
                                          image: UIImage(systemName: "magnifyingglass.circle"),
                                          selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
         searchTabVC.tabBarItem = searchTabBarItem
-
-        self.viewControllers = [searchTabVC]
+        
+        let wishTabVC = UINavigationController(rootViewController: WishViewController())
+        let wishTabBarItem = UITabBarItem(title: "위시리스트",
+                                          image: UIImage(systemName: "heart"),
+                                          selectedImage: UIImage(systemName: "heart.fill"))
+        wishTabVC.tabBarItem = wishTabBarItem
+        
+        let userTabVC = UINavigationController(rootViewController: UserViewController())
+        let userTabBarItem = UITabBarItem(title: "내 예약",
+                                          image: UIImage(systemName: "person"),
+                                          selectedImage: UIImage(systemName: "person.fill"))
+        userTabVC.tabBarItem = userTabBarItem
+        
+        
+        self.viewControllers = [searchTabVC, wishTabVC, userTabVC]
         self.tabBar.backgroundColor = .systemGray6
     }
     

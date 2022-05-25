@@ -17,6 +17,8 @@
 		00489B78283CA5CC00201F55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B77283CA5CC00201F55 /* RxSwift */; };
 		00489B7B283CA61800201F55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 00489B7A283CA61800201F55 /* Alamofire */; };
 		00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00489B83283CC26E00201F55 /* SearchViewController.swift */; };
+		008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74D283DD94E002441E5 /* WishViewController.swift */; };
+		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		00489B6C283CA54000201F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00489B6E283CA54000201F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
+		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 			children = (
 				00489B64283CA53F00201F55 /* MainTabBarController.swift */,
 				00489B83283CC26E00201F55 /* SearchViewController.swift */,
+				008FD74D283DD94E002441E5 /* WishViewController.swift */,
+				008FD74F283DD96F002441E5 /* UserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -181,8 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
+				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,
 				00489B61283CA53F00201F55 /* AppDelegate.swift in Sources */,
 				00489B84283CC26E00201F55 /* SearchViewController.swift in Sources */,
+				008FD74E283DD94E002441E5 /* WishViewController.swift in Sources */,
 				00489B63283CA53F00201F55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
