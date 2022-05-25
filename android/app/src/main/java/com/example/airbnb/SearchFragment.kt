@@ -19,7 +19,7 @@ class SearchFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
 
         // 추후 스타크가 정의한 버튼으로 대체할 예정입니다.
-        binding.btnTemp.setOnClickListener {
+        binding.btnSearchIcon.setOnClickListener {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToPlaceSearchFragment())
         }
 
