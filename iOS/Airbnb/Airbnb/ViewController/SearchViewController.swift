@@ -9,9 +9,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    private var searchView = SearchView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBarController()
+        addSearchView()
     }
     
     private func searchBarController() {
@@ -22,7 +25,14 @@ class SearchViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "숙소 찾기"
-        
     }
     
+    private func addSearchView() {
+        self.view.addSubview(searchView)
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        searchView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        searchView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        searchView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        searchView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
 }
