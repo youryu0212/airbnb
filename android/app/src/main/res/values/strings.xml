@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Airbnb</string>
+    <string name="where_to_go">어디로 여행하세요?</string>
+    <string name="near_trip_string">근처의 인기 여행지</string>
 </resources>
