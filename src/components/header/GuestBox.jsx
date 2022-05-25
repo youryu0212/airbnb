@@ -17,6 +17,7 @@ const GuestBox = ({clickedPart, setClickedPart}) => {
             partId={"GuestBox"}
             clickedPart={clickedPart}
             setClickedPart={setClickedPart}
+            hasSearchButton={true}
         />
     );
 };
