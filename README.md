@@ -5,7 +5,6 @@
 
 #### 사용한 기술
 
-- MVVM
 - Autolayout programmatically
 - Unit Test
 
