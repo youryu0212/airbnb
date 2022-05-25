@@ -13,6 +13,8 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
+    private var isInputtedText = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +36,13 @@ class SearchFragment : Fragment() {
             findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
         registerTextViewForTextChange()
+        registerCloseButton()
+    }
+
+    private fun registerCloseButton() {
+        binding.clearButton.setOnClickListener {
+            if (isInputtedText) binding.searchInputText.text.clear()
+        }
     }
 
     private fun registerTextViewForTextChange() {
@@ -42,8 +51,13 @@ class SearchFragment : Fragment() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.isNullOrBlank()) binding.clearButton.setImageResource(R.drawable.ic_search)
-                else binding.clearButton.setImageResource(R.drawable.ic_clear)
+                isInputtedText = if (s.isNullOrBlank()) {
+                    binding.clearButton.setImageResource(R.drawable.ic_search)
+                    false
+                } else {
+                    binding.clearButton.setImageResource(R.drawable.ic_clear)
+                    true
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
