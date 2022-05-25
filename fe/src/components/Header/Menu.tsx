@@ -1,28 +1,32 @@
 import styled from 'styled-components';
-import { ButtonGroup, Button } from '@material-ui/core';
+import { Breadcrumbs, Link } from '@material-ui/core';
 
 function Menu() {
   return (
-    <CustomButtonGroup>
-      <CustomButton>숙소</CustomButton>
-      <CustomButton>체험</CustomButton>
-      <CustomButton>온라인 체험</CustomButton>
-    </CustomButtonGroup>
+    <CustomBreadcrumbs separator="" aria-label="네비게이션 메뉴">
+      <CustomLink href="/">숙소</CustomLink>
+      <CustomLink href="/">체험</CustomLink>
+      <CustomLink href="/">온라인 체험</CustomLink>
+    </CustomBreadcrumbs>
   );
 }
 
-const CustomButtonGroup = styled(ButtonGroup)`
+const CustomBreadcrumbs = styled(Breadcrumbs)`
   margin: 0 auto;
   margin-bottom: 32px;
   border: none;
 `;
 
-const CustomButton = styled(Button)`
+const CustomLink = styled(Link)`
   border: none;
+  padding: 0 6px;
+  color: ${({ theme }) => theme.colors.black};
+  ${({ theme }) => theme.fontStyles.normal14px};
 
   &:hover {
     background: none;
     ${({ theme }) => theme.fontStyles.bold16px};
+    text-decoration: none;
   }
 `;
 
