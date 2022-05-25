@@ -5,11 +5,11 @@ function UpperMenu(props) {
   return (
     <Div>
       <Flex>
-        <div>숙소</div>
+        <UpperMenuContent>숙소</UpperMenuContent>
         <Spacer />
-        <div>체험</div>
+        <UpperMenuContent>체험</UpperMenuContent>
         <Spacer />
-        <div>온라인 체험</div>
+        <UpperMenuContent>온라인 체험</UpperMenuContent>
       </Flex>
     </Div>
   );
@@ -17,7 +17,18 @@ function UpperMenu(props) {
 
 const Div = styled.div`
   width: 15%;
-  cursor: pointer;
-  font-size: ${({ theme }) => theme.fontSizes.l};
 `;
+
+const UpperMenuContent = styled.p`
+  background-color: ${({ theme }) => theme.colors.clearwhite};
+  cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 15px;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.white};
+  }
+`;
+
 export default UpperMenu;

@@ -5,10 +5,13 @@ function Logo() {
 }
 
 const StyledLogo = styled.div`
+  background-color: ${({ theme }) => theme.colors.clearwhite};
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  margin: 40px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 10px;
 `;
 
 export default Logo;
