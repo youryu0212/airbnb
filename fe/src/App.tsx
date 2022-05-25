@@ -1,5 +1,5 @@
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme as globalTheme } from 'styles/GlobalStyles';
 import { theme as StyledTheme } from 'styles/theme';
 

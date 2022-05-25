@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Breadcrumbs, Link } from '@material-ui/core';
+import { Breadcrumbs, Link } from '@mui/material';
 
 function Menu() {
   return (
@@ -12,21 +12,26 @@ function Menu() {
 }
 
 const CustomBreadcrumbs = styled(Breadcrumbs)`
-  margin: 0 auto;
-  margin-bottom: 32px;
-  border: none;
+  && {
+    margin: 0 auto;
+    margin-bottom: 32px;
+    border: none;
+  }
 `;
 
 const CustomLink = styled(Link)`
-  border: none;
-  padding: 0 6px;
-  color: ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fontStyles.normal14px};
-
-  &:hover {
-    background: none;
-    ${({ theme }) => theme.fontStyles.bold16px};
+  && {
+    border: none;
+    padding: 0 6px;
+    color: ${({ theme }) => theme.colors.black};
+    ${({ theme }) => theme.fontStyles.normal14px};
     text-decoration: none;
+
+    &:hover {
+      background: none;
+      ${({ theme }) => theme.fontStyles.bold16px};
+      text-decoration: none;
+    }
   }
 `;
 

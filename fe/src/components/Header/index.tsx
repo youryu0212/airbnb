@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { Avatar, Link } from '@material-ui/core';
+import { Avatar, Link } from '@mui/material';
 import { ReactComponent as HamburgerIcon } from 'images/FE_숙소예약서비스/Property 1=menu.svg';
 import { ReactComponent as LogoImg } from 'images/logo.svg';
 
@@ -87,8 +87,10 @@ const Hamburger = styled(HamburgerIcon)`
 `;
 
 const CustomAvatar = styled(Avatar)`
-  width: 32px;
-  height: 32px;
-  background: ${({ theme }) => theme.colors.grey3};
+  && {
+    width: 32px;
+    height: 32px;
+    background: ${({ theme }) => theme.colors.grey3};
+  }
 `;
 export default Header;

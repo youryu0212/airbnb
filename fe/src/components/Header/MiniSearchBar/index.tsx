@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 import { SearchButton, StyledSearchIcon, Btn } from 'components/Header/SearchBar/searchBar.styled';
 
 function MiniSearchBar({ changeSearchBar }: any) {
