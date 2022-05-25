@@ -32,12 +32,26 @@ final class ThemeSpotCell: UICollectionViewCell {
         super.init(frame: frame)
         setLayout()
     }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError()
     }
 
-    private func setLayout() {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        configure(image: nil, title: nil)
+    }
+
+    func configure(image: UIImage?, title: String?) {
+        imageView.image = image
+        titleLabel.text = title
+    }
+}
+
+private extension ThemeSpotCell {
+    
+    func setLayout() {
         contentView.addSubViews([imageView, titleLabel])
 
         NSLayoutConstraint.activate([
@@ -53,15 +67,5 @@ final class ThemeSpotCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -16)
         ])
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        configure(image: nil, title: nil)
-    }
-
-    func configure(image: UIImage?, title: String?) {
-        imageView.image = image
-        titleLabel.text = title
     }
 }

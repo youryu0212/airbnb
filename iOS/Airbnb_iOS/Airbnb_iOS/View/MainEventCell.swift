@@ -27,16 +27,6 @@ final class MainEventCell: UICollectionViewCell {
         fatalError()
     }
 
-    private func setLayout() {
-        contentView.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         configure(image: nil)
@@ -44,5 +34,18 @@ final class MainEventCell: UICollectionViewCell {
 
     func configure(image: UIImage?) {
         imageView.image = image
+    }
+}
+
+private extension MainEventCell {
+    
+    func setLayout() {
+        contentView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }

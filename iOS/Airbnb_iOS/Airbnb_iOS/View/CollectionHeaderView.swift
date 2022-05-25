@@ -34,14 +34,6 @@ final class CollectionHeaderView: UICollectionReusableView {
         fatalError()
     }
 
-    private func setLayout() {
-        NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16)
-        ])
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         configure(text: nil)
@@ -52,3 +44,13 @@ final class CollectionHeaderView: UICollectionReusableView {
     }
 }
 
+private extension CollectionHeaderView {
+    
+    func setLayout() {
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16)
+        ])
+    }
+}
