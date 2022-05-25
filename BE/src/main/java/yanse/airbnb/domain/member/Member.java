@@ -1,12 +1,11 @@
 package yanse.airbnb.domain.member;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,6 +41,6 @@ public class Member {
 	@JoinColumn(name = "wishlist_id")
 	private WishList wishList;
 
-	@OneToMany(mappedBy = "reservation")
+	@OneToMany(mappedBy = "member")
 	private List<Reservation> reservationList = new ArrayList<>();
 }
