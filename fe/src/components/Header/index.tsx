@@ -53,12 +53,14 @@ function Header() {
 const HeaderWrap = styled.header<Position>`
   display: flex;
   justify-content: space-between;
-  padding: 24px;
-  margin-bottom: 20px;
   position: ${(props) => {
     return props.position === '/' ? 'fixed' : 'sticky';
   }};
   top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-bottom: 20px;
+  padding: 24px;
   width: 1440px;
 `;
 
