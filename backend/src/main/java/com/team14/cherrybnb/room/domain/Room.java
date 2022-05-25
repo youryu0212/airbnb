@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -17,29 +16,16 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "room_id")
     private Long id;
 
-    private int capacity;
-
-    private int roomCount;
-
-    private int bedCount;
-
-    private int restroomCount;
+    @Embedded
+    private RoomInfo roomInfo;
 
     private String description;
 
-    private BigDecimal weekdayPrice;
-
-    private BigDecimal weekendPrice;
-
-    private BigDecimal weeklyDiscount;
-
-    private BigDecimal cleaningFee;
-
-    private BigDecimal serviceCommission;
-
-    private BigDecimal tax;
+    @Embedded
+    private RoomPriceCondition roomPriceCondition;
 
     @OneToOne
     @JoinColumn(name = "address_id")
@@ -51,4 +37,6 @@ public class Room {
 
     @OneToMany(mappedBy = "room")
     private List<RoomImage> roomImages;
+
+    private String thumbnail;
 }
