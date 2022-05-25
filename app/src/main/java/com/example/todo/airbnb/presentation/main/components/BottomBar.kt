@@ -1,5 +1,6 @@
 package com.example.todo.airbnb.presentation.main.components
 
+import SearchScreen
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -16,7 +17,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.todo.airbnb.R
 import com.example.todo.airbnb.presentation.reservation.components.ReservationScreen
 import com.example.todo.airbnb.presentation.search.SearchViewModel
-import com.example.todo.airbnb.presentation.search.components.SearchScreen
 import com.example.todo.airbnb.presentation.wishlist.components.WishListScreen
 import com.example.todo.airbnb.ui.theme.Gray
 

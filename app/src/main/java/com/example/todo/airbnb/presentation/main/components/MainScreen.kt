@@ -24,7 +24,7 @@ fun MainScreen(viewModel: SearchViewModel) {
                 onCloseClicked = { viewModel.updateSearchText(newValue = "") },
                 onSearchClicked = {},
                 onOpenTriggered = { viewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPEN) },
-                onCloseTriggered =  { viewModel.updateSearchWidgetState(newValue = SearchWidgetState.CLOSED) },
+                onCloseTriggered = { viewModel.updateSearchWidgetState(newValue = SearchWidgetState.CLOSED) },
             )
         },
         bottomBar = { BottomBar(navController) }
