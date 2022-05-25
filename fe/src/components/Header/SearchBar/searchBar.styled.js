@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from 'images/FE_숙소예약서비스/Property 1=search.svg';
 import { ReactComponent as CrossIcon } from 'images/FE_숙소예약서비스/Property 1=x-circle.svg';
 
+export const SearchBarContainer = styled.div`
+  position: relative;
+`;
+
 export const SearchBarWrap = styled.div`
   width: 916px;
   height: 76px;
@@ -11,7 +15,6 @@ export const SearchBarWrap = styled.div`
   border-radius: 999px;
   padding: 16px 0px 16px 20px;
   justify-content: space-around;
-  position: relative;
 `;
 export const Period = styled.div`
   height: 100%;

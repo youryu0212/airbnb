@@ -1,13 +1,38 @@
+import { Divider } from '@material-ui/core';
 import styled from 'styled-components';
+import PersonnelModalWrap from './PersonnelModalWrap';
+
 import { ModalWrap } from './styled';
 
 function PersonnelModal() {
-  return <PersonnelModalWrap>인원모달</PersonnelModalWrap>;
+  const PERSONNEL_INFO = [
+    { id: 1, title: '성인', info: '만 13세 이상' },
+    { id: 2, title: '어린이', info: '만 2~12세' },
+    { id: 3, title: '유아', info: '만 2세 미만' },
+  ];
+
+  const PersonnelInfo = PERSONNEL_INFO.map((info, index) => {
+    return (
+      <>
+        <PersonnelModalWrap key={info.id} info={info} />
+        {index !== PERSONNEL_INFO.length - 1 && (
+          <Divider style={{ width: '100%', margin: '24px 0' }} />
+        )}
+      </>
+    );
+  });
+
+  return <PersonnelModalContainer>{PersonnelInfo}</PersonnelModalContainer>;
 }
 
-const PersonnelModalWrap = styled(ModalWrap)`
+const PersonnelModalContainer = styled(ModalWrap)`
   width: 400px;
   height: 355px;
+  right: 0;
+  padding: 64px;
+  display: flex;
   display: none;
+  flex-direction: column;
 `;
+
 export default PersonnelModal;

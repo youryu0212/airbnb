@@ -1,5 +1,5 @@
 import { Divider } from '@material-ui/core';
-import { SearchBarWrap } from 'components/Header/SearchBar/searchBar.styled';
+import { SearchBarWrap, SearchBarContainer } from 'components/Header/SearchBar/searchBar.styled';
 import Period from 'components/Header/SearchBar/Period';
 import Personnel from 'components/Header/SearchBar/Personnel';
 import Price from 'components/Header/SearchBar/Price';
@@ -10,7 +10,7 @@ import PersonnelModal from './Modals/PersonnelModal';
 
 function SearchBar() {
   return (
-    <div>
+    <SearchBarContainer>
       <SearchBarWrap>
         <Period />
         <Divider orientation="vertical" />
@@ -22,7 +22,7 @@ function SearchBar() {
       <PeriodModal />
       <PriceModal />
       <PersonnelModal />
-    </div>
+    </SearchBarContainer>
   );
 }
 
