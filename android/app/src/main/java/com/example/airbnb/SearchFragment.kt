@@ -1,10 +1,11 @@
 package com.example.airbnb
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import androidx.databinding.DataBindingUtil
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.airbnb.databinding.FragmentSearchBinding
@@ -37,6 +38,14 @@ class SearchFragment : Fragment() {
         }
         registerTextViewForTextChange()
         registerCloseButton()
+        focusInputTextAndShowKeyboard()
+    }
+
+    private fun focusInputTextAndShowKeyboard() {
+        binding.searchInputText.requestFocus()
+
+        val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(binding.searchInputText, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private fun registerCloseButton() {
