@@ -1,8 +1,8 @@
 import React from 'react';
-import { styled } from '@mui/system';
+import styled from 'styled-components';
 import { Button } from '@mui/material';
 
-const CustomDiv = styled('div')`
+const CustomDiv = styled.div`
   width: 50px;
   height: 50px;
   background-color: black;
