@@ -1,7 +1,13 @@
 import React from 'react';
+import Hero from 'components/Hero/Hero';
+import Wrapper from './Home.styled';
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <Wrapper>
+      <Hero />
+    </Wrapper>
+  );
 }
 
 export default Home;
