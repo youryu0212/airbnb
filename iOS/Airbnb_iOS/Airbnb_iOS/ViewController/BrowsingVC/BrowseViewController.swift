@@ -10,11 +10,14 @@ import UIKit
 class BrowseViewController: UIViewController {
     
     private var searchBarVC: UISearchController?
+    private let dataSource = BrowseViewCollectionDataSource()
+    private lazy var browseView = BrowseCollectionView(frame: view.frame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.setNavigationItem()
+        self.view.addSubview(browseView)
+        self.browseView.setDataSource(dataSource)
     }
     
     override func viewWillAppear(_ animated: Bool) {
