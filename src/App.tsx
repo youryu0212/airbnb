@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
+import { Routes, Route } from 'react-router-dom';
+import Home from 'pages/Home/Home';
+import Rooms from 'pages/Rooms/Rooms';
 
 const CustomDiv = styled.div`
   width: 50px;
@@ -15,10 +18,10 @@ const CustomButton = styled(Button)`
 
 function App() {
   return (
-    <div>
-      <CustomDiv />
-      <CustomButton>버튼</CustomButton>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/rooms" element={<Rooms />} />
+    </Routes>
   );
 }
 
