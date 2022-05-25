@@ -54,7 +54,6 @@ class HomeViewController: UIViewController {
             homeCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             homeCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             homeCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-
         ])
     }
 
