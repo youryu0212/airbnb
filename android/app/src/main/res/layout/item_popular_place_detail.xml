@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.example.airbnb.data.model.PopularPlaceData.PopularPlaceDetail" />
+            type="com.example.airbnb.data.model.PlaceData.PopularPlaceData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
