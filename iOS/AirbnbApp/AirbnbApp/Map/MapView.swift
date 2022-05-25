@@ -15,15 +15,15 @@ final class MapView: MKMapView {
         let cellWidth = self.frame.width - 100
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: cellWidth, height: 300.0)
+        flowLayout.itemSize = CGSize(width: cellWidth, height: 120.0)
         flowLayout.minimumLineSpacing = 16.0
         flowLayout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
         let insetX = (collectionView.bounds.width - cellWidth) / 2.0
-        let insetY = (collectionView.bounds.height - 300.0) / 2.0
-        
+        let insetY = (collectionView.bounds.height - 120.0) / 2.0
+
         collectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
         
         return collectionView
@@ -42,11 +42,12 @@ final class MapView: MKMapView {
         self.addSubview(cardCollectionView)
         
         cardCollectionView.snp.makeConstraints {
-            $0.bottom.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.snp.bottom).inset(32.0)
         }
         
         cardCollectionView.snp.makeConstraints {
-            $0.height.equalTo(300)
+            $0.height.equalTo(120)
         }
     }
     
