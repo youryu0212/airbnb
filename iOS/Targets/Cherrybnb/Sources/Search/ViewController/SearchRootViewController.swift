@@ -52,6 +52,6 @@ extension SearchRootViewController: UISearchBarDelegate {
         nextViewController = ListCollectionViewController()
         self.navigationController?.pushViewController(nextViewController ?? UIViewController(), animated: true)
         nextViewController?.tabBarController?.tabBar.isHidden = true
-        
+        self.searchBar.endEditing(true)
     }
 }
