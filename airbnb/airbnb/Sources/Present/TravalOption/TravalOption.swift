@@ -30,7 +30,7 @@ extension TravalOptionInfo {
         }
     }
 
-    enum OptionType: CaseIterable {
+    enum OptionType: Int, CaseIterable {
         case location
         case checkInOut
         case rangePrice

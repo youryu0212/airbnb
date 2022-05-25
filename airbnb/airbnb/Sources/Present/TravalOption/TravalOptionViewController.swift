@@ -22,6 +22,15 @@ final class TravalOptionViewController: UIViewController {
         items.append(itemView)
     }
     
+    private lazy var contentViews: [TravalOptionInfo.OptionType: UIViewController] = {
+        var viewControllers = [TravalOptionInfo.OptionType: UIViewController]()
+        viewControllers[.checkInOut] = CheckInOutViewController(viewModel: viewModel.checkInOutViewModel)
+        viewControllers[.rangePrice] = PriceViewController(viewModel: viewModel.priceViewModel)
+        viewControllers[.person] = PersonViewController(viewModel: viewModel.personViewModel)
+        viewControllers.values.forEach { $0.view.isHidden = true }
+        return viewControllers
+    }()
+    
     private let contentView = UIView()
     
     private let viewModel: TravalOptionViewModelProtocol
@@ -64,6 +73,30 @@ final class TravalOptionViewController: UIViewController {
                 vc.categoryItems[value.0].setvalue(value.1)
             })
             .disposed(by: disposeBag)
+        
+        let categoryTapped = Observable
+            .merge( categoryItems.enumerated().map { index, view in
+                view.tap
+                    .compactMap {
+                        TravalOptionInfo.OptionType(rawValue: index)
+                    }.asObservable()
+            })
+            .share()
+        
+        Observable
+            .merge(
+                viewModel.state().showCategoryPage.asObservable(),
+                categoryTapped
+            )
+            .filter { $0 != .location }
+            .withUnretained(self)
+            .do { vc, _ in
+                vc.contentViews.values.forEach { $0.view.isHidden = true }
+            }
+            .bind(onNext: { vc, type in
+                vc.contentViews[type]?.view.isHidden = false
+            })
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
@@ -73,6 +106,14 @@ final class TravalOptionViewController: UIViewController {
     private func layout() {
         view.addSubview(contentView)
         view.addSubview(categoryStackView)
+        
+        contentViews.values.forEach {
+            contentView.addSubview($0.view)
+            
+            $0.view.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
+        }
         
         categoryItems.forEach {
             categoryStackView.addArrangedSubview($0)
@@ -89,5 +130,9 @@ final class TravalOptionViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(categoryItems[0])
         }
+    }
+    
+    private func selectedCategory() {
+        
     }
 }

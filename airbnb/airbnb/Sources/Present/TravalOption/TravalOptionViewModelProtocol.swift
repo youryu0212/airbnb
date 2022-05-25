@@ -16,6 +16,7 @@ protocol TravalOptionViewModelState {
     var usingCategorys: PublishRelay<[TravalOptionInfo.OptionType]> { get }
     var updateTitle: PublishRelay<String> { get }
     var updateValue: PublishRelay<(Int, String)> { get }
+    var showCategoryPage: BehaviorRelay<TravalOptionInfo.OptionType> { get }
 }
 
 protocol TravalOptionViewModelBinding {
@@ -23,4 +24,10 @@ protocol TravalOptionViewModelBinding {
     func state() -> TravalOptionViewModelState
 }
 
-typealias TravalOptionViewModelProtocol = TravalOptionViewModelBinding
+protocol TravalOptionViewModelProperty {
+    var priceViewModel: PriceViewModelProtocol { get }
+    var checkInOutViewModel: CheckInOutViewModelProtocol { get }
+    var personViewModel: PersonViewModelProtocol { get }
+}
+
+typealias TravalOptionViewModelProtocol = TravalOptionViewModelBinding & TravalOptionViewModelProperty

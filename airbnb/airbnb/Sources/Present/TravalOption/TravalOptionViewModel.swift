@@ -9,7 +9,7 @@ import Foundation
 import RxRelay
 import RxSwift
 
-final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionViewModelAction, TravalOptionViewModelState {
+final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionViewModelAction, TravalOptionViewModelState, TravalOptionViewModelProperty {
     func action() -> TravalOptionViewModelAction { self }
     
     let viewDidLoad = PublishRelay<Void>()
@@ -19,6 +19,11 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
     let usingCategorys = PublishRelay<[TravalOptionInfo.OptionType]>()
     let updateTitle = PublishRelay<String>()
     let updateValue = PublishRelay<(Int, String)>()
+    let showCategoryPage = BehaviorRelay<TravalOptionInfo.OptionType>(value: .checkInOut)
+    
+    let priceViewModel: PriceViewModelProtocol = PriceViewModel()
+    let checkInOutViewModel: CheckInOutViewModelProtocol = CheckInOutViewModel()
+    let personViewModel: PersonViewModelProtocol = PersonViewModel()
     
     private var option: [TravalOptionInfo.OptionType: Any?] = [:]
     private let disposeBag = DisposeBag()
