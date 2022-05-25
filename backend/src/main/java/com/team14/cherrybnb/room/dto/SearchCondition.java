@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 public class SearchCondition {
 
-
     private LocalDateTime checkIn;
 
     private LocalDateTime checkOut;
