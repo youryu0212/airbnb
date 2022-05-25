@@ -19,27 +19,13 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int capacity;
-
-    private int roomCount;
-
-    private int bedCount;
-
-    private int restroomCount;
+    @Embedded
+    private RoomInfo roomInfo;
 
     private String description;
 
-    private BigDecimal weekdayPrice;
-
-    private BigDecimal weekendPrice;
-
-    private BigDecimal weeklyDiscount;
-
-    private BigDecimal cleaningFee;
-
-    private BigDecimal serviceCommission;
-
-    private BigDecimal tax;
+    @Embedded
+    private RoomPriceCondition roomPriceCondition;
 
     @OneToOne
     @JoinColumn(name = "address_id")
