@@ -7,4 +7,8 @@ class Repository @Inject constructor(private val dataSource: DataSource){
     suspend fun loadHeroImage(): HeroImage? {
         return dataSource.loadHeroImage()
     }
+
+    suspend fun loadCloseTravel(): Travel? {
+        return dataSource.loadCloseTravel()
+    }
 }

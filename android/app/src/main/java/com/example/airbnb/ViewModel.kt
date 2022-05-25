@@ -14,10 +14,19 @@ class ViewModel @Inject constructor(private val repository: Repository): ViewMod
     private val _heroImage: MutableStateFlow<String?> = MutableStateFlow("")
     val heroImage: LiveData<String?> = _heroImage.asLiveData()
 
-    fun loadHeroImage() {
+    private val _closeTravel: MutableStateFlow<List<CloseTravelContents?>?> = MutableStateFlow(null)
+    val closeTravel: LiveData<List<CloseTravelContents?>?> = _closeTravel.asLiveData()
+
+    fun loadSearchContents() {
         viewModelScope.launch {
-            val heroImage = repository.loadHeroImage()
-            _heroImage.value = heroImage?.imageUrl
+            launch {
+                val heroImage = repository.loadHeroImage()
+                _heroImage.value = heroImage?.imageUrl
+            }
+            launch {
+                val closeTravelContents = repository.loadCloseTravel()
+                _closeTravel.value = closeTravelContents?.closeTravel
+            }
         }
     }
 }

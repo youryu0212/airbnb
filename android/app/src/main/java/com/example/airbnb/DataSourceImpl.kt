@@ -12,4 +12,10 @@ class DataSourceImpl @Inject constructor(private val assetLoader: AssetLoader) :
             gson.fromJson(heroImageString, HeroImage::class.java)
         }
     }
+
+    override suspend fun loadCloseTravel(): Travel? {
+        return assetLoader.getJsonString("closeTravel.json")?.let { closeTravelString ->
+            gson.fromJson(closeTravelString, Travel::class.java)
+        }
+    }
 }

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.lifecycleOwner = this
 
-        viewModel.loadHeroImage()
+        viewModel.loadSearchContents()
 
         NavigationUI.setupWithNavController(
             binding.bottomNavigation,

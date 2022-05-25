@@ -7,16 +7,19 @@
 
         <variable
             name="travels"
-            type="com.example.airbnb.SearchCloseTravel" />
+            type="com.example.airbnb.CloseTravelContents" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_item_close_travel"
             android:layout_width="70dp"
+            imageUrl="@{travels.imageUrl}"
             android:layout_height="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

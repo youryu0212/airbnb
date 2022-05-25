@@ -9,6 +9,8 @@ import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.airbnb.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -31,5 +33,12 @@ class SearchFragment : Fragment() {
         binding.btnSearchIcon.setOnClickListener {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToPlaceSearchFragment())
         }
+
+        binding.rvSearchCloseTravel.adapter = SearchCloseTravelAdapter().apply {
+            viewModel.closeTravel.observe(viewLifecycleOwner) {
+                submitList(it)
+            }
+        }
+        binding.rvSearchCloseTravel.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL)
     }
 }
