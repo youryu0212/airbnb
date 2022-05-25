@@ -33,7 +33,24 @@
       "airbnb-typescript",
       "prettier"
     ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      }
+    },
     "rules": {
+      "react/function-component-definition": [
+        2,
+        {
+          "namedComponents": "arrow-function",
+          "unnamedComponents": "arrow-function"
+        }
+      ],
+      "react/react-in-jsx-scope": 0,
+      "arrow-body-style": 0,
       "import/order": [
         "error",
         {
@@ -63,7 +80,11 @@
     "plugins": [
       "import"
     ],
-    "project": "./tsconfig.json"
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
   },
   "browserslist": {
     "production": [
