@@ -96,6 +96,7 @@ extension MapViewController: UICollectionViewDataSource {
         else { return UICollectionViewCell() }
         cell.setReviewLabel(rating: 4.72, reviewCount: 128)
         cell.setImage(image: UIImage(systemName: "house")!)
+        cell.setPrice(price: 82587)
         return cell
     }
 }

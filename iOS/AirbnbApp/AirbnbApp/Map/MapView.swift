@@ -13,11 +13,12 @@ final class MapView: MKMapView {
     
     lazy var cardCollectionView: UICollectionView = {
         let cellWidth = self.frame.width - 50
+        let cellHeight = self.frame.height / 6
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(
             width: cellWidth,
-            height: Constants.CellSize.mapCardHeight)
+            height: cellHeight)
         
         flowLayout.minimumLineSpacing = 16.0
         flowLayout.scrollDirection = .horizontal
@@ -45,7 +46,7 @@ final class MapView: MKMapView {
         }
         
         cardCollectionView.snp.makeConstraints {
-            $0.height.equalTo(Constants.CellSize.mapCardHeight)
+            $0.height.equalTo(self.frame.height / 6)
         }
     }
     

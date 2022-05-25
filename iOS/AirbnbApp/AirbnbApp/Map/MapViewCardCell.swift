@@ -25,7 +25,25 @@ final class MapViewCardCell: UICollectionViewCell {
     private lazy var heartButton: UIButton = {
         let button = UIButton()
         button.configuration = UIButton.Configuration.plain()
+        button.configuration?.image = UIImage(systemName: "heart")
+        button.tintColor = .secondaryLabel
+        button.addTarget(self, action: #selector(changeImage), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var houseNameLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
+        label.font = .systemFont(ofSize: Constants.Label.mapCardHouseNameFontSize)
+        label.text = "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+        return label
+    }()
+    
+    private lazy var pricePerDayLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        return label
     }()
     
     
@@ -33,7 +51,6 @@ final class MapViewCardCell: UICollectionViewCell {
         super.init(frame: frame)
         addViews()
         setUp()
-        configureHeartButtonTapped()
     }
     
     @available(*, unavailable) required init?(coder: NSCoder) {
@@ -74,41 +91,70 @@ final class MapViewCardCell: UICollectionViewCell {
         self.imageView.image = image
     }
     
+    func setPrice(price: Int) {
+        let labelText = NSMutableAttributedString()
+        
+        let pricePerDayText = NSMutableAttributedString()
+            .setting(string: PriceConvertor.toString(from: price),
+                     fontSize: Constants.Label.mapCardPriceFontSize,
+                     weight: .bold,
+                     color: .label)
+        
+        let perDayText = NSMutableAttributedString()
+            .setting(string: " / 박",
+                     fontSize: Constants.Label.mapCardPriceFontSize,
+                     weight: .light,
+                     color: .secondaryLabel)
+        
+        labelText.append(pricePerDayText)
+        labelText.append(perDayText)
+        
+        self.pricePerDayLabel.attributedText = labelText
+    }
+    
     private func addViews() {
-        self.addSubview(imageView)
-        self.addSubview(reviewLabel)
-        self.addSubview(heartButton)
+        [imageView, reviewLabel, heartButton, houseNameLabel,pricePerDayLabel].forEach {
+            self.addSubview($0)
+        }
     }
     
     private func setUp() {
+        let insetValue = 12.0
         
         self.imageView.snp.makeConstraints {
-            $0.height.width.equalTo(Constants.CellSize.mapCardHeight)
+            $0.width.equalTo(self.frame.width / 3)
             $0.leading.height.bottom.equalToSuperview()
         }
         
         self.reviewLabel.snp.makeConstraints {
-            $0.leading.equalTo(self.imageView.snp.trailing).offset(8.0)
-            $0.top.equalTo(self.snp.top).inset(8.0)
+            $0.leading.equalTo(self.imageView.snp.trailing).offset(insetValue)
+            $0.top.equalTo(self.snp.top).inset(insetValue)
         }
         
         self.heartButton.snp.makeConstraints {
             $0.top.trailing.equalToSuperview()
         }
-    }
-
-    
-    
-    // TODO: 하트 버튼 이벤트
-    private func configureHeartButtonTapped() {
-        let image = UIImage(systemName: "heart")
-        let highlightedImage = UIImage(systemName: "heart.fill")
         
-        //버튼 터치시 변화를 보여주기 위해 선언함.
-        self.heartButton.configurationUpdateHandler = { button in
-            var configuration = button.configuration
-            configuration?.image = button.isHighlighted ? highlightedImage : image
-            button.configuration = configuration
+        self.houseNameLabel.snp.makeConstraints {
+            $0.leading.equalTo(reviewLabel.snp.leading)
+            $0.top.equalTo(reviewLabel.snp.bottom).offset(insetValue)
+            $0.trailing.equalToSuperview()
+        }
+        
+        self.pricePerDayLabel.snp.makeConstraints {
+            $0.leading.equalTo(houseNameLabel)
+            $0.bottom.equalToSuperview().inset(insetValue)
+        }
+        
+    }
+    
+    @objc private func changeImage() {
+        if heartButton.configuration?.image == UIImage(systemName: "heart") {
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.tintColor = .red
+        } else {
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            heartButton.tintColor = .secondaryLabel
         }
     }
 }

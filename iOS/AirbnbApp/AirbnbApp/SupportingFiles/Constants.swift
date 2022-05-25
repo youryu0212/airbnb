@@ -19,6 +19,8 @@ struct Constants {
     struct Label {
         static let mapCardRatingFontSize = 16.0
         static let mapCardReviewCountFontSize = 16.0
+        static let mapCardHouseNameFontSize = 24.0
+        static let mapCardPriceFontSize = 16.0
     }
     
     struct CellSize {
