@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { flexBetween } from 'style/mixins';
 
-import Title from './Title';
+import MainTitle from './MainTitle';
 
 function GroupOne({ title, data }) {
   return (
     <>
-      <Title title={title} />
+      <MainTitle title={title} />
       <Ul>
         {data.map(({ id, img, name, content }) => (
           <Li key={id}>
@@ -31,7 +31,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  width: 23%;
+  width: 25%;
 `;
 
 const Box1 = styled.div`
@@ -53,8 +53,7 @@ const Box2 = styled.div`
 
 const Content = styled.span`
   width: 100%;
-  display: block;
-  font-size: ${({ theme }) => theme.size.xl};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
   margin-top: 30px;
 `;
 export default GroupOne;

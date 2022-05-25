@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import GroupOne from './GroupOne';
 import GroupTwo from './GroupTwo';
 import { cityData } from 'assets/data/cityData';
@@ -12,14 +10,11 @@ const title = {
 
 function Main() {
   return (
-    <Div>
+    <main>
       <GroupOne title={title.cityTitle} data={cityData} />
       <GroupTwo title={title.tripTitle} data={tripData} />
-    </Div>
+    </main>
   );
 }
-const Div = styled.div`
-  height: 600px;
-`;
 
 export default Main;

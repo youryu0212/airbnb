@@ -1,12 +1,13 @@
 import { Flex, Spacer } from '@chakra-ui/react';
 import { Fragment } from 'react';
 import styled from 'styled-components';
-import Title from './Title';
+
+import MainTitle from './MainTitle';
 
 function GroupTwo({ title, data }) {
   return (
     <>
-      <Title title={title} />
+      <MainTitle title={title} />
       <Flex>
         {data.map(({ id, img, name, content }) => (
           <Fragment key={id}>
@@ -27,8 +28,7 @@ const Div = styled.div`
     width: 350px;
   }
   span {
-    display: block;
-    font-size: ${({ theme }) => theme.size.xl};
+    font-size: ${({ theme }) => theme.fontSizes.xl};
     margin-top: 10px;
   }
 `;
