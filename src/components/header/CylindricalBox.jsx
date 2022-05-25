@@ -16,8 +16,9 @@ const HoverCylindrical = styled(Cylindrical)`
     ${({theme}) => theme.layout.flexLayoutMixin("column")}
     padding: 16px 40px;
     box-sizing: border-box;
-    gap: 0.25rem;
+    gap: 4px;
     cursor: pointer;
+
     &:hover {
         background-color: rgba(0, 0, 0, 0.1);
     }
@@ -25,13 +26,13 @@ const HoverCylindrical = styled(Cylindrical)`
 
 const Title = styled.div`
     font-size: 0.75rem;
-    font-weight: bold;
-    line-height: 1rem;
+    font-weight: 700;
+    line-height: 16px;
 `;
 
 const PlaceHolder = styled.div`
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 24px;
     color: ${({theme}) => theme.color.gray2};
 `;
 export default CylindricalBox;
