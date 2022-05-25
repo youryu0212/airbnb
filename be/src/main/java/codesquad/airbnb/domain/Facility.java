@@ -15,7 +15,7 @@ import lombok.Getter;
 public class Facility {
 
     @Id @GeneratedValue
-    @Column(name = "option_id")
+    @Column(name = "facility_id")
     private Long id;
 
     @OneToOne(mappedBy = "facility", fetch = FetchType.LAZY)
