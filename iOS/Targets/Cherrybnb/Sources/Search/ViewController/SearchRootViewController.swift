@@ -11,16 +11,25 @@ import CoreLocation
 
 class SearchRootViewController: UIViewController {
 
+    var nextViewController: ListCollectionViewController?
     var locationManager = CLLocationManager()
+
+    private var searchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBar()
         askPermission()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     private func configureNavBar() {
-        navigationController?.navigationBar.isHidden = true
+        searchBar.delegate = self
+        searchBar.placeholder = "어디로 여행가세요?"
+        self.navigationItem.titleView = searchBar
     }
 
     private func askPermission() {
@@ -34,5 +43,15 @@ class SearchRootViewController: UIViewController {
 extension SearchRootViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // TODO: Handling updated location
+    }
+ 
+}
+
+extension SearchRootViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        nextViewController = ListCollectionViewController()
+        self.navigationController?.pushViewController(nextViewController ?? UIViewController(), animated: true)
+        nextViewController?.tabBarController?.tabBar.isHidden = true
+        
     }
 }
