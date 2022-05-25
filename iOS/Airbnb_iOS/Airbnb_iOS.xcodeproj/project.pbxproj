@@ -13,6 +13,7 @@
 		0287404F283DFD250009C62D /* FindAccomodationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287404E283DFD250009C62D /* FindAccomodationViewController.swift */; };
 		02874051283DFDCE0009C62D /* FindAccomodationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874050283DFDCE0009C62D /* FindAccomodationView.swift */; };
 		02874053283E01E70009C62D /* FindAccomodationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874052283E01E70009C62D /* FindAccomodationCell.swift */; };
+		02874059283E15420009C62D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02874058283E15420009C62D /* .swiftlint.yml */; };
 		02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */; };
@@ -38,6 +39,7 @@
 		0287404E283DFD250009C62D /* FindAccomodationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationViewController.swift; sourceTree = "<group>"; };
 		02874050283DFDCE0009C62D /* FindAccomodationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationView.swift; sourceTree = "<group>"; };
 		02874052283E01E70009C62D /* FindAccomodationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationCell.swift; sourceTree = "<group>"; };
+		02874058283E15420009C62D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundSpotCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSpotCell.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		D2FFBFC4283C868300C97D16 = {
 			isa = PBXGroup;
 			children = (
+				02874058283E15420009C62D /* .swiftlint.yml */,
 				D2FFBFCF283C868300C97D16 /* Airbnb_iOS */,
 				D2FFBFCE283C868300C97D16 /* Products */,
 				E7A3368721565D9E71A79B8F /* Pods */,
@@ -220,14 +223,13 @@
 				D2FFBFCA283C868300C97D16 /* Frameworks */,
 				D2FFBFCB283C868300C97D16 /* Resources */,
 				D2FFBFE4283C8AD600C97D16 /* ShellScript */,
+				F854F72EAFCD143A1E9F7B88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Airbnb_iOS;
-			packageProductDependencies = (
-			);
 			productName = Airbnb_iOS;
 			productReference = D2FFBFCD283C868300C97D16 /* Airbnb_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02874059283E15420009C62D /* .swiftlint.yml in Resources */,
 				D2FFBFDD283C868400C97D16 /* LaunchScreen.storyboard in Resources */,
 				D2FFBFDA283C868400C97D16 /* Assets.xcassets in Resources */,
 			);
@@ -297,6 +300,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		F854F72EAFCD143A1E9F7B88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Airbnb_iOS/Pods-Airbnb_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Airbnb_iOS/Pods-Airbnb_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Airbnb_iOS/Pods-Airbnb_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FED4D6286810AA9124DE6B57 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
