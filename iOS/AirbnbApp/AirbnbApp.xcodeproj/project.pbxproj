@@ -16,6 +16,11 @@
 		8D0AD77D283C62F800575C3B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0AD77C283C62F800575C3B /* SnapKit */; };
 		8D0AD781283C718200575C3B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0AD780283C718200575C3B /* MapViewController.swift */; };
 		8D2241FD283CA470006A9043 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2241FC283CA470006A9043 /* MapView.swift */; };
+		8D224202283CB794006A9043 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224201283CB794006A9043 /* PriceLabel.swift */; };
+		8D224204283CB7E4006A9043 /* PriceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224203283CB7E4006A9043 /* PriceConverter.swift */; };
+		8D224206283CB8AB006A9043 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224205283CB8AB006A9043 /* Constants.swift */; };
+		8D9D1F5C283CE24300EEF33A /* PriceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */; };
+		8D9D1F64283D355200EEF33A /* HouseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D1F63283D355200EEF33A /* HouseInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		8D0AD771283C5EE000575C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0AD780283C718200575C3B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8D2241FC283CA470006A9043 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8D224201283CB794006A9043 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
+		8D224203283CB7E4006A9043 /* PriceConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceConverter.swift; sourceTree = "<group>"; };
+		8D224205283CB8AB006A9043 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAnnotationView.swift; sourceTree = "<group>"; };
+		8D9D1F63283D355200EEF33A /* HouseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +83,8 @@
 		8D0AD777283C600C00575C3B /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8D224203283CB7E4006A9043 /* PriceConverter.swift */,
+				8D224205283CB8AB006A9043 /* Constants.swift */,
 				8D0AD763283C5EDD00575C3B /* AppDelegate.swift */,
 				8D0AD765283C5EDD00575C3B /* SceneDelegate.swift */,
 				8D0AD76C283C5EE000575C3B /* Assets.xcassets */,
@@ -86,6 +98,9 @@
 			children = (
 				8D0AD780283C718200575C3B /* MapViewController.swift */,
 				8D2241FC283CA470006A9043 /* MapView.swift */,
+				8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */,
+				8D9D1F63283D355200EEF33A /* HouseInfo.swift */,
+				8D224201283CB794006A9043 /* PriceLabel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -168,11 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D224202283CB794006A9043 /* PriceLabel.swift in Sources */,
+				8D9D1F5C283CE24300EEF33A /* PriceAnnotationView.swift in Sources */,
+				8D9D1F64283D355200EEF33A /* HouseInfo.swift in Sources */,
 				8D0AD768283C5EDD00575C3B /* MainViewController.swift in Sources */,
+				8D224204283CB7E4006A9043 /* PriceConverter.swift in Sources */,
 				8D0AD764283C5EDD00575C3B /* AppDelegate.swift in Sources */,
 				8D2241FD283CA470006A9043 /* MapView.swift in Sources */,
 				8D0AD766283C5EDD00575C3B /* SceneDelegate.swift in Sources */,
 				8D0AD781283C718200575C3B /* MapViewController.swift in Sources */,
+				8D224206283CB8AB006A9043 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

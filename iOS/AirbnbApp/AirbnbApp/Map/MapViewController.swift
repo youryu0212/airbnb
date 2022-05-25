@@ -14,31 +14,62 @@ final class MapViewController: UIViewController {
     private let mapView = MapView(frame: CGRect(origin: .zero, size: UIScreen.main.bounds.size))
     
     private let startCordinate = CLLocationCoordinate2D(latitude: 37.490765, longitude: 127.033433)
+    
+    private let mockCordinates = [
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.490765, longitude: 127.033433), name: "킹왕짱 숙소", location: "한국어딘가"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.491545, longitude: 127.033433), name: "킹 숙소", location: "한국어딘가"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.492345, longitude: 127.033433), name: "왕 숙소", location: "한국어딘가"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.493455, longitude: 127.033433), name: "짱 숙소", location: "한국어딘가")
+    ]
+    
     private let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLocationManager()
         setMapView()
+        addPins()
     }
     
     private func setMapView() {
         self.view = mapView
         self.mapView.delegate = self
-        
-        self.mapView.setRegion(MKCoordinateRegion(center: startCordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)), animated: true)
+        mapView.register(PriceAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.customPinID)
+        self.mapView.setRegion(MKCoordinateRegion(center: startCordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+    }
+    
+    private func addPins() {
+        mockCordinates.forEach {
+            addPin(houseInfo: $0)
+        }
+    }
+    
+    private func addPin(houseInfo: HouseInfo) {
+        let pin = MKPointAnnotation()
+        pin.coordinate = houseInfo.coordinate
+        pin.title = houseInfo.name
+        pin.subtitle = houseInfo.location
+        self.mapView.addAnnotation(pin)
     }
     
     private func setLocationManager() {
         self.locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
         locationManager.startUpdatingLocation()
     }
-    
 }
 
 extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !annotation.isKind(of: MKUserLocation.self),
+              let dequeView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.customPinID)
+                as? PriceAnnotationView else { return nil }
+       
+        dequeView.annotation = annotation
+        dequeView.setPrice(price: 10000000)
+        
+        return dequeView
+    }
     
 }
 
