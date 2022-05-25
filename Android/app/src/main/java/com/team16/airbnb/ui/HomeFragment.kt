@@ -6,10 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -18,11 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import com.team16.airbnb.R
 import com.team16.airbnb.databinding.FragmentHomeBinding
 import com.team16.airbnb.ui.theme.AirbnbTheme
+import com.team16.airbnb.ui.theme.Airbnb_Black
 import com.team16.airbnb.ui.theme.Airbnb_Primary
 import com.team16.airbnb.ui.theme.Off_White
 
@@ -58,7 +60,7 @@ class HomeFragment : Fragment() {
                 TopAppBar(
                     title = {
                         Text("어디로 여행하세요?")
-                            },
+                    },
                     actions = {
                         IconButton(
                             onClick = { /*TODO*/ }
@@ -74,7 +76,7 @@ class HomeFragment : Fragment() {
                     },
                     backgroundColor = Off_White,
 
-                )
+                    )
             }
         ) {
             ScrollBoxes()
@@ -85,13 +87,13 @@ class HomeFragment : Fragment() {
     fun ScrollBoxes() {
         Column(
             modifier = Modifier
-                .background(Color.LightGray)
+                .background(Color.White)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {
-           /* repeat(10) {
-                Text("icon $it")
-            }*/
+            /* repeat(10) {
+                 Text("icon $it")
+             }*/
 
             Image(
                 painter = painterResource(id = R.drawable.hero_image),
@@ -99,6 +101,19 @@ class HomeFragment : Fragment() {
                 modifier = Modifier.fillMaxWidth()
             )
 
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Text(
+                text = "가까운 여행지 둘러보기",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp, 0.dp),
+                style = TextStyle(
+                    color = Airbnb_Black,
+                    fontWeight = FontWeight.Bold
+                ),
+                fontSize = 23.sp
+            )
 
         }
     }
