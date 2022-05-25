@@ -12,27 +12,33 @@ import SnapKit
 final class MapView: MKMapView {
     
     lazy var cardCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 16.0
+        let cellWidth = self.frame.width - 100
         
-        flowLayout.scrollDirection = .vertical
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: cellWidth, height: 300.0)
+        flowLayout.minimumLineSpacing = 16.0
+        flowLayout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
+        let insetX = (collectionView.bounds.width - cellWidth) / 2.0
+        let insetY = (collectionView.bounds.height - 300.0) / 2.0
+        
+        collectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
         
         return collectionView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUp()
+        setUpCollectionView()
     }
     
     @available(*, unavailable) required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUp() {
+    private func setUpCollectionView() {
         self.addSubview(cardCollectionView)
         
         cardCollectionView.snp.makeConstraints {
@@ -40,7 +46,8 @@ final class MapView: MKMapView {
         }
         
         cardCollectionView.snp.makeConstraints {
-            $0.height.equalTo(100)
+            $0.height.equalTo(300)
         }
     }
+    
 }

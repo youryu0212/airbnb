@@ -9,6 +9,11 @@ struct Constants {
     
     struct Pin {
         static let size: (width:Int, height:Int) = (92, 28)
-        static let ID: String = "customPin"
+        static let ID: String = "CustomPin"
     }
+    
+    struct CellID {
+        static let map: String = "Map"
+    }
+    
 }

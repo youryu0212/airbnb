@@ -29,8 +29,9 @@ final class MapViewController: UIViewController {
         setLocationManager()
         setMapView()
         addPins()
-//        self.mapView.cardCollectionView.delegate = self
-//        self.mapView.cardCollectionView.dataSource = self
+        self.mapView.cardCollectionView.delegate = self
+        self.mapView.cardCollectionView.dataSource = self
+        self.mapView.cardCollectionView.register(MapViewCardCell.self, forCellWithReuseIdentifier: Constants.CellID.map)
     }
     
     private func setMapView() {
@@ -88,17 +89,20 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
-//extension MapViewController: UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 5
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sdf", for: indexPath) as? MapViewCardCell else { return UICollectionViewCell()}
-//        return cell
-//    }
-//}
-//extension MapViewController: UICollectionViewDelegate {
-//
-//}
+extension MapViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.map,
+                                                            for: indexPath) as? MapViewCardCell
+        else { return UICollectionViewCell() }
+        return cell
+    }
+}
+extension MapViewController : UICollectionViewDelegate {
+
+}
+
