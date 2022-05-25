@@ -9,34 +9,48 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    let searchBar = SearchBarView()
-    let nextVC = BrowseViewController()
+    private let nextVC = BrowseViewController()
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = SearchViewCollectionDataSource()
+    
+    let searchBarVC: UISearchController = {
+        let searcher = UISearchController(searchResultsController: nil)
+        searcher.searchBar.showsCancelButton = false
+        searcher.hidesNavigationBarDuringPresentation = false
+        searcher.searchBar.placeholder = "어디로 여행가세요?"
+        return searcher
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.addChild(nextVC)
+        self.view = homeView
+        self.homeView.setDataSource(dataSource)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setSearchBar()
-        view = homeView
-        homeView.setDataSource(dataSource)
     }
 }
 
 private extension SearchViewController {
     func setSearchBar() {
-        self.navigationItem.titleView = searchBar
-
+        searchBarVC.searchBar.delegate = self
+        
+        self.navigationItem.titleView = searchBarVC.searchBar
         self.navigationController?.hidesBarsOnSwipe = true
-        self.searchBar.delegate = self
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        self.nextVC.hidesBottomBarWhenPushed = true
+        nextVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextVC, animated: true)
+        
+        self.navigationItem.titleView = nil
+        searchBarVC.searchBar.delegate = nil
 
-        return false
+        return true
     }
 }
