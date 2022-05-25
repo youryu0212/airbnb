@@ -26,7 +26,7 @@ final class TravelThemeViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .NotoSans.medium
         label.textColor = .Custom.gray1
-        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
         return label
     }()
     
@@ -39,10 +39,6 @@ final class TravelThemeViewCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init with coder is unavailable")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
 }
 

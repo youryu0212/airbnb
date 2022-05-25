@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationSearchBarDelegate: NSObject, UISearchBarDelegate {
+final class DestinationSearchBarDelegate: NSObject, UISearchBarDelegate {
     let tapTextField = PublishRelay<Void>()
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

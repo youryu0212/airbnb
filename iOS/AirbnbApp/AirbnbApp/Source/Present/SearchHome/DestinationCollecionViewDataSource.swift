@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
+final class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var mockHeader: [String] = []
     var mockImage: [UIImage] = []
@@ -16,6 +16,7 @@ class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let sectionKind = DestinationCollectionViewSection(rawValue: section) else { return 0 }
+        
         switch sectionKind {
         case .image:
             return mockImage.count
@@ -28,6 +29,7 @@ class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let sectionKind = DestinationCollectionViewSection(rawValue: indexPath.section) else { return UICollectionViewCell() }
+        
         switch sectionKind {
         case .image:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroImageViewCell.identifier, for: indexPath) as? HeroImageViewCell else {
@@ -61,22 +63,22 @@ class DestinationCollecionViewDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return mockHeader.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             
-          guard let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: kind,
-            withReuseIdentifier: DestinationHeaderView.identifier,
-            for: indexPath
-          ) as? DestinationHeaderView else { return UICollectionReusableView() }
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: DestinationHeaderView.identifier,
+                for: indexPath
+            ) as? DestinationHeaderView else { return UICollectionReusableView() }
             
-          headerView.setHeaderLabel(text: mockHeader[indexPath.section])
-          return headerView
+            headerView.setHeaderLabel(text: mockHeader[indexPath.section])
+            return headerView
         }
         
         return UICollectionReusableView()
-      }
+    }
 }

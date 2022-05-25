@@ -8,31 +8,34 @@
 import UIKit
 import SnapKit
 
-class SearchHomeViewController: UIViewController {
+final class SearchHomeViewController: UIViewController {
     
     private let viewModel: SearchHomeViewModel
     
-    private let searchBar = DestinationSearchBar()
-    private let searchBarDelegate = DestinationSearchBarDelegate()
+    private lazy var searchBarDelegate = DestinationSearchBarDelegate()
+    private lazy var searchBar: DestinationSearchBar = {
+        let searchBar = DestinationSearchBar()
+        searchBar.delegate = searchBarDelegate
+        return searchBar
+    }()
     
+    private lazy var destinationCollectionViewDataSource = DestinationCollecionViewDataSource()
     private lazy var destinationCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: SectionLayoutFactory.createCompositionalLayout())
-        
         collectionView.register(HeroImageViewCell.self, forCellWithReuseIdentifier: HeroImageViewCell.identifier)
         collectionView.register(NearDestinationViewCell.self, forCellWithReuseIdentifier: NearDestinationViewCell.identifier)
         collectionView.register(TravelThemeViewCell.self, forCellWithReuseIdentifier: TravelThemeViewCell.identifier)
-        collectionView.register(DestinationHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DestinationHeaderView.identifier)
-        
+        collectionView.register(DestinationHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: DestinationHeaderView.identifier)
         collectionView.dataSource = self.destinationCollectionViewDataSource
-        
         return collectionView
     }()
-    
-    private var destinationCollectionViewDataSource = DestinationCollecionViewDataSource()
     
     init(viewModel: SearchHomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        bind()
     }
     
     @available(*, unavailable)
@@ -54,9 +57,13 @@ class SearchHomeViewController: UIViewController {
         super.viewDidLoad()
         layoutSearchTextField()
         layoutDestinationCollecionView()
-        
-        searchBar.delegate = searchBarDelegate
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func bind() {
         searchBarDelegate.tapTextField
             .bind { [weak self] in
                 self?.navigationController?.pushViewController(UIViewController(), animated: true)
@@ -90,10 +97,6 @@ class SearchHomeViewController: UIViewController {
         viewModel.action.loadImage.accept(())
         viewModel.action.loadCityName.accept(())
         viewModel.action.loadTheme.accept(())
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
 }
 

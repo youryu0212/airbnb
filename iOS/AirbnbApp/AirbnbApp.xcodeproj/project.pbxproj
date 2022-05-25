@@ -131,18 +131,8 @@
 		1ED648B1283C86F700AA5380 /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				1E71CBDB283BB93600F6D2D0 /* DestinationSearchBarDelegate.swift */,
-				1ED648AA283C81E100AA5380 /* DestinationSearchBar.swift */,
-				6C1AB72F283B911000A0314F /* SearchHomeViewController.swift */,
-				1ED648DB283D444000AA5380 /* SearchHomeViewModel.swift */,
-				1ED648A6283BDCBA00AA5380 /* DestinationHeaderView.swift */,
-				6C9C7E63283CD08F00FA8EA4 /* HeroImageViewCell.swift */,
-				1ED648A4283BD48500AA5380 /* NearDestinationViewCell.swift */,
-				6C6647BC283D0E47009DE03F /* TravelThemeViewCell.swift */,
-				1ED648A0283BD40E00AA5380 /* DestinationCollecionViewDataSource.swift */,
-				6C6647BA283D0904009DE03F /* DestinationCollectionViewSection.swift */,
-				1ED648D7283D1E6B00AA5380 /* MainTabBarViewController.swift */,
-				6C2E85D7283DE37C00A33517 /* SectionLayoutFactory.swift */,
+				1ED648DD283DE8DD00AA5380 /* MainTabBar */,
+				1ED648DF283DE91100AA5380 /* SearchHome */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -163,6 +153,56 @@
 				6C1AB72D283B911000A0314F /* SceneDelegate.swift */,
 			);
 			path = LifeCycle;
+			sourceTree = "<group>";
+		};
+		1ED648DD283DE8DD00AA5380 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1ED648D7283D1E6B00AA5380 /* MainTabBarViewController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		1ED648DF283DE91100AA5380 /* SearchHome */ = {
+			isa = PBXGroup;
+			children = (
+				1ED648E2283DED3300AA5380 /* CollectionViewCell */,
+				6C1AB72F283B911000A0314F /* SearchHomeViewController.swift */,
+				1ED648DB283D444000AA5380 /* SearchHomeViewModel.swift */,
+				1ED648AA283C81E100AA5380 /* DestinationSearchBar.swift */,
+				1E71CBDB283BB93600F6D2D0 /* DestinationSearchBarDelegate.swift */,
+				1ED648A6283BDCBA00AA5380 /* DestinationHeaderView.swift */,
+				6C9C7E63283CD08F00FA8EA4 /* HeroImageViewCell.swift */,
+				6C6647BC283D0E47009DE03F /* TravelThemeViewCell.swift */,
+				1ED648A0283BD40E00AA5380 /* DestinationCollecionViewDataSource.swift */,
+				1ED648E5283DFBC200AA5380 /* Support */,
+				1ED648E4283DEE0E00AA5380 /* Common */,
+			);
+			path = SearchHome;
+			sourceTree = "<group>";
+		};
+		1ED648E2283DED3300AA5380 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1ED648E4283DEE0E00AA5380 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1ED648A4283BD48500AA5380 /* NearDestinationViewCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1ED648E5283DFBC200AA5380 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6C6647BA283D0904009DE03F /* DestinationCollectionViewSection.swift */,
+				6C2E85D7283DE37C00A33517 /* SectionLayoutFactory.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		6C1AB71F283B911000A0314F = {

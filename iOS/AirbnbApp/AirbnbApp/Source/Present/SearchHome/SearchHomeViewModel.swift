@@ -15,7 +15,7 @@ protocol ViewModelProtocol {
     var state: State { get }
 }
 
-class SearchHomeViewModel: ViewModelProtocol {
+final class SearchHomeViewModel: ViewModelProtocol {
     
     struct Action {
         let loadHeader = PublishRelay<Void>()

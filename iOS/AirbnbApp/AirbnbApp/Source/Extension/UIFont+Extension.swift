@@ -8,10 +8,12 @@
 import UIKit.UIFont
 
 extension UIFont {
+    
     enum NotoSans {
         static let medium = UIFont(name: "NotoSansKR-Medium", size: 17)
         static let regular = UIFont(name: "NotoSansKR-Regular", size: 17)
     }
+    
     enum SFProDisplay {
         static let medium = UIFont(name: "SFProDisplay-Medium", size: 34)
         static let regular: (CGFloat) -> UIFont? = { (size) -> UIFont? in

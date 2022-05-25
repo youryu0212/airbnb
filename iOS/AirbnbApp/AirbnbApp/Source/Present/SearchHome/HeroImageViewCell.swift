@@ -42,8 +42,8 @@ final class HeroImageViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.spacing = 16
         stackView.distribution = .equalSpacing
-        [titleLabel, descriptionLabel].forEach {
-            stackView.addArrangedSubview($0)
+        [titleLabel, descriptionLabel].forEach { subview in
+            stackView.addArrangedSubview(subview)
         }
         return stackView
     }()

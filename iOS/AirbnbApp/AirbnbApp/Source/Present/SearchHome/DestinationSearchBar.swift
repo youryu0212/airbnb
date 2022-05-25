@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationSearchBar: UISearchBar {
+final class DestinationSearchBar: UISearchBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +25,6 @@ class DestinationSearchBar: UISearchBar {
         searchTextField.attributedPlaceholder = NSAttributedString(
             string: "어디로 여행가세요?",
             attributes: [.foregroundColor: UIColor.Custom.gray3]
-        )   
+        )
     }
 }

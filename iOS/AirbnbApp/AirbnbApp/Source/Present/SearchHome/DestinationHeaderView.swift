@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class DestinationHeaderView: UICollectionReusableView {
+final class DestinationHeaderView: UICollectionReusableView {
     static var identifier: String {
         return "\(self)"
     }

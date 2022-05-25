@@ -42,6 +42,9 @@ final class NearDestinationViewCell: UICollectionViewCell {
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 4
+        [cityTitleLabel, distanceLabel].forEach { subview in
+            stackView.addArrangedSubview(subview)
+        }
         return stackView
     }()
     
@@ -76,8 +79,6 @@ private extension NearDestinationViewCell {
     
     func layoutInformationStackView() {
         addSubview(informationStackView)
-        informationStackView.addArrangedSubview(cityTitleLabel)
-        informationStackView.addArrangedSubview(distanceLabel)
         
         informationStackView.snp.makeConstraints { make in
             make.leading.equalTo(cityImageView.snp.trailing).offset(16)

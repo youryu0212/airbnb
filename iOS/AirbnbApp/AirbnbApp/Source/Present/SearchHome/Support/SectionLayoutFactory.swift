@@ -8,10 +8,12 @@
 import UIKit
 
 enum SectionLayoutFactory {
+    
     static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionNumber, _) -> NSCollectionLayoutSection? in
             guard let sectionKind = DestinationCollectionViewSection(rawValue: sectionNumber) else { return nil }
             let section: NSCollectionLayoutSection
+            
             switch sectionKind {
             case .image:
                 section = heroImageLayoutSection()
@@ -20,6 +22,7 @@ enum SectionLayoutFactory {
             case .theme:
                 section = themeLayoutSection()
             }
+            
             return section
         }
     }
@@ -61,7 +64,6 @@ enum SectionLayoutFactory {
         ]
         
         return section
-        
     }
     
     static func nearDestinationLayoutSection() -> NSCollectionLayoutSection {
@@ -86,6 +88,7 @@ enum SectionLayoutFactory {
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 2)
         
         let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
         section.contentInsets.leading = 15
         
         section.boundarySupplementaryItems = [
@@ -96,7 +99,7 @@ enum SectionLayoutFactory {
                 elementKind: UICollectionView.elementKindSectionHeader,
                 alignment: .topLeading)
         ]
-        section.orthogonalScrollingBehavior = .continuous
+        
         return section
     }
     
@@ -127,7 +130,6 @@ enum SectionLayoutFactory {
         )
         
         let section = NSCollectionLayoutSection(group: group)
-        
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets.leading = 15
         
