@@ -6,26 +6,24 @@ import UserInfo from './UserInfo';
 
 function Header() {
   return (
-    <HeaderDiv>
-      <Flex>
+    <StyledHeader>
+      <Flex justify="center" align="center">
         <Logo />
         <Spacer />
         <UpperMenu />
         <Spacer />
         <UserInfo />
       </Flex>
-    </HeaderDiv>
+    </StyledHeader>
   );
 }
 
-const HeaderDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 600px;
+const StyledHeader = styled.header`
+  height: 640px;
   background-image: url('https://wallpaperaccess.com/full/321122.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 70% 100%;
+  background-size: 150% 100%;
 `;
 
 export default Header;

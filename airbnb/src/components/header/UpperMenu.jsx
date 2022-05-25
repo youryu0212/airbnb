@@ -1,24 +1,23 @@
-import React from 'react';
+import { Flex, Spacer } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 function UpperMenu(props) {
   return (
-    <UpperMenuDiv>
-      <UpperMenuContent>숙소</UpperMenuContent>
-      <UpperMenuContent>체험</UpperMenuContent>
-      <UpperMenuContent>온라인체험</UpperMenuContent>
-    </UpperMenuDiv>
+    <Div>
+      <Flex>
+        <div>숙소</div>
+        <Spacer />
+        <div>체험</div>
+        <Spacer />
+        <div>온라인 체험</div>
+      </Flex>
+    </Div>
   );
 }
 
-const UpperMenuDiv = styled.div`
-  height: 23px;
-`;
-
-const UpperMenuContent = styled.span`
-  weight: 400;
-  font-size: ${({ theme }) => theme.size.xs};
+const Div = styled.div`
+  width: 15%;
   cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.l};
 `;
-
 export default UpperMenu;

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 function Logo() {
@@ -6,7 +5,10 @@ function Logo() {
 }
 
 const StyledLogo = styled.div`
-  font-size: ${({ theme }) => theme.size.xl};
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 40px;
 `;
 
 export default Logo;
