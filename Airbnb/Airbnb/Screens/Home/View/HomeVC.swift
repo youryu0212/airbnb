@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     private var searchBar: UISearchBar!
     private var homeCollectionView: UICollectionView!

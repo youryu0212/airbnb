@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RandomSiteCell: UICollectionViewCell {
+final class RandomSiteCell: UICollectionViewCell {
 
     static let id = "RandomSiteCell"
 

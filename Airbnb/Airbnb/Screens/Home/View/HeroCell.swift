@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroCell: UICollectionViewCell {
+final class HeroCell: UICollectionViewCell {
     static let id = "HeroCell"
 
     private var title: UILabel = {
