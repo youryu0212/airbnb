@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import SnapKit
 
 final class DestinationSearchBar: UISearchBar {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        
+        searchTextField.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview().inset(16)
+        }
     }
     
     @available(*, unavailable)

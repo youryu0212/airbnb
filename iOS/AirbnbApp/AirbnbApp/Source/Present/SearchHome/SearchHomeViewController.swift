@@ -55,7 +55,7 @@ final class SearchHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layoutSearchTextField()
+        layoutSearchBar()
         layoutDestinationCollecionView()
     }
     
@@ -104,13 +104,12 @@ final class SearchHomeViewController: UIViewController {
 
 private extension SearchHomeViewController {
     
-    func layoutSearchTextField() {
+    func layoutSearchBar() {
         view.addSubview(searchBar)
         
         searchBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(60)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(36)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(12)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
