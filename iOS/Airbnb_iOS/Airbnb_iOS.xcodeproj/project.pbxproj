@@ -13,7 +13,10 @@
 		0287404F283DFD250009C62D /* FindAccomodationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287404E283DFD250009C62D /* FindAccomodationViewController.swift */; };
 		02874051283DFDCE0009C62D /* FindAccomodationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874050283DFDCE0009C62D /* FindAccomodationView.swift */; };
 		02874053283E01E70009C62D /* FindAccomodationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874052283E01E70009C62D /* FindAccomodationCell.swift */; };
+		02874055283E0DF40009C62D /* SelectCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02874054283E0DF40009C62D /* SelectCalendarView.swift */; };
 		02874059283E15420009C62D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 02874058283E15420009C62D /* .swiftlint.yml */; };
+		0287405D283E3B4A0009C62D /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */; };
+		0287405F283E3BA40009C62D /* DayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287405E283E3BA40009C62D /* DayLabel.swift */; };
 		02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */; };
@@ -39,7 +42,10 @@
 		0287404E283DFD250009C62D /* FindAccomodationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationViewController.swift; sourceTree = "<group>"; };
 		02874050283DFDCE0009C62D /* FindAccomodationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationView.swift; sourceTree = "<group>"; };
 		02874052283E01E70009C62D /* FindAccomodationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationCell.swift; sourceTree = "<group>"; };
+		02874054283E0DF40009C62D /* SelectCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCalendarView.swift; sourceTree = "<group>"; };
 		02874058283E15420009C62D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
+		0287405E283E3BA40009C62D /* DayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLabel.swift; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundSpotCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSpotCell.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+				02874054283E0DF40009C62D /* SelectCalendarView.swift */,
+				0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */,
+				0287405E283E3BA40009C62D /* DayLabel.swift */,
 		02DF0CD3283CB2B9003D0679 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,11 +364,14 @@
 				D2562ED3283DCD8300336E49 /* SearchBarView.swift in Sources */,
 				02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */,
 				D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */,
+				0287405D283E3B4A0009C62D /* DayRangeIndicatorView.swift in Sources */,
 				D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */,
 				D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */,
+				02874055283E0DF40009C62D /* SelectCalendarView.swift in Sources */,
 				0287404F283DFD250009C62D /* FindAccomodationViewController.swift in Sources */,
 				D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */,
 				D2FFBFEA283CA73B00C97D16 /* ReservationViewController.swift in Sources */,
+				0287405F283E3BA40009C62D /* DayLabel.swift in Sources */,
 				02DF0CDD283CBAB6003D0679 /* SearchViewCollectionDataSource.swift in Sources */,
 				02874048283D37B50009C62D /* UIColor+.swift in Sources */,
 				0287404C283DBE810009C62D /* UiView+.swift in Sources */,
