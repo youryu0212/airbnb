@@ -2,11 +2,12 @@ import React from "react";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
 
-const DateBox = () => {
+// eslint-disable-next-line react/prop-types
+const DateBox = ({clickedPart, setClickedPart}) => {
     return (
         <>
-            <CheckIn />
-            <CheckOut />
+            <CheckIn clickedPart={clickedPart} setClickedPart={setClickedPart} />
+            <CheckOut clickedPart={clickedPart} setClickedPart={setClickedPart} />
         </>
     );
 };
