@@ -9,15 +9,20 @@ import Menu from 'components/Header/Menu';
 import SearchBar from 'components/Header/SearchBar/index';
 import SearchWrapper, { SearchWrap } from './SearchWrapper';
 
+type Position = {
+  position: string;
+};
+
 function Header() {
   const location = useLocation();
   const [miniFocus, setMiniFocus] = useState(true);
+  console.log(location.pathname);
 
-  const changeSearchBar = (e: any) => {
+  const changeSearchBar = () => {
     return miniFocus ? setMiniFocus(false) : setMiniFocus(true);
   };
   return (
-    <HeaderWrap>
+    <HeaderWrap position={location.pathname}>
       <Logo>LOGO</Logo>
       {location.pathname === '/' ? (
         <SearchWrap>
@@ -39,12 +44,14 @@ function Header() {
   );
 }
 
-const HeaderWrap = styled.div`
+const HeaderWrap = styled.div<Position>`
   display: flex;
   justify-content: space-between;
   padding: 24px;
   margin-bottom: 20px;
-  position: fixed;
+  position: ${(props) => {
+    return props.position === '/' ? 'fixed' : 'sticky';
+  }};
   top: 0;
   width: 1440px;
 `;
