@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -17,6 +16,7 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "room_id")
     private Long id;
 
     @Embedded
@@ -37,4 +37,6 @@ public class Room {
 
     @OneToMany(mappedBy = "room")
     private List<RoomImage> roomImages;
+
+    private String thumbnail;
 }
