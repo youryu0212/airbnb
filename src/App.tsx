@@ -1,14 +1,8 @@
 import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Header from '@components/Header';
+import GlobalStyles from '@/GlobalStyles';
 
 function App() {
-  return (
-    <>
-      <CssBaseline />
-      <Header />
-    </>
-  );
+  return <GlobalStyles />;
 }
 
 export default App;
