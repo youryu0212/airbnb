@@ -27,16 +27,16 @@ private extension SearchViewController {
     func setSearchBar() {
         self.searchBar.placeholder = "어디로 여행가세요?"
         self.navigationItem.titleView = searchBar
+        
+        self.navigationController?.hidesBarsOnSwipe = true
         self.searchBar.delegate = self
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        let navigationVC = UINavigationController(rootViewController: nextVC)
-        
-        navigationVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(navigationVC, animated: true)
+        self.nextVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nextVC, animated: true)
         
         return false
     }
