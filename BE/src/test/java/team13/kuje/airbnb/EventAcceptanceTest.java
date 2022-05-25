@@ -37,13 +37,13 @@ class EventAcceptanceTest {
 			.accept(MediaType.APPLICATION_JSON_VALUE)
 
 		.when()
-			.get("/events?category_tag=main")
+			.get("/api/events?category_tag=main")
 
 		.then()
 			.statusCode(HttpStatus.OK.value())
 			.assertThat()
 			.body("data[0].title", equalTo("슬기로운 자연생활"));
 
-	}
 
+}
 }
