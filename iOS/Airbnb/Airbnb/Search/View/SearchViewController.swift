@@ -15,11 +15,10 @@ class SearchViewController: UIViewController {
     }
     
     private var flowLayout: UICollectionViewLayout {
-        // Define Inset
+        
         let inset = NSDirectionalEdgeInsets(
             top: 2, leading: 2, bottom: 2, trailing: 2)
         
-        // Title
         let titleSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(0.05))
