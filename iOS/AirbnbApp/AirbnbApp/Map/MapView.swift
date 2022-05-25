@@ -12,19 +12,17 @@ import SnapKit
 final class MapView: MKMapView {
     
     lazy var cardCollectionView: UICollectionView = {
-        let cellWidth = self.frame.width - 100
+        let cellWidth = self.frame.width - 50
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: cellWidth, height: 120.0)
+        flowLayout.itemSize = CGSize(
+            width: cellWidth,
+            height: Constants.CellSize.mapCardHeight)
+        
         flowLayout.minimumLineSpacing = 16.0
         flowLayout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        
-        let insetX = (collectionView.bounds.width - cellWidth) / 2.0
-        let insetY = (collectionView.bounds.height - 120.0) / 2.0
-
-        collectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
         
         return collectionView
     }()
@@ -47,7 +45,7 @@ final class MapView: MKMapView {
         }
         
         cardCollectionView.snp.makeConstraints {
-            $0.height.equalTo(120)
+            $0.height.equalTo(Constants.CellSize.mapCardHeight)
         }
     }
     

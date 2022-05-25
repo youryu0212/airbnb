@@ -21,4 +21,8 @@ struct Constants {
         static let mapCardReviewCountFontSize = 16.0
     }
     
+    struct CellSize {
+        static let mapCardHeight = 120.0
+    }
+    
 }

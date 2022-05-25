@@ -29,7 +29,6 @@ final class MapViewController: UIViewController {
         setLocationManager()
         setMapView()
         addPins()
-        self.mapView.cardCollectionView.delegate = self
         self.mapView.cardCollectionView.dataSource = self
         self.mapView.cardCollectionView.register(MapViewCardCell.self, forCellWithReuseIdentifier: Constants.CellID.map)
     }
@@ -63,7 +62,7 @@ final class MapViewController: UIViewController {
         
         self.mapView.addAnnotation(pin)
     }
-    
+    // TODO: 사용자 위치 표시
     private func setLocationManager() {
         self.locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -85,10 +84,6 @@ extension MapViewController: MKMapViewDelegate {
     
 }
 
-extension MapViewController: CLLocationManagerDelegate {
-    
-}
-
 extension MapViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -99,10 +94,13 @@ extension MapViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CellID.map,
                                                             for: indexPath) as? MapViewCardCell
         else { return UICollectionViewCell() }
+        cell.setReviewLabel(rating: 4.72, reviewCount: 128)
+        cell.setImage(image: UIImage(systemName: "house")!)
         return cell
     }
 }
-extension MapViewController : UICollectionViewDelegate {
 
+extension MapViewController: CLLocationManagerDelegate {
+    
 }
 
