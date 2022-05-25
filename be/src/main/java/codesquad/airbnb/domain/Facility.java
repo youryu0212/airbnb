@@ -22,15 +22,5 @@ public class Facility {
     private Accommodation accommodation;
 
     private int maximumCapacity;
-    @Column(name = "bedroom_count")
-    private int countOfBedRoom;
-    @Column(name = "bed_count")
-    private int countOfBed;
-    @Column(name = "bathroom_count")
-    private int countOfBathroom;
-    private boolean kitchenFlag;
-    private boolean internetFlag;
-    private boolean airConditionerFlag;
-    private boolean hairDryerFlag;
-
+    private String option;
 }

@@ -31,9 +31,9 @@ public class Accommodation {
     private String description;
     private String imagePath;
 
-    @Column(name = "price_day")
     private int pricePerDay;
+    @Column(name = "position_x")
     private int positionX;
+    @Column(name = "position_y")
     private int positionY;
-
 }

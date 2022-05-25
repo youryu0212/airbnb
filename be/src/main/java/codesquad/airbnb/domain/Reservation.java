@@ -36,5 +36,6 @@ public class Reservation {
     private LocalDate checkInDate;
     @Column(name = "checkout_date")
     private LocalDate checkOutDate;
+    @Column(name = "reservation_datetime")
     private LocalDateTime reservationDateTime;
 }
