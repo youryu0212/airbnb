@@ -23,14 +23,14 @@ class TabBarController: UITabBarController {
 private extension TabBarController {
     func setTabBarItem() {
         let navigationVC = UINavigationController(rootViewController: searchVC)
-        
+
         navigationVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         wishlistVC.tabBarItem = UITabBarItem(title: "위시리스트", image: UIImage(systemName: "heart"), tag: 1)
         reserveVC.tabBarItem = UITabBarItem(title: "내 예약", image: UIImage(systemName: "person"), tag: 2)
-        
+
         self.viewControllers = [navigationVC, wishlistVC, reserveVC]
     }
-    
+
     func setTabBarBackgroundColor() {
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()

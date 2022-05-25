@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
 private extension SearchViewController {
     func setSearchBar() {
         self.navigationItem.titleView = searchBar
-        
+
         self.navigationController?.hidesBarsOnSwipe = true
         self.searchBar.delegate = self
     }
@@ -36,7 +36,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         self.nextVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nextVC, animated: true)
-        
+
         return false
     }
 }
