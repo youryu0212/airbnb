@@ -9,6 +9,5 @@ DerivedData/
 .netrc
 
 # Custom
-.swiftpm
-Package.resolved
 Package.pins
+Package.resolved

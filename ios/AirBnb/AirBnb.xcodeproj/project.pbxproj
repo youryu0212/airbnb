@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4301921283B5C91000796DC /* BuildTools in Resources */ = {isa = PBXBuildFile; fileRef = E4301920283B4B97000796DC /* BuildTools */; };
 		E4409DD4283B2A0E005C6BA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4409DD3283B2A0E005C6BA1 /* AppDelegate.swift */; };
 		E4409DD6283B2A0E005C6BA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4409DD5283B2A0E005C6BA1 /* SceneDelegate.swift */; };
 		E4409DD8283B2A0E005C6BA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4409DD7283B2A0E005C6BA1 /* ViewController.swift */; };
 		E4409DDD283B2A12005C6BA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4409DDC283B2A12005C6BA1 /* Assets.xcassets */; };
 		E4409DE0283B2A12005C6BA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4409DDE283B2A12005C6BA1 /* LaunchScreen.storyboard */; };
+		E4BE2A39283CC8A9000099E5 /* Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = E4BE2A38283CC8A9000099E5 /* Toolbox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E4301920283B4B97000796DC /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BuildTools; path = ../BuildTools; sourceTree = "<group>"; };
-		E4409DD0283B2A0E005C6BA1 /* AirBnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4409DD0283B2A0E005C6BA1 /* AirBnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AirBnb.app; path = "/Users/song/workspace/dev/ios/airbnb/ios/AirBnb/build/Debug-iphoneos/AirBnb.app"; sourceTree = "<absolute>"; };
 		E4409DD3283B2A0E005C6BA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4409DD5283B2A0E005C6BA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E4409DD7283B2A0E005C6BA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		E45F2A7B283B2CD300F0CB7C /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		E45F2A7D283B2F2200F0CB7C /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		E45F2A7E283B2F4F00F0CB7C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E4BE2A37283CC86E000099E5 /* Toolbox */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Toolbox; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,20 +35,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BE2A39283CC8A9000099E5 /* Toolbox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E430191F283B4B97000796DC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E4301920283B4B97000796DC /* BuildTools */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E4409DC7283B2A0E005C6BA1 = {
 			isa = PBXGroup;
 			children = (
@@ -57,17 +50,8 @@
 				E45F2A7A283B2CCC00F0CB7C /* debug.xcconfig */,
 				E45F2A7B283B2CD300F0CB7C /* release.xcconfig */,
 				E4409DD2283B2A0E005C6BA1 /* AirBnb */,
-				E4409DD1283B2A0E005C6BA1 /* Products */,
-				E430191F283B4B97000796DC /* Frameworks */,
+				E4BE2A36283CC86E000099E5 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		E4409DD1283B2A0E005C6BA1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E4409DD0283B2A0E005C6BA1 /* AirBnb.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E4409DD2283B2A0E005C6BA1 /* AirBnb */ = {
@@ -91,6 +75,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E4BE2A36283CC86E000099E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE2A37283CC86E000099E5 /* Toolbox */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +90,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4409DE4283B2A12005C6BA1 /* Build configuration list for PBXNativeTarget "AirBnb" */;
 			buildPhases = (
+				E4BE2A3A283CC911000099E5 /* Swift Format */,
+				E4BE2A3B283CCD11000099E5 /* Swift Lint */,
 				E4409DCC283B2A0E005C6BA1 /* Sources */,
 				E4409DCD283B2A0E005C6BA1 /* Frameworks */,
 				E4409DCE283B2A0E005C6BA1 /* Resources */,
@@ -107,6 +101,9 @@
 			dependencies = (
 			);
 			name = AirBnb;
+			packageProductDependencies = (
+				E4BE2A38283CC8A9000099E5 /* Toolbox */,
+			);
 			productName = AirBnb;
 			productReference = E4409DD0283B2A0E005C6BA1 /* AirBnb.app */;
 			productType = "com.apple.product-type.application";
@@ -137,7 +134,7 @@
 			mainGroup = E4409DC7283B2A0E005C6BA1;
 			packageReferences = (
 			);
-			productRefGroup = E4409DD1283B2A0E005C6BA1 /* Products */;
+			productRefGroup = E4409DC7283B2A0E005C6BA1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -151,13 +148,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4301921283B5C91000796DC /* BuildTools in Resources */,
 				E4409DE0283B2A12005C6BA1 /* LaunchScreen.storyboard in Resources */,
 				E4409DDD283B2A12005C6BA1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4BE2A3A283CC911000099E5 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd Toolbox\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+		E4BE2A3B283CCD11000099E5 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# should install swiftlint with homebrew\nswiftlint --config .swiftlint.yml\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4409DCC283B2A0E005C6BA1 /* Sources */ = {
@@ -378,6 +413,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4BE2A38283CC8A9000099E5 /* Toolbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Toolbox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4409DC8283B2A0E005C6BA1 /* Project object */;
 }
