@@ -1,0 +1,9 @@
+disabled_rules: # Default Rules에서 비활성할 규칙
+- trailing_whitespace # Lines should not have trailing whitespace.
+- type_name
+
+opt_in_rules: # 기본적으로 비활성화되어있으나 활성화할 규칙
+- yoda_condition
+
+excluded: # File or Directory Lint should exclude.
+- Pods
