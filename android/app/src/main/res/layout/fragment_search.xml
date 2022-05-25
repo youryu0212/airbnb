@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.airbnb.ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,6 +50,7 @@
 
         <ImageView
             android:id="@+id/iv_search_hero_image"
+            imageUrl="@{viewModel.heroImage}"
             android:layout_width="match_parent"
             android:layout_height="440dp"
             android:contentDescription="@string/label_hero_image"
@@ -59,7 +63,6 @@
             style="@style/TextHeadline5.20.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:text="@string/label_search_middle_title"
@@ -76,12 +79,5 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_search_close_travel" />
 
 
-
-        <Button
-            android:id="@+id/btn_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
