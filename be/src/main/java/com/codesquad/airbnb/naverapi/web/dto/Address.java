@@ -1,4 +1,4 @@
-package com.codesquad.airbnb.accommodation.web.dto;
+package com.codesquad.airbnb.naverapi.web.dto;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class Address {
                 .append(" ")
                 .append(nameOfBuilding);
 
-        log.debug("Address: {}", result.toString());
+        log.debug("Address: {}", result);
         return result.toString();
     }
 
