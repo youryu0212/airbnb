@@ -15,6 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.todo.airbnb.R
 import com.example.todo.airbnb.presentation.reservation.components.ReservationScreen
+import com.example.todo.airbnb.presentation.search.SearchViewModel
 import com.example.todo.airbnb.presentation.search.components.SearchScreen
 import com.example.todo.airbnb.presentation.wishlist.components.WishListScreen
 import com.example.todo.airbnb.ui.theme.Gray
@@ -65,12 +66,12 @@ fun BottomBar(navController: NavController) {
 }
 
 @Composable
-fun BottomNavGraph(navController: NavHostController) {
+fun BottomNavGraph(navController: NavHostController, viewModel: SearchViewModel) {
     NavHost(
         navController = navController,
         startDestination = NavigationItem.Search.route
     ) {
-        composable(NavigationItem.Search.route) { SearchScreen() }
+        composable(NavigationItem.Search.route) { SearchScreen(viewModel) }
         composable(NavigationItem.WishList.route) { WishListScreen() }
         composable(NavigationItem.Reservation.route) { ReservationScreen() }
     }
