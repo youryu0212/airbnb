@@ -140,16 +140,20 @@ class SearchViewController: UIViewController {
         return view
     }()
     
-    private let searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "어디로 여행가세요?"
-        return searchController
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "어디로 여행가세요?"
+        return searchBar
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
         attribute()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func attribute() {
@@ -162,42 +166,29 @@ class SearchViewController: UIViewController {
     private func layout() {
         view.addSubview(backgroundCollectionView)
 
-        //MARK: - SnapKit
         backgroundCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
 }
 
-extension SearchViewController: UISearchResultsUpdating {
-    private func setUpSearchController() {
-        searchController.searchResultsUpdater = self
-        self.navigationItem.titleView = searchController.searchBar
-        searchController.automaticallyShowsCancelButton = false
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        let locationVC = LocationViewController()
+        locationVC.navigationItem.title = "숙소 찾기"
+        let backButton = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+        backButton.tintColor = .gray
+        
+        self.navigationItem.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.backgroundColor = .red
+        show(locationVC, sender: self)
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        //TODO: - delegate 를 이용해서 필드가 활성화되면 1. 백버튼 추가, 2. 타이틀 추가
-        //TODO: - 다른 탭으로 다녀오면 검색 창이 사라지는 버그 수정
-        dump(searchController.searchBar.text)
-        if searchController.isActive {
-            navigationItem.titleView = nil
-            navigationItem.searchController = self.searchController
-            navigationItem.title = "숙소 찾기"
-            
-//            navigationItem.hidesBackButton = false
-            navigationItem.backButtonTitle = "지우기"
-            let backBarButton = UIBarButtonItem(title: "지우기", style: .plain, target: nil, action: nil)
-            navigationItem.backBarButtonItem = backBarButton
-        
-            
-            self.searchController.hidesNavigationBarDuringPresentation = false
-            self.searchController.obscuresBackgroundDuringPresentation = false
-        } else {
-            navigationItem.searchController = nil
-            navigationItem.titleView = self.searchController.searchBar
-            
-        }
+    private func setUpSearchController() {
+        self.navigationItem.titleView = searchBar
+        searchBar.delegate = self
     }
 }
 

@@ -8,12 +8,6 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
-    private var defaultIndex = 0 {
-        didSet {
-            self.selectedIndex = defaultIndex
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +16,6 @@ class TabBarViewController: UITabBarController {
     
     private func attribute() {
         self.view.backgroundColor = .white
-        self.selectedIndex = defaultIndex
         tabBar.tintColor = UIColor(named: "Grey1")
         tabBar.unselectedItemTintColor = UIColor(named: "Grey3")
         setUpTabBar()
@@ -30,9 +23,7 @@ class TabBarViewController: UITabBarController {
     
     private func setUpTabBar() {
         
-        let searchViewController = SearchViewController()
-        searchViewController.navigationItem.backButtonTitle = "뒤로"
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        let searchNavigationController = UINavigationController(rootViewController: SearchViewController())
         searchNavigationController.tabBarItem.title = "검색"
         searchNavigationController.tabBarItem.image = #imageLiteral(resourceName: "Search")
         
