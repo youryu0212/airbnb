@@ -1,13 +1,11 @@
 package kr.codesquad.airbnb.domain;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-@Setter
 public class Discount {
 
     @Id
