@@ -100,7 +100,7 @@ class MultipleRowsCollectionViewController: UICollectionViewController {
             })
     }
     
-    func applySnapshot() {
+    private func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, SearchViewModel>()
         snapshot.appendSections([Section.SearchMainBody])
         snapshot.appendItems(items)

@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
         return layout
     }
     
-    private var searchCollectionViewDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource = { collectionView in
+    private var searchCollectionViewDataSource: (UICollectionView) -> UICollectionViewDiffableDataSource<Section, [SearchViewModel]> = { collectionView in
         UICollectionViewDiffableDataSource<Section, [SearchViewModel]>(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
             var cell: UICollectionViewCell?
             
@@ -176,7 +176,8 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         let locationVC = LocationViewController()
         locationVC.navigationItem.title = "숙소 찾기"
-        let backButton = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: nil)
+        let backButton = UIBarButtonItem(title: "뒤로", style: .plain,
+                                         target: self, action: nil)
         backButton.tintColor = .gray
         
         self.navigationItem.backBarButtonItem = backButton
