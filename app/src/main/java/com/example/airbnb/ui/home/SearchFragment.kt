@@ -50,7 +50,7 @@ class SearchFragment : Fragment() {
                 } else {
                     displaySearchResultDestination()
                     val dummyList = makeDummySearchResultByKeyword(searchKey.toString())
-                    searchAdapter.submitSearchResultDestinations(dummyList)
+                    searchAdapter.submitList(dummyList)
                 }
             }
         })
