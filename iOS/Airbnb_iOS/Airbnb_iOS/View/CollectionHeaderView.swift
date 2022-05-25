@@ -41,14 +41,14 @@ final class CollectionHeaderView: UICollectionReusableView {
     func setHeaderText(text: String?) {
         label.text = text
     }
-    
+
     func setHeaderFontSize(size: CGFloat) {
         label.font = .systemFont(ofSize: size, weight: .init(rawValue: 400))
     }
 }
 
 private extension CollectionHeaderView {
-    
+
     func setLayout() {
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),

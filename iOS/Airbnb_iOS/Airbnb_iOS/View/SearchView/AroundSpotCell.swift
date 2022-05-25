@@ -11,7 +11,7 @@ final class AroundSpotCell: UICollectionViewCell {
 
     static let identifier = "AroundSpotCell"
 
-    private let imageView : UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -56,7 +56,7 @@ final class AroundSpotCell: UICollectionViewCell {
 }
 
 private extension AroundSpotCell {
-    
+
     func setLayout() {
         addSubViews([imageView, titleLabel, distanceLabel])
 
@@ -73,7 +73,7 @@ private extension AroundSpotCell {
             titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor),
             titleLabel.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1/2)
         ])
-        
+
         NSLayoutConstraint.activate([
             distanceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             distanceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

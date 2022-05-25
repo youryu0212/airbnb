@@ -11,7 +11,7 @@ final class MainEventCell: UICollectionViewCell {
 
     static let identifier = "MainEventCell"
 
-    private let imageView : UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -38,7 +38,7 @@ final class MainEventCell: UICollectionViewCell {
 }
 
 private extension MainEventCell {
-    
+
     func setLayout() {
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([

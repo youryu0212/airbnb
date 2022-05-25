@@ -32,7 +32,7 @@ final class ThemeSpotCell: UICollectionViewCell {
         super.init(frame: frame)
         setLayout()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError()
@@ -50,7 +50,7 @@ final class ThemeSpotCell: UICollectionViewCell {
 }
 
 private extension ThemeSpotCell {
-    
+
     func setLayout() {
         contentView.addSubViews([imageView, titleLabel])
 
