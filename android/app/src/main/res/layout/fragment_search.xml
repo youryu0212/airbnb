@@ -16,6 +16,7 @@
             android:id="@+id/tb_search"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:background="@color/airbnb_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -76,12 +77,5 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_search_close_travel" />
 
 
-
-        <Button
-            android:id="@+id/btn_temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

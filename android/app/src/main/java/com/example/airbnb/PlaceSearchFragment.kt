@@ -34,7 +34,15 @@ class PlaceSearchFragment : Fragment() {
         updateSearchWord()
         updateBySearchingWordExist()
 
+        listenClearButtonClicked()
+
         return binding.root
+    }
+
+    private fun listenClearButtonClicked() {
+        binding.btnInitSearchWord.setOnClickListener {
+            binding.etSearchWord.text.clear()
+        }
     }
 
     private fun listenSearchWordChange() {
