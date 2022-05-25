@@ -27,5 +27,4 @@ public class Accommodation {
 
     private String accommodationName;
     private String accommodationAddress;
-    private String accommodationImg;
 }

@@ -28,4 +28,6 @@ public class AccommodationInfo {
     private int numberOfBath;
     private int discountOfWeek;
     private int maximumNumberOfGuests;
+    private String accommodationMainImg;
+    private String accommodationDetailImg;
 }
