@@ -22,7 +22,7 @@ final class NearDestinationViewCell: UICollectionViewCell {
     
     private lazy var cityTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .NotoSans.medium
+        label.font = .SFProDisplay.semiBold
         label.textColor = .Custom.gray1
         return label
     }()
@@ -30,7 +30,7 @@ final class NearDestinationViewCell: UICollectionViewCell {
     private lazy var distanceLabel: UILabel = {
         let label = UILabel()
         label.text = "차로 30분 거리"
-        label.font = .NotoSans.regular
+        label.font = .SFProDisplay.regular(17)
         label.textColor = .Custom.gray3
         return label
     }()
