@@ -21,7 +21,8 @@ class LocationViewController: UIViewController {
         
     
     lazy var removeButton: UIBarButtonItem = {
-        let barButton = UIBarButtonItem(title: "지우기", style: .done, target: self, action: #selector(self.clearSearchField(_:)))
+        let barButton = UIBarButtonItem(title: "지우기", style: .done,
+                                        target: self, action: #selector(self.clearSearchField(_:)))
         barButton.tintColor = .gray
         return barButton
     }()
@@ -35,7 +36,6 @@ class LocationViewController: UIViewController {
     
     private func setUpSearchController() {
         self.navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
     }
 }
@@ -51,12 +51,7 @@ extension LocationViewController {
     }
 }
 
-extension LocationViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    
-    // 텍스트를 보고 view 결과를 보여주기 위한 메서드
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
+extension LocationViewController: UISearchBarDelegate {
     
     @objc func clearSearchField(_ sender: Any) {
         searchController.searchBar.text = nil
@@ -70,12 +65,5 @@ extension LocationViewController: UISearchResultsUpdating, UISearchBarDelegate {
         } else {
             self.navigationItem.rightBarButtonItem = nil
         }
-    }
-    
-    // 글자 입력수 제한시 사용
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        print(range)
-        print(text)
-        return true
     }
 }
