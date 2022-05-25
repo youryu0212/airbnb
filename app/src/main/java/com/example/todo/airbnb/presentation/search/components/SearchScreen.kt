@@ -1,7 +1,7 @@
-package com.example.todo.airbnb.presentation.search.components
-
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
@@ -11,16 +11,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import com.example.todo.airbnb.presentation.search.SearchViewModel
 import com.example.todo.airbnb.presentation.search.SearchWidgetState
+import com.example.todo.airbnb.presentation.search.components.AccommodationsScreen
+import com.example.todo.airbnb.presentation.search.components.LoadMainImage
+import com.example.todo.airbnb.presentation.search.components.TravelScreen
 
 @ExperimentalCoilApi
 @Composable
 fun SearchScreen(viewModel: SearchViewModel) {
     val searchWidgetState by viewModel.searchWidgetState
-    when(searchWidgetState) {
+    when (searchWidgetState) {
         is SearchWidgetState.CLOSED -> {
             Column(
                 modifier = Modifier.verticalScroll(rememberScrollState())
@@ -28,6 +30,7 @@ fun SearchScreen(viewModel: SearchViewModel) {
                 LoadMainImage()
                 TravelScreen(viewModel = viewModel)
                 // TODO[숙소 리스트]
+                AccommodationsScreen(viewModel = viewModel)
             }
         }
         is SearchWidgetState.OPEN -> {

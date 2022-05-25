@@ -94,3 +94,18 @@ fun LoadMainImage() {
         }
     }
 }
+
+@ExperimentalCoilApi
+@Composable
+fun handleImage(painterState: ImagePainter.State) {
+    if (painterState is ImagePainter.State.Loading) {
+        CircularProgressIndicator()
+    } else if (painterState is ImagePainter.State.Error) {
+        Image(
+            painter = painterResource(id = R.drawable.ic_error),
+            contentDescription = "Error Image",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
+        )
+    }
+}

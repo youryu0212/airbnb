@@ -13,12 +13,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.todo.airbnb.R
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.example.todo.airbnb.data.Travel
 import com.example.todo.airbnb.presentation.search.SearchViewModel
 
+@ExperimentalCoilApi
 @Composable
 fun TravelScreen(viewModel: SearchViewModel) {
     val scrollState = rememberLazyListState()
@@ -40,7 +41,7 @@ fun TravelScreen(viewModel: SearchViewModel) {
                 Column(modifier = Modifier.padding(end = 16.dp)) {
                     if (index % 2 == 0) {
                         Row {
-                            ImageScreen(location)
+                            LoadImage(location)
                             Spacer(modifier = Modifier.width(16.dp))
                             Column {
                                 Text(
@@ -56,7 +57,7 @@ fun TravelScreen(viewModel: SearchViewModel) {
                         }
                         if (index + 1 < travelLocations.size) {
                             Row {
-                                ImageScreen(location)
+                                LoadImage(location)
                                 Spacer(modifier = Modifier.width(16.dp))
                                 Column {
                                     Text(
@@ -78,15 +79,21 @@ fun TravelScreen(viewModel: SearchViewModel) {
     }
 }
 
+@ExperimentalCoilApi
 @Composable
-fun ImageScreen(travel: Travel) {
+private fun LoadImage(travel: Travel) {
+    val painter = rememberImagePainter(
+        data = travel.imageURL
+    )
     Image(
+        painter = painter,
+        contentDescription = "여행지 이미지",
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))
             .width(70.dp)
             .height(70.dp),
-        painter = painterResource(id = R.drawable.ic_loading),
-        contentDescription = "travel image",
-        contentScale = ContentScale.Crop
+        contentScale = ContentScale.FillBounds
     )
+    val painterState = painter.state
+    handleImage(painterState)
 }

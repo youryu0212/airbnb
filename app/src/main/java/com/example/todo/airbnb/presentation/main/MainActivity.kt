@@ -29,8 +29,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AirbnbTheme(viewModel: SearchViewModel) {
     AirbnbTheme {
-        Surface(modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
             MainScreen(viewModel = viewModel)
         }
     }
