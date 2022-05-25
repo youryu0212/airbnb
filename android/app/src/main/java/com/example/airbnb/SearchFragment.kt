@@ -1,6 +1,8 @@
 package com.example.airbnb
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -14,8 +16,14 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
+    ): View {
+        binding = FragmentSearchBinding.inflate(
+            layoutInflater,
+            container,
+            false
+        )
+
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -25,5 +33,21 @@ class SearchFragment : Fragment() {
         binding.backMainButton.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
+        registerTextViewForTextChange()
+    }
+
+    private fun registerTextViewForTextChange() {
+        binding.searchInputText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s.isNullOrBlank()) binding.clearButton.setImageResource(R.drawable.ic_search)
+                else binding.clearButton.setImageResource(R.drawable.ic_clear)
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 }
