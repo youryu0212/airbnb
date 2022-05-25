@@ -46,7 +46,7 @@ enum SectionLayoutFactory {
             layoutSize: groupSize,
             subitems: [item])
         group.contentInsets = .init(
-            top: 0,
+            top: 16,
             leading: 0,
             bottom: 0,
             trailing: 0
