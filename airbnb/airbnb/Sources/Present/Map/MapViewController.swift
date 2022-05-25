@@ -33,7 +33,7 @@ final class MapViewController: UIViewController {
     
     private func bind() {
         rx.viewWillAppear
-            .compactMap{ _ in }
+            .compactMap { _ in }
             .bind(to: viewModel.action().loadPinData)
             .disposed(by: disposeBag)
 
@@ -42,31 +42,36 @@ final class MapViewController: UIViewController {
             .bind(to: viewModel.action().loadCollectionData)
             .disposed(by: disposeBag)
         
+        mapCollectionFlow.selectedCellRelay
+            .bind(to: viewModel.action().collectionSelected)
+            .disposed(by: disposeBag)
+        
         viewModel.state().loadedPin
             .map { $0.map { PriceAnnotation(coordenate: CLLocationCoordinate2D(latitude: $0.x, longitude: $0.y)) } }
             .bind(onNext: mapView.mkMapView.addAnnotations)
             .disposed(by: disposeBag)
 
         viewModel.state().loadedCollectionData
-            .bind(to: mapView.collectionView.rx.items(cellIdentifier: MapCollectionCell.identifier, cellType: MapCollectionCell.self)){index, model, cell in
-                //print("\(index) \(model) \(cell)")
-        }
-        .disposed(by: disposeBag)
+            .bind(to: mapView.collectionView.rx.items(cellIdentifier: MapCollectionCell.identifier, cellType: MapCollectionCell.self)) {index, model, cell in
+                print("\(index) \(model) \(cell)") }
+            .disposed(by: disposeBag)
         
-        // TODO : 화면전환 구현예정
-//        viewModel.state().collectionSelectedData
-//            .bind(onNext: presentDetailViewController)
-//            .disposed(by: disposeBag)
+        viewModel.state().collectionSelectedData
+            .bind(onNext: presentDetailViewController)
+            .disposed(by: disposeBag)
     }
     
     private func attribute() {
         view = mapView
-//        mapView.collectionView.dataSource = mapCollectionDataSource
         mapView.collectionView.delegate = mapCollectionFlow
         mapView.mkMapView.delegate = mkMapViewManager
     }
     
-    private func layout() {
-        
+    private func layout() {}
+    
+    private func presentDetailViewController(selectedData: MapDTO) {
+        let detailViewContller = DetailViewController()
+        detailViewContller.modalPresentationStyle = .fullScreen
+        present(detailViewContller, animated: true, completion: nil)
     }
 }

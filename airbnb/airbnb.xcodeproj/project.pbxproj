@@ -16,6 +16,7 @@
 		7267980C283B877B00A00C16 /* MapCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7267980B283B877B00A00C16 /* MapCollectionDelegate.swift */; };
 		727114B9283CA8EC0004F349 /* PriceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727114B8283CA8EC0004F349 /* PriceAnnotation.swift */; };
 		727114BB283CAA3A0004F349 /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727114BA283CAA3A0004F349 /* MapDelegate.swift */; };
+		72950CEB283DC4B80008601E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72950CEA283DC4B80008601E /* DetailViewController.swift */; };
 		8C3594D620F892E78E48A08E /* Pods_airbnb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 502D2CB1D8B0E9F0EA94AA1C /* Pods_airbnb.framework */; };
 		E0108D0F283B271000CC736C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D0E283B271000CC736C /* AppDelegate.swift */; };
 		E0108D11283B271000CC736C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0108D10283B271000CC736C /* SceneDelegate.swift */; };
@@ -69,6 +70,7 @@
 		7267980B283B877B00A00C16 /* MapCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionDelegate.swift; sourceTree = "<group>"; };
 		727114B8283CA8EC0004F349 /* PriceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAnnotation.swift; sourceTree = "<group>"; };
 		727114BA283CAA3A0004F349 /* MapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
+		72950CEA283DC4B80008601E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AD9A09498674EB4DB5B5AE9B /* Pods-airbnbTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airbnbTests.debug.xcconfig"; path = "Target Support Files/Pods-airbnbTests/Pods-airbnbTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C1967FBE88106B2A62A270B1 /* Pods-airbnb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airbnb.release.xcconfig"; path = "Target Support Files/Pods-airbnb/Pods-airbnb.release.xcconfig"; sourceTree = "<group>"; };
 		E0108D0B283B271000CC736C /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,14 @@
 				727114BA283CAA3A0004F349 /* MapDelegate.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		72950CE9283DC4A80008601E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				72950CEA283DC4B80008601E /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		8038025521A09C46A1D5900A /* Frameworks */ = {
@@ -287,6 +297,7 @@
 		E0108D62283B2E7100CC736C /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				72950CE9283DC4A80008601E /* Detail */,
 				724B8652283B794B005FBFE9 /* Map */,
 				E0108D6A283B4B7F00CC736C /* MainTabBar */,
 				E0108D65283B2EC900CC736C /* Main */,
@@ -553,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0108D59283B2DDE00CC736C /* UserDefault.swift in Sources */,
+				72950CEB283DC4B80008601E /* DetailViewController.swift in Sources */,
 				E0108D72283B4E3500CC736C /* WishListViewController.swift in Sources */,
 				E0108D7C283B75F300CC736C /* NSAttributedString+Extension.swift in Sources */,
 				E0108D5F283B2DDE00CC736C /* BaseTarget.swift in Sources */,

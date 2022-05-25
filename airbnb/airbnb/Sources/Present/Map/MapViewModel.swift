@@ -21,7 +21,7 @@ protocol MapViewModelAction {
 }
 
 protocol MapViewModelState {
-    var collectionSelectedData: PublishRelay<[String]> { get }
+    var collectionSelectedData: PublishRelay<MapDTO> { get }
     var loadedCollectionData: PublishRelay<[MapDTO]> { get }
     var loadedPin: PublishRelay<[CGPoint]> { get }
 }
@@ -47,7 +47,7 @@ final class MapViewModel: MapViewModelBinding, MapViewModelAction, MapViewModelS
     
     var loadedPin = PublishRelay<[CGPoint]>()
     var loadedCollectionData = PublishRelay<[MapDTO]>()
-    var collectionSelectedData = PublishRelay<[String]>()
+    var collectionSelectedData = PublishRelay<MapDTO>()
     
     init() {
         loadPinData
@@ -62,6 +62,11 @@ final class MapViewModel: MapViewModelBinding, MapViewModelAction, MapViewModelS
                 [MapDTO](repeating: MapDTO(), count: 5)
             }
             .bind(to: loadedCollectionData)
+            .disposed(by: disposeBag)
+        
+        collectionSelected
+            .map { _ in MapDTO() }
+            .bind(to: collectionSelectedData)
             .disposed(by: disposeBag)
     }
 }
