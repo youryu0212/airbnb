@@ -150,11 +150,11 @@ final class MapViewCardCell: UICollectionViewCell {
     
     @objc private func changeImage() {
         if heartButton.configuration?.image == UIImage(systemName: "heart") {
-            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            heartButton.tintColor = .red
+            heartButton.configuration?.image = UIImage(systemName: "heart.fill")
+            heartButton.configuration?.baseForegroundColor = .red
         } else {
-            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            heartButton.tintColor = .secondaryLabel
+            heartButton.configuration?.image = UIImage(systemName: "heart")
+            heartButton.configuration?.baseForegroundColor = .secondaryLabel
         }
     }
 }
