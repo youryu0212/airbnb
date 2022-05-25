@@ -37,6 +37,7 @@ const SearchBarBox = styled(Cylindrical)`
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: ${({theme}) => theme.color.white};
+    user-select: none;
 `;
 
 export default SearchBar;

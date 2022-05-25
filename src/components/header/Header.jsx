@@ -18,6 +18,7 @@ const Header = () => {
 const Background = styled.div`
     background-color: rgba(0, 0, 0, 0.05);
     height: 640px;
+    user-select: none;
 `;
 
 const HeaderBox = styled.header`
