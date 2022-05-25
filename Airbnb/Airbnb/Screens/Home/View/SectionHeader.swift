@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionHeader: UICollectionReusableView {
+final class SectionHeader: UICollectionReusableView {
     static let id = "SectionHeader"
 
     private var title: UILabel = {
@@ -19,7 +19,7 @@ class SectionHeader: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(title)
+        addSubview(title)
         title.frame = bounds
     }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroCell: UICollectionViewCell {
+final class HeroCell: UICollectionViewCell {
     static let id = "HeroCell"
 
     private var title: UILabel = {
@@ -61,24 +61,20 @@ class HeroCell: UICollectionViewCell {
     }
 
     private func configureDisplay() {
-        self.contentView.addSubview(imageView)
-        self.contentView.addSubview(stackView)
-        self.contentView.addSubview(button)
+        contentView.addSubview(imageView)
+        contentView.addSubview(stackView)
+        contentView.addSubview(button)
     }
 
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-
-            imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             stackView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 24),
             stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -105),
             stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -210),
-
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             button.widthAnchor.constraint(equalToConstant: 165),
             button.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),

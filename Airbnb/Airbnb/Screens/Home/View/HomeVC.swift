@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     private var searchBar: UISearchBar!
     private var homeCollectionView: UICollectionView!
@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDisplay()
-
     }
 
     private func configureDisplay() {
@@ -25,7 +24,7 @@ class HomeViewController: UIViewController {
     }
 
     private func setNavigationBar() {
-        self.view.backgroundColor = .gray6
+        view.backgroundColor = .gray6
         let navigationBar = navigationController?.navigationBar
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBar?.backgroundColor = .gray6
@@ -36,31 +35,26 @@ class HomeViewController: UIViewController {
     private func setSearchBar() {
         searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
-        self.navigationItem.titleView = searchBar
+        navigationItem.titleView = searchBar
     }
 
     private func setCollectionView() {
         let flowLayout = FlowLayout.makeCompositionalLayout()
         homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         homeCollectionView.dataSource = self
-
         homeCollectionView.register(HeroCell.self, forCellWithReuseIdentifier: HeroCell.id)
         homeCollectionView.register(CityCell.self, forCellWithReuseIdentifier: CityCell.id)
         homeCollectionView.register(RandomSiteCell.self, forCellWithReuseIdentifier: RandomSiteCell.id)
-
         homeCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.id)
-
         homeCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(homeCollectionView)
-
+        view.addSubview(homeCollectionView)
         NSLayoutConstraint.activate([
-            homeCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
-            homeCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            homeCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            homeCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            homeCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            homeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            homeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            homeCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -106,7 +100,6 @@ extension HomeViewController: UICollectionViewDataSource {
         } else if indexPath.section == 2 {
             header.configureCell(title: "어디에서나, 여행은\n살아보는거야!")
         }
-
         return header
     }
 

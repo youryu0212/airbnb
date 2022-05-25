@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RandomSiteCell: UICollectionViewCell {
+final class RandomSiteCell: UICollectionViewCell {
 
     static let id = "RandomSiteCell"
 
@@ -42,15 +42,15 @@ class RandomSiteCell: UICollectionViewCell {
     }
 
     private func configureDisplay() {
-        self.contentView.addSubview(stackView)
+        contentView.addSubview(stackView)
     }
 
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            stackView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor)
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.heightAnchor.constraint(equalTo: contentView.heightAnchor)
         ])
     }
 
