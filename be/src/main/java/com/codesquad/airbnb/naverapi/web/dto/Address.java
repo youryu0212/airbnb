@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Address {
     private static final StringBuffer sb = new StringBuffer();
 
+    private String state;
     private String city;
     private String district;
     private String street;
@@ -17,7 +18,10 @@ public class Address {
     public String toValue() {
         init();
 
-        StringBuffer result = sb.append(city)
+        StringBuffer result = sb
+                .append(state)
+                .append(" ")
+                .append(city)
                 .append(" ")
                 .append(district)
                 .append(" ")
