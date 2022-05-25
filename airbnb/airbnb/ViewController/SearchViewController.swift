@@ -14,7 +14,6 @@ class SearchViewController: UIViewController {
             return imageView
         }
         
-        imageView.clipsToBounds = true
         imageView.contentMode = .top
         
         let widthScaleRatio = self.view.bounds.width / image.size.width
@@ -39,6 +38,7 @@ class SearchViewController: UIViewController {
     private var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "슬기로운 \n자연생활"
+        label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.numberOfLines = 0
         return label
     }()
@@ -46,13 +46,17 @@ class SearchViewController: UIViewController {
     private var contentLabel: UILabel = {
         var label = UILabel()
         label.text = "에어비앤비가 엄선한 \n위시리스트를 만나보세요."
+        label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
         return label
     }()
     
     private var ideaButton: UIButton = {
         var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.title = "여행 아이디어 얻기"
+        var container = AttributeContainer()
+        container.font = UIFont.systemFont(ofSize: 17)
+        buttonConfiguration.attributedTitle = AttributedString("여행 아이디어 얻기", attributes: container)
+        
         buttonConfiguration.baseBackgroundColor = .black
         buttonConfiguration.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         
