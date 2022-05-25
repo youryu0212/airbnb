@@ -168,13 +168,14 @@ private extension SearchHomeViewController {
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .estimated(44)),
-                elementKind: DestinationHeaderView.identifier,
+                elementKind: UICollectionView.elementKindSectionHeader,
                 alignment: .topLeading)
         ]
         
         return section
         
     }
+    
     func nearDestinationLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.7),
@@ -190,7 +191,7 @@ private extension SearchHomeViewController {
         )
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
+            widthDimension: .fractionalWidth(0.9),
             heightDimension: .fractionalHeight(0.25)
         )
         
@@ -203,13 +204,14 @@ private extension SearchHomeViewController {
             NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(44)),
-                elementKind: DestinationHeaderView.identifier,
+                    heightDimension: .absolute(56)),
+                elementKind: UICollectionView.elementKindSectionHeader,
                 alignment: .topLeading)
         ]
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.orthogonalScrollingBehavior = .continuous
         return section
     }
+    
     func themeLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
@@ -231,21 +233,22 @@ private extension SearchHomeViewController {
         )
         group.contentInsets = .init(
             top: 0,
-            leading: 15,
-            bottom: 0,
-            trailing: 2
+            leading: 0,
+            bottom: 15,
+            trailing: 16
         )
         
         let section = NSCollectionLayoutSection(group: group)
         
         section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets.leading = 15
         
         section.boundarySupplementaryItems = [
             NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .estimated(44)),
-                elementKind: DestinationHeaderView.identifier,
+                    heightDimension: .absolute(56)),
+                elementKind: UICollectionView.elementKindSectionHeader,
                 alignment: .topLeading)
         ]
         
