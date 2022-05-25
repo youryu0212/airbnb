@@ -5,9 +5,9 @@ import Personnel from 'components/Header/SearchBar/Personnel';
 import Price from 'components/Header/SearchBar/Price';
 import SearchButton from 'components/Header/SearchBar/SearchButton';
 
-function SearchBar({ changeSearchBar }: any) {
+function SearchBar() {
   return (
-    <SearchBarWrap onClick={changeSearchBar}>
+    <SearchBarWrap>
       <Period />
       <Divider orientation="vertical" />
       <Price />

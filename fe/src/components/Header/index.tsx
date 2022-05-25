@@ -1,14 +1,21 @@
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import styled from 'styled-components';
 import { Avatar } from '@material-ui/core';
 import { ReactComponent as HamburgerIcon } from 'images/FE_숙소예약서비스/Property 1=menu.svg';
+
 import Menu from 'components/Header/Menu';
 import SearchBar from 'components/Header/SearchBar/index';
-import { useLocation } from 'react-router-dom';
 import SearchWrapper, { SearchWrap } from './SearchWrapper';
 
 function Header() {
   const location = useLocation();
+  const [miniFocus, setMiniFocus] = useState(true);
 
+  const changeSearchBar = (e: any) => {
+    return miniFocus ? setMiniFocus(false) : setMiniFocus(true);
+  };
   return (
     <HeaderWrap>
       <Logo>LOGO</Logo>
@@ -18,7 +25,11 @@ function Header() {
           <SearchBar />
         </SearchWrap>
       ) : (
-        <SearchWrapper />
+        <SearchWrapper
+          changeSearchBar={changeSearchBar}
+          miniFocus={miniFocus}
+          setMiniFocus={setMiniFocus}
+        />
       )}
       <UserWrapper>
         <Hamburger>햄버거</Hamburger>

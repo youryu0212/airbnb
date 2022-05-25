@@ -10,13 +10,15 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
+    'react-app',
+    'prettier',
   ],
   parserOptions: {
     ecmaFeatures: { jsx: true },
     ecmaVersion: 2021,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   settings: {
     'import/resolver': {
       node: {
@@ -30,7 +32,7 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     'import/prefer-default-export': 0,
-    // 'prettier/prettier': 0,
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'import/extensions': 0,
     'no-use-before-define': 0,
     'import/no-unresolved': 0,
