@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="21dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_search"
             app:layout_constraintBottom_toTopOf="@id/view_guideline"
