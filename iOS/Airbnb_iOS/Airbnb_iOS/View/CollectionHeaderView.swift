@@ -16,7 +16,6 @@ final class CollectionHeaderView: UICollectionReusableView {
         label.textColor = .black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 22, weight: .init(rawValue: 400))
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
         return label
@@ -36,11 +35,15 @@ final class CollectionHeaderView: UICollectionReusableView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        configure(text: nil)
+        setHeaderText(text: nil)
     }
 
-    func configure(text: String?) {
+    func setHeaderText(text: String?) {
         label.text = text
+    }
+    
+    func setHeaderFontSize(size: CGFloat) {
+        label.font = .systemFont(ofSize: size, weight: .init(rawValue: 400))
     }
 }
 
