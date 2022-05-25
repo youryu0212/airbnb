@@ -26,14 +26,17 @@ class SearchViewController: UIViewController {
         self.view = homeView
         self.homeView.setDataSource(dataSource)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.hidesBarsOnSwipe = true
+    }
 }
 
 private extension SearchViewController {
     func setSearchBar() {
         searchBar.delegate = self
-        
         self.navigationItem.titleView = searchBar
-        self.navigationController?.hidesBarsOnSwipe = true
     }
 }
 

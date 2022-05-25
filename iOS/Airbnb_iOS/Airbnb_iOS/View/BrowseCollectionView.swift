@@ -25,7 +25,7 @@ class BrowseCollectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        setUpLayout()
+        setConstraint()
     }
 
     @available(*, unavailable)
@@ -40,7 +40,7 @@ class BrowseCollectionView: UIView {
 
 private extension BrowseCollectionView {
 
-    func setUpLayout() {
+    func setConstraint() {
         addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -49,26 +49,26 @@ private extension BrowseCollectionView {
             collectionView.topAnchor.constraint(equalTo: topAnchor)
         ])
     }
-
+    
     func getCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { (section, _) -> NSCollectionLayoutSection? in
             let itemFractionalWidthFraction = 0.8
-            let groupFractionalHeightFraction = 1.0
-            let itemInset: CGFloat = 16
 
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(itemFractionalWidthFraction),
                 heightDimension: .estimated(64))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: itemInset, leading: 0,
-                                                         bottom: 0, trailing: 0)
+            item.contentInsets = .init(top: 0, leading: 10, bottom: 16, trailing: 0)
 
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(groupFractionalHeightFraction))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.7)), subitem: item, count: 8)
 
             let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = .init(top: 16, leading: 0, bottom: 0, trailing: 0)
+            
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                    heightDimension: .absolute(22))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            section.boundarySupplementaryItems = [header]
 
             return section
         }

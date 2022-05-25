@@ -24,9 +24,14 @@ class BrowseViewController: UIViewController {
         super.viewDidLoad()
         self.setNavigationItem()
         self.setSearchBar()
-        self.view.addSubview(browseView)
+        self.view = browseView
         self.browseView.setDataSource(dataSource)
-        self.setViewConstraint()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.hidesBarsOnSwipe = false
     }
 }
 
@@ -39,14 +44,5 @@ private extension BrowseViewController {
     
     func setSearchBar() {
         self.navigationItem.searchController = searchBarVC
-    }
-    
-    func setViewConstraint() {
-        NSLayoutConstraint.activate([
-            browseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            browseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            browseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            browseView.topAnchor.constraint(equalTo: self.navigationItem.titleView?.bottomAnchor ?? view.topAnchor)
-        ])
     }
 }
