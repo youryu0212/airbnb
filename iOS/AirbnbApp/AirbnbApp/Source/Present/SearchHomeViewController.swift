@@ -9,23 +9,40 @@ import UIKit
 import SnapKit
 
 class SearchHomeViewController: UIViewController {
+    
+    private let viewModel: SearchHomeViewModel
+    
     private let searchBar = DestinationSearchBar()
     private let searchBarDelegate = DestinationSearchBarDelegate()
     
     private lazy var destinationCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
+        
         collectionView.register(HeroImageViewCell.self, forCellWithReuseIdentifier: HeroImageViewCell.identifier)
         collectionView.register(NearDestinationViewCell.self, forCellWithReuseIdentifier: NearDestinationViewCell.identifier)
         collectionView.register(TravelThemeViewCell.self, forCellWithReuseIdentifier: TravelThemeViewCell.identifier)
+        collectionView.register(DestinationHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DestinationHeaderView.identifier)
+        
         collectionView.dataSource = self.destinationCollectionViewDataSource
+        
         return collectionView
     }()
+    
     private var destinationCollectionViewDataSource = DestinationCollecionViewDataSource()
+    
+    init(viewModel: SearchHomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -37,12 +54,47 @@ class SearchHomeViewController: UIViewController {
         super.viewDidLoad()
         layoutSearchTextField()
         layoutDestinationCollecionView()
+        
+        searchBar.delegate = searchBarDelegate
+        
+        searchBarDelegate.tapTextField
+            .bind { [weak self] in
+                self?.navigationController?.pushViewController(UIViewController(), animated: true)
+            }
+        
+        viewModel.state.loadedHeader
+            .bind(onNext: { [weak self] in
+                self?.destinationCollectionViewDataSource.mockHeader = $0
+                self?.destinationCollectionView.reloadData()
+            })
+        
+        viewModel.state.loadedImage
+            .bind(onNext: { [weak self] in
+                self?.destinationCollectionViewDataSource.mockImage.append( UIImage(named: $0) ?? UIImage())
+                self?.destinationCollectionView.reloadData()
+            })
+        
+        viewModel.state.loadedCityName
+            .bind(onNext: { [weak self] in
+                self?.destinationCollectionViewDataSource.mockCity = $0
+                self?.destinationCollectionView.reloadData()
+            })
+        
+        viewModel.state.loadedTheme
+            .bind(onNext: { [weak self] in
+                self?.destinationCollectionViewDataSource.mockTheme = $0
+                self?.destinationCollectionView.reloadData()
+            })
+        
+        viewModel.action.loadHeader.accept(())
+        viewModel.action.loadImage.accept(())
+        viewModel.action.loadCityName.accept(())
+        viewModel.action.loadTheme.accept(())
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
 }
 
 // MARK: - View Layout

@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setUpTabBar() {
-        let searchHomeViewController = UINavigationController(rootViewController: SearchHomeViewController())
+        let searchHomeViewController = UINavigationController(rootViewController: SearchHomeViewController(viewModel: SearchHomeViewModel()))
         searchHomeViewController.tabBarItem.title = "검색"
         searchHomeViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         
