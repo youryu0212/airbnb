@@ -10,6 +10,8 @@ import SnapKit
 
 class NavigationBarController: UIViewController {
     
+    private let heroImageView = HeroImageView()
+    
     private let navigationBarUnderLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .grey4
@@ -49,10 +51,17 @@ class NavigationBarController: UIViewController {
     
     private func layout() {
         view.addSubview(navigationBarUnderLineView)
+        view.addSubview(heroImageView)
         
         navigationBarUnderLineView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(1)
+        }
+        
+        heroImageView.snp.makeConstraints {
+            $0.top.equalTo(navigationBarUnderLineView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(480)
         }
     }
 }

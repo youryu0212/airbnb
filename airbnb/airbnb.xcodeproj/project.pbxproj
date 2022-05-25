@@ -10,6 +10,11 @@
 		1DEF879FF49710DE9E378A0B /* Pods_airbnbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17879D07A8010A4E6A2147BE /* Pods_airbnbTests.framework */; };
 		73571FC0283DF6E8002F411F /* NavigationBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FBF283DF6E8002F411F /* NavigationBarController.swift */; };
 		73571FC2283DFB18002F411F /* UIColor+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FC1283DFB18002F411F /* UIColor+Extention.swift */; };
+		73571FC6283E0CEF002F411F /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FC5283E0CEF002F411F /* HeroImageView.swift */; };
+		73571FC9283E165F002F411F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FC8283E165F002F411F /* TabBarViewController.swift */; };
+		73571FCB283E16A0002F411F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FCA283E16A0002F411F /* SearchViewController.swift */; };
+		73571FCE283E16E9002F411F /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FCD283E16E9002F411F /* WishListViewController.swift */; };
+		73571FD0283E1706002F411F /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FCF283E1706002F411F /* MyReservationViewController.swift */; };
 		73B9A767283C7EE8003A8C25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9A766283C7EE8003A8C25 /* AppDelegate.swift */; };
 		73B9A769283C7EE8003A8C25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9A768283C7EE8003A8C25 /* SceneDelegate.swift */; };
 		73B9A770283C7EE9003A8C25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B9A76F283C7EE9003A8C25 /* Assets.xcassets */; };
@@ -46,6 +51,11 @@
 		4E46533D09A96A3749B72362 /* Pods-airbnb-airbnbUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-airbnb-airbnbUITests.release.xcconfig"; path = "Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73571FBF283DF6E8002F411F /* NavigationBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarController.swift; sourceTree = "<group>"; };
 		73571FC1283DFB18002F411F /* UIColor+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extention.swift"; sourceTree = "<group>"; };
+		73571FC5283E0CEF002F411F /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
+		73571FC8283E165F002F411F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		73571FCA283E16A0002F411F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		73571FCD283E16E9002F411F /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		73571FCF283E1706002F411F /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
 		73B9A763283C7EE8003A8C25 /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B9A766283C7EE8003A8C25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73B9A768283C7EE8003A8C25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +108,26 @@
 				73571FC1283DFB18002F411F /* UIColor+Extention.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		73571FC7283E0CF9002F411F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73571FC5283E0CEF002F411F /* HeroImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		73571FCC283E16C8002F411F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				73571FBF283DF6E8002F411F /* NavigationBarController.swift */,
+				73571FC8283E165F002F411F /* TabBarViewController.swift */,
+				73571FCA283E16A0002F411F /* SearchViewController.swift */,
+				73571FCD283E16E9002F411F /* WishListViewController.swift */,
+				73571FCF283E1706002F411F /* MyReservationViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		73B9A75A283C7EE8003A8C25 = {
@@ -162,7 +192,8 @@
 		73B9A79C283CC53E003A8C25 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				73571FBF283DF6E8002F411F /* NavigationBarController.swift */,
+				73571FCC283E16C8002F411F /* ViewController */,
+				73571FC7283E0CF9002F411F /* View */,
 				73571FBE283DE6B6002F411F /* Extension */,
 				73B9A768283C7EE8003A8C25 /* SceneDelegate.swift */,
 				73B9A766283C7EE8003A8C25 /* AppDelegate.swift */,
@@ -450,9 +481,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73571FD0283E1706002F411F /* MyReservationViewController.swift in Sources */,
 				73571FC2283DFB18002F411F /* UIColor+Extention.swift in Sources */,
 				73B9A767283C7EE8003A8C25 /* AppDelegate.swift in Sources */,
+				73571FC6283E0CEF002F411F /* HeroImageView.swift in Sources */,
 				73B9A769283C7EE8003A8C25 /* SceneDelegate.swift in Sources */,
+				73571FCB283E16A0002F411F /* SearchViewController.swift in Sources */,
+				73571FCE283E16E9002F411F /* WishListViewController.swift in Sources */,
+				73571FC9283E165F002F411F /* TabBarViewController.swift in Sources */,
 				73571FC0283DF6E8002F411F /* NavigationBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
