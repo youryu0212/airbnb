@@ -24,7 +24,7 @@ final class HomeViewController: UIViewController {
     }
 
     private func setNavigationBar() {
-        self.view.backgroundColor = .gray6
+        view.backgroundColor = .gray6
         let navigationBar = navigationController?.navigationBar
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBar?.backgroundColor = .gray6
@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
     private func setSearchBar() {
         searchBar = UISearchBar()
         searchBar.placeholder = "어디로 여행가세요?"
-        self.navigationItem.titleView = searchBar
+        navigationItem.titleView = searchBar
     }
 
     private func setCollectionView() {
@@ -47,12 +47,12 @@ final class HomeViewController: UIViewController {
         homeCollectionView.register(RandomSiteCell.self, forCellWithReuseIdentifier: RandomSiteCell.id)
         homeCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.id)
         homeCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(homeCollectionView)
+        view.addSubview(homeCollectionView)
         NSLayoutConstraint.activate([
-            homeCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
-            homeCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            homeCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            homeCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            homeCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            homeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            homeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            homeCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

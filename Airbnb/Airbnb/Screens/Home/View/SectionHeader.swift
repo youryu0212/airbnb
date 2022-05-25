@@ -19,7 +19,7 @@ final class SectionHeader: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(title)
+        addSubview(title)
         title.frame = bounds
     }
 
