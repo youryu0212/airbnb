@@ -16,7 +16,6 @@ type Position = {
 function Header() {
   const location = useLocation();
   const [miniFocus, setMiniFocus] = useState(true);
-  console.log(location.pathname);
 
   const changeSearchBar = () => {
     return miniFocus ? setMiniFocus(false) : setMiniFocus(true);
