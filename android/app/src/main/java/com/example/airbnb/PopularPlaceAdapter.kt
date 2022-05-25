@@ -1,6 +1,5 @@
 package com.example.airbnb
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -41,7 +40,6 @@ class PopularPlaceAdapter :
             }
             else -> {
                 error("viewType 을 찾을 수 없습니다.")
-                Log.d("TAG", "xdcd")
             }
         }
     }
@@ -52,7 +50,6 @@ class PopularPlaceAdapter :
                 holder.bind(getItem(position) as PopularPlaceData.PopularPlaceExplain)
             }
             is PopularPlaceDetailViewHolder -> {
-                Log.d("TAG", "x")
                 holder.bind(getItem(position) as PopularPlaceData.PopularPlaceDetail)
             }
         }
@@ -76,7 +73,6 @@ class PopularPlaceAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: PopularPlaceData.PopularPlaceDetail) {
             binding.item = item
-            Log.d("TAG", "xx")
         }
     }
 
