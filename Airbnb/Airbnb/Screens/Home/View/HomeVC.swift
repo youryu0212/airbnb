@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDisplay()
-
     }
 
     private func configureDisplay() {
@@ -43,16 +42,12 @@ class HomeViewController: UIViewController {
         let flowLayout = FlowLayout.makeCompositionalLayout()
         homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         homeCollectionView.dataSource = self
-
         homeCollectionView.register(HeroCell.self, forCellWithReuseIdentifier: HeroCell.id)
         homeCollectionView.register(CityCell.self, forCellWithReuseIdentifier: CityCell.id)
         homeCollectionView.register(RandomSiteCell.self, forCellWithReuseIdentifier: RandomSiteCell.id)
-
         homeCollectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.id)
-
         homeCollectionView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(homeCollectionView)
-
         NSLayoutConstraint.activate([
             homeCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
             homeCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
@@ -60,7 +55,6 @@ class HomeViewController: UIViewController {
             homeCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
-
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -106,7 +100,6 @@ extension HomeViewController: UICollectionViewDataSource {
         } else if indexPath.section == 2 {
             header.configureCell(title: "어디에서나, 여행은\n살아보는거야!")
         }
-
         return header
     }
 

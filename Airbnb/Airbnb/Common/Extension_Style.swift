@@ -26,6 +26,7 @@ extension UIFont {
     static var mediumRegular: UIFont {
         return UIFont.systemFont(ofSize: 22, weight: .medium)
     }
+    
     static var smallRegular: UIFont {
         return UIFont.systemFont(ofSize: 17, weight: .regular)
     }
@@ -37,6 +38,7 @@ extension UIFont {
     static var mediumBold: UIFont {
         return UIFont.systemFont(ofSize: 22, weight: .semibold)
     }
+    
     static var smallBold: UIFont {
         return UIFont.systemFont(ofSize: 17, weight: .semibold)
     }
@@ -44,5 +46,4 @@ extension UIFont {
     static var caption: UIFont {
         return UIFont.systemFont(ofSize: 12, weight: .semibold)
     }
-
 }

@@ -68,16 +68,13 @@ class HeroCell: UICollectionViewCell {
 
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-
             imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-
             stackView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 24),
             stackView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -105),
             stackView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16),
-
             button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16),
             button.widthAnchor.constraint(equalToConstant: 165),
             button.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),

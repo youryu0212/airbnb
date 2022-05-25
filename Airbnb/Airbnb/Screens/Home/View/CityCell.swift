@@ -52,18 +52,16 @@ class CityCell: UICollectionViewCell {
     }
 
     private func configureDisplay() {
-        self.contentView.addSubview(imageView)
-        self.contentView.addSubview(stackView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(stackView)
     }
 
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-
-            imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -179),
-            imageView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, constant: -10),
-
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -179),
+            imageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: -10),
             stackView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16),
             stackView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
