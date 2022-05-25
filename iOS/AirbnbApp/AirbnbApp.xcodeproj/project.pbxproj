@@ -19,6 +19,8 @@
 		8D224202283CB794006A9043 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224201283CB794006A9043 /* PriceLabel.swift */; };
 		8D224204283CB7E4006A9043 /* PriceConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224203283CB7E4006A9043 /* PriceConverter.swift */; };
 		8D224206283CB8AB006A9043 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D224205283CB8AB006A9043 /* Constants.swift */; };
+		8D6B3BFA283DB79800E24CE8 /* MapViewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B3BF9283DB79800E24CE8 /* MapViewCardCell.swift */; };
+		8D6B3BFC283DCCE400E24CE8 /* AddressConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6B3BFB283DCCE400E24CE8 /* AddressConverter.swift */; };
 		8D9D1F5C283CE24300EEF33A /* PriceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */; };
 		8D9D1F64283D355200EEF33A /* HouseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9D1F63283D355200EEF33A /* HouseInfo.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		8D224201283CB794006A9043 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		8D224203283CB7E4006A9043 /* PriceConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceConverter.swift; sourceTree = "<group>"; };
 		8D224205283CB8AB006A9043 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8D6B3BF9283DB79800E24CE8 /* MapViewCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCardCell.swift; sourceTree = "<group>"; };
+		8D6B3BFB283DCCE400E24CE8 /* AddressConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressConverter.swift; sourceTree = "<group>"; };
 		8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAnnotationView.swift; sourceTree = "<group>"; };
 		8D9D1F63283D355200EEF33A /* HouseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +78,7 @@
 			children = (
 				8D0AD767283C5EDD00575C3B /* MainViewController.swift */,
 				8D224200283CA7C2006A9043 /* Map */,
+				8D6B3BFD283DD21F00E24CE8 /* Converter */,
 				8D0AD771283C5EE000575C3B /* Info.plist */,
 				8D0AD777283C600C00575C3B /* SupportingFiles */,
 			);
@@ -83,7 +88,6 @@
 		8D0AD777283C600C00575C3B /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				8D224203283CB7E4006A9043 /* PriceConverter.swift */,
 				8D224205283CB8AB006A9043 /* Constants.swift */,
 				8D0AD763283C5EDD00575C3B /* AppDelegate.swift */,
 				8D0AD765283C5EDD00575C3B /* SceneDelegate.swift */,
@@ -101,8 +105,18 @@
 				8D9D1F5B283CE24300EEF33A /* PriceAnnotationView.swift */,
 				8D9D1F63283D355200EEF33A /* HouseInfo.swift */,
 				8D224201283CB794006A9043 /* PriceLabel.swift */,
+				8D6B3BF9283DB79800E24CE8 /* MapViewCardCell.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		8D6B3BFD283DD21F00E24CE8 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				8D224203283CB7E4006A9043 /* PriceConverter.swift */,
+				8D6B3BFB283DCCE400E24CE8 /* AddressConverter.swift */,
+			);
+			path = Converter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +204,11 @@
 				8D224204283CB7E4006A9043 /* PriceConverter.swift in Sources */,
 				8D0AD764283C5EDD00575C3B /* AppDelegate.swift in Sources */,
 				8D2241FD283CA470006A9043 /* MapView.swift in Sources */,
+				8D6B3BFA283DB79800E24CE8 /* MapViewCardCell.swift in Sources */,
 				8D0AD766283C5EDD00575C3B /* SceneDelegate.swift in Sources */,
 				8D0AD781283C718200575C3B /* MapViewController.swift in Sources */,
 				8D224206283CB8AB006A9043 /* Constants.swift in Sources */,
+				8D6B3BFC283DCCE400E24CE8 /* AddressConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,5 +39,8 @@ final class MapView: MKMapView {
             $0.bottom.leading.trailing.equalToSuperview()
         }
         
+        cardCollectionView.snp.makeConstraints {
+            $0.height.equalTo(100)
+        }
     }
 }

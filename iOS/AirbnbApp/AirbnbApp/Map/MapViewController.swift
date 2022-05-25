@@ -16,10 +16,10 @@ final class MapViewController: UIViewController {
     private let startCordinate = CLLocationCoordinate2D(latitude: 37.490765, longitude: 127.033433)
     
     private let mockCordinates = [
-        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.490765, longitude: 127.033433), name: "킹왕짱 숙소", location: "한국어딘가"),
-        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.491545, longitude: 127.033433), name: "킹 숙소", location: "한국어딘가"),
-        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.492345, longitude: 127.033433), name: "왕 숙소", location: "한국어딘가"),
-        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.493455, longitude: 127.033433), name: "짱 숙소", location: "한국어딘가")
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.490765, longitude: 127.033433), name: "킹왕짱 숙소"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.491545, longitude: 127.033433), name: "킹 숙소"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.492345, longitude: 127.033433), name: "왕 숙소"),
+        HouseInfo(coordinate: CLLocationCoordinate2D(latitude: 37.493455, longitude: 127.033433), name: "짱 숙소")
     ]
     
     private let locationManager = CLLocationManager()
@@ -29,6 +29,8 @@ final class MapViewController: UIViewController {
         setLocationManager()
         setMapView()
         addPins()
+//        self.mapView.cardCollectionView.delegate = self
+//        self.mapView.cardCollectionView.dataSource = self
     }
     
     private func setMapView() {
@@ -48,7 +50,11 @@ final class MapViewController: UIViewController {
         let pin = MKPointAnnotation()
         pin.coordinate = houseInfo.coordinate
         pin.title = houseInfo.name
-        pin.subtitle = houseInfo.location
+        
+        AddressConverter.findAddressFromCoordinate(from: houseInfo.coordinate, isCompleted: { address in
+            pin.subtitle = address
+        })
+        
         self.mapView.addAnnotation(pin)
     }
     
@@ -77,3 +83,17 @@ extension MapViewController: CLLocationManagerDelegate {
     
 }
 
+//extension MapViewController: UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 5
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sdf", for: indexPath) as? MapViewCardCell else { return UICollectionViewCell()}
+//        return cell
+//    }
+//}
+//extension MapViewController: UICollectionViewDelegate {
+//
+//}
