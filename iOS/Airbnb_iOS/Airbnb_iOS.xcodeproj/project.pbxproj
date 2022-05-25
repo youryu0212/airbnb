@@ -78,12 +78,9 @@
 		02DF0CD3283CB2B9003D0679 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */,
-				02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */,
-				02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */,
 				02DF0CDA283CB980003D0679 /* CollectionHeaderView.swift */,
-				02874049283D3B6D0009C62D /* HomeView.swift */,
-				D2562ED2283DCD8300336E49 /* SearchBarView.swift */,
+				D2562ED5283DCDFA00336E49 /* SearchBar */,
+				D2562ED4283DCDD800336E49 /* SearchView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,6 +91,51 @@
 				9FCF364B69EE3C5A4173A56F /* Pods_Airbnb_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2562ED4283DCDD800336E49 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */,
+				02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */,
+				02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */,
+				02874049283D3B6D0009C62D /* HomeView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		D2562ED5283DCDFA00336E49 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				D2562ED2283DCD8300336E49 /* SearchBarView.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		D2562ED6283DCE0900336E49 /* TabBarItemVC */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
+				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
+				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
+			);
+			path = TabBarItemVC;
+			sourceTree = "<group>";
+		};
+		D2562ED7283DCE2A00336E49 /* BrowsingVC */ = {
+			isa = PBXGroup;
+			children = (
+				D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */,
+			);
+			path = BrowsingVC;
+			sourceTree = "<group>";
+		};
+		D2562ED8283DCE3B00336E49 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				02DF0CDC283CBAB6003D0679 /* SearchViewCollectionDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		D2FFBFC4283C868300C97D16 = {
@@ -117,6 +159,7 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D2562ED8283DCE3B00336E49 /* DataSource */,
 				02874046283D37AA0009C62D /* Extension */,
 				02DF0CD3283CB2B9003D0679 /* View */,
 				D2FFBFEB283CA74600C97D16 /* ViewController */,
@@ -125,7 +168,6 @@
 				D2FFBFD9283C868400C97D16 /* Assets.xcassets */,
 				D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */,
 				D2FFBFDE283C868400C97D16 /* Info.plist */,
-				02DF0CDC283CBAB6003D0679 /* SearchViewCollectionDataSource.swift */,
 			);
 			path = Airbnb_iOS;
 			sourceTree = "<group>";
@@ -134,10 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				D2FFBFEC283CA75700C97D16 /* Container */,
-				D2FFBFE5283CA70B00C97D16 /* SearchViewController.swift */,
-				D2FFBFED283CB33700C97D16 /* BrowseViewController.swift */,
-				D2FFBFE7283CA72500C97D16 /* WishlistViewController.swift */,
-				D2FFBFE9283CA73B00C97D16 /* ReservationViewController.swift */,
+				D2562ED6283DCE0900336E49 /* TabBarItemVC */,
+				D2562ED7283DCE2A00336E49 /* BrowsingVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
