@@ -11,9 +11,11 @@ function Personnel() {
     <PersonnelContainer>
       <CommonWrapper>
         <Label>인원</Label>
-        <Btn>게스트 추가</Btn>
+        <Btn aria-label="게스트 추가 버튼">게스트 추가</Btn>
       </CommonWrapper>
-      <StyledCrossIcon />
+      <button type="button" aria-label="게스트 추가 취소 버튼">
+        <StyledCrossIcon />
+      </button>
     </PersonnelContainer>
   );
 }

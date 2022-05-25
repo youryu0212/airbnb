@@ -12,13 +12,15 @@ function Period() {
     <PeriodContainer>
       <CommonWrapper>
         <CheckIn>체크인</CheckIn>
-        <Btn>날짜 입력</Btn>
+        <Btn aria-label="체크인 날짜 입력 버튼">날짜 입력</Btn>
       </CommonWrapper>
       <CommonWrapper>
         <CheckOut>체크아웃</CheckOut>
-        <Btn>날짜 입력</Btn>
+        <Btn aria-label="체크아웃 날짜 입력 버튼">날짜 입력</Btn>
       </CommonWrapper>
-      <StyledCrossIcon />
+      <button type="button" aria-label="날짜 입력 취소 버튼">
+        <StyledCrossIcon />
+      </button>
     </PeriodContainer>
   );
 }
