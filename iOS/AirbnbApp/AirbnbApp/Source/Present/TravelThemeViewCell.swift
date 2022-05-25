@@ -18,6 +18,7 @@ final class TravelThemeViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         return image
     }()
     

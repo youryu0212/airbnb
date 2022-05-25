@@ -17,6 +17,7 @@ final class NearDestinationViewCell: UICollectionViewCell {
     private lazy var cityImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         return image
     }()
     
