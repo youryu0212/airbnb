@@ -10,14 +10,21 @@ import UIKit
 class SectionHeader: UICollectionReusableView {
     static let id = "SectionHeader"
 
+    private var title: UILabel = {
+        let label  = UILabel()
+        label.font = .mediumRegular
+        label.numberOfLines =  0
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.addSubview(title)
+        title.frame = bounds
+    }
 
-        let label = UILabel()
-        label.text = "가까운 여행지 둘러보기"
-        label.numberOfLines = 0
-        self.addSubview(label)
-        label.frame = bounds
+    func configureCell(title: String) {
+        self.title.text = title
     }
 
     required init?(coder: NSCoder) {

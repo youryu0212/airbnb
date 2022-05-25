@@ -8,7 +8,7 @@
 import UIKit
 
 enum SectionMaker: Int {
-    case banner = 0
+    case banner
     case localSite
     case randomSite
 
@@ -26,13 +26,12 @@ enum SectionMaker: Int {
 
         case .localSite:
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.3))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .fractionalHeight(0.3))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets.bottom = 10
             item.contentInsets.trailing = 10
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
-            section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(91)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
+            section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(70)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
             section.contentInsets.leading = 10
             section.orthogonalScrollingBehavior = .groupPaging
             return section
@@ -45,7 +44,7 @@ enum SectionMaker: Int {
             item.contentInsets.trailing = 10
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
-            section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(124)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
+            section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(100)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)]
             section.contentInsets.leading = 10
             section.orthogonalScrollingBehavior = .groupPaging
             return section
