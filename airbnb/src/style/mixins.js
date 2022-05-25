@@ -12,4 +12,9 @@ const flexBetween = css`
   align-items: center;
 `;
 
-export { flexCenter, flexBetween };
+const flexColumn = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+export { flexCenter, flexBetween, flexColumn };

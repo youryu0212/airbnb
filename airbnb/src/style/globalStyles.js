@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
       margin: 0 auto;
       border: none;
     }
+    span{
+      display: block;
+    }
 `;
 
 export default GlobalStyle;

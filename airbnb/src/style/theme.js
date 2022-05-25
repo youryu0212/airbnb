@@ -11,13 +11,6 @@ const theme = {
     gray5: '#E0E0E0',
     gray6: '#F5F5F7',
   },
-  size: {
-    xl: '1.5rem',
-    l: '1.25rem',
-    m: '1rem', // 16px
-    s: '0.875rem',
-    xs: '0.75rem',
-  },
   fontSizes: {
     xl: '1.5rem',
     l: '1.25rem',
