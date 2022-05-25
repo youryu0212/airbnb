@@ -26,8 +26,8 @@ final class PriceLabel: UILabel {
         
         self.backgroundColor = .white
         self.frame = CGRect(origin: .zero,
-                            size: CGSize(width: CGFloat(Constants.customPinSize.width),
-                                         height: CGFloat(Constants.customPinSize.height)))
+                            size: CGSize(width: CGFloat(Constants.Pin.size.width),
+                                         height: CGFloat(Constants.Pin.size.height)))
     }
     
     

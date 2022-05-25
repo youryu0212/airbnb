@@ -6,6 +6,9 @@
 //
 
 struct Constants {
-    static let customPinSize: (width:Int, height:Int) = (92, 28)
-    static let customPinID: String = "customPin"
+    
+    struct Pin {
+        static let size: (width:Int, height:Int) = (92, 28)
+        static let ID: String = "customPin"
+    }
 }

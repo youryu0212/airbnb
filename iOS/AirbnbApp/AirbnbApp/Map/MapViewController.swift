@@ -36,8 +36,13 @@ final class MapViewController: UIViewController {
     private func setMapView() {
         self.view = mapView
         self.mapView.delegate = self
-        mapView.register(PriceAnnotationView.self, forAnnotationViewWithReuseIdentifier: Constants.customPinID)
-        self.mapView.setRegion(MKCoordinateRegion(center: startCordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        mapView.register(PriceAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: Constants.Pin.ID)
+        self.mapView.setRegion(MKCoordinateRegion(center: startCordinate,
+                                                  span: MKCoordinateSpan(
+                                                    latitudeDelta: 0.01,
+                                                    longitudeDelta: 0.01)),
+                                                    animated: true)
     }
     
     private func addPins() {
@@ -68,7 +73,7 @@ final class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self),
-              let dequeView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.customPinID)
+              let dequeView = mapView.dequeueReusableAnnotationView(withIdentifier: Constants.Pin.ID)
                 as? PriceAnnotationView else { return nil }
        
         dequeView.annotation = annotation
