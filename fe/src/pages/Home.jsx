@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import BackgroundSrc from 'images/FE_숙소예약서비스/hero-img.svg';
 
 function Home() {
-  return <StyledBackgroundImg src={BackgroundSrc} alt="" />;
+  return <BackgroundImg />;
 }
 
-const StyledBackgroundImg = styled.img`
+const BackgroundImg = styled.div`
   width: 100%;
-  background-size: 100% 640px;
+  height: 640px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-image: url(${BackgroundSrc});
 `;
 export default Home;

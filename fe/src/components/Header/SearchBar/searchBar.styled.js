@@ -66,7 +66,7 @@ export const CheckIn = styled(Label)`
 
 export const CheckOut = styled(CheckIn)``;
 
-export const SearchButton = styled.div`
+export const SearchButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

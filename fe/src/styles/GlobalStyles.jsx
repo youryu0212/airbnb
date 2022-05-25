@@ -1,9 +1,9 @@
-import { createTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      '@global': {
+      styleOverrides: {
         '*': {
           margin: 0,
           padding: 0,
