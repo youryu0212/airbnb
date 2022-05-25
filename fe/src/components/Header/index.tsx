@@ -44,6 +44,9 @@ const HeaderWrap = styled.div`
   justify-content: space-between;
   padding: 24px;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 1440px;
 `;
 
 const Logo = styled.span`
