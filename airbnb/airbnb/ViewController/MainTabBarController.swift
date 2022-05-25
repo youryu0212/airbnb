@@ -16,8 +16,7 @@ class MainTabBarController: UITabBarController {
                                          selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
         searchTabVC.tabBarItem = searchTabBarItem
         
-//        let wishTabVC = UINavigationController(rootViewController: WishViewController())
-        let wishTabVC = LocationTableViewController()
+        let wishTabVC = UINavigationController(rootViewController: WishViewController())
         let wishTabBarItem = UITabBarItem(title: "위시리스트",
                                           image: UIImage(systemName: "heart"),
                                           selectedImage: UIImage(systemName: "heart.fill"))

@@ -119,7 +119,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // 검색키워드에 따라 테이블뷰 리로드
@@ -127,17 +127,13 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-        let pushVC = LocationViewController()
-        pushVC.view.backgroundColor = .green
+        let pushVC = LocationTableViewController()
         self.navigationController?.pushViewController(pushVC, animated: true)
     }
-}
 
-extension SearchViewController: UISearchResultsUpdating {
     // 검색내용 기반으로 검색 결과 업데이트
     func updateSearchResults(for searchController: UISearchController) {
-        
+
     }
-    
-    
+
 }

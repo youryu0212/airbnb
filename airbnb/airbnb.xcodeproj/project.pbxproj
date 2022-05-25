@@ -21,7 +21,6 @@
 		008FD750283DD96F002441E5 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD74F283DD96F002441E5 /* UserViewController.swift */; };
 		6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */; };
 		6F351360283DFEEE00018A57 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */; };
-		008FD752283DF41B002441E5 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008FD751283DF41B002441E5 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,6 @@
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
-		008FD751283DF41B002441E5 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +108,6 @@
 				008FD74D283DD94E002441E5 /* WishViewController.swift */,
 				6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */,
 				008FD74F283DD96F002441E5 /* UserViewController.swift */,
-				008FD751283DF41B002441E5 /* LocationViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -195,7 +192,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				008FD752283DF41B002441E5 /* LocationViewController.swift in Sources */,
 				00489B65283CA53F00201F55 /* MainTabBarController.swift in Sources */,
 				6F35135E283DF3F800018A57 /* LocationTableViewCell.swift in Sources */,
 				008FD750283DD96F002441E5 /* UserViewController.swift in Sources */,

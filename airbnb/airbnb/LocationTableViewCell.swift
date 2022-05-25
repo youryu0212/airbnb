@@ -4,7 +4,6 @@ class LocationTableViewCell: UITableViewCell {
 
     static let identifier: String = "locationTableViewCell"
 
-
     private lazy var spotStackView: UIStackView = {
         var stackView = UIStackView(arrangedSubviews: [self.spotImageView, self.locationStackView])
         stackView.axis = .horizontal
