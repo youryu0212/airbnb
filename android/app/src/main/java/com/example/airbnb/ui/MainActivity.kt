@@ -8,14 +8,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.airbnb.R
-import com.example.airbnb.ViewModel
+import com.example.airbnb.viewmodels.HomeViewModel
 import com.example.airbnb.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: ViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
 
-        viewModel.loadHomeContents()
+        homeViewModel.loadHomeContents()
         setupNav()
     }
 
