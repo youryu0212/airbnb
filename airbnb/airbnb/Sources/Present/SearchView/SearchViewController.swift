@@ -68,10 +68,6 @@ final class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchController.resignFirstResponder()
-    }
-    
     private func bind() {
         rx.viewDidLoad
             .bind(to: viewModel.action().loadAroundTraval)
