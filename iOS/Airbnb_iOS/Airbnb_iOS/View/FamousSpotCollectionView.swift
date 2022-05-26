@@ -9,7 +9,7 @@ import UIKit
 
 class FamousSpotCollectionView: UIView {
 
-    private lazy var collectionView: UICollectionView = {
+    private(set) lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getCollectionViewLayout())
         collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false

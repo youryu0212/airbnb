@@ -24,6 +24,7 @@ class BrowseViewController: UIViewController {
         super.viewDidLoad()
         self.setNavigationItem()
         self.setSearchBar()
+        self.setTouchCollectionViewToDismissKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +33,7 @@ class BrowseViewController: UIViewController {
         self.navigationController?.hidesBarsOnSwipe = false
         self.view.addSubview(browseView)
         self.browseView.setDataSource(dataSource)
+        self.browseView.collectionView.keyboardDismissMode = .onDrag
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,5 +65,18 @@ private extension BrowseViewController {
     func setSearchBar() {
         self.searchBarVC.delegate = self
         self.navigationItem.searchController = searchBarVC
+    }
+    
+    func setTouchCollectionViewToDismissKeyboard() {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(myTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        browseView.collectionView.addGestureRecognizer(singleTapGestureRecognizer)
+    }
+    
+    @objc
+    func myTapMethod(sender: UITapGestureRecognizer) {
+        self.searchBarVC.searchBar.endEditing(true)
     }
 }
