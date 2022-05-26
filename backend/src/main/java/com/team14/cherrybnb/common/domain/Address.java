@@ -6,7 +6,8 @@ import javax.persistence.*;
 @Entity
 public class Address {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id")
     private Long id;
 

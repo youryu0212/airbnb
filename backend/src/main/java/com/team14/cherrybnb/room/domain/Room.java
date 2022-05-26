@@ -2,6 +2,7 @@ package com.team14.cherrybnb.room.domain;
 
 import com.team14.cherrybnb.auth.domain.Member;
 import com.team14.cherrybnb.common.domain.Address;
+import com.team14.cherrybnb.revervation.domain.Reservation;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Room {
 
@@ -39,4 +39,7 @@ public class Room {
     private List<RoomImage> roomImages;
 
     private String thumbnail;
+
+    @OneToMany(mappedBy = "room")
+    private List<Reservation> reservations;
 }
