@@ -1,11 +1,18 @@
-# airbnb
-그룹 프로젝트 #4
-
-## 팀원 소개
-- iOS: [`Jee`](https://github.com/Dihee)
-- BE: [`산토리`](https://github.com/seyoung755)
-- FE: [`호이`](https://github.com/youryu0212)
+# airbnb - iOS
+`프로젝트 기간` 2022-05-16 ~ 2022-06-10 (총 3주)
 
 ---
-## 링크들
-[Wiki(회의록) 링크](https://github.com/Dihee/airbnb-Team01/wiki)
+
+#### 사용한 기술
+
+- Autolayout programmatically
+- Unit Test
+
+
+#### FrameWork
+- snapkit
+
+
+#### Library
+- swift Lint
+
