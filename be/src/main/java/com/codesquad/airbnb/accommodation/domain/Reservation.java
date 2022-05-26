@@ -5,12 +5,13 @@ import lombok.Getter;
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
 @Entity
 public class Reservation {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     @Id
     private Long id;
 
