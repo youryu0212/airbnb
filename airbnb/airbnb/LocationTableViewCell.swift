@@ -15,7 +15,7 @@ class LocationTableViewCell: UITableViewCell {
 
     private lazy var spotImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(systemName: "map")
+        imageView.image = UIImage(systemName: "mappin")
         imageView.backgroundColor = .systemGray6
         imageView.tintColor = .systemGray3
         imageView.layer.borderColor = CGColor(gray: 0.7, alpha: 1)

@@ -20,8 +20,8 @@ class LocationTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
-        let location = locationList[indexPath.row]
         cell.selectionStyle = .none
+        let location = locationList[indexPath.row]
         cell.setTitle(location[0])
         cell.setDistance(location[1])
         return cell
@@ -58,9 +58,6 @@ class LocationTableViewController: UITableViewController {
         self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
         self.navigationItem.searchController?.searchBar.showsCancelButton = false
-    
-        
-        
     }
     
     @objc func eraseButtonClicked() {

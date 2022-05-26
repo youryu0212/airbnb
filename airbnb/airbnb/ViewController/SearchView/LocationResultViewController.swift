@@ -1,10 +1,3 @@
-//
-//  ResultController.swift
-//  airbnb
-//
-//  Created by Bibi on 2022/05/26.
-//
-
 import UIKit
 
 class LocationResultViewController: UITableViewController {
@@ -15,11 +8,11 @@ class LocationResultViewController: UITableViewController {
         super.viewDidLoad()
         setUI()
         setConstraints()
-        tableView.register(LocationResultViewCell.self, forCellReuseIdentifier: LocationResultViewCell.identifier)
+        tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.identifier)
     }
     
     private func setUI() {
-    
+        tableView.separatorStyle = .none
 //        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
 //        self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
@@ -29,7 +22,8 @@ class LocationResultViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationResultViewCell.identifier, for: indexPath) as? LocationResultViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.identifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         let location = resultList[indexPath.row]
         cell.setTitle(location)
         return cell
