@@ -23,9 +23,9 @@ public class Room {
 
     private Integer pricePerNight;
     private Integer maxNumberOfGuest;
-    private Integer bedroom;
-    private Integer bed;
-    private Integer bathroom;
+    private Double bedroom;
+    private Double bed;
+    private Double bathroom;
 
     @OneToMany(mappedBy = "room")
     private List<RoomAmenity> roomAmenities = new ArrayList<>();
