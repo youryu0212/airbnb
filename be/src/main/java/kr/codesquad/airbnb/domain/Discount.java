@@ -14,9 +14,8 @@ public class Discount {
     private Long id;
 
     private String name;
-    private Integer price;
+    private Integer rate;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+    @OneToMany(mappedBy = "discount")
+    private RoomDiscount rooms;
 }

@@ -14,9 +14,8 @@ public class Tax {
     private Long id;
 
     private String name;
-    private Integer price;
+    private Integer rate;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+    @OneToMany(mappedBy = "tax")
+    private RoomTax rooms;
 }
