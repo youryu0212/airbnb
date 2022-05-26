@@ -3,6 +3,8 @@ import UIKit
 class LocationTableViewController: UITableViewController {
 
     var locationList: [[String]] = [["서울", "차로 30분 거리"], ["광주", "차로 4시간 거리"]]
+    var imageList: [String] = ["seoul", "gwangju"]
+    
     private var searchText = ""
     
     private let resultController = LocationResultViewController()
@@ -24,6 +26,7 @@ class LocationTableViewController: UITableViewController {
         let location = locationList[indexPath.row]
         cell.setTitle(location[0])
         cell.setDistance(location[1])
+        cell.setImage(UIImage(named: imageList[indexPath.row]) ?? UIImage())
         return cell
     }
 
@@ -66,14 +69,6 @@ class LocationTableViewController: UITableViewController {
 
     private func setConstraints() {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: -40, right: -16)
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-//            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-//        ])
-        
     }
 }
 

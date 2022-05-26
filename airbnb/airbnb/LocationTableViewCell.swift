@@ -20,6 +20,7 @@ class LocationTableViewCell: UITableViewCell {
         imageView.tintColor = .systemGray3
         imageView.layer.borderColor = CGColor(gray: 0.7, alpha: 1)
         imageView.layer.borderWidth = 1
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         return imageView
     }()
@@ -95,6 +96,10 @@ class LocationTableViewCell: UITableViewCell {
             locationStackView.centerYAnchor.constraint(equalTo: locationView.centerYAnchor)
         ])
 
+    }
+
+    func setImage(_ image: UIImage) {
+        spotImageView.image = image
     }
 
     func setTitle(_ text: String) {
