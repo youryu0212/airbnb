@@ -1,5 +1,6 @@
 package com.team16.airbnb.ui
 
+import android.content.ClipData
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,9 @@ import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
@@ -27,7 +31,6 @@ import com.team16.airbnb.ui.theme.AirbnbTheme
 import com.team16.airbnb.ui.theme.Airbnb_Black
 import com.team16.airbnb.ui.theme.Airbnb_Primary
 import com.team16.airbnb.ui.theme.Off_White
-
 
 class HomeFragment : Fragment() {
 
@@ -57,30 +60,42 @@ class HomeFragment : Fragment() {
     fun HomeView() {
         Scaffold(
             topBar = {
-                TopAppBar(
-                    title = {
-                        Text("어디로 여행하세요?")
-                    },
-                    actions = {
-                        IconButton(
-                            onClick = { /*TODO*/ }
-                        ) {
-                            Icon(
-                                painter = painterResource(
-                                    id = R.drawable.ic_search_select
-                                ),
-                                contentDescription = "search icon",
-                                tint = Airbnb_Primary
-                            )
-                        }
-                    },
-                    backgroundColor = Off_White,
-
-                    )
+                HomeAppbar()
             }
         ) {
             ScrollBoxes()
         }
+    }
+
+    @Composable
+    fun HomeAppbar() {
+        TopAppBar(
+            title = {
+                Text("어디로 여행하세요?")
+            },
+            actions = {
+                IconButton(
+                    onClick = { /*TODO*/ }
+                ) {
+                    Icon(
+                        painter = painterResource(
+                            id = R.drawable.ic_search_select
+                        ),
+                        contentDescription = "search icon",
+                        tint = Airbnb_Primary
+                    )
+                }
+            },
+            backgroundColor = Off_White,
+            )
+    }
+
+    @Composable
+    fun NearTripView() {
+        LazyHorizontalGrid(
+            rows = GridCells.Fixed(2),
+            content = 
+        )
     }
 
     @Composable
