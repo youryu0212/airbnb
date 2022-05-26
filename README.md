@@ -1,6 +1,7 @@
 # airbnb
 그룹 프로젝트 #4
 
+
 #### 🌱 [team 규칙](https://github.com/hwicode/airbnb/wiki/backend-QuestionContent)
 
 <details>
@@ -28,3 +29,4 @@
 
 </div>
 </details>
+
