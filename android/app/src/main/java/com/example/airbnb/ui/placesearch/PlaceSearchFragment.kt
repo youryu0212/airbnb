@@ -8,7 +8,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.airbnb.R
@@ -34,7 +36,6 @@ class PlaceSearchFragment : Fragment() {
         listenSearchWordChange()
         updateSearchWord()
         updateBySearchingWordExist()
-
         listenClearButtonClicked()
 
         return binding.root
@@ -59,38 +60,44 @@ class PlaceSearchFragment : Fragment() {
         viewModel.getPlaceList("")
     }
 
+
     private fun updateSearchWord() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.searchWord.collect {
-                viewModel.getPlaceList(it)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.searchWord.collect {
+                    viewModel.getPlaceList(it)
+                }
             }
         }
     }
 
     private fun updateAdapter() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.placeList.collect {
-                adapter.submitList(it)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.placeList.collect {
+                    adapter.submitList(it)
+                }
             }
         }
     }
 
     private fun updateBySearchingWordExist() {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.popularPlaceExplain.collect {
-                binding.btnInitSearchWord.visibility = it?.let {
-                    View.INVISIBLE
-                } ?: View.VISIBLE
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.popularPlaceExplain.collect {
+                    binding.btnInitSearchWord.visibility = it?.let {
+                        View.INVISIBLE
+                    } ?: View.VISIBLE
 
-                binding.tvPopularPlaceExplain.visibility =
-                    it?.let {
-                        binding.tvPopularPlaceExplain.text = it
-                        View.VISIBLE
-                    } ?: View.GONE
+                    binding.tvPopularPlaceExplain.visibility =
+                        it?.let {
+                            binding.tvPopularPlaceExplain.text = it
+                            View.VISIBLE
+                        } ?: View.GONE
+                }
             }
         }
     }
-
 
     private fun listenBackButton() {
         binding.btnPlaceSearchBack.setOnClickListener {
