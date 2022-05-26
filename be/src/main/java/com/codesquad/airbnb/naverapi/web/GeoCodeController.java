@@ -17,6 +17,6 @@ public class GeoCodeController {
 
     @GetMapping("/coordinate")
     public GeoCodeResponseDto showCoordinateOfAddress(@RequestBody Address address) throws ParseException {
-        return geoCodeService.convertAddressToCoordinate(address);
+        return geoCodeService.convertAddressToGeoCode(address);
     }
 }
