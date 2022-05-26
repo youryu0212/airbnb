@@ -1,13 +1,13 @@
 package com.codesquad.airbnb.accommodation.web.dto;
 
-public class ListConditionDto {
+public class BasicSearchCondition {
     private String checkInDate;
     private String checkOutDate;
     private String lowerBoundPrice;
     private String upperBoundPrice;
     private int clientCount;
 
-    public ListConditionDto(String checkInDate, String checkOutDate, String lowerBoundPrice, String upperBoundPrice, int clientCount) {
+    public BasicSearchCondition(String checkInDate, String checkOutDate, String lowerBoundPrice, String upperBoundPrice, int clientCount) {
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.lowerBoundPrice = lowerBoundPrice;
