@@ -23,6 +23,10 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
     private let disposeBag = DisposeBag()
     private var calenderViewModels: [String: [CalenderCellViewModel]] = [:]
     
+    deinit {
+        Log.info("deinit CheckInOutViewModel")
+    }
+    
     init() {
         let calenderCellViewModels = viewDidLoad
             .map { _ in
@@ -45,14 +49,14 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
                 }
             })
             .disposed(by: disposeBag)
-        
+
         calenderCellViewModels
             .map { models in
                 models.map { SectionModel(model: $0.0, items: $0.1) }
             }
             .bind(to: showCalender)
             .disposed(by: disposeBag)
-        
+
         let tappedCells = calenderCellViewModels
             .flatMapLatest { viewModels -> Observable<Date?> in
                 let tappedCells = viewModels.map { _, models -> Observable<Date?> in
@@ -69,29 +73,33 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
                 model.checkInOutDateProcess(date: date)
             }
             .share()
-        
+
         tappedCells
-            .do { [weak self] checkIn, checkOut in 
-                self?.updateInRangeCellState(.none)
-                self?.updateCheckInOut.accept((checkIn, checkOut))
+            .withUnretained(self)
+            .do { arg in
+                let (model, (checkIn, checkOut)) = arg
+                model.updateInRangeCellState(.none)
+                model.updateCheckInOut.accept((checkIn, checkOut))
             }
             .map { _ in .inRange }
-            .bind(onNext: updateInRangeCellState)
+            .withUnretained(self)
+            .bind(onNext: { model, state in
+                model.updateInRangeCellState(state)
+            })
             .disposed(by: disposeBag)
     }
     
     private func updateInRangeCellState(_ state: CalenderCellState) {
-        
         let checkIn = updateCheckInOut.value.0
         let checkOut = updateCheckInOut.value.1
-        
+
         updateCellState(state != .none ? .start : .none, to: checkIn)
         updateCellState(state != .none ? .end : .none, to: checkOut)
-        
+
         guard let checkIn = checkIn, let checkOut = checkOut else {
             return
         }
-        
+
         let days = checkIn.daysBetween(to: checkOut)
         (1..<days.count - 1).forEach { index in
             updateCellState(state != .none ? .inRange : .none, to: days[index])

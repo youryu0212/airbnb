@@ -65,6 +65,10 @@ final class CheckInOutViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        Log.info("deinit CheckInOutViewController")
+    }
+    
     private func bind() {
         rx.viewDidLoad
             .bind(to: viewModel.action().viewDidLoad)

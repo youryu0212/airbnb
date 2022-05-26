@@ -28,6 +28,10 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
     private var travalOptionInfo = TravalOptionInfo()
     private let disposeBag = DisposeBag()
     
+    deinit {
+        Log.info("deinit TravalOptionViewModel")
+    }
+    
     init(type: TravalOptionInfo.ViewType) {
         var optionTypes: [TravalOptionInfo.OptionType]
         switch type {
