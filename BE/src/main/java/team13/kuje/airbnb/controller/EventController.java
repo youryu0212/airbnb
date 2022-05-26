@@ -20,7 +20,6 @@ public class EventController {
 	@GetMapping
 	public WrapperDto<EventDto> findByCategoryTag(@RequestParam("category_tag") String tag) {
 		List<EventDto> eventDtos = eventService.findByCategoryTag(tag);
-//		List<EventDto> eventDtos = eventService.findByCategoryTag2(tag);
 		return new WrapperDto<>(eventDtos);
 	}
 

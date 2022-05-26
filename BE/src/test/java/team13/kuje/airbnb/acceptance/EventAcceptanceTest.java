@@ -1,4 +1,4 @@
-package team13.kuje.airbnb;
+package team13.kuje.airbnb.acceptance;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
