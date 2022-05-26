@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
+
     let searchBar = SearchBarView()
     let nextVC = BrowseViewController()
     private lazy var homeView = HomeView(frame: view.frame)
