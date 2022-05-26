@@ -20,6 +20,7 @@
             android:id="@+id/cv_recommend_destination"
             android:layout_width="242dp"
             android:layout_height="294dp"
+            app:cardElevation="0dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="16dp"
-            android:text="@{destination.recommendTitle}"
+            android:text="@{destination.name}"
             app:layout_constraintTop_toBottomOf= "@id/cv_recommend_destination"
             app:layout_constraintStart_toStartOf="parent"
             />

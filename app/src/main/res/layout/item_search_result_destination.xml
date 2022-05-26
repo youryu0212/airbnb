@@ -21,6 +21,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:text="@{destination.destination}"
+            android:text="@{destination.name}"
             app:layout_constraintBottom_toBottomOf="@id/cv_search_result_destination"
             app:layout_constraintStart_toEndOf="@id/cv_search_result_destination"
             app:layout_constraintTop_toTopOf="@id/cv_search_result_destination"
