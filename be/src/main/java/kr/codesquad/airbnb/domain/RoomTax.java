@@ -8,7 +8,7 @@ public class RoomTax {
 
     @Id
     @GeneratedValue
-    @Column(name = "roomtax_id")
+    @Column(name = "room_tax_id")
     private Long id;
 
     @ManyToOne

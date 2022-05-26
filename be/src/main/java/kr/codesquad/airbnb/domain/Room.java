@@ -20,16 +20,22 @@ public class Room {
 
     private String name;
     private String image;
-    private String details;
+
     private Integer pricePerNight;
     private Integer maxNumberOfGuest;
+    private Integer bedroom;
+    private Integer bed;
+    private Integer bathroom;
+
+    @OneToMany(mappedBy = "room")
+    private List<RoomAmenity> roomAmenities = new ArrayList<>();
 
     @Embedded
     private Location location;
 
     @OneToMany(mappedBy = "room")
-    private List<RoomDiscount> discounts = new ArrayList<>();
+    private List<RoomDiscount> roomDiscounts = new ArrayList<>();
 
     @OneToMany(mappedBy = "room")
-    private List<RoomTax> taxes = new ArrayList<>();
+    private List<RoomTax> roomTaxes = new ArrayList<>();
 }

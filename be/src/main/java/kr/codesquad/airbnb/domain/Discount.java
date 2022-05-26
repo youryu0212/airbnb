@@ -3,6 +3,7 @@ package kr.codesquad.airbnb.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,5 +18,5 @@ public class Discount {
     private Integer rate;
 
     @OneToMany(mappedBy = "discount")
-    private RoomDiscount rooms;
+    private List<RoomDiscount> roomDiscounts;
 }

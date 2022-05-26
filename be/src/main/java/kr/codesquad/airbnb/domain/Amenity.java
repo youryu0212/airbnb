@@ -7,16 +7,15 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Tax {
+public class Amenity {
 
     @Id
     @GeneratedValue
-    @Column(name = "tax_id")
+    @Column(name = "amenity_id")
     private Long id;
 
     private String name;
-    private Integer rate;
 
-    @OneToMany(mappedBy = "tax")
-    private List<RoomTax> roomTaxes;
+    @OneToMany(mappedBy = "amenity")
+    private List<RoomAmenity> roomAmenities;
 }
