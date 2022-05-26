@@ -12,7 +12,6 @@ import CoreLocation
 class SearchRootViewController: UIViewController {
 
     var nextViewController: ListCollectionViewController?
-    var locationManager = CLLocationManager()
 
     private var searchBar = UISearchBar()
 
@@ -33,6 +32,7 @@ class SearchRootViewController: UIViewController {
     }
 
     private func askPermission() {
+        let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
