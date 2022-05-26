@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import team13.kuje.airbnb.controller.model.PlaceDto;
 import team13.kuje.airbnb.domain.Place;
 import team13.kuje.airbnb.domain.Position;
@@ -15,6 +16,7 @@ public class PlaceService {
 
 	private final PlaceRepository placeRepository;
 
+	@Transactional(readOnly = true)
 	public List<PlaceDto> findByPosition(String tag, Double lat, Double lng) {
 		validateTag(tag);
 

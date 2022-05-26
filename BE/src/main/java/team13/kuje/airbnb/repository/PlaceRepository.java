@@ -13,8 +13,8 @@ public class PlaceRepository {
 
 	private final EntityManager entityManager;
 
-
 	public List<Place> findAll() {
-		throw new UnsupportedOperationException("PlaceRepository#findByPosition 아직 구현하지 않음 :)");
+		return entityManager.createQuery("select p from Place p", Place.class)
+			.getResultList();
 	}
 }
