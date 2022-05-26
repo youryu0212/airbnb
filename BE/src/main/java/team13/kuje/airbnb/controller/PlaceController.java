@@ -20,8 +20,8 @@ public class PlaceController {
 	@GetMapping
 	public WrapperDto<PlaceDto> findByPosition(
 		@RequestParam(value = "category_tag") String tag,
-		@RequestParam(required = false) String lat,
-		@RequestParam(required = false) String lng
+		@RequestParam(required = false) Double lat,
+		@RequestParam(required = false) Double lng
 		) {
 
 		List<PlaceDto> placeDtos = placeService.findByPosition(tag, lat, lng);

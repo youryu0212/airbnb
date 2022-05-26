@@ -15,11 +15,11 @@ public class PlaceService {
 
 	private final PlaceRepository placeRepository;
 
-	public List<PlaceDto> findByPosition(String tag, String lat, String lng) {
+	public List<PlaceDto> findByPosition(String tag, Double lat, Double lng) {
 		validateTag(tag);
 
 		Position inputPosition = new Position(lat, lng);
-		List<Place> places = placeRepository.findByPosition(inputPosition);
+		List<Place> places = placeRepository.findAll();
 
 		return places.stream()
 			.map(p -> new PlaceDto(p, inputPosition))
