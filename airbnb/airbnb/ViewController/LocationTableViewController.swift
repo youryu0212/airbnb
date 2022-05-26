@@ -30,10 +30,20 @@ class LocationTableViewController: UITableViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.delegate = self
         searchController.searchBar.delegate = self
-        
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false // navigationBar 내의 searchBar 항상 보이기
+        self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
+        self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
         
+//        let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backToSeacrhVC))
+//        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func backToSeacrhVC() {
+        self.navigationController?.popViewController(animated: true)
     }
 
     private func setConstraints() {
@@ -41,6 +51,9 @@ class LocationTableViewController: UITableViewController {
 }
 
 extension LocationTableViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    
+    
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
     }
