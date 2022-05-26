@@ -32,9 +32,12 @@ class MultipleRowsCollectionViewContainerCell: UICollectionViewCell {
             cellWidth: cellWidth,
             rowCount: rowCount)
         
-        contentView.subviews.forEach({ $0.removeFromSuperview() })
-        contentView.addSubview(multipleRowCollectionViewController!.collectionView)
+        guard let collectionViewController = multipleRowCollectionViewController else {
+            return
+        }
         
+        contentView.subviews.forEach({ $0.removeFromSuperview() })
+        contentView.addSubview(collectionViewController.collectionView)
         layout()
     }
     
