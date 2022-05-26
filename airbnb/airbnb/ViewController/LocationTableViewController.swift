@@ -4,6 +4,8 @@ class LocationTableViewController: UITableViewController {
 
     var locationList: [[String]] = [["서울", "차로 30분 거리"], ["광주", "차로 4시간 거리"]]
     private var searchText = ""
+    
+    private let resultController = ResultController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class LocationTableViewController: UITableViewController {
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"
 
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: resultController)
         searchController.delegate = self
         searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
