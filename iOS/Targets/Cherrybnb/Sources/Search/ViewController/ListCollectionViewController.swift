@@ -22,7 +22,8 @@ class ListCollectionViewController: UIViewController {
     private func setCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
+        
         self.view.addSubview(collectionView)
         
         collectionView.delegate = self
