@@ -41,14 +41,11 @@ class SearchView: UIView {
         let font = UIFont(name: "Helvetica", size: 34)
         let attributedString = NSMutableAttributedString(string: "슬기로운\n자연생활")
         let length = attributedString.length
-        let newSize = maintext.sizeThatFits(CGSize(width: CGFloat(254), height: CGFloat(82)))
         attributedString.addAttributes([.foregroundColor:UIColor.black,
                                         .font:UIFont.systemFont(ofSize: 34, weight: .bold)],
                                        range: NSRange(location: 0, length: 9))
         maintext.attributedText = attributedString
         
-        maintext.frame.size.width = newSize.width
-        maintext.frame.size.height = newSize.height
         return maintext
     }()
     
