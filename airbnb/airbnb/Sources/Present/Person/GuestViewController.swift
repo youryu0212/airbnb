@@ -42,28 +42,41 @@ final class GuestViewController: UIViewController {
     }
     
     deinit {
-        Log.info("deinit PersonViewController")
+        Log.info("deinit GuestViewController")
     }
     
     private func bind() {
-        viewModel.state().updatedTitle
-            .bind(onNext: updateTitle)
-            .disposed(by: disposeBag)
-        
-        viewModel.state().updatedDescription
-            .bind(onNext: updateDescription)
-            .disposed(by: disposeBag)
         
         rx.viewDidLoad
             .bind(to: viewModel.action().viewDidLoad)
             .disposed(by: disposeBag)
         
+        viewModel.state().updatedTitle
+            .withUnretained(self)
+            .bind(onNext: { vc, type in
+                vc.updateTitle(type)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.state().updatedDescription
+            .withUnretained(self)
+            .bind(onNext: { vc, value in
+                vc.updateDescription(value)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.state().updatedCount
-            .bind(onNext: updateCount)
+            .withUnretained(self)
+            .bind(onNext: { vc, value in
+                vc.updateCount(value)
+            })
             .disposed(by: disposeBag)
         
         viewModel.state().updatedButtonState
-            .bind(onNext: updateButtonEnabled)
+            .withUnretained(self)
+            .bind(onNext: { vc, value in
+                vc.updateButtonEnabled(value)
+            })
             .disposed(by: disposeBag)
         
         Observable

@@ -31,6 +31,10 @@ final class GuestViewModel: GuestViewModelBinding, GuestViewModelAction, GuestVi
     private let disposeBag = DisposeBag()
     private var guestCounts: [GuestType: Int] = [:]
     
+    deinit {
+        Log.info("deinit GuestViewModel")
+    }
+    
     init() {
         let initData = viewDidLoad
             .flatMapLatest { _ -> Observable<GuestType> in

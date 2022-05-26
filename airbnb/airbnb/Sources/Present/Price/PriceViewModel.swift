@@ -17,6 +17,5 @@ final class PriceViewModel: PriceViewModelBinding, PriceViewModelAction, PriceVi
     private let disposeBag = DisposeBag()
     
     init() {
-        
     }
 }
