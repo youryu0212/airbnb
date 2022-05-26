@@ -18,6 +18,11 @@ class LocationResultViewController: UITableViewController {
         tableView.register(LocationResultViewCell.self, forCellReuseIdentifier: LocationResultViewCell.identifier)
     }
     
+    private func setUI() {
+    
+//        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
+//        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultList.count
@@ -30,10 +35,9 @@ class LocationResultViewController: UITableViewController {
         return cell
     }
 
-    private func setUI() {
-    
-        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pushVC = LocationCalenderViewController()
+        self.navigationController?.pushViewController(pushVC, animated: true) // navigationController가 nil
     }
     
     @objc func eraseButtonClicked() {

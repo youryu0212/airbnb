@@ -42,8 +42,11 @@ class LocationTableViewController: UITableViewController {
 
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"
-
+        
+        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
+        resultController.navigationItem.rightBarButtonItem = rightBarButtonItem
         let searchController = UISearchController(searchResultsController: resultController)
+        
         searchController.delegate = self
         searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
@@ -55,8 +58,8 @@ class LocationTableViewController: UITableViewController {
         self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
         self.navigationItem.searchController?.searchBar.showsCancelButton = false
     
-//        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
-//        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        
     }
     
     @objc func eraseButtonClicked() {
