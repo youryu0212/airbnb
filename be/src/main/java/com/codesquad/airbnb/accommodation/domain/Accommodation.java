@@ -21,6 +21,8 @@ public class Accommodation {
     @Column(nullable = false)
     private double rating;
 
+    private int reviewCount;
+
     @Column(nullable = false)
     private String location;
 
