@@ -53,7 +53,7 @@ extension ListCollectionViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: self.view.frame.width, height: 64)
+        let size = CGSize(width: self.collectionView.frame.width, height: 64)
         return size
     }
     
