@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BrowseCollectionView: UIView {
+class FamousSpotCollectionView: UIView {
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getCollectionViewLayout())
@@ -38,7 +38,7 @@ class BrowseCollectionView: UIView {
     }
 }
 
-private extension BrowseCollectionView {
+private extension FamousSpotCollectionView {
 
     func setConstraint() {
         addSubview(collectionView)
@@ -56,7 +56,7 @@ private extension BrowseCollectionView {
 
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(itemFractionalWidthFraction),
-                heightDimension: .estimated(64))
+                heightDimension: .fractionalHeight(1/8))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = .init(top: 0, leading: 10, bottom: 16, trailing: 0)
 

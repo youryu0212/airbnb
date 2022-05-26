@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BrowseViewCollectionDataSource: NSObject, UICollectionViewDataSource {
+class FamousSpotCollectionLayout: NSObject, UICollectionViewDataSource {
     
     private var data: [SpotItem] = {
         [SpotItem].init(repeating: SpotItem(image: UIImage(named: "SeoulImage") ?? UIImage(), title: "서울", distance: "차로 30분 거리"), count: 8)
