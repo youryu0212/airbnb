@@ -1,5 +1,6 @@
 package team13.kuje.airbnb.controller;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,8 @@ public class PlaceController {
 		@RequestParam(required = false) String lng
 		) {
 
-		placeService.findByPosition(tag, lat, lng);
-
+		List<PlaceDto> placeDtos = placeService.findByPosition(tag, lat, lng);
+		return new WrapperDto<>(placeDtos);
 	}
 
 }

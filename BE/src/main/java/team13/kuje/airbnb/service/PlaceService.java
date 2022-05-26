@@ -1,8 +1,13 @@
 package team13.kuje.airbnb.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import team13.kuje.airbnb.controller.model.PlaceDto;
+import team13.kuje.airbnb.domain.Place;
 import team13.kuje.airbnb.domain.Position;
+import team13.kuje.airbnb.repository.PlaceRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -13,11 +18,12 @@ public class PlaceService {
 	public List<PlaceDto> findByPosition(String tag, String lat, String lng) {
 		validateTag(tag);
 
-		Position position = new Position(lat, lng);
+		Position inputPosition = new Position(lat, lng);
+		List<Place> places = placeRepository.findByPosition(inputPosition);
 
-
-
-		return null;
+		return places.stream()
+			.map(p -> new PlaceDto(p, inputPosition))
+			.collect(Collectors.toList());
 	}
 
 	private void validateTag(String tag) {
