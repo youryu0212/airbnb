@@ -17,6 +17,5 @@ final class PersonViewModel: PersonViewModelBinding, PersonViewModelAction, Pers
     private let disposeBag = DisposeBag()
     
     init() {
-        
     }
 }

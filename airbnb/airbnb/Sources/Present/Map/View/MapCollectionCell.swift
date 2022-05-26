@@ -59,11 +59,9 @@ final class MapCollectionCell: UICollectionViewCell {
     }
     
     private func attribute() {
-        
     }
     
     private func layout() {
-        
     }
     
     private func setupUI() {

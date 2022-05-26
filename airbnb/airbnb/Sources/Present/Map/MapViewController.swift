@@ -122,7 +122,6 @@ final class MapViewController: UIViewController {
     }
     
     private func makeAnnotationV(_ annotation: MKAnnotation) {
-        
     }
 }
 

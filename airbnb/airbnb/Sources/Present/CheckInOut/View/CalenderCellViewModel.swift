@@ -34,12 +34,21 @@ final class CalenderCellViewModel: CalenderCellViewModelBinding, CalenderCellVie
             .disposed(by: disposeBag)
         
         viewLoad
+            .take(1)
             .compactMap { date }
             .map { Date() > $0 ? .notSelect: .none }
             .bind(to: updateState)
             .disposed(by: disposeBag)
         
+        viewLoad
+            .skip(1)
+            .withLatestFrom(updateState)
+            .bind(to: updateState)
+            .disposed(by: disposeBag)
+        
         tappedCell
+            .withLatestFrom(updateState)
+            .filter { $0 != .notSelect }
             .withLatestFrom(updateDate)
             .bind(to: tappedCellWithDate)
             .disposed(by: disposeBag)
