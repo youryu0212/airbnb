@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SearchOneInARowCollectionViewCell: SearchCellCommonType {
+class SearchOneInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonType {
     
     private var mainImageView = UIImageView()
     
     private var titleLabel = UILabel()
     
-    override func setData(model: SearchViewModel) {
+    func setData(model: SearchViewModel) {
         mainImageView.image = UIImage(data: model.imageData)
         titleLabel.text = model.titleLabel
     }

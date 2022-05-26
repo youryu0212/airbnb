@@ -7,20 +7,17 @@
 
 import UIKit
 
-class SearchTitleCollectionViewCell: SearchCellCommonType {
+class SearchTitleCollectionViewCell: UICollectionViewCell, SearchCellCommonType {
     
     private var titleLabel: UILabel = UILabel()
     
-    override func setData(model: SearchViewModel) {
+    func setData(model: SearchViewModel) {
         self.titleLabel.text = model.titleLabel
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         contentView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { make in

@@ -10,10 +10,6 @@ import SnapKit
 
 class MultipleRowsCollectionViewContainerCell: UICollectionViewCell {
     
-    static var reuseIdentifier: String {
-        String(describing: Self.self)
-    }
-    
     private var multipleRowCollectionViewController: MultipleRowsCollectionViewController?
     
     override func awakeFromNib() {
