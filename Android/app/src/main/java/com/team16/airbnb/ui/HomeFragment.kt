@@ -4,13 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.*
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -20,9 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import coil.compose.AsyncImage
-import coil.compose.SubcomposeAsyncImage
 import com.team16.airbnb.R
 import com.team16.airbnb.data.NearInfo
+import com.team16.airbnb.data.lastList
 import com.team16.airbnb.data.list
 import com.team16.airbnb.databinding.FragmentHomeBinding
 import com.team16.airbnb.ui.theme.AirbnbTheme
@@ -107,6 +116,8 @@ class HomeFragment : Fragment() {
         AsyncImage(
             model = image,
             contentDescription = "image",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
         )
     }
 
@@ -115,16 +126,17 @@ class HomeFragment : Fragment() {
         Row(
             modifier = Modifier
                 .width(200.dp)
-                .aspectRatio(1 / 1f)
         ) {
-            Box (
-                modifier = Modifier.size(width = 60.dp, height = 60.dp)
-                    ){
+            Box(
+                modifier = Modifier.size(40.dp, 40.dp)
+            ) {
                 ImageLoad(image = info.image)
             }
-            Box(
-                modifier = Modifier.size(width = 60.dp, height = 60.dp)
-            ) {
+            
+            Spacer(modifier = Modifier.width(20.dp))
+            Column(modifier = Modifier.size(100.dp, 60.dp)) {
+                Text(text = "${info.name}")
+                Spacer(modifier = Modifier.height(10.dp))
                 Text("${info.distance}")
             }
 
@@ -161,9 +173,65 @@ class HomeFragment : Fragment() {
                 fontSize = 23.sp
             )
 
-            Spacer(modifier = Modifier.height(120.dp))
+            Spacer(modifier = Modifier.height(60.dp))
 
             NearTripView(info = list)
+            
+            Spacer(modifier = Modifier.height(32.dp))
+            
+            Text(
+                text = "어디에서나, 여행은\n살아보는거야",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp, 0.dp),
+                style = TextStyle(
+                    color = Airbnb_Black,
+                    fontWeight = FontWeight.Bold
+                ),
+                fontSize = 23.sp
+            )
+            
+            Spacer(modifier = Modifier.height(30.dp))
+            
+            HomeLastView(info = lastList)
+        }
+    }
+
+    @Composable
+    fun HomeLastView(info: List<NearInfo>) {
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) { 
+            items(info) {
+                LastViewItem(info = it)
+            }
+        }
+    }
+
+    @Composable
+    fun LastViewItem(info: NearInfo) {
+        Column(
+            modifier = Modifier
+                .wrapContentHeight()
+                .width(200.dp)
+        ) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(242 / 294f),
+                shape = RoundedCornerShape(15),
+                elevation = 30.dp
+            ) {
+                ImageLoad(image = info.image)
+            }
+            
+            Spacer(modifier = Modifier.height(10.dp))
+            
+            Text(text = info.title)
+            
         }
     }
 
