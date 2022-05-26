@@ -23,13 +23,17 @@ class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonT
         subTitleLabel.text = model.subTitleLabel
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        layout()
+    }
+    
+    private func layout() {
         contentView.addSubview(mainView)
         
         mainView.snp.makeConstraints { make in
@@ -65,9 +69,5 @@ class SearchTwoInARowCollectionViewCell: UICollectionViewCell, SearchCellCommonT
         mainImageView.backgroundColor = .white
         
         contentView.backgroundColor = UIColor.init(displayP3Red: CGFloat.random(in: 0.0...1.0), green: CGFloat.random(in: 0.0...1.0), blue: CGFloat.random(in: 0.0...1.0), alpha: 1)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

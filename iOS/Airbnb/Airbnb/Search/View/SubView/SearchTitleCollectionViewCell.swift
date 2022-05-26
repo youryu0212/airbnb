@@ -17,7 +17,15 @@ class SearchTitleCollectionViewCell: UICollectionViewCell, SearchCellCommonType 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.layout()
+    }
+    
+    private func layout() {
         contentView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { make in
@@ -25,9 +33,5 @@ class SearchTitleCollectionViewCell: UICollectionViewCell, SearchCellCommonType 
         }
         
         contentView.backgroundColor = UIColor.init(displayP3Red: CGFloat.random(in: 0.0...1.0), green: CGFloat.random(in: 0.0...1.0), blue: CGFloat.random(in: 0.0...1.0), alpha: 1)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }
