@@ -24,6 +24,20 @@ class LocationTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: .init(x: 0, y: 0, width: tableView.frame.width, height: 32))
+        let label = UILabel(frame: .init(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        label.text = "근처의 인기 여행지"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        view.addSubview(label)
+
+        return view
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32
+    }
+
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"
 
@@ -31,9 +45,12 @@ class LocationTableViewController: UITableViewController {
         searchController.delegate = self
         searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
+
+        tableView.separatorStyle = .none
     }
 
     private func setConstraints() {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: -40, right: -16)
     }
 }
 
