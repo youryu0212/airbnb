@@ -30,7 +30,10 @@ class LocationTableViewController: UITableViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.delegate = self
         searchController.searchBar.delegate = self
+        
         self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false // navigationBar 내의 searchBar 항상 보이기
+        
     }
 
     private func setConstraints() {
