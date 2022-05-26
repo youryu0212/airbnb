@@ -7,10 +7,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Room {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "room_id")
     private Long id;
 
@@ -35,17 +37,17 @@ public class Room {
 
     private String name;
 
-    private int maxNumOfGuests;
+    private Integer maxNumOfGuests;
 
-    private int numOfBedrooms;
+    private Integer numOfBedrooms;
 
-    private int numOfBaths;
+    private Integer numOfBaths;
 
-    private int cleaningFee;
+    private Integer cleaningFee;
 
-    private int roomCharge;
+    private Integer roomCharge;
 
-    private int weeklyDiscountPercent;
+    private Integer weeklyDiscountPercent;
 
     @Embedded
     private Location location;
@@ -54,4 +56,22 @@ public class Room {
     @JoinColumn(name = "host_id")
     private User host;
 
+    @Builder
+    public Room(RoomType roomType, SpaceType spaceType, String description, String name,
+            Integer maxNumOfGuests, Integer numOfBedrooms, Integer numOfBaths,
+            Integer cleaningFee, Integer roomCharge, Integer weeklyDiscountPercent,
+            Location location, User host) {
+        this.roomType = roomType;
+        this.spaceType = spaceType;
+        this.description = description;
+        this.name = name;
+        this.maxNumOfGuests = maxNumOfGuests;
+        this.numOfBedrooms = numOfBedrooms;
+        this.numOfBaths = numOfBaths;
+        this.cleaningFee = cleaningFee;
+        this.roomCharge = roomCharge;
+        this.weeklyDiscountPercent = weeklyDiscountPercent;
+        this.location = location;
+        this.host = host;
+    }
 }
