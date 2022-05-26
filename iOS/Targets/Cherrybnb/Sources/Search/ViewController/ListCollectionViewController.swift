@@ -29,7 +29,7 @@ class ListCollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(PlaceCell.self, forCellWithReuseIdentifier: "placeCell")
+        collectionView.register(PlaceCell.self, forCellWithReuseIdentifier: PlaceCell.cellId)
     }
     
     private func setLayout(){
@@ -48,7 +48,7 @@ extension ListCollectionViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as? PlaceCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlaceCell.cellId, for: indexPath) as? PlaceCell else { return UICollectionViewCell() }
         return cell
     }
     

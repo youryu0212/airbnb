@@ -12,6 +12,7 @@ class PlaceCell: UICollectionViewCell {
     private var imageView = UIImageView()
     private var nameLabel = UILabel()
     private var distanceLabel = UILabel()
+    static let cellId = "placeCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
