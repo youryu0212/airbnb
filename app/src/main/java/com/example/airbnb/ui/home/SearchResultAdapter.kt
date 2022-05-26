@@ -30,7 +30,7 @@ class SearchResultAdapter : ListAdapter<SearchResultDestination, SearchResultAda
     companion object SearchResultDiffUtil : DiffUtil.ItemCallback<SearchResultDestination>() {
 
         override fun areItemsTheSame(oldItem: SearchResultDestination, newItem: SearchResultDestination): Boolean {
-            return oldItem.destination == newItem.destination
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: SearchResultDestination, newItem: SearchResultDestination): Boolean {

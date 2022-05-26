@@ -1,27 +1,26 @@
 package com.example.airbnb.ui.home
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.example.airbnb.R
 import com.example.airbnb.databinding.FragmentSearchBinding
 import com.example.airbnb.domain.model.NearDestination
 import com.example.airbnb.domain.model.SearchResultDestination
-import com.google.android.material.textfield.TextInputLayout.END_ICON_CLEAR_TEXT
-import com.google.android.material.textfield.TextInputLayout.END_ICON_CUSTOM
+import com.example.airbnb.ui.common.switchFromClearTextToCustomMode
+import com.example.airbnb.ui.common.switchFromCustomModeToClearText
 
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -30,10 +29,10 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter= NearTravelDestinationAdapter()
-        val searchAdapter= SearchResultAdapter()
-        binding.rvSearchNearTravelDestination.adapter= adapter
-        binding.rvSearchResultDestination.adapter= searchAdapter
+        val adapter = NearTravelDestinationAdapter()
+        val searchAdapter = SearchResultAdapter()
+        binding.rvSearchNearTravelDestination.adapter = adapter
+        binding.rvSearchResultDestination.adapter = searchAdapter
         adapter.submitNearDestinations(makeDummyNearDestinations())
         addSearchListener(searchAdapter)
     }
@@ -56,37 +55,32 @@ class SearchFragment : Fragment() {
         })
     }
 
-    private fun makeDummySearchResultByKeyword(keyword:String):List<SearchResultDestination>{
-        val cityList=  mutableListOf<SearchResultDestination>()
-        for(i in 0 .. 10 ){
+    private fun makeDummySearchResultByKeyword(keyword: String): List<SearchResultDestination> {
+        val cityList = mutableListOf<SearchResultDestination>()
+        for (i in 0..10) {
             cityList.add(SearchResultDestination(keyword))
         }
         return cityList
     }
 
-    private fun makeDummyNearDestinations():List<NearDestination>{
-        val cityList=  mutableListOf<NearDestination>()
-        for(i in 0 .. 10){
-            cityList.add(NearDestination("imageUrl","서울", "차로30분"))
+    private fun makeDummyNearDestinations(): List<NearDestination> {
+        val cityList = mutableListOf<NearDestination>()
+        for (i in 0..10) {
+            cityList.add(NearDestination("imageUrl", "서울", "차로30분"))
         }
         return cityList
     }
 
-    private fun displayNearDestination(){
-        binding.clSearchNearTravelDestination.visibility= View.VISIBLE
-        binding.rvSearchResultDestination.visibility= View.GONE
-        binding.etlSearch.setEndIconDrawable(R.drawable.ic_search)
-        binding.etlSearch.endIconMode= END_ICON_CUSTOM
-        binding.etlSearch.setEndIconTintList(ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.pink)))
+    private fun displayNearDestination() {
+        binding.clSearchNearTravelDestination.isVisible = true
+        binding.rvSearchResultDestination.isVisible = false
+        binding.etlSearch.switchFromClearTextToCustomMode(requireContext())
     }
 
-    private fun displaySearchResultDestination(){
-        binding.clSearchNearTravelDestination.visibility= View.GONE
-        binding.rvSearchResultDestination.visibility= View.VISIBLE
-        binding.etlSearch.setEndIconDrawable(R.drawable.ic_clear)
-        binding.executePendingBindings()
-        binding.etlSearch.endIconMode= END_ICON_CLEAR_TEXT
-        binding.etlSearch.setEndIconTintList(ColorStateList.valueOf(ContextCompat.getColor(requireContext(),R.color.grey1)))
+    private fun displaySearchResultDestination() {
+        binding.clSearchNearTravelDestination.isVisible = false
+        binding.rvSearchResultDestination.isVisible = true
+        binding.etlSearch.switchFromCustomModeToClearText(requireContext())
     }
 
 }
