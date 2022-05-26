@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import RxDataSources
 import RxRelay
 
 protocol CheckInOutViewModelAction {
+    var viewDidLoad: PublishRelay<Void> { get }
 }
 
 protocol CheckInOutViewModelState {
+    var showCalender: PublishRelay<[SectionModel<String, CalenderCellViewModel>]> { get }
+    var updateCheckInOut: BehaviorRelay<(Date?, Date?)> { get }
 }
 
 protocol CheckInOutViewModelBinding {

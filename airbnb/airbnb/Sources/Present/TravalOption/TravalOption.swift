@@ -8,13 +8,34 @@
 import Foundation
 
 public class TravalOptionInfo {
-    public typealias CheckInOut = (Date, Date)
+//    public typealias CheckInOut = (Date, Date)
     public typealias Price = (Float, Float)
     
     public private(set) var location: String?
-    public private(set) var checkInOut: CheckInOut?
+    public private(set) var checkIn: Date?
+    public private(set) var checkOut: Date?
     public private(set) var rangePrice: Price?
     public private(set) var person: Int?
+    
+    func setLocation(_ value: String?) {
+        location = value
+    }
+    
+    func setCheckIn(_ value: Date?) {
+        checkIn = value
+    }
+    
+    func setCheckOut(_ value: Date?) {
+        checkOut = value
+    }
+    
+    func setrangePrice(_ value: Price?) {
+        rangePrice = value
+    }
+    
+    func setperson(_ value: Int?) {
+        person = value
+    }
 }
 
 extension TravalOptionInfo {

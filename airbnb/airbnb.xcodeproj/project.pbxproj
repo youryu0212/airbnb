@@ -89,6 +89,12 @@
 		E0B3BAC4283E2FDF008E3FC2 /* CheckInOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BABE283E2FDF008E3FC2 /* CheckInOutViewController.swift */; };
 		E0B3BAC5283E2FDF008E3FC2 /* CheckInOutViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BABF283E2FDF008E3FC2 /* CheckInOutViewModelProtocol.swift */; };
 		E0B3BAC6283E2FDF008E3FC2 /* CheckInOutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BAC0283E2FDF008E3FC2 /* CheckInOutViewModel.swift */; };
+		E0B3BACD283E5393008E3FC2 /* CalenderCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BACC283E5393008E3FC2 /* CalenderCellViewModelProtocol.swift */; };
+		E0B3BACF283EE29D008E3FC2 /* CalenderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BACE283EE29D008E3FC2 /* CalenderCellView.swift */; };
+		E0B3BAD2283EE2B0008E3FC2 /* CalenderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BAD1283EE2B0008E3FC2 /* CalenderCellViewModel.swift */; };
+		E0B3BAD4283EE39A008E3FC2 /* CalenderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BAD3283EE39A008E3FC2 /* CalenderHeaderView.swift */; };
+		E0B3BAD6283F02FB008E3FC2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BAD5283F02FB008E3FC2 /* Date+Extension.swift */; };
+		E0B3BAD9283F5BB4008E3FC2 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3BAD8283F5BB4008E3FC2 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +197,12 @@
 		E0B3BABE283E2FDF008E3FC2 /* CheckInOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInOutViewController.swift; sourceTree = "<group>"; };
 		E0B3BABF283E2FDF008E3FC2 /* CheckInOutViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInOutViewModelProtocol.swift; sourceTree = "<group>"; };
 		E0B3BAC0283E2FDF008E3FC2 /* CheckInOutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInOutViewModel.swift; sourceTree = "<group>"; };
+		E0B3BACC283E5393008E3FC2 /* CalenderCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		E0B3BACE283EE29D008E3FC2 /* CalenderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderCellView.swift; sourceTree = "<group>"; };
+		E0B3BAD1283EE2B0008E3FC2 /* CalenderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderCellViewModel.swift; sourceTree = "<group>"; };
+		E0B3BAD3283EE39A008E3FC2 /* CalenderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderHeaderView.swift; sourceTree = "<group>"; };
+		E0B3BAD5283F02FB008E3FC2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E0B3BAD8283F5BB4008E3FC2 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +379,7 @@
 		E0108D62283B2E7100CC736C /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				E0B3BAD7283F5B85008E3FC2 /* Common */,
 				E0B3BA9B283DD6F7008E3FC2 /* Map */,
 				E00CF17A283DCE8200C0E38D /* Detail */,
 				E0108D6A283B4B7F00CC736C /* MainTabBar */,
@@ -414,6 +427,7 @@
 				E0108D7B283B75F300CC736C /* NSAttributedString+Extension.swift */,
 				E0941899283B83D6004A19F4 /* Result+Extension.swift */,
 				E00CF178283CD92B00C0E38D /* Optional+Extension.swift */,
+				E0B3BAD5283F02FB008E3FC2 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -605,11 +619,31 @@
 		E0B3BABD283E2FDF008E3FC2 /* CheckInOut */ = {
 			isa = PBXGroup;
 			children = (
+				E0B3BAD0283EE2A1008E3FC2 /* View */,
 				E0B3BABE283E2FDF008E3FC2 /* CheckInOutViewController.swift */,
-				E0B3BABF283E2FDF008E3FC2 /* CheckInOutViewModelProtocol.swift */,
 				E0B3BAC0283E2FDF008E3FC2 /* CheckInOutViewModel.swift */,
+				E0B3BABF283E2FDF008E3FC2 /* CheckInOutViewModelProtocol.swift */,
 			);
 			path = CheckInOut;
+			sourceTree = "<group>";
+		};
+		E0B3BAD0283EE2A1008E3FC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3BACE283EE29D008E3FC2 /* CalenderCellView.swift */,
+				E0B3BAD1283EE2B0008E3FC2 /* CalenderCellViewModel.swift */,
+				E0B3BACC283E5393008E3FC2 /* CalenderCellViewModelProtocol.swift */,
+				E0B3BAD3283EE39A008E3FC2 /* CalenderHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0B3BAD7283F5B85008E3FC2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E0B3BAD8283F5BB4008E3FC2 /* GradientView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -825,6 +859,7 @@
 				E0B3BAC6283E2FDF008E3FC2 /* CheckInOutViewModel.swift in Sources */,
 				E0B3BAC2283E2FDF008E3FC2 /* PersonViewModelProtocol.swift in Sources */,
 				E09418C2283C6ED6004A19F4 /* RxSwift+Extension.swift in Sources */,
+				E0B3BAD2283EE2B0008E3FC2 /* CalenderCellViewModel.swift in Sources */,
 				E0B3BAA8283E10D2008E3FC2 /* TravalOptionViewController.swift in Sources */,
 				E0108D5F283B2DDE00CC736C /* BaseTarget.swift in Sources */,
 				E09418AC283B9A2B004A19F4 /* SearchViewModel.swift in Sources */,
@@ -840,8 +875,10 @@
 				E0108D75283B4E6800CC736C /* MyReservationViewController.swift in Sources */,
 				E0941896283B80A9004A19F4 /* TravalRepositoryImpl.swift in Sources */,
 				E0B3BAB8283E2D7E008E3FC2 /* PriceViewModelProtocol.swift in Sources */,
+				E0B3BAD4283EE39A008E3FC2 /* CalenderHeaderView.swift in Sources */,
 				E0B3BAB4283E2CDF008E3FC2 /* PriceViewController.swift in Sources */,
 				E0108D56283B2DDE00CC736C /* ImageManager.swift in Sources */,
+				E0B3BACD283E5393008E3FC2 /* CalenderCellViewModelProtocol.swift in Sources */,
 				E0B3BA9F283DD711008E3FC2 /* MapViewModel.swift in Sources */,
 				E0108D57283B2DDE00CC736C /* Log.swift in Sources */,
 				E0B3BAC1283E2FDF008E3FC2 /* PersonViewController.swift in Sources */,
@@ -858,6 +895,7 @@
 				E09418CE283C96E9004A19F4 /* ArroundTravalViewModelProtocol.swift in Sources */,
 				E09418AF283BBAE6004A19F4 /* ArroundTravalCollectionHeaderView.swift in Sources */,
 				E0108D64283B2E9000CC736C /* RootWindow.swift in Sources */,
+				E0B3BAD9283F5BB4008E3FC2 /* GradientView.swift in Sources */,
 				E094188E283B7E6A004A19F4 /* ArroundTravelCellView.swift in Sources */,
 				E0108D61283B2DDE00CC736C /* Response.swift in Sources */,
 				E0108D60283B2DDE00CC736C /* HTTPMethod.swift in Sources */,
@@ -885,6 +923,8 @@
 				E09418A1283B90C4004A19F4 /* RecommandTravelViewCell.swift in Sources */,
 				E09418D4283C9BD5004A19F4 /* SearchResultViewModelProtocol.swift in Sources */,
 				E09418CC283C96DF004A19F4 /* ArroundTravalViewModel.swift in Sources */,
+				E0B3BACF283EE29D008E3FC2 /* CalenderCellView.swift in Sources */,
+				E0B3BAD6283F02FB008E3FC2 /* Date+Extension.swift in Sources */,
 				E0108D5B283B2DDE00CC736C /* NetworkRepository.swift in Sources */,
 				E094188B283B7C63004A19F4 /* ArroundTravalMiniViewController.swift in Sources */,
 				E0941898283B80D3004A19F4 /* HomeTarget.swift in Sources */,

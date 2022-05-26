@@ -6,8 +6,6 @@
 //
 
 import RxDataSources
-import RxGesture
-import RxRelay
 import RxSwift
 import UIKit
 

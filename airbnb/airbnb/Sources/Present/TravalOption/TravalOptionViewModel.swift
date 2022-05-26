@@ -18,14 +18,14 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
     
     let usingCategorys = PublishRelay<[TravalOptionInfo.OptionType]>()
     let updateTitle = PublishRelay<String>()
-    let updateValue = PublishRelay<(Int, String)>()
+    let updateValue = PublishRelay<(TravalOptionInfo.OptionType, String)>()
     let showCategoryPage = BehaviorRelay<TravalOptionInfo.OptionType>(value: .checkInOut)
     
     let priceViewModel: PriceViewModelProtocol = PriceViewModel()
     let checkInOutViewModel: CheckInOutViewModelProtocol = CheckInOutViewModel()
     let personViewModel: PersonViewModelProtocol = PersonViewModel()
     
-    private var option: [TravalOptionInfo.OptionType: Any?] = [:]
+    private var travalOptionInfo = TravalOptionInfo()
     private let disposeBag = DisposeBag()
     
     init(type: TravalOptionInfo.ViewType) {
@@ -36,7 +36,6 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
         case .reservation:
             optionTypes = [.checkInOut, .person]
         }
-        optionTypes.forEach { option[$0] = "" }
         
         viewDidLoad
             .map { _ in optionTypes }
@@ -47,14 +46,23 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
             .map { _ in type.title }
             .bind(to: updateTitle)
             .disposed(by: disposeBag)
+        
+        checkInOutViewModel.state().updateCheckInOut
+            .map { checkIn, checkOut -> (TravalOptionInfo.OptionType, String) in
+                let checkInText = checkIn?.string("M월 d일 - ") ?? ""
+                let checkOutText = checkOut?.string("M월 d일") ?? ""
+                return (.checkInOut, "\(checkInText)\(checkOutText)")
+            }
+            .bind(to: updateValue)
+            .disposed(by: disposeBag)
     }
     
     convenience init(location: String) {
         self.init(type: .search)
-        option[.location] = location
+        travalOptionInfo.setLocation(location)
         
         viewDidLoad
-            .map { _ in (TravalOptionInfo.OptionType.location.index, location) }
+            .map { _ in (.location, location) }
             .bind(to: updateValue)
             .disposed(by: disposeBag)
     }

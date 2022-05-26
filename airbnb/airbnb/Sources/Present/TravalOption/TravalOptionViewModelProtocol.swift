@@ -15,7 +15,7 @@ protocol TravalOptionViewModelAction {
 protocol TravalOptionViewModelState {
     var usingCategorys: PublishRelay<[TravalOptionInfo.OptionType]> { get }
     var updateTitle: PublishRelay<String> { get }
-    var updateValue: PublishRelay<(Int, String)> { get }
+    var updateValue: PublishRelay<(TravalOptionInfo.OptionType, String)> { get }
     var showCategoryPage: BehaviorRelay<TravalOptionInfo.OptionType> { get }
 }
 

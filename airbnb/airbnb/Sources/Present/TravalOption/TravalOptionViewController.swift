@@ -22,7 +22,7 @@ final class TravalOptionViewController: UIViewController {
         items.append(itemView)
     }
     
-    private lazy var contentViews: [TravalOptionInfo.OptionType: UIViewController] = {
+    private lazy var optionViews: [TravalOptionInfo.OptionType: UIViewController] = {
         var viewControllers = [TravalOptionInfo.OptionType: UIViewController]()
         viewControllers[.checkInOut] = CheckInOutViewController(viewModel: viewModel.checkInOutViewModel)
         viewControllers[.rangePrice] = PriceViewController(viewModel: viewModel.priceViewModel)
@@ -70,7 +70,7 @@ final class TravalOptionViewController: UIViewController {
         viewModel.state().updateValue
             .withUnretained(self)
             .bind(onNext: { vc, value in
-                vc.categoryItems[value.0].setvalue(value.1)
+                vc.categoryItems[value.0.index].setvalue(value.1)
             })
             .disposed(by: disposeBag)
         
@@ -91,10 +91,10 @@ final class TravalOptionViewController: UIViewController {
             .filter { $0 != .location }
             .withUnretained(self)
             .do { vc, _ in
-                vc.contentViews.values.forEach { $0.view.isHidden = true }
+                vc.optionViews.values.forEach { $0.view.isHidden = true }
             }
             .bind(onNext: { vc, type in
-                vc.contentViews[type]?.view.isHidden = false
+                vc.optionViews[type]?.view.isHidden = false
             })
             .disposed(by: disposeBag)
     }
@@ -107,7 +107,7 @@ final class TravalOptionViewController: UIViewController {
         view.addSubview(contentView)
         view.addSubview(categoryStackView)
         
-        contentViews.values.forEach {
+        optionViews.values.forEach {
             contentView.addSubview($0.view)
             
             $0.view.snp.makeConstraints {
@@ -130,9 +130,5 @@ final class TravalOptionViewController: UIViewController {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(categoryItems[0])
         }
-    }
-    
-    private func selectedCategory() {
-        
     }
 }
