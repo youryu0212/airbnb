@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/wishListFragment"
-        android:name="com.example.airbnb.WishListFragment"
+        android:name="com.example.airbnb.ui.wishlist.WishListFragment"
         android:label="fragment_wish_list"
         tools:layout="@layout/fragment_wish_list" />
     <fragment

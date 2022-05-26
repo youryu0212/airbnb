@@ -1,9 +1,15 @@
 package com.example.airbnb.ui.placesearch
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,14 +21,26 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.airbnb.R
 import com.example.airbnb.databinding.FragmentPlaceSearchBinding
+import com.example.airbnb.ui.common.RangeValidator
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import java.util.Calendar.getInstance
 
 
 class PlaceSearchFragment : Fragment() {
     private lateinit var binding: FragmentPlaceSearchBinding
     private val adapter = PlaceSearchAdapter()
     private val viewModel: PlaceSearchViewModel by viewModels()
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +56,47 @@ class PlaceSearchFragment : Fragment() {
         updateBySearchingWordExist()
         listenClearButtonClicked()
 
+        binding.btnTemp.setOnClickListener {
+            val dateRangePicker = MaterialDatePicker.Builder.dateRangePicker()
+                .setCalendarConstraints(limitRange().build())
+                .setTitleText("여행 일정")
+                .build()
+            dateRangePicker.show(childFragmentManager, "date_picker")
+            dateRangePicker.addOnPositiveButtonClickListener {
+                val startDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(it.first)
+                val endDate = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(it.second)
+                Log.d("test", "startDate: $startDate, endDate : $endDate")
+            }
+        }
+
         return binding.root
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun limitRange(): CalendarConstraints.Builder {
+
+        val constraintsBuilderRange = CalendarConstraints.Builder()
+
+        val calendarStart: Calendar = GregorianCalendar.getInstance()
+        val calendarEnd: Calendar = GregorianCalendar.getInstance()
+
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ISO_DATE
+        val formatted = current.format(formatter)
+        val currentDate = formatted.split("-")
+
+        calendarStart.set(currentDate[0].toInt(), currentDate[1].toInt(), currentDate[2].toInt() - 1)
+        calendarEnd.set(2999, 12, 31)
+
+        val minDate = calendarStart.timeInMillis
+        val maxDate = calendarEnd.timeInMillis
+
+        constraintsBuilderRange.setStart(minDate)
+        constraintsBuilderRange.setEnd(maxDate)
+
+        constraintsBuilderRange.setValidator(RangeValidator(minDate, maxDate))
+
+        return constraintsBuilderRange
     }
 
     private fun listenClearButtonClicked() {
