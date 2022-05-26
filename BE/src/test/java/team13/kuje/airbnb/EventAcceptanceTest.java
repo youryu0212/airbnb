@@ -45,5 +45,20 @@ class EventAcceptanceTest {
 			.body("data[0].title", equalTo("슬기로운 자연생활"));
 
 
-}
+	}
+
+	@Test
+	void 만약_category_tag가_list이면_이벤트_메인_배너_이외의_이벤트들의_조회_성공() {
+		given()
+			.accept(MediaType.APPLICATION_JSON_VALUE)
+
+		.when()
+			.get("/api/events?category_tag=list")
+
+		.then()
+			.statusCode(HttpStatus.OK.value())
+			.assertThat()
+			.body("data[0].title", equalTo("슬기로운 자연생활2"));
+	}
+
 }
