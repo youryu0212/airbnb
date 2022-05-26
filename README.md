@@ -25,7 +25,7 @@
 
 |메인 화면과 검색창 클릭시 화면 이동|
 |---|
-|<img width="320" src="https://user-images.githubusercontent.com/45891045/170199865-44ca1b6c-a58e-4a63-81ab-d301cf4ea20b.gif">|
+|<img width="320" src="https://user-images.githubusercontent.com/45891045/170411527-038ad1d6-ac60-4583-81d6-e635fe920eba.gif">|
 
 ---
 
