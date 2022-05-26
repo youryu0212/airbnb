@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BackgroundViewController, CommonViewControllerProtocol {
     
     enum Section {
         case searchMainBody
@@ -153,19 +153,23 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         layout()
         attribute()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    private func attribute() {
-        view.backgroundColor = .white
-        setUpSearchController()
-        navAppearance()
+    // MARK: - 객체간 통신을 담당할 메서드
+    func bind() {
     }
     
-    private func layout() {
+    func attribute() {
+        setUpSearchController()
+        super.setUpNavigationAppearance()
+    }
+    
+    func layout() {
         view.addSubview(searchMainCollectionView)
 
         searchMainCollectionView.snp.makeConstraints { make in
@@ -192,15 +196,5 @@ extension SearchViewController: UISearchBarDelegate {
     private func setUpSearchController() {
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-    }
-}
-
-extension SearchViewController {
-    private func navAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .yellow
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 }
