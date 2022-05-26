@@ -23,3 +23,17 @@ struct Hour {
         toMinutes * 60
     }
 }
+
+struct Minute {
+    let value: Float
+
+    init(_ value: Float) {
+        self.value = value
+    }
+
+    var toSeconds: Float {
+        value * 60
+    }
+}
+
+typealias Second = Float
