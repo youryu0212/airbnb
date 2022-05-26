@@ -140,9 +140,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         let backBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(removeAutoFocusFromSearchBar))
         self.navigationItem.backBarButtonItem = backBarButtonItem
         
-        
-        
-        
         return true
     }
     
@@ -157,8 +154,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("텍스트수정 끝")
-//        self.searchBar.endEditing(true)
-        
     }
     
     @objc func removeAutoFocusFromSearchBar() {
@@ -166,8 +161,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         self.searchBar.endEditing(true)
         self.searchBar.resignFirstResponder()
     }
-    
-    
 
     // 검색내용 기반으로 검색 결과 업데이트
     func updateSearchResults(for searchController: UISearchController) {

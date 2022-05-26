@@ -51,13 +51,14 @@ class LocationTableViewController: UITableViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false // navigationBar 내의 searchBar 항상 보이기
         self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
+        self.navigationItem.searchController?.searchBar.showsCancelButton = false
     
-        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: nil)
+        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-    @objc func backToSeacrhVC() {
-        self.navigationController?.popViewController(animated: true)
+    @objc func eraseButtonClicked() {
+        self.navigationItem.searchController?.searchBar.text = ""
     }
 
     private func setConstraints() {
@@ -67,11 +68,6 @@ class LocationTableViewController: UITableViewController {
 
 extension LocationTableViewController: UISearchControllerDelegate, UISearchBarDelegate {
     
-    
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-    }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     }
