@@ -11,7 +11,7 @@ class SearchView: UIView {
     
     override init(frame: CGRect ){
         super.init(frame: frame)
-        addSubView()
+        appendSubView()
         scrollConfiguration()
         setUpUIConfiguration()
         
@@ -55,7 +55,7 @@ class SearchView: UIView {
         return mainImage
     }()
     
-    func addSubView() {
+    func appendSubView() {
         self.addSubview(contentScrollView)
         contentScrollView.addSubview(contentView)
         
