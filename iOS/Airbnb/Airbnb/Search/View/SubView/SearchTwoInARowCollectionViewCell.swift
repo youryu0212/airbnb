@@ -9,25 +9,13 @@ import UIKit
 
 class SearchTwoInARowCollectionViewCell: SearchCellCommonType {
     
-    private var mainView: UIView = {
-        let view = UIView()
-        return view
-    }()
+    private var mainView = UIView()
     
-    private var mainImageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
+    private var mainImageView = UIImageView()
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private var titleLabel = UILabel()
     
-    private var subTitleLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private var subTitleLabel = UILabel()
     
     override func setData(model: SearchViewModel) {
         mainImageView.image = UIImage(data: model.imageData)

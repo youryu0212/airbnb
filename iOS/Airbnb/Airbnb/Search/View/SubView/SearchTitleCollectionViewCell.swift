@@ -9,10 +9,7 @@ import UIKit
 
 class SearchTitleCollectionViewCell: SearchCellCommonType {
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private var titleLabel: UILabel = UILabel()
     
     override func setData(model: SearchViewModel) {
         self.titleLabel.text = model.titleLabel
