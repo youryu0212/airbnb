@@ -140,6 +140,31 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		D2B52C41283F19F600C58271 /* CollectionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D2B52C3F283F153900C58271 /* HomeViewCollectionLayout.swift */,
+			);
+			path = CollectionLayout;
+			sourceTree = "<group>";
+		};
+		D2B52C42283F1A0E00C58271 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D2B52C41283F19F600C58271 /* CollectionLayout */,
+				D2562ED8283DCE3B00336E49 /* DataSource */,
+				02874046283D37AA0009C62D /* Extension */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2B52C43283F1A2800C58271 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D2FFBFC4283C868300C97D16 = {
 			isa = PBXGroup;
 			children = (
@@ -161,16 +186,15 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D2562ED8283DCE3B00336E49 /* DataSource */,
-				02874046283D37AA0009C62D /* Extension */,
+				D2B52C42283F1A0E00C58271 /* Utility */,
 				02DF0CD3283CB2B9003D0679 /* View */,
 				D2FFBFEB283CA74600C97D16 /* ViewController */,
+				D2B52C43283F1A2800C58271 /* Model */,
 				D2FFBFD0283C868300C97D16 /* AppDelegate.swift */,
 				D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */,
 				D2FFBFD9283C868400C97D16 /* Assets.xcassets */,
 				D2FFBFDB283C868400C97D16 /* LaunchScreen.storyboard */,
 				D2FFBFDE283C868400C97D16 /* Info.plist */,
-				D2B52C3F283F153900C58271 /* HomeViewCollectionLayout.swift */,
 			);
 			path = Airbnb_iOS;
 			sourceTree = "<group>";
