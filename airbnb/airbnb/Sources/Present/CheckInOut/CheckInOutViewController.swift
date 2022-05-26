@@ -38,6 +38,7 @@ final class CheckInOutViewController: UIViewController {
         flowLayout.minimumLineSpacing = 3
         flowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(CalenderCellView.self, forCellWithReuseIdentifier: CalenderCellView.identifier)
         collectionView.register(CalenderHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CalenderHeaderView.identifier)
         
@@ -106,7 +107,7 @@ extension CheckInOutViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalenderCellView.identifier, for: indexPath) as? CalenderCellView else {
                 return UICollectionViewCell()
             }
-            cell.setViewModel(model)
+            cell.bind(model)
             return cell
         }
         
@@ -135,9 +136,3 @@ extension CheckInOutViewController: UICollectionViewDelegateFlowLayout {
         CGSize(width: Int(collectionView.bounds.width), height: Contants.headerHeight)
     }
 }
-
-//extension CheckInOutViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("11112313123123")
-//    }
-//}

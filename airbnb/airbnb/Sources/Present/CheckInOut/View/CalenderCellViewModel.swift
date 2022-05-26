@@ -9,17 +9,39 @@ import Foundation
 import RxRelay
 import RxSwift
 
-final class CalenderCellViewModel: CalenderCellViewModelBinding, CalenderCellViewModelAction, CalenderCellViewModelState {
+final class CalenderCellViewModel: CalenderCellViewModelBinding, CalenderCellViewModelProperty, CalenderCellViewModelAction, CalenderCellViewModelState {
     func action() -> CalenderCellViewModelAction { self }
     
-    let tappedCell = PublishRelay<Date>()
+    let viewLoad = PublishRelay<Void>()
+    let tappedCell = PublishRelay<Void>()
+    let tappedCellWithDate = PublishRelay<Date?>()
     
     func state() -> CalenderCellViewModelState { self }
     
-    let updateState = BehaviorRelay<CalenderCellState>(value: .none)
-    let date: Date?
+    let updateDate = PublishRelay<Date?>()
+    let updateState = PublishRelay<CalenderCellState>()
+    
+    let isNil: Bool
+    
+    private var disposeBag = DisposeBag()
     
     init(date: Date?) {
-        self.date = date
+        isNil = date == nil
+        
+        viewLoad
+            .map { _ in date }
+            .bind(to: updateDate)
+            .disposed(by: disposeBag)
+        
+        viewLoad
+            .compactMap { date }
+            .map { Date() > $0 ? .notSelect: .none }
+            .bind(to: updateState)
+            .disposed(by: disposeBag)
+        
+        tappedCell
+            .withLatestFrom(updateDate)
+            .bind(to: tappedCellWithDate)
+            .disposed(by: disposeBag)
     }
 }

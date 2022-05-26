@@ -85,21 +85,22 @@ final class CalenderCellView: UICollectionViewCell {
         disposeBag = DisposeBag()
     }
     
-    func setViewModel(_ viewModel: CalenderCellViewModelProtocol) {
-        bind(to: viewModel)
-        dayLabel.text = viewModel.state().date?.string("d")
-        updateState(viewModel.state().updateState.value)
-    }
-    
-    private func bind(to viewModel: CalenderCellViewModelProtocol) {
+    func bind(_ viewModel: CalenderCellViewModelProtocol) {
+        
+        viewModel.state().updateDate
+            .map { $0?.string("d") }
+            .bind(to: dayLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         cellButton.rx.tap
-            .compactMap { viewModel.state().date }
             .bind(to: viewModel.action().tappedCell)
             .disposed(by: disposeBag)
         
         viewModel.state().updateState
             .bind(onNext: updateState)
             .disposed(by: disposeBag)
+        
+        viewModel.action().viewLoad.accept(())
     }
     
     private func layout() {
@@ -149,6 +150,8 @@ final class CalenderCellView: UICollectionViewCell {
             dayLabel.textColor = .grey1
             selectedView.isHidden = true
             inRangeView.isHidden = true
+        case .notSelect:
+            dayLabel.textColor = .grey4
         }
         
         startDateView.isHidden = state != .start

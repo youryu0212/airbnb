@@ -9,13 +9,14 @@ import Foundation
 import RxRelay
 
 protocol CalenderCellViewModelAction {
-    var tappedCell: PublishRelay<Date> { get }
+    var viewLoad: PublishRelay<Void> { get }
+    var tappedCell: PublishRelay<Void> { get }
+    var tappedCellWithDate: PublishRelay<Date?> { get }
 }
 
 protocol CalenderCellViewModelState {
-    var updateState: BehaviorRelay<CalenderCellState> { get }
-    
-    var date: Date? { get }
+    var updateDate: PublishRelay<Date?> { get }
+    var updateState: PublishRelay<CalenderCellState> { get }
 }
 
 protocol CalenderCellViewModelBinding {
@@ -23,11 +24,16 @@ protocol CalenderCellViewModelBinding {
     func state() -> CalenderCellViewModelState
 }
 
-typealias CalenderCellViewModelProtocol = CalenderCellViewModelBinding
+protocol CalenderCellViewModelProperty {
+    var isNil: Bool { get }
+}
+
+typealias CalenderCellViewModelProtocol = CalenderCellViewModelBinding & CalenderCellViewModelProperty
 
 enum CalenderCellState {
     case none
     case start
     case end
     case inRange
+    case notSelect
 }

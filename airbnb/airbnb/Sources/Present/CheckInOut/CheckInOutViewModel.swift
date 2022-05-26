@@ -31,7 +31,7 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
                         return nil
                     }
                     let header = date.string("yyyy년 M월")
-                    let viewModels = date.DaysOfMonth(true).map { CalenderCellViewModel(date: $0) }
+                    let viewModels = date.DaysOfMonth(withWeekDay: true).map { CalenderCellViewModel(date: $0) }
                     return (header, viewModels)
                 }
             }
@@ -41,7 +41,7 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
             .withUnretained(self)
             .bind(onNext: { model, models in
                 model.calenderViewModels = models.reduce(into: [:]) { dictionary, viewModel in
-                    dictionary[viewModel.0] = viewModel.1.filter { $0.date != nil }
+                    dictionary[viewModel.0] = viewModel.1.filter { !$0.isNil }
                 }
             })
             .disposed(by: disposeBag)
@@ -54,15 +54,16 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
             .disposed(by: disposeBag)
         
         let tappedCells = calenderCellViewModels
-            .flatMapLatest { viewModels -> Observable<Date> in
-                let tappedCells = viewModels.map { _, models -> Observable<Date> in
+            .flatMapLatest { viewModels -> Observable<Date?> in
+                let tappedCells = viewModels.map { _, models -> Observable<Date?> in
                     let dayCells = models.map {
-                        $0.action().tappedCell.asObservable()
+                        $0.action().tappedCellWithDate.asObservable()
                     }
                     return .merge(dayCells)
                 }
                 return .merge(tappedCells)
             }
+            .compactMap { $0 }
             .withUnretained(self)
             .map { model, date -> (Date?, Date?) in
                 model.checkInOutDateProcess(date: date)
@@ -107,7 +108,7 @@ final class CheckInOutViewModel: CheckInOutViewModelBinding, CheckInOutViewModel
     private func findCellViewModel(date: Date?) -> CalenderCellViewModelProtocol? {
         if let check = date, let day = check.day() {
             let checkInKey = check.string("yyyy년 M월")
-            return self.calenderViewModels[checkInKey]?[day - 1]
+            return calenderViewModels[checkInKey]?[day - 1]
         }
         return nil
     }

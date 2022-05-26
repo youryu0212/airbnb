@@ -62,7 +62,7 @@ extension Date {
         }
     }
     
-    func DaysOfMonth(_ isWithWeekDay: Bool = false) -> [Date?] {
+    func DaysOfMonth(withWeekDay: Bool = false) -> [Date?] {
         guard let firstDayDate = firstDayOfMonth(),
               let lastDayDate = lastDayOfMonth() else {
             return []
@@ -79,7 +79,7 @@ extension Date {
         
         var days = (0..<lastDay).map { firstDayDate.addDay($0) }
         
-        if isWithWeekDay == false {
+        if withWeekDay == false {
             return days
         }
         
