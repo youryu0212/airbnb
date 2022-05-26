@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/airbnb
+    username: suntory
+    password: tksxhfl
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+naver:
+  client:
+    id: qkrlu3uwvh
+    secret: ${NAVER_SECRET_KEY}
+
+logging:
+  level.com.codesquad.airbnb: debug
