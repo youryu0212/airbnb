@@ -9,14 +9,12 @@ import com.example.airbnb.domain.model.NearDestination
 class NearTravelDestinationAdapter : RecyclerView.Adapter<NearTravelDestinationAdapter.ViewHolder>() {
     private val nearDestinations = mutableListOf<NearDestination>()
 
-
     class ViewHolder(private val binding: ItemNearTravelDestinationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(destination: NearDestination) {
             binding.destination = destination
             binding.executePendingBindings()
         }
-
     }
 
     override fun onCreateViewHolder(
@@ -25,7 +23,6 @@ class NearTravelDestinationAdapter : RecyclerView.Adapter<NearTravelDestinationA
     ): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(ItemNearTravelDestinationBinding.inflate(inflater, parent, false))
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
