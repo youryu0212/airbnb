@@ -1,0 +1,6 @@
+excluded:
+  - Tuist
+  - Plugins
+  - Derived
+  - Project.swift
+  - Pods
