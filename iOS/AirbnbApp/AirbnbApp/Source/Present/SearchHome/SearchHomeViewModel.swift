@@ -7,14 +7,6 @@
 
 import Foundation
 
-protocol ViewModelProtocol {
-    associatedtype Action
-    associatedtype State
-    
-    var action: Action { get }
-    var state: State { get }
-}
-
 final class SearchHomeViewModel: ViewModelProtocol {
     
     struct Action {
