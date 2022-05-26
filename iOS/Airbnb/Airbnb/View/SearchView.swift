@@ -65,7 +65,6 @@ class SearchView: UIView {
     
     
     func scrollConfiguration() {
-        contentScrollView.translatesAutoresizingMaskIntoConstraints = false
         contentScrollView.contentLayoutGuide.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
         contentScrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
         contentScrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
@@ -74,7 +73,6 @@ class SearchView: UIView {
     }
     
     private func setUpUIConfiguration() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: contentScrollView.safeAreaLayoutGuide.topAnchor).isActive = true
         contentView.leadingAnchor.constraint(equalTo: contentScrollView.safeAreaLayoutGuide.leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: contentScrollView.safeAreaLayoutGuide.trailingAnchor).isActive = true
