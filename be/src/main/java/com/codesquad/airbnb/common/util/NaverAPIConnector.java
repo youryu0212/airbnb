@@ -2,10 +2,8 @@ package com.codesquad.airbnb.common.util;
 
 import com.codesquad.airbnb.naverapi.ApiKey;
 import com.codesquad.airbnb.naverapi.domain.GeoCode;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import com.codesquad.airbnb.naverapi.web.dto.apiresponse.NaverAPIResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +11,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
+@Slf4j
 public class NaverAPIConnector {
 
     private static final String NAVER_API_URL = "https://naveropenapi.apigw.ntruss.com";
@@ -24,7 +23,7 @@ public class NaverAPIConnector {
 
     }
 
-    public static GeoCode convertToGeoCode(String address, ApiKey apiKey) throws ParseException {
+    public static GeoCode convertToGeoCode(String address, ApiKey apiKey) {
         URI uri = getUri(address);
 
         RestTemplate restTemplate = new RestTemplate();
@@ -35,11 +34,23 @@ public class NaverAPIConnector {
                 .header(NAVER_API_SECRET_KEY_HEADER, apiKey.getSecretKey())
                 .build();
 
-        ResponseEntity<String> result = restTemplate.exchange(req, String.class);
+        ResponseEntity<NaverAPIResponse> result = restTemplate.exchange(req, NaverAPIResponse.class);
 
-        JSONObject addressJSONObject = getJsonObject(result);
+        NaverAPIResponse responseBody = getResponseBody(result);
 
-        return new GeoCode(addressJSONObject.get("y").toString(), addressJSONObject.get("x").toString());
+        String latitude = responseBody.getAddresses().get(0).getX();
+        String longitude = responseBody.getAddresses().get(0).getY();
+
+        return new GeoCode(latitude, longitude);
+    }
+
+    private static NaverAPIResponse getResponseBody(ResponseEntity<NaverAPIResponse> result) {
+        NaverAPIResponse resultBody = result.getBody();
+        int count = Integer.parseInt(resultBody.getMeta().get("count"));
+        if (count <= 0) {
+            throw new IllegalArgumentException("해당 주소로 조회한 결과가 없습니다.");
+        }
+        return resultBody;
     }
 
     private static URI getUri(String addressString) {
@@ -50,18 +61,5 @@ public class NaverAPIConnector {
                 .encode()
                 .build()
                 .toUri();
-    }
-
-    private static JSONObject getJsonObject(ResponseEntity<String> result) throws ParseException {
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(result.getBody());
-        Long count = (Long) ((JSONObject) jsonObject.get("meta")).get("count");
-        if (count <= 0) {
-            throw new IllegalArgumentException("해당 주소로 조회한 결과가 없습니다.");
-        }
-
-        JSONArray addresses = (JSONArray) jsonObject.get("addresses");
-
-        return (JSONObject) addresses.get(0);
     }
 }
