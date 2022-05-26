@@ -4,6 +4,8 @@ class LocationTableViewController: UITableViewController {
 
     var locationList: [[String]] = [["서울", "차로 30분 거리"], ["광주", "차로 4시간 거리"]]
     private var searchText = ""
+    
+    private let resultController = LocationResultViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +43,11 @@ class LocationTableViewController: UITableViewController {
 
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"
-
-        let searchController = UISearchController(searchResultsController: nil)
+        
+        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: #selector(eraseButtonClicked))
+        resultController.navigationItem.rightBarButtonItem = rightBarButtonItem
+        let searchController = UISearchController(searchResultsController: resultController)
+        
         searchController.delegate = self
         searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
@@ -52,27 +57,31 @@ class LocationTableViewController: UITableViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false // navigationBar 내의 searchBar 항상 보이기
         self.navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController?.searchBar.placeholder = "어디로 여행가세요?"
+        self.navigationItem.searchController?.searchBar.showsCancelButton = false
     
-        let rightBarButtonItem = UIBarButtonItem(title: "지우기", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        
     }
     
-    @objc func backToSeacrhVC() {
-        self.navigationController?.popViewController(animated: true)
+    @objc func eraseButtonClicked() {
+        self.navigationItem.searchController?.searchBar.text = ""
     }
 
     private func setConstraints() {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: -40, right: -16)
+//        tableView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+//            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+//            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+//        ])
+        
     }
 }
 
 extension LocationTableViewController: UISearchControllerDelegate, UISearchBarDelegate {
     
-    
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-    }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     }

@@ -1,9 +1,15 @@
+//
+//  LocationResultViewCell.swift
+//  airbnb
+//
+//  Created by Bibi on 2022/05/26.
+//
+
 import UIKit
-import SwiftUI
 
-class LocationTableViewCell: UITableViewCell {
+class LocationResultViewCell: UITableViewCell {
 
-    static let identifier: String = "LocationTableViewCell"
+    static let identifier: String = "LocationResultViewCell"
 
     private lazy var spotStackView: UIStackView = {
         var stackView = UIStackView(arrangedSubviews: [self.spotImageView, self.locationView])
@@ -15,7 +21,7 @@ class LocationTableViewCell: UITableViewCell {
 
     private lazy var spotImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = UIImage(systemName: "map")
+        imageView.image = UIImage(systemName: "mappin.square.fill")
         imageView.backgroundColor = .systemGray6
         imageView.tintColor = .systemGray3
         imageView.layer.borderColor = CGColor(gray: 0.7, alpha: 1)
@@ -31,7 +37,7 @@ class LocationTableViewCell: UITableViewCell {
     }()
 
     private lazy var locationStackView: UIStackView = {
-        var stackView = UIStackView(arrangedSubviews: [self.titleLabel, self.distanceLabel])
+        var stackView = UIStackView(arrangedSubviews: [self.titleLabel])
         stackView.axis = .vertical
         stackView.spacing = 4
         return stackView
@@ -40,13 +46,6 @@ class LocationTableViewCell: UITableViewCell {
     private var titleLabel: UILabel = {
         var label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        return label
-    }()
-
-    private var distanceLabel: UILabel = {
-        var label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = .systemGray3
         return label
     }()
 
@@ -61,9 +60,16 @@ class LocationTableViewCell: UITableViewCell {
         setUI()
         setConstraints()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
+    }
 
     private func setUI() {
-        self.addSubview(spotStackView)
+        // self.addSubview(spotStackView)
+        contentView.addSubview(spotStackView)
     }
 
     private func setConstraints() {
@@ -75,10 +81,14 @@ class LocationTableViewCell: UITableViewCell {
         spotImageView.translatesAutoresizingMaskIntoConstraints = false
         locationStackView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            spotStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            contentView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            spotStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             spotStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             spotStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             spotStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
@@ -100,9 +110,4 @@ class LocationTableViewCell: UITableViewCell {
     func setTitle(_ text: String) {
         titleLabel.text = text
     }
-
-    func setDistance(_ text: String) {
-        distanceLabel.text = text
-    }
-    
 }
