@@ -7,28 +7,16 @@
 
 import UIKit
 
-protocol BackgroundViewControllerProtocol {
+protocol CommonViewControllerProtocol {
     func attribute()
     func layout()
     func bind()
-    func setUpNavigationAppearance()
 }
 
-class BackgroundViewController: UIViewController, BackgroundViewControllerProtocol {
+class BackgroundViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func attribute() {
-        view.backgroundColor = .white
-    }
-    
-    func layout() {
-    }
-    
-    func bind() {
-        
     }
     
     func setUpNavigationAppearance() {

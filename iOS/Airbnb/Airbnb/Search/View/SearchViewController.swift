@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: BackgroundViewController {
+class SearchViewController: BackgroundViewController, CommonViewControllerProtocol {
     
     enum Section {
         case searchMainBody
@@ -153,20 +153,23 @@ class SearchViewController: BackgroundViewController {
         super.viewDidLoad()
         layout()
         attribute()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func attribute() {
-        super.attribute()
+    // MARK: - 객체간 통신을 담당할 메서드
+    func bind() {
+    }
+    
+    func attribute() {
         setUpSearchController()
         super.setUpNavigationAppearance()
     }
     
-    override func layout() {
-        super.layout()
+    func layout() {
         view.addSubview(searchMainCollectionView)
 
         searchMainCollectionView.snp.makeConstraints { make in

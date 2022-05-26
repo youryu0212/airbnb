@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LocationViewController: BackgroundViewController {
+class LocationViewController: BackgroundViewController, CommonViewControllerProtocol {
 
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -28,16 +28,29 @@ class LocationViewController: BackgroundViewController {
         return barButton
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        super.setUpNavigationAppearance()
-        setUpSearchController()
+    func attribute() {
+        
+    }
+    
+    func layout() {
+        
+    }
+    
+    func bind() {
+        
     }
     
     private func setUpSearchController() {
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        super.setUpNavigationAppearance()
+        setUpSearchController()
+    }
+    
 }
 
 extension LocationViewController: UISearchBarDelegate, UITextFieldDelegate {
