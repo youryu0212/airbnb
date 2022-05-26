@@ -85,7 +85,7 @@ class PlaceSearchFragment : Fragment() {
         val formatted = current.format(formatter)
         val currentDate = formatted.split("-")
 
-        calendarStart.set(currentDate[0].toInt(), currentDate[1].toInt(), currentDate[2].toInt() - 1)
+        calendarStart.set(currentDate[0].toInt(), currentDate[1].toInt() - 1, currentDate[2].toInt() - 1)
         calendarEnd.set(2999, 12, 31)
 
         val minDate = calendarStart.timeInMillis
