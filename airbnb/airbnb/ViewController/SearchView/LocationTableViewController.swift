@@ -43,6 +43,10 @@ class LocationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 32
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(LocationCalenderViewController(), animated: true)
+    }
 
     private func setUI() {
         self.navigationItem.title = "숙소 찾기"

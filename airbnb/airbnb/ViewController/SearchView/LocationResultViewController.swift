@@ -30,8 +30,8 @@ class LocationResultViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pushVC = LocationCalenderViewController()
-        self.navigationController?.pushViewController(pushVC, animated: true) // navigationController가 nil
+        print(navigationController)
+        navigationController?.pushViewController(LocationCalenderViewController(), animated: true)
     }
     
     @objc func eraseButtonClicked() {

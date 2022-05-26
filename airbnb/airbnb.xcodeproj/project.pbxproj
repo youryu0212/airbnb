@@ -39,7 +39,7 @@
 		00489B83283CC26E00201F55 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		008FD74D283DD94E002441E5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		008FD74F283DD96F002441E5 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationTableViewCell.swift; path = airbnb/View/LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		6F35135F283DFEEE00018A57 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +68,14 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		00409191283F789E0055B0D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		00489B54283CA53F00201F55 = {
 			isa = PBXGroup;
 			children = (
@@ -87,9 +95,9 @@
 		00489B5F283CA53F00201F55 /* airbnb */ = {
 			isa = PBXGroup;
 			children = (
+				00409191283F789E0055B0D0 /* View */,
 				00489B7E283CC1A800201F55 /* ViewController */,
 				00489B7D283CC19F00201F55 /* ViewModel */,
-				00489B7C283CC19900201F55 /* View */,
 				00489B60283CA53F00201F55 /* AppDelegate.swift */,
 				00489B62283CA53F00201F55 /* SceneDelegate.swift */,
 				00489B66283CA53F00201F55 /* Main.storyboard */,
@@ -98,14 +106,6 @@
 				00489B6E283CA54000201F55 /* Info.plist */,
 			);
 			path = airbnb;
-			sourceTree = "<group>";
-		};
-		00489B7C283CC19900201F55 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				6F35135D283DF3F800018A57 /* LocationTableViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		00489B7D283CC19F00201F55 /* ViewModel */ = {
