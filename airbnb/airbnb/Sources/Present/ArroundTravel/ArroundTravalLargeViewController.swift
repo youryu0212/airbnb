@@ -59,7 +59,7 @@ final class ArroundTravalLargeViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArroundTravelCellView.identifier, for: indexPath) as? ArroundTravelCellView else {
                 return UICollectionViewCell()
             }
-            cell.setViewModel(model)
+            cell.bind(model)
             return cell
         }
     

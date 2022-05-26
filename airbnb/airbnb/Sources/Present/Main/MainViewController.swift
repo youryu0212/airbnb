@@ -97,6 +97,15 @@ final class MainViewController: UIViewController {
                 vc.navigationController?.pushViewController(viewController, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.state().presentSearchOption
+            .withUnretained(self)
+            .bind(onNext: { vc, address in
+                let viewController = TravalOptionViewController(viewModel: TravalOptionViewModel(location: address))
+                vc.navigationItem.backButtonTitle = ""
+                vc.navigationController?.pushViewController(viewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func layout() {
