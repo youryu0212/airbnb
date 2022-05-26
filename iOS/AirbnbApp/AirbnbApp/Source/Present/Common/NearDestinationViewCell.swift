@@ -21,9 +21,12 @@ final class NearDestinationViewCell: UICollectionViewCell {
         return image
     }()
     
-    private lazy var cityTitleLabel: UILabel = CustomLabel(font: .SFProDisplay.semiBold, fontColor: .Custom.gray1)
+    private lazy var cityTitleLabel = CustomLabel(font: .SFProDisplay.semiBold,
+                                                  fontColor: .Custom.gray1)
     
-    private lazy var distanceLabel: UILabel = CustomLabel(text: "차로 30분 거리", font: .SFProDisplay.regular(17), fontColor: .Custom.gray3)
+    private lazy var distanceLabel = CustomLabel(text: "차로 30분 거리",
+                                                          font: .SFProDisplay.regular(17),
+                                                          fontColor: .Custom.gray3)
     
     private lazy var informationStackView: UIStackView = {
         let stackView = UIStackView()
@@ -46,10 +49,6 @@ final class NearDestinationViewCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init with coder is unavailable")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
 }
 

@@ -22,7 +22,8 @@ final class TravelThemeViewCell: UICollectionViewCell {
         return image
     }()
     
-    private lazy var descriptionLabel: UILabel = CustomLabel(font: .NotoSans.medium, fontColor: .Custom.gray1)
+    private lazy var descriptionLabel = CustomLabel(font: .NotoSans.medium,
+                                                    fontColor: .Custom.gray1)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

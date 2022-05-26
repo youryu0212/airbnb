@@ -19,9 +19,13 @@ final class HeroImageViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = CustomLabel(text: "슬기로운\n자연생활", font: .SFProDisplay.medium, fontColor: .Custom.black)
+    private lazy var titleLabel = CustomLabel(text: "슬기로운\n자연생활",
+                                                       font: .SFProDisplay.medium,
+                                                       fontColor: .Custom.black)
     
-    private lazy var descriptionLabel: UILabel = CustomLabel(text: "에어비앤비가 엄선한\n위시리스트를 만나보세요", font: .SFProDisplay.regular(17), fontColor: .Custom.gray1)
+    private lazy var descriptionLabel = CustomLabel(text: "에어비앤비가 엄선한\n위시리스트를 만나보세요",
+                                                             font: .SFProDisplay.regular(17),
+                                                             fontColor: .Custom.gray1)
     
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()

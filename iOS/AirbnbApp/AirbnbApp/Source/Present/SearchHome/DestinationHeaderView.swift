@@ -14,7 +14,8 @@ final class DestinationHeaderView: UICollectionReusableView {
         return "\(self)"
     }
     
-    private let headerLabel: UILabel = CustomLabel(font: .SFProDisplay.regular(22), fontColor: .Custom.black)
+    private let headerLabel = CustomLabel(font: .SFProDisplay.regular(22),
+                                          fontColor: .Custom.black)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
