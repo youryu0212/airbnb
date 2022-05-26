@@ -69,34 +69,30 @@ final class SearchHomeViewController: UIViewController {
                 self?.navigationController?.pushViewController(UIViewController(), animated: true)
             }
         
-        viewModel.state.loadedHeader
-            .bind(onNext: { [weak self] in
-                self?.destinationCollectionViewDataSource.mockHeader = $0
-                self?.destinationCollectionView.reloadData()
-            })
+        viewModel.bindHeader { [weak self] headers in
+            self?.destinationCollectionViewDataSource.mockHeader = headers
+            self?.destinationCollectionView.reloadData()
+        }
         
-        viewModel.state.loadedImage
-            .bind(onNext: { [weak self] in
-                self?.destinationCollectionViewDataSource.mockImage.append( UIImage(named: $0) ?? UIImage())
-                self?.destinationCollectionView.reloadData()
-            })
+        viewModel.bindImage { [weak self] imageName in
+            self?.destinationCollectionViewDataSource.mockImage.append( UIImage(named: imageName) ?? UIImage())
+            self?.destinationCollectionView.reloadData()
+        }
         
-        viewModel.state.loadedCityName
-            .bind(onNext: { [weak self] in
-                self?.destinationCollectionViewDataSource.mockCity = $0
-                self?.destinationCollectionView.reloadData()
-            })
+        viewModel.bindTheme { [weak self] themes in
+            self?.destinationCollectionViewDataSource.mockCity = themes
+            self?.destinationCollectionView.reloadData()
+        }
         
-        viewModel.state.loadedTheme
-            .bind(onNext: { [weak self] in
-                self?.destinationCollectionViewDataSource.mockTheme = $0
-                self?.destinationCollectionView.reloadData()
-            })
+        viewModel.bindCityName { [weak self] cityNames in
+            self?.destinationCollectionViewDataSource.mockTheme = cityNames
+            self?.destinationCollectionView.reloadData()
+        }
         
-        viewModel.action.loadHeader.accept(())
-        viewModel.action.loadImage.accept(())
-        viewModel.action.loadCityName.accept(())
-        viewModel.action.loadTheme.accept(())
+        viewModel.loadHeader(())
+        viewModel.loadImage(())
+        viewModel.loadCityName(())
+        viewModel.loadTheme(())
     }
 }
 

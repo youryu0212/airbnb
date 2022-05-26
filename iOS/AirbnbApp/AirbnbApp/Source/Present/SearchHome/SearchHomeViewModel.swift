@@ -7,7 +7,10 @@
 
 import Foundation
 
-final class SearchHomeViewModel: ViewModelProtocol {
+final class SearchHomeViewModel {
+    
+//    func action() -> ViewModelAction { self }
+//    func state() -> ViewModelState { self }
     
     struct Action {
         let loadHeader = PublishRelay<Void>()
@@ -48,5 +51,42 @@ final class SearchHomeViewModel: ViewModelProtocol {
             .bind(onNext: { [weak self] in
                 self?.state.loadedTheme.accept(["자연생활을 만끽할 수 있는 숙소", "독특한 공간"])
             })
+    }
+}
+
+// MARK: - Providing Function
+
+extension SearchHomeViewModel {
+    
+    func loadHeader(_ value: Void) {
+        action.loadHeader.accept(value)
+    }
+    
+    func loadImage(_ value: Void) {
+        action.loadImage.accept(value)
+    }
+    
+    func loadCityName(_ value: Void) {
+        action.loadCityName.accept(value)
+    }
+    
+    func loadTheme(_ value: Void) {
+        action.loadTheme.accept(value)
+    }
+    
+    func bindHeader(_ completion: @escaping ([String]) -> Void) {
+        state.loadedHeader.bind(onNext: completion)
+    }
+    
+    func bindImage(_ completion: @escaping (String) -> Void) {
+        state.loadedImage.bind(onNext: completion)
+    }
+    
+    func bindCityName(_ completion: @escaping ([String]) -> Void) {
+        state.loadedCityName.bind(onNext: completion)
+    }
+    
+    func bindTheme(_ completion: @escaping ([String]) -> Void) {
+        state.loadedTheme.bind(onNext: completion)
     }
 }
