@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HorizonCalendar
 
 final class FindAccomodationView: UIView {
     private let selectView: UIView = {
@@ -56,6 +57,10 @@ final class FindAccomodationView: UIView {
             budgetView.leadingAnchor.constraint(equalTo: selectView.leadingAnchor),
             budgetView.trailingAnchor.constraint(equalTo: selectView.trailingAnchor)
         ])
+    }
+
+    func setCalendarDateRange(_ dateRange: ClosedRange<Date>) {
+        calendarView.setDateRange(dateRange)
     }
 
     func reloadCell() {

@@ -6,31 +6,39 @@
 //
 
 import UIKit
+import HorizonCalendar
 
 final class FindAccomodationViewController: UIViewController {
 
     private lazy var findAccomodationView = FindAccomodationView(frame: view.frame)
-    private var dataSource: [AccomodationDataSource] = [
-        AccomodationDataSource(title: "위치"),
-        AccomodationDataSource(title: "체크인/체크아웃"),
-        AccomodationDataSource(title: "요금"),
-        AccomodationDataSource(title: "인원")
+    private var dataSource: [AccomodationData] = [
+        AccomodationData(title: "위치"),
+        AccomodationData(title: "체크인/체크아웃"),
+        AccomodationData(title: "요금"),
+        AccomodationData(title: "인원")
     ]
+    private var useCase = FindAccomodationUseCase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        navigationItem.title = "숙소 찾기"
-        view = findAccomodationView
-        navigationController?.hidesBarsOnSwipe = false
+        setViewInitialState()
         findAccomodationView.setTableViewDateSource(self)
         findAccomodationView.setTableViewDelegate(self)
-        setToolbar()
         findAccomodationView.setCalendarDelegate(self)
+        useCase.setDelegate(self)
     }
 }
 
 private extension FindAccomodationViewController {
+
+    func setViewInitialState() {
+        view.backgroundColor = .white
+        navigationItem.title = "숙소 찾기"
+        view = findAccomodationView
+        navigationController?.hidesBarsOnSwipe = false
+        setToolbar()
+    }
+
     func setToolbar() {
         navigationController?.isToolbarHidden = false
         let toolBarButtons = [
@@ -64,6 +72,11 @@ extension FindAccomodationViewController: UITableViewDataSource {
 
         return cell
     }
+
+    private struct AccomodationData {
+        let title: String
+        var data: String?
+    }
 }
 
 extension FindAccomodationViewController: UITableViewDelegate {
@@ -73,20 +86,29 @@ extension FindAccomodationViewController: UITableViewDelegate {
 }
 
 extension FindAccomodationViewController: SelectCalendarDelegate {
-    func didSetDate(_ dateRange: ClosedRange<Date>?) {
-        guard let dateRange = dateRange else {
-            return
-        }
+    func didUpdateDay(_ newDay: Day) {
+        useCase.updateSelectedDay(newDay.toDate())
+    }
 
-        let data = dateRange.description.components(separatedBy: [" ", "-", "+", "."])
-                .filter { !$0.isEmpty }
-                .compactMap { Int($0) }
-        dataSource[0].data = "\(data[0])-\(data[1])-\(data[2])~\(data[4])-\(data[5])-\(data[6])"
+    func didPresentDateRange(_ dateRange: ClosedRange<Date>) {
+        let dateData = DateData(dateRange: dateRange)
+        dataSource[1].data = dateData.description
         findAccomodationView.reloadCell()
     }
 }
 
-struct AccomodationDataSource {
-    let title: String
-    var data: String?
+extension FindAccomodationViewController: FindAccomodationUseCaseDelegate {
+    func didChangeDate() {
+        dataSource[1].data = nil
+        findAccomodationView.reloadCell()
+    }
+
+    func didSetDateRange(_ dateRange: ClosedRange<Date>) {
+        findAccomodationView.setCalendarDateRange(dateRange)
+    }
+}
+
+protocol FindAccomodationUseCaseDelegate: AnyObject {
+    func didChangeDate()
+    func didSetDateRange(_ dateRange: ClosedRange<Date>)
 }
