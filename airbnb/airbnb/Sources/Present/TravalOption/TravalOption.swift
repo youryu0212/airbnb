@@ -15,25 +15,22 @@ public class TravalOptionInfo {
     public private(set) var checkIn: Date?
     public private(set) var checkOut: Date?
     public private(set) var rangePrice: Price?
-    public private(set) var person: Int?
+    public private(set) var person: Int = 0
     
     func setLocation(_ value: String?) {
         location = value
     }
     
-    func setCheckIn(_ value: Date?) {
-        checkIn = value
-    }
-    
-    func setCheckOut(_ value: Date?) {
-        checkOut = value
+    func setCheckInOut(checkIn: Date?, checkOut: Date?) {
+        self.checkIn = checkIn
+        self.checkOut = checkOut
     }
     
     func setrangePrice(_ value: Price?) {
         rangePrice = value
     }
     
-    func setperson(_ value: Int?) {
+    func setperson(_ value: Int) {
         person = value
     }
 }

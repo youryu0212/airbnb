@@ -25,6 +25,10 @@ final class MainViewModel: MainViewModelProtocol {
     @Inject(\.travalRepository) private var travalRepository: TravalRepository
     private let disposeBag = DisposeBag()
     
+    deinit {
+        Log.info("deinit MainViewModel")
+    }
+    
     init() {
         loadHome
             .compactMap { URL(string: "https://user-images.githubusercontent.com/5019378/169792466-371c2b29-2869-4335-8c07-d20488fc9035.png") }

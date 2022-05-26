@@ -26,7 +26,7 @@ final class TravalOptionViewController: UIViewController {
         var viewControllers = [TravalOptionInfo.OptionType: UIViewController]()
         viewControllers[.checkInOut] = CheckInOutViewController(viewModel: viewModel.checkInOutViewModel)
         viewControllers[.rangePrice] = PriceViewController(viewModel: viewModel.priceViewModel)
-        viewControllers[.person] = PersonViewController(viewModel: viewModel.personViewModel)
+        viewControllers[.person] = GuestViewController(viewModel: viewModel.personViewModel)
         viewControllers.values.forEach { $0.view.isHidden = true }
         return viewControllers
     }()

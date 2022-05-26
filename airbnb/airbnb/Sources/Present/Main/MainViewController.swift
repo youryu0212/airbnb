@@ -56,6 +56,10 @@ final class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        Log.info("deinit MainViewController")
+    }
+    
     private func bind() {
         rx.viewDidLoad
             .bind(to: viewModel.action().loadHome)

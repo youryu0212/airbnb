@@ -27,7 +27,7 @@ protocol TravalOptionViewModelBinding {
 protocol TravalOptionViewModelProperty {
     var priceViewModel: PriceViewModelProtocol { get }
     var checkInOutViewModel: CheckInOutViewModelProtocol { get }
-    var personViewModel: PersonViewModelProtocol { get }
+    var personViewModel: GuestViewModelProtocol { get }
 }
 
 typealias TravalOptionViewModelProtocol = TravalOptionViewModelBinding & TravalOptionViewModelProperty

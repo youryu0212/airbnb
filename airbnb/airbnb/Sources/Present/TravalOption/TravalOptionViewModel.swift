@@ -23,7 +23,7 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
     
     let priceViewModel: PriceViewModelProtocol = PriceViewModel()
     let checkInOutViewModel: CheckInOutViewModelProtocol = CheckInOutViewModel()
-    let personViewModel: PersonViewModelProtocol = PersonViewModel()
+    let personViewModel: GuestViewModelProtocol = GuestViewModel()
     
     private var travalOptionInfo = TravalOptionInfo()
     private let disposeBag = DisposeBag()
@@ -52,11 +52,24 @@ final class TravalOptionViewModel: TravalOptionViewModelBinding, TravalOptionVie
             .disposed(by: disposeBag)
         
         checkInOutViewModel.state().updateCheckInOut
+            .bind(onNext: travalOptionInfo.setCheckInOut)
+            .disposed(by: disposeBag)
+        
+        checkInOutViewModel.state().updateCheckInOut
             .map { checkIn, checkOut -> (TravalOptionInfo.OptionType, String) in
                 let checkInText = checkIn?.string("M월 d일 - ") ?? ""
                 let checkOutText = checkOut?.string("M월 d일") ?? ""
                 return (.checkInOut, "\(checkInText)\(checkOutText)")
             }
+            .bind(to: updateValue)
+            .disposed(by: disposeBag)
+        
+        personViewModel.state().updatedTotalGuestCount
+            .bind(onNext: travalOptionInfo.setperson)
+            .disposed(by: disposeBag)
+        
+        personViewModel.state().updatedTotalGuestCount
+            .map { count in (.person, "게스트 \(count)명") }
             .bind(to: updateValue)
             .disposed(by: disposeBag)
     }
