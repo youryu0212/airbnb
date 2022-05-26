@@ -21,20 +21,9 @@ final class NearDestinationViewCell: UICollectionViewCell {
         return image
     }()
     
-    private lazy var cityTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .SFProDisplay.semiBold
-        label.textColor = .Custom.gray1
-        return label
-    }()
+    private lazy var cityTitleLabel: UILabel = CustomLabel(font: .SFProDisplay.semiBold, fontColor: .Custom.gray1)
     
-    private lazy var distanceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "차로 30분 거리"
-        label.font = .SFProDisplay.regular(17)
-        label.textColor = .Custom.gray3
-        return label
-    }()
+    private lazy var distanceLabel: UILabel = CustomLabel(text: "차로 30분 거리", font: .SFProDisplay.regular(17), fontColor: .Custom.gray3)
     
     private lazy var informationStackView: UIStackView = {
         let stackView = UIStackView()
