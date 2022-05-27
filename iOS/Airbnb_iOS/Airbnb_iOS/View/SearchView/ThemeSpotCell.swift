@@ -52,7 +52,7 @@ final class ThemeSpotCell: UICollectionViewCell {
 private extension ThemeSpotCell {
 
     func setLayout() {
-        contentView.addSubViews([imageView, titleLabel])
+        contentView.addSubViews(imageView, titleLabel)
 
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

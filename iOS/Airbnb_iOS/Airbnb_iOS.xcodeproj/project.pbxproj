@@ -21,6 +21,7 @@
 		D247A48E283F659400A92DDD /* BrowsingSpotCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247A48D283F659400A92DDD /* BrowsingSpotCollectionDataSource.swift */; };
 		D2B52C3C283E0B4B00C58271 /* FamousSpotCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B52C3B283E0B4B00C58271 /* FamousSpotCollectionDataSource.swift */; };
 		D2B52C3E283E0CDE00C58271 /* FamousSpotCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B52C3D283E0CDE00C58271 /* FamousSpotCollectionView.swift */; };
+		D2B52C40283F153900C58271 /* HomeViewCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B52C3F283F153900C58271 /* HomeViewCollectionLayout.swift */; };
 		D2FFBFD1283C868300C97D16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD0283C868300C97D16 /* AppDelegate.swift */; };
 		D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */; };
 		D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFBFD4283C868300C97D16 /* TabBarController.swift */; };
@@ -49,6 +50,7 @@
 		D247A48D283F659400A92DDD /* BrowsingSpotCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingSpotCollectionDataSource.swift; sourceTree = "<group>"; };
 		D2B52C3B283E0B4B00C58271 /* FamousSpotCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousSpotCollectionDataSource.swift; sourceTree = "<group>"; };
 		D2B52C3D283E0CDE00C58271 /* FamousSpotCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousSpotCollectionView.swift; sourceTree = "<group>"; };
+		D2B52C3F283F153900C58271 /* HomeViewCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCollectionLayout.swift; sourceTree = "<group>"; };
 		D2FFBFCD283C868300C97D16 /* Airbnb_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FFBFD0283C868300C97D16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,31 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		D2B52C41283F19F600C58271 /* CollectionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D2B52C3F283F153900C58271 /* HomeViewCollectionLayout.swift */,
+			);
+			path = CollectionLayout;
+			sourceTree = "<group>";
+		};
+		D2B52C42283F1A0E00C58271 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D2B52C41283F19F600C58271 /* CollectionLayout */,
+				D2562ED8283DCE3B00336E49 /* DataSource */,
+				02874046283D37AA0009C62D /* Extension */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2B52C43283F1A2800C58271 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D2FFBFC4283C868300C97D16 = {
 			isa = PBXGroup;
 			children = (
@@ -163,10 +190,10 @@
 		D2FFBFCF283C868300C97D16 /* Airbnb_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D2562ED8283DCE3B00336E49 /* DataSource */,
-				02874046283D37AA0009C62D /* Extension */,
+				D2B52C42283F1A0E00C58271 /* Utility */,
 				02DF0CD3283CB2B9003D0679 /* View */,
 				D2FFBFEB283CA74600C97D16 /* ViewController */,
+				D2B52C43283F1A2800C58271 /* Model */,
 				D2FFBFD0283C868300C97D16 /* AppDelegate.swift */,
 				D2FFBFD2283C868300C97D16 /* SceneDelegate.swift */,
 				D2FFBFD9283C868400C97D16 /* Assets.xcassets */,
@@ -324,6 +351,7 @@
 			files = (
 				02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */,
 				0287404A283D3B6D0009C62D /* HomeView.swift in Sources */,
+				D2B52C40283F153900C58271 /* HomeViewCollectionLayout.swift in Sources */,
 				02DF0CDB283CB980003D0679 /* CollectionHeaderView.swift in Sources */,
 				D2FFBFD5283C868300C97D16 /* TabBarController.swift in Sources */,
 				D247A48E283F659400A92DDD /* BrowsingSpotCollectionDataSource.swift in Sources */,
