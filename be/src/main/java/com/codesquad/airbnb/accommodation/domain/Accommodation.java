@@ -1,5 +1,6 @@
 package com.codesquad.airbnb.accommodation.domain;
 
+import com.codesquad.airbnb.reservation.domain.Reservation;
 import lombok.Getter;
 
 import javax.persistence.*;
