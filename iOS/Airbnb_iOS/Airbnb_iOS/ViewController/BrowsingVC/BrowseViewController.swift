@@ -25,6 +25,19 @@ class BrowseViewController: UIViewController {
     
     private var searchCompleter = MKLocalSearchCompleter()
 
+    private lazy var nextVCButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle("다음 화면", for: .normal)
+        if #available(iOS 14.0, *) {
+            button.addAction(UIAction(handler: { _ in
+                let nextVC = FindAccomodationViewController()
+                self.navigationController?.pushViewController(nextVC, animated: true)
+            }), for: .touchUpInside)
+        }
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationItem()
