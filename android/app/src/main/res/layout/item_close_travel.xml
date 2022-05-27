@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="travels"
+            type="com.example.airbnb.network.dto.CloseTravelContents" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_item_close_travel"
+            android:layout_width="70dp"
+            imageUrl="@{travels.imageUrl}"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_item_close_title"
+            style="@style/Subtitle1.bold.18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@{travels.title}"
+            app:layout_constraintStart_toEndOf="@+id/iv_item_close_travel"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="서울" />
+
+        <TextView
+            android:id="@+id/tv_item_close_contents"
+            style="@style/Subtitle1.14.gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{travels.contents}"
+            app:layout_constraintStart_toStartOf="@+id/tv_item_close_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_close_title"
+            tools:text="차로 30분 거리" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
