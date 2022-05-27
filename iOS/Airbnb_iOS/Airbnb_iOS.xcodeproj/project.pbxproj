@@ -19,10 +19,10 @@
 		0287405D283E3B4A0009C62D /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */; };
 		0287405F283E3BA40009C62D /* DayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0287405E283E3BA40009C62D /* DayLabel.swift */; };
 		02AE9A2F283FD5AF00F3B5E5 /* FindAccomodationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A2E283FD5AF00F3B5E5 /* FindAccomodationUseCase.swift */; };
-		02AE9A31283FD83300F3B5E5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A30283FD83300F3B5E5 /* String+.swift */; };
-		02AE9A33283FD84C00F3B5E5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A32283FD84C00F3B5E5 /* Date+.swift */; };
-		02AE9A35283FD86000F3B5E5 /* Day+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A34283FD86000F3B5E5 /* Day+.swift */; };
 		02AE9A37283FDADF00F3B5E5 /* DateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A36283FDADF00F3B5E5 /* DateData.swift */; };
+		02AE9A3D28406A6600F3B5E5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A3C28406A6600F3B5E5 /* String+.swift */; };
+		02AE9A3F28406A7A00F3B5E5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A3E28406A7A00F3B5E5 /* Date+.swift */; };
+		02AE9A4128406A9B00F3B5E5 /* Day+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE9A4028406A9B00F3B5E5 /* Day+.swift */; };
 		02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */; };
 		02DF0CD7283CB3C7003D0679 /* AroundSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */; };
 		02DF0CD9283CB77F003D0679 /* ThemeSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */; };
@@ -59,10 +59,10 @@
 		0287405C283E3B4A0009C62D /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
 		0287405E283E3BA40009C62D /* DayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLabel.swift; sourceTree = "<group>"; };
 		02AE9A2E283FD5AF00F3B5E5 /* FindAccomodationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccomodationUseCase.swift; sourceTree = "<group>"; };
-		02AE9A30283FD83300F3B5E5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		02AE9A32283FD84C00F3B5E5 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		02AE9A34283FD86000F3B5E5 /* Day+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+.swift"; sourceTree = "<group>"; };
 		02AE9A36283FDADF00F3B5E5 /* DateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateData.swift; sourceTree = "<group>"; };
+		02AE9A3C28406A6600F3B5E5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		02AE9A3E28406A7A00F3B5E5 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		02AE9A4028406A9B00F3B5E5 /* Day+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+.swift"; sourceTree = "<group>"; };
 		02DF0CD4283CB2C6003D0679 /* MainEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventCell.swift; sourceTree = "<group>"; };
 		02DF0CD6283CB3C7003D0679 /* AroundSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundSpotCell.swift; sourceTree = "<group>"; };
 		02DF0CD8283CB77F003D0679 /* ThemeSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSpotCell.swift; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 			children = (
 				02874047283D37B50009C62D /* UIColor+.swift */,
 				0287404B283DBE810009C62D /* UiView+.swift */,
-				02AE9A30283FD83300F3B5E5 /* String+.swift */,
-				02AE9A32283FD84C00F3B5E5 /* Date+.swift */,
-				02AE9A34283FD86000F3B5E5 /* Day+.swift */,
+				02AE9A3C28406A6600F3B5E5 /* String+.swift */,
+				02AE9A3E28406A7A00F3B5E5 /* Date+.swift */,
+				02AE9A4028406A9B00F3B5E5 /* Day+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -435,9 +435,8 @@
 				0287405D283E3B4A0009C62D /* DayRangeIndicatorView.swift in Sources */,
 				D2FFBFE8283CA72500C97D16 /* WishlistViewController.swift in Sources */,
 				02AE9A2F283FD5AF00F3B5E5 /* FindAccomodationUseCase.swift in Sources */,
-				02AE9A31283FD83300F3B5E5 /* String+.swift in Sources */,
-				02AE9A33283FD84C00F3B5E5 /* Date+.swift in Sources */,
 				D2FFBFE6283CA70B00C97D16 /* SearchViewController.swift in Sources */,
+				02AE9A3F28406A7A00F3B5E5 /* Date+.swift in Sources */,
 				02874055283E0DF40009C62D /* SelectCalendarView.swift in Sources */,
 				0287404F283DFD250009C62D /* FindAccomodationViewController.swift in Sources */,
 				D2FFBFD3283C868300C97D16 /* SceneDelegate.swift in Sources */,
@@ -447,12 +446,13 @@
 				02DF0CDD283CBAB6003D0679 /* SearchViewCollectionDataSource.swift in Sources */,
 				D247A48A283F63BA00A92DDD /* BrowsingSpotCollectionView.swift in Sources */,
 				02874048283D37B50009C62D /* UIColor+.swift in Sources */,
+				02AE9A4128406A9B00F3B5E5 /* Day+.swift in Sources */,
+				02AE9A3D28406A6600F3B5E5 /* String+.swift in Sources */,
 				D247A4922840690400A92DDD /* BrowsingSpotCollectionDataSource.swift in Sources */,
 				0287404C283DBE810009C62D /* UiView+.swift in Sources */,
 				D247A48C283F640A00A92DDD /* BrowsingSpotCell.swift in Sources */,
 				02DF0CD5283CB2C6003D0679 /* MainEventCell.swift in Sources */,
 				02874051283DFDCE0009C62D /* FindAccomodationView.swift in Sources */,
-				02AE9A35283FD86000F3B5E5 /* Day+.swift in Sources */,
 				D2FFBFEE283CB33700C97D16 /* BrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
