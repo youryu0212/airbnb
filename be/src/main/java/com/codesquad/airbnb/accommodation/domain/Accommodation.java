@@ -28,7 +28,10 @@ public class Accommodation {
     private int basicFee;
 
     @Column(nullable = false)
-    private String location;
+    private double latitude;
+
+    @Column(nullable = false)
+    private double longitude;
 
     @Column(nullable = false)
     private String accommodationType;
