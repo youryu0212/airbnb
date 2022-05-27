@@ -8,7 +8,7 @@
 import UIKit
 
 class BrowsingSpotCollectionView: UIView {
-    
+
     private(set) lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.getCollectionViewLayout())
         collectionView.isScrollEnabled = true
@@ -31,7 +31,7 @@ class BrowsingSpotCollectionView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     func setDataSource(_ dataSource: UICollectionViewDataSource) {
         collectionView.dataSource = dataSource
     }
@@ -48,7 +48,7 @@ private extension BrowsingSpotCollectionView {
             collectionView.topAnchor.constraint(equalTo: topAnchor)
         ])
     }
-    
+
     func getCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { (section, _) -> NSCollectionLayoutSection? in
             let itemFractionalWidthFraction = 0.8
@@ -63,7 +63,7 @@ private extension BrowsingSpotCollectionView {
 
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = .init(top: 16, leading: 0, bottom: 0, trailing: 0)
-            
+
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                     heightDimension: .absolute(22))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)

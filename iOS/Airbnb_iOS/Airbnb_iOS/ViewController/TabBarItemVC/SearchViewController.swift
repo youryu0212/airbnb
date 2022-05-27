@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     private let browseViewController = BrowseViewController()
     private lazy var homeView = HomeView(frame: view.frame)
     private let dataSource = SearchViewCollectionDataSource()
-    
+
     let searchBar: UISearchBar = {
         let searcher = UISearchBar()
         searcher.placeholder = "어디로 여행가세요?"
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         self.view = homeView
         self.homeView.setDataSource(dataSource)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.hidesBarsOnSwipe = true
@@ -44,7 +44,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         browseViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(browseViewController, animated: true)
-        
+
         return false
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 final class SearchViewCollectionDataSource: NSObject, UICollectionViewDataSource {
-    
+
     var data: [MySection] = [
         .first([MySection.FirstItem.init(image: UIImage(named: "heroImage") ?? UIImage())]),
         .second([MySection.SecondItem].init(repeating: MySection.SecondItem.init(image: UIImage(named: "SeoulImage") ?? UIImage(), title: "서울", distance: "차로 30분 거리"), count: 20)),
