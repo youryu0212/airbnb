@@ -11,7 +11,8 @@ import HorizonCalendar
 final class SelectCalendarView: UIView {
 
     private lazy var calendarView = CalendarView(initialContent: makeContent())
-    private var selectedDay: Day?
+    private var selectedDay1: Day?
+    private var selectedDay2: Day?
     private var selectedDateRange: ClosedRange<Date>?
     weak var delegate: SelectCalendarDelegate?
 
@@ -35,7 +36,17 @@ final class SelectCalendarView: UIView {
                 self.selectedDateRange = nil
                 self.calendarView.setContent(self.makeContent())
             }
-            self.selectedDay = day
+            if self.selectedDay1 != nil &&
+                self.selectedDay2 != nil {
+                self.selectedDay1 = day
+                self.selectedDay2 = nil
+            } else if self.selectedDay1 != nil {
+                self.selectedDay2 = day
+            } else {
+                self.selectedDay1 = day
+                self.selectedDay2 = nil
+            }
+
             self.delegate?.didUpdateDay(day)
             let newContent = self.makeContent()
             self.calendarView.setContent(newContent)
@@ -72,7 +83,8 @@ private extension SelectCalendarView {
         .dayItemProvider { [weak self] day in
             var invariantViewProperties = DayLabel.InvariantViewProperties(font: .systemFont(ofSize: 18), textColor: .darkGray, backgroundColor: .clear)
 
-            if day == self?.selectedDay {
+            if day == self?.selectedDay1 ||
+                day == self?.selectedDay2 {
                 invariantViewProperties.textColor = .white
                 invariantViewProperties.backgroundColor = .black
             }
@@ -81,6 +93,8 @@ private extension SelectCalendarView {
                 invariantViewProperties: invariantViewProperties, viewModel: .init(day: day)
             )
         }
+        .interMonthSpacing(24)
+        .verticalDayMargin(8)
     }
 
     func setUpLayout() {
