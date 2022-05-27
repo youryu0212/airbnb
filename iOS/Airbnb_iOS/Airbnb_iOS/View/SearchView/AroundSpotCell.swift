@@ -58,13 +58,13 @@ final class AroundSpotCell: UICollectionViewCell {
 private extension AroundSpotCell {
 
     func setLayout() {
-        addSubViews([imageView, titleLabel, distanceLabel])
+        addSubViews(imageView, titleLabel, distanceLabel)
 
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 74)
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])
 
         NSLayoutConstraint.activate([
