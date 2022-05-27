@@ -51,7 +51,7 @@ final class FindAccomodationCell: UITableViewCell {
 
 private extension FindAccomodationCell {
     func setUpLayout() {
-        addSubViews([titleLabel, descriptionLabel])
+        addSubViews(titleLabel, descriptionLabel)
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor),

@@ -70,7 +70,7 @@ final class FindAccomodationView: UIView {
 
 private extension FindAccomodationView {
     func setUpLayout() {
-        addSubViews([selectView, infoTableView])
+        addSubViews(selectView, infoTableView)
         backgroundColor = .white
 
         NSLayoutConstraint.activate([
