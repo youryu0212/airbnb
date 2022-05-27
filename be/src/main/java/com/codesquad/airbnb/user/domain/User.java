@@ -1,5 +1,6 @@
 package com.codesquad.airbnb.user.domain;
 
+import com.codesquad.airbnb.common.BaseTime;
 import com.codesquad.airbnb.wishlist.domain.WishList;
 import lombok.Getter;
 
@@ -12,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
 @Entity
-public class User {
+public class User extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

@@ -1,26 +1,29 @@
 package com.codesquad.airbnb.reservation.domain;
 
 import com.codesquad.airbnb.accommodation.domain.Accommodation;
+import com.codesquad.airbnb.common.BaseTime;
 import lombok.Getter;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
+import java.time.LocalDateTime;
+
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
 @Entity
-public class Reservation {
+public class Reservation extends BaseTime {
 
     @GeneratedValue(strategy = IDENTITY)
     @Id
     private Long id;
 
     @Column(nullable = false)
-    private String checkInDate;
+    private LocalDateTime checkInDate;
 
     @Column(nullable = false)
-    private String checkOutDate;
+    private LocalDateTime checkOutDate;
 
     @JoinColumn(nullable = false)
     @ManyToOne(fetch = LAZY)
