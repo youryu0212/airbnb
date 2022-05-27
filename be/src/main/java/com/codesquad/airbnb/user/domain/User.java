@@ -1,6 +1,7 @@
 package com.codesquad.airbnb.user.domain;
 
 import com.codesquad.airbnb.common.BaseTime;
+import com.codesquad.airbnb.reservation.domain.Reservation;
 import com.codesquad.airbnb.wishlist.domain.WishList;
 import lombok.Getter;
 
@@ -23,4 +24,7 @@ public class User extends BaseTime {
 
     @OneToMany(mappedBy = "user", cascade = ALL)
     public List<WishList> wishLists;
+
+    @OneToMany(mappedBy = "user", cascade = ALL)
+    public List<Reservation> reservations;
 }

@@ -2,6 +2,7 @@ package com.codesquad.airbnb.reservation.domain;
 
 import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.common.BaseTime;
+import com.codesquad.airbnb.user.domain.User;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -35,4 +36,7 @@ public class Reservation extends BaseTime {
     @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean cancelled;
 
+    @JoinColumn(nullable = false)
+    @ManyToOne(fetch = LAZY)
+    private User user;
 }
