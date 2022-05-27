@@ -32,7 +32,7 @@ class BrowseViewController: UIViewController {
         self.setTouchCollectionViewToDismissKeyboard()
         
         self.searchCompleter.delegate = self
-        self.searchCompleter.resultTypes = .pointOfInterest
+        self.searchCompleter.resultTypes = .address
         
         self.famousSpotCollectionView.setDataSource(famousSpotDataSource)
         self.famousSpotCollectionView.collectionView.keyboardDismissMode = .onDrag
