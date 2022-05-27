@@ -64,7 +64,7 @@ private extension AroundSpotCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 74)
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])
 
         NSLayoutConstraint.activate([
