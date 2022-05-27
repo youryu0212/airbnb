@@ -53,8 +53,8 @@ private extension SelectCalendarView {
     func makeContent() -> CalendarViewContent {
         let calendar = Calendar.current
 
-        let startDate = calendar.date(from: DateComponents(timeZone: .init(secondsFromGMT: 0), year: 2022, month: 05, day: 01)) ?? Date()
-        let endDate = calendar.date(from: DateComponents(timeZone: .init(secondsFromGMT: 0), year: 2022, month: 12, day: 31)) ?? Date()
+        let startDate = Date()
+        let endDate = calendar.date(byAdding: DateComponents(year: 1), to: startDate) ?? Date()
         let mockDate = calendar.date(from: DateComponents(year: 1999, month: 05, day: 01)) ?? Date()
         var dateRangeToHighlight = mockDate...mockDate
         if let selectedDateRange = selectedDateRange {
