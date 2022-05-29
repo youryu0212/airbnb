@@ -1,4 +1,4 @@
-package com.codesquad.airbnb.common;
+package com.codesquad.airbnb.common.util;
 
 public class CalculatorUtils {
     private static final double RADIUS = 6371000;

@@ -1,10 +1,10 @@
 package com.codesquad.airbnb.accommodation.web.dto;
 
-public class PriceConditionDto {
+public class PriceSearchCondition {
     private String checkInDate;
     private String checkOutDate;
 
-    public PriceConditionDto(String checkInDate, String checkOutDate) {
+    public PriceSearchCondition(String checkInDate, String checkOutDate) {
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
     }

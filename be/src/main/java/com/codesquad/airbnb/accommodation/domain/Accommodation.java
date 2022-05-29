@@ -1,17 +1,20 @@
 package com.codesquad.airbnb.accommodation.domain;
 
+import com.codesquad.airbnb.common.BaseTime;
+import com.codesquad.airbnb.reservation.domain.Reservation;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
 @Entity
-public class Accommodation {
+public class Accommodation extends BaseTime {
 
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
     @Id
     private Long id;
 
@@ -21,8 +24,15 @@ public class Accommodation {
     @Column(nullable = false)
     private double rating;
 
+    private int reviewCount;
+
+    private int basicFee;
+
     @Column(nullable = false)
-    private String location;
+    private double latitude;
+
+    @Column(nullable = false)
+    private double longitude;
 
     @Column(nullable = false)
     private String accommodationType;

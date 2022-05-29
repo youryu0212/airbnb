@@ -6,8 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 public class Address {
-    private static final StringBuffer sb = new StringBuffer();
-
     private String state;
     private String city;
     private String district;
@@ -16,9 +14,9 @@ public class Address {
     private String nameOfBuilding;
 
     public String toValue() {
-        init();
+        StringBuilder sb = new StringBuilder();
 
-        StringBuffer result = sb
+        StringBuilder result = sb
                 .append(state)
                 .append(" ")
                 .append(city)
@@ -33,9 +31,5 @@ public class Address {
 
         log.debug("Address: {}", result);
         return result.toString();
-    }
-
-    private void init() {
-        sb.setLength(0);
     }
 }
