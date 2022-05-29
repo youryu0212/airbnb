@@ -1,17 +1,17 @@
 import { MONTH_DICTIONARY } from "./constant";
 
-interface flexBoxPropertyType {
+interface FlexBoxPropertyType {
   justify?: string;
   align?: string;
   direction?: string;
   wrap?: string;
 }
 
-export interface flexBoxType extends flexBoxPropertyType {
+export interface FlexBoxType extends FlexBoxPropertyType {
   flex: boolean;
 }
 
-export function applyFlex({ flex, justify, align, direction, wrap }: flexBoxType) {
+export function applyFlex({ flex, justify, align, direction, wrap }: FlexBoxType) {
   return (
     flex &&
     `${getFlexTemplate({ justify, align, direction, wrap })}
@@ -19,11 +19,12 @@ export function applyFlex({ flex, justify, align, direction, wrap }: flexBoxType
   );
 }
 
-function getFlexTemplate({ justify, align, direction, wrap }: flexBoxPropertyType) {
-  justify = justify || "start";
-  align = align || "stretch";
-  direction = direction || "row";
-  wrap = wrap || "nowrap";
+function getFlexTemplate({
+  justify = "start",
+  align = "stretch",
+  direction = "row",
+  wrap = "nowrap",
+}: FlexBoxPropertyType) {
   return `
     display: flex;
     justify-content: ${justify};
@@ -39,3 +40,15 @@ export function getTodayDate() {
 
   return { year: Number(year), month: MONTH_DICTIONARY.indexOf(month), day: Number(day), dayOfWeek };
 }
+
+export const createKey = (data: string, idx: number) => {
+  return `${data}-${idx}`;
+};
+
+export const composeProvider = (providers: any) => {
+  return providers.reduce((Prev: any, Curr: any) => ({ children }: any) => {
+    <Prev>
+      <Curr>{children}</Curr>
+    </Prev>;
+  });
+};
