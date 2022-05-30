@@ -6,12 +6,11 @@ spring:
     password: tksxhfl
   sql:
     init:
+      schema-locations: classpath:schema.sql
       data-locations: classpath:data.sql
       mode: always
 
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
