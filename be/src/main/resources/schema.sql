@@ -1,10 +1,10 @@
-drop table if exists accommodation;
+drop table if exists wish_list;
 
 drop table if exists reservation;
 
-drop table if exists user;
+drop table if exists accommodation;
 
-drop table if exists wish_list;
+drop table if exists user;
 
 create table accommodation (
        id bigint not null auto_increment,
@@ -15,8 +15,7 @@ create table accommodation (
         basic_fee integer not null,
         description varchar(255),
         host_name varchar(255) not null,
-        latitude double precision not null,
-        longitude double precision not null,
+        location point not null,
         name varchar(255) not null,
         rating double precision not null,
         review_count integer not null,

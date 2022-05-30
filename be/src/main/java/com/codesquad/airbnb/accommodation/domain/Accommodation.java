@@ -3,6 +3,7 @@ package com.codesquad.airbnb.accommodation.domain;
 import com.codesquad.airbnb.common.BaseTime;
 import com.codesquad.airbnb.reservation.domain.Reservation;
 import lombok.Getter;
+import org.locationtech.jts.geom.Point;
 
 import javax.persistence.*;
 import java.util.List;
@@ -28,11 +29,8 @@ public class Accommodation extends BaseTime {
 
     private int basicFee;
 
-    @Column(nullable = false)
-    private double latitude;
-
-    @Column(nullable = false)
-    private double longitude;
+    @Column(nullable = false, columnDefinition = "point")
+    private Point location;
 
     @Column(nullable = false)
     private String accommodationType;
