@@ -1,5 +1,5 @@
 //
-//  HeroImageView.swift
+//  HeroImageCell.swift
 //  airbnb
 //
 //  Created by Jihee hwang on 2022/05/25.
@@ -8,7 +8,8 @@
 import UIKit
 import SnapKit
 
-class HeroImageView: UIView {
+class HeroImageCell: UICollectionViewCell {
+    static let identifier = "HeroImageCell"
     
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -19,7 +20,7 @@ class HeroImageView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.text = "슬기로운\n자연생활"
         return label
     }()
@@ -27,7 +28,7 @@ class HeroImageView: UIView {
     private let contentsLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.text = "에어비앤비가 엄선한\n위시리스트를 만나보세요."
         return label
     }()
