@@ -1,19 +1,17 @@
 package com.codesquad.airbnb.accommodation.web.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+
+@Setter
+@Getter
 public class PriceSearchCondition {
-    private String checkInDate;
-    private String checkOutDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime checkInDate;
 
-    public PriceSearchCondition(String checkInDate, String checkOutDate) {
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-    }
-
-    public String getCheckInDate() {
-        return checkInDate;
-    }
-
-    public String getCheckOutDate() {
-        return checkOutDate;
-    }
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime checkOutDate;
 }

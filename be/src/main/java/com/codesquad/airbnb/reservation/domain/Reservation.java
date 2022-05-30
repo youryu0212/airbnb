@@ -6,8 +6,7 @@ import com.codesquad.airbnb.user.domain.User;
 import lombok.Getter;
 
 import javax.persistence.*;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -21,10 +20,10 @@ public class Reservation extends BaseTime {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDateTime checkInDate;
+    private LocalDate checkInDate;
 
     @Column(nullable = false)
-    private LocalDateTime checkOutDate;
+    private LocalDate checkOutDate;
 
     @JoinColumn(nullable = false)
     @ManyToOne(fetch = LAZY)

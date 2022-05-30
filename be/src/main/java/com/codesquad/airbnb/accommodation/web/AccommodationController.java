@@ -1,21 +1,28 @@
 package com.codesquad.airbnb.accommodation.web;
 
+import com.codesquad.airbnb.accommodation.domain.AccommodationRepository;
+import com.codesquad.airbnb.accommodation.service.AccommodationService;
+import com.codesquad.airbnb.accommodation.web.dto.AccommodationResponseDto;
 import com.codesquad.airbnb.accommodation.web.dto.BasicSearchCondition;
 import com.codesquad.airbnb.accommodation.web.dto.PriceSearchCondition;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@Slf4j
+@RequiredArgsConstructor
 @RequestMapping("/accommodations")
 @RestController
 public class AccommodationController {
 
+    private final AccommodationRepository accommodationRepository;
+    private final AccommodationService accommodationService;
+
     @GetMapping
-    public String showListWithCondition(@RequestBody BasicSearchCondition dto) {
-        /**
-         * TO-DO
-         * - Parameter: 숙소 검색 조건(체크인/체크아웃 날짜, 가격대, 인원)
-         * - Return: DB로부터 해당 조건으로 필터링하여 조회한 숙소 목록을 출력한다.
-         */
-        return null;
+    public List<AccommodationResponseDto> showAccommodationsWithCondition(BasicSearchCondition basicSearchCondition) {
+        return accommodationService.findByBasicSearch(basicSearchCondition);
     }
 
     @GetMapping("/{accommodationId}")
@@ -29,7 +36,7 @@ public class AccommodationController {
     }
 
     @GetMapping("/prices")
-    public String showPriceList(@RequestBody PriceSearchCondition dto) {
+    public String showPrices(@RequestBody PriceSearchCondition dto) {
         /**
          * TO-DO
          * - Parameter: (체크인 날짜, 체크아웃 날짜가 담긴 검색 조건)
