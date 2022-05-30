@@ -4,11 +4,18 @@ spring:
     url: jdbc:mysql://localhost:3306/airbnb
     username: suntory
     password: tksxhfl
+  sql:
+    init:
+      data-locations: classpath:data.sql
+      mode: always
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 naver:
   client:
