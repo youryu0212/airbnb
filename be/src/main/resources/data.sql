@@ -1,7 +1,7 @@
-INSERT INTO accommodation (accommodation_condition, accommodation_type, basic_fee, description, host_name, latitude, longitude, name, rating, review_count) values
-("테스트 조건", "테스트 타입", 10000, "테스트 설명", "테스트 호스트1", 127.0395707, 37.4850493, "테스트 숙소 이름", 5.0, 100),
-("테스트 조건", "테스트 타입", 20000, "테스트 설명", "테스트 호스트2", 126.9619196, 37.4783544, "테스트 숙소 이름2", 4.7, 100),
-("테스트 조건", "테스트 타입", 20000, "테스트 설명", "테스트 호스트3", 127.0395707, 37.4850493, "테스트 숙소 이름3", 4.5, 100);
+INSERT INTO accommodation (accommodation_condition, accommodation_type, basic_fee, description, host_name, location, name, rating, review_count) values
+("테스트 조건", "테스트 타입", 10000, "테스트 설명", "테스트 호스트1", ST_GeomFromText('POINT(127.0395707 37.4850493)'), "테스트 숙소 이름", 5.0, 100),
+("테스트 조건", "테스트 타입", 20000, "테스트 설명", "테스트 호스트2", ST_GeomFromText('POINT(126.9619196 37.4783544)'), "테스트 숙소 이름2", 4.7, 100),
+("테스트 조건", "테스트 타입", 20000, "테스트 설명", "테스트 호스트3", ST_GeomFromText('POINT(127.0395707 37.4850493)'), "테스트 숙소 이름3", 4.5, 100);
 
 INSERT INTO user (username) values
 ("testuser1"),
