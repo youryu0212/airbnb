@@ -6,8 +6,8 @@ spring:
     password: tksxhfl
   sql:
     init:
-#      schema-locations: classpath:schema.sql
-      data-locations: classpath:data.sql
+      #      schema-locations: classpath:schema.sql
+      data-locations: classpath:testData.sql
       mode: always
 
   jpa:
@@ -24,7 +24,7 @@ spring:
 naver:
   client:
     id: qkrlu3uwvh
-    secret: ${NAVER_SECRET_KEY}
+    secret: test
 
 logging:
   level.com.codesquad.airbnb: debug

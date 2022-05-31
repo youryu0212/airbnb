@@ -17,7 +17,7 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @GetMapping
-    public List<ReservationListResponseDto> showList() {
+    public List<ReservationListResponseDto> showReservations() {
         /**
          * 현재 유저가 예약한 목록을 보여준다.
          * 현재 유저 정보는 JWT를 통해 받아온 정보를 통해 user ID를 세션에 저장하고 그걸 불러온다. (고민)

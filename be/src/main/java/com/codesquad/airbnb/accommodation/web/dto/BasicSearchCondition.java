@@ -1,37 +1,21 @@
 package com.codesquad.airbnb.accommodation.web.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+
+@Setter
+@Getter
 public class BasicSearchCondition {
-    private String checkInDate;
-    private String checkOutDate;
-    private String lowerBoundPrice;
-    private String upperBoundPrice;
-    private int clientCount;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkInDate;
 
-    public BasicSearchCondition(String checkInDate, String checkOutDate, String lowerBoundPrice, String upperBoundPrice, int clientCount) {
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-        this.lowerBoundPrice = lowerBoundPrice;
-        this.upperBoundPrice = upperBoundPrice;
-        this.clientCount = clientCount;
-    }
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate checkOutDate;
 
-    public String getCheckInDate() {
-        return checkInDate;
-    }
-
-    public String getCheckOutDate() {
-        return checkOutDate;
-    }
-
-    public String getLowerBoundPrice() {
-        return lowerBoundPrice;
-    }
-
-    public String getUpperBoundPrice() {
-        return upperBoundPrice;
-    }
-
-    public int getClientCount() {
-        return clientCount;
-    }
+    private int minPrice;
+    private int maxPrice;
+    private int countOfClient;
 }
