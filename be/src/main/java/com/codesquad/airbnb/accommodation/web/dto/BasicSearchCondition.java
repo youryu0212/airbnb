@@ -17,4 +17,5 @@ public class BasicSearchCondition {
 
     private int minPrice;
     private int maxPrice;
+    private int countOfClient;
 }
