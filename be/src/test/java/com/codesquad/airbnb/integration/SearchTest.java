@@ -1,7 +1,6 @@
 package com.codesquad.airbnb.integration;
 
 import com.codesquad.airbnb.accommodation.domain.AccommodationRepository;
-import com.codesquad.airbnb.accommodation.web.dto.AccommodationResponseDto;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
