@@ -8,10 +8,16 @@ drop table if exists user;
 
 create table accommodation (
        id bigint not null auto_increment,
-        created_date datetime(6),
-        modified_date datetime(6),
-        accommodation_condition varchar(255),
-        accommodation_type varchar(255) not null,
+        created_date datetime,
+        modified_date datetime,
+        air_conditioner bit,
+        count_of_bathroom integer not null,
+        count_of_bed integer not null,
+        hair_dryer bit,
+        kitchen bit,
+        max_count_of_client integer not null,
+        room_type varchar(255),
+        wireless_internet bit,
         basic_fee integer not null,
         description varchar(255),
         host_name varchar(255) not null,
@@ -20,7 +26,7 @@ create table accommodation (
         rating double precision not null,
         review_count integer not null,
         primary key (id)
-    ) engine=InnoDB;
+    ) engine=InnoDB
 
 create table reservation (
        id bigint not null auto_increment,
