@@ -33,13 +33,13 @@ public class Accommodation extends BaseTime {
     private Point location;
 
     @Column(nullable = false)
-    private String accommodationType;
-
-    @Column(nullable = false)
     private String hostName;
 
-    private String accommodationCondition;
+    @Embedded
+    private AccommodationCondition accommodationCondition;
+
     private String description;
+
     @OneToMany(mappedBy = "accommodation", cascade = ALL)
     private List<Reservation> reservations;
 }
