@@ -14,4 +14,7 @@ public class BasicSearchCondition {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate checkOutDate;
+
+    private int minPrice;
+    private int maxPrice;
 }
