@@ -1,7 +1,6 @@
 package com.codesquad.airbnb.accommodation.domain;
 
 import com.codesquad.airbnb.common.BaseTime;
-import com.codesquad.airbnb.reservation.domain.Reservation;
 import com.codesquad.airbnb.user.domain.User;
 import lombok.Getter;
 import org.locationtech.jts.geom.Point;
@@ -10,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
@@ -47,13 +46,14 @@ public class Accommodation extends BaseTime {
     private String description;
 
     @OneToMany(mappedBy = "accommodation", cascade = ALL)
-    private List<Reservation> reservations;
-
-    @OneToMany(mappedBy = "accommodation", cascade = ALL)
     private List<Image> images;
 
     public String getMainImageLink() {
         Image mainImage = images.get(0);
         return mainImage.getImageLink();
+    }
+
+    public int calculateTotalFee(int countOfClient, int nights) {
+        return countOfClient * nights;
     }
 }
