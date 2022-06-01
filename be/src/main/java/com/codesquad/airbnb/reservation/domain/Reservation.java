@@ -1,7 +1,6 @@
 package com.codesquad.airbnb.reservation.domain;
 
 import com.codesquad.airbnb.accommodation.domain.Accommodation;
-import com.codesquad.airbnb.accommodation.domain.DetailAddress;
 import com.codesquad.airbnb.common.BaseTime;
 import com.codesquad.airbnb.user.domain.User;
 import lombok.AllArgsConstructor;
@@ -39,7 +38,7 @@ public class Reservation extends BaseTime {
 
     private int fee;
 
-    private int countOfClient;
+    private int countOfGuest;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean cancelled;
@@ -47,16 +46,4 @@ public class Reservation extends BaseTime {
     @JoinColumn(nullable = false)
     @ManyToOne(fetch = LAZY)
     private User user;
-
-    public String getMainImageLink() {
-        return accommodation.getMainImageLink();
-    }
-
-    public DetailAddress getDetailAddress() {
-        return accommodation.getDetailAddress();
-    }
-
-    public String getName() {
-        return accommodation.getName();
-    }
 }
