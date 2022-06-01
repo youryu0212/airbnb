@@ -48,12 +48,11 @@ public class Accommodation extends BaseTime {
     @OneToMany(mappedBy = "accommodation", cascade = ALL)
     private List<Image> images;
 
-    public String getMainImageLink() {
-        Image mainImage = images.get(0);
-        return mainImage.getImageLink();
+    public int calculateTotalFee(int nights) {
+        return basicFee * nights;
     }
 
-    public int calculateTotalFee(int countOfClient, int nights) {
-        return countOfClient * nights;
+    public String getMainImageLink() {
+        return images.get(0).getImageLink();
     }
 }
