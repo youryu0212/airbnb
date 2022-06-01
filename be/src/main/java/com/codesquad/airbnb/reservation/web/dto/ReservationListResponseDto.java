@@ -1,5 +1,6 @@
 package com.codesquad.airbnb.reservation.web.dto;
 
+import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.accommodation.domain.DetailAddress;
 import com.codesquad.airbnb.reservation.domain.Reservation;
 import lombok.Getter;
@@ -16,10 +17,12 @@ public class ReservationListResponseDto {
     private String name;
 
     public ReservationListResponseDto(Reservation reservation) {
-        this.imageLink = reservation.getMainImageLink();
+        Accommodation accommodation = reservation.getAccommodation();
+
+        this.imageLink = accommodation.getMainImageLink();
         this.checkInDate = reservation.getCheckInDate();
         this.checkOutDate = reservation.getCheckOutDate();
-        this.detailAddress = reservation.getDetailAddress();
-        this.name = reservation.getName();
+        this.detailAddress = accommodation.getDetailAddress();
+        this.name = accommodation.getName();
     }
 }

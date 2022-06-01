@@ -9,7 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -46,4 +48,20 @@ public class Reservation extends BaseTime {
     @JoinColumn(nullable = false)
     @ManyToOne(fetch = LAZY)
     private User user;
+
+    public Reservation(LocalDate checkInDate, LocalDate checkOutDate, Accommodation accommodation,
+                       int countOfGuest, User user) {
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        this.accommodation = accommodation;
+        this.countOfGuest = countOfGuest;
+        this.user = user;
+        this.fee = accommodation.calculateTotalFee(nights());
+    }
+
+    private int nights() {
+        LocalDateTime checkInDateTime = checkInDate.atStartOfDay();
+        LocalDateTime checkOutDateTime = checkOutDate.atStartOfDay();
+        return (int) Duration.between(checkInDateTime, checkOutDateTime).toDays();
+    }
 }
