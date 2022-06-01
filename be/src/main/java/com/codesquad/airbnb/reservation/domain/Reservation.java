@@ -4,14 +4,21 @@ import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.accommodation.domain.DetailAddress;
 import com.codesquad.airbnb.common.BaseTime;
 import com.codesquad.airbnb.user.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
+import static lombok.AccessLevel.PROTECTED;
 
+@Builder
+@NoArgsConstructor(access = PROTECTED)
+@AllArgsConstructor
 @Getter
 @Entity
 public class Reservation extends BaseTime {
@@ -31,7 +38,8 @@ public class Reservation extends BaseTime {
     private Accommodation accommodation;
 
     private int fee;
-    private int clientCount;
+
+    private int countOfClient;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean cancelled;
