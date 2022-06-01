@@ -14,5 +14,7 @@ INSERT INTO reservation (cancelled, check_in_date, check_out_date, client_count,
 (0, "2022-05-27", "2022-05-30", 2, 20000, 2, 3),
 (0, "2022-05-22", "2022-05-26", 4, 15000, 3, 3);
 
+INSERT INTO image (image_link, image_order, accommodation_id) values
+("test image link", 1, 1);
 
 

@@ -1,22 +1,28 @@
 package com.codesquad.airbnb.reservation.service;
 
+import com.codesquad.airbnb.reservation.domain.ReservationRepository;
 import com.codesquad.airbnb.reservation.web.dto.ReservationDetailDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationListResponseDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationRequestDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Transactional
+@RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Service
 public class ReservationService {
 
-    public List<ReservationListResponseDto> findAll(Long userId) {
-        /**
-         * DB로부터 user 정보를 통해 조회한 결과를 return
-         */
-        return null;
+    private final ReservationRepository reservationRepository;
+
+    public List<ReservationListResponseDto> findAllByUserId(Long userId) {
+        return reservationRepository.findByUserId(userId)
+                .stream()
+                .map(ReservationListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
     public void create(ReservationRequestDto dto) {

@@ -41,8 +41,19 @@ public class Accommodation extends BaseTime {
     @Embedded
     private AccommodationCondition accommodationCondition;
 
+    @Embedded
+    private DetailAddress detailAddress;
+
     private String description;
 
     @OneToMany(mappedBy = "accommodation", cascade = ALL)
     private List<Reservation> reservations;
+
+    @OneToMany(mappedBy = "accommodation", cascade = ALL)
+    private List<Image> images;
+
+    public String getMainImageLink() {
+        Image mainImage = images.get(0);
+        return mainImage.getImageLink();
+    }
 }
