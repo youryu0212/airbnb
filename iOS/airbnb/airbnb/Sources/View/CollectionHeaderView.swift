@@ -8,6 +8,7 @@
 import UIKit
 
 final class CollectionHeaderView: UICollectionReusableView {
+    
     static let identifier = "CollectionHeaderView"
     
     private let titleLabel: UILabel = {

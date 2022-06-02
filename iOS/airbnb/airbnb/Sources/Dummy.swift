@@ -8,6 +8,7 @@
 import Foundation
 
 final class Dummy {
+    
     var city: String
     var distance: String
     var image: String

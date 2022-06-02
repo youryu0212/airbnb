@@ -10,6 +10,9 @@ import SnapKit
 
 final class SearchViewController: UIViewController {
 
+    private let dataSource = SearchCollectionViewDataSource()
+    private let searchBarDelegate = SearchBarDelegate()
+    
     private let navigationBarUnderLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .grey4
@@ -53,12 +56,11 @@ final class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.titleView = logoImageView
 
-        searchController.searchBar.delegate = self
+        searchController.searchBar.delegate = searchBarDelegate
     }
     
     private func setCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView.dataSource = dataSource
         
         collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: HeroImageCell.identifier)
         collectionView.register(RecommendedTravelDestinationCell.self, forCellWithReuseIdentifier: RecommendedTravelDestinationCell.identifier)
@@ -77,48 +79,5 @@ final class SearchViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
-    }
-}
-
-extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int { 2 }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else { return 8 }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroImageCell.identifier, for: indexPath) as? HeroImageCell else { return UICollectionViewCell() }
-            
-                return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedTravelDestinationCell.identifier, for: indexPath) as? RecommendedTravelDestinationCell else { return UICollectionViewCell() }
-            
-                return cell
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CollectionHeaderView.identifier, for: indexPath) as? CollectionHeaderView else { return UICollectionReusableView() }
-        return headerView
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    // 검색창 입력을 끝냈을 때
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("검색 끝")
-    }
-    // cancel 버튼 누르면 호출
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Cancel")
-    }
-    // 서치바의 검색어가 편집될때 호출
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("수정")
     }
 }

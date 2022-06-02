@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 final class HeroImageCell: UICollectionViewCell {
+    
     static let identifier = "HeroImageCell"
     
     private let backgroundImage: UIImageView = {

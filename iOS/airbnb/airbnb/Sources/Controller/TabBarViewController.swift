@@ -50,5 +50,4 @@ final class TabBarViewController: UITabBarController {
         navigationBarAppearance.shadowColor = .grey4
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
     }
-    
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 final class SearchTableViewDataSource: NSObject, UITableViewDataSource {
+    
     let data = Dummy.dataList
     
     func numberOfSections(in tableView: UITableView) -> Int {

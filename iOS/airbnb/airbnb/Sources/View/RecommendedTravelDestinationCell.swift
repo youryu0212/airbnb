@@ -8,6 +8,7 @@
 import UIKit
 
 final class RecommendedTravelDestinationCell: UICollectionViewCell {
+    
     static let identifier = "RecommendedTravelDestinationCell"
     
     private let stackView: UIStackView = {
