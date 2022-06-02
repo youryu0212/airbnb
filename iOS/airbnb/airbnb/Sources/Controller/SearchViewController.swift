@@ -61,7 +61,7 @@ final class SearchViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: HeroImageCell.identifier)
-        collectionView.register(BannerViewCell.self, forCellWithReuseIdentifier: BannerViewCell.identifier)
+        collectionView.register(RecommendedTravelDestinationCell.self, forCellWithReuseIdentifier: RecommendedTravelDestinationCell.identifier)
         collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
     }
     
@@ -96,7 +96,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             
                 return cell
         } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerViewCell.identifier, for: indexPath) as? BannerViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedTravelDestinationCell.identifier, for: indexPath) as? RecommendedTravelDestinationCell else { return UICollectionViewCell() }
             
                 return cell
         }

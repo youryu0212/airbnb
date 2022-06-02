@@ -22,15 +22,13 @@ final class SearchTableViewDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else {
             return UITableViewCell()
         }
-        return setUpCell(cell: cell, indexPath: indexPath)
+        return makeCell(cell: cell, indexPath: indexPath)
     }
     
-    private func setUpCell(cell: SearchTableViewCell, indexPath: IndexPath) -> SearchTableViewCell {
+    private func makeCell(cell: SearchTableViewCell, indexPath: IndexPath) -> SearchTableViewCell {
         let target = data[indexPath.section]
         
-        cell.changeCity(city: target.city)
-        cell.changeDistance(distance: target.distance)
-        cell.changeCityImage(image: target.image)
+        cell.setData(image: target.image, city: target.city, distance: target.distance)
         return cell
     }
 }

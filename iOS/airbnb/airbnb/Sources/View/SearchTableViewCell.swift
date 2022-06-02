@@ -47,12 +47,8 @@ final class SearchTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        if selected {
-            contentView.layer.backgroundColor = UIColor.grey5.cgColor
-        } else {
-            contentView.layer.backgroundColor = UIColor.white.cgColor
-        }
+        
+        contentView.layer.backgroundColor = selected ? UIColor.grey5.cgColor : UIColor.white.cgColor
     }
     
     private func layout() {
@@ -78,15 +74,9 @@ final class SearchTableViewCell: UITableViewCell {
 }
 
 extension SearchTableViewCell {
-    func changeCityImage(image: String) {
+    func setData(image: String, city: String, distance: String) {
         cityImageView.image = UIImage(named: "\(image)")
-    }
-    
-    func changeCity(city: String) {
         cityLabel.text = city
-    }
-    
-    func changeDistance(distance: String) {
         distanceLabel.text = distance
     }
 }

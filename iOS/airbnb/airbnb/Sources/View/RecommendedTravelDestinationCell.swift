@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class BannerViewCell: UICollectionViewCell {
-    static let identifier = "BannerViewCell"
+final class RecommendedTravelDestinationCell: UICollectionViewCell {
+    static let identifier = "RecommendedTravelDestinationCell"
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()

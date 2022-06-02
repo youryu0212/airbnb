@@ -19,7 +19,7 @@
 		73571FCE283E16E9002F411F /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FCD283E16E9002F411F /* WishListViewController.swift */; };
 		73571FD0283E1706002F411F /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FCF283E1706002F411F /* MyReservationViewController.swift */; };
 		73571FD4283F4621002F411F /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FD3283F4621002F411F /* Common.swift */; };
-		73571FD82840605D002F411F /* BannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FD72840605D002F411F /* BannerViewCell.swift */; };
+		73571FD82840605D002F411F /* RecommendedTravelDestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73571FD72840605D002F411F /* RecommendedTravelDestinationCell.swift */; };
 		73B579C3284098C50043465D /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B579C2284098C50043465D /* CollectionHeaderView.swift */; };
 		73B9A767283C7EE8003A8C25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9A766283C7EE8003A8C25 /* AppDelegate.swift */; };
 		73B9A769283C7EE8003A8C25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B9A768283C7EE8003A8C25 /* SceneDelegate.swift */; };
@@ -66,7 +66,7 @@
 		73571FCD283E16E9002F411F /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		73571FCF283E1706002F411F /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
 		73571FD3283F4621002F411F /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		73571FD72840605D002F411F /* BannerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewCell.swift; sourceTree = "<group>"; };
+		73571FD72840605D002F411F /* RecommendedTravelDestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedTravelDestinationCell.swift; sourceTree = "<group>"; };
 		73B579C2284098C50043465D /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		73B9A763283C7EE8003A8C25 /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B9A766283C7EE8003A8C25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				73B579C2284098C50043465D /* CollectionHeaderView.swift */,
 				73571FC5283E0CEF002F411F /* HeroImageCell.swift */,
-				73571FD72840605D002F411F /* BannerViewCell.swift */,
+				73571FD72840605D002F411F /* RecommendedTravelDestinationCell.swift */,
 				73202EF52844B79A006D53AE /* SearchTableViewCell.swift */,
 			);
 			path = View;
@@ -509,7 +509,7 @@
 			files = (
 				73571FD0283E1706002F411F /* MyReservationViewController.swift in Sources */,
 				73202EFA2845DAB6006D53AE /* Dummy.swift in Sources */,
-				73571FD82840605D002F411F /* BannerViewCell.swift in Sources */,
+				73571FD82840605D002F411F /* RecommendedTravelDestinationCell.swift in Sources */,
 				73571FC2283DFB18002F411F /* UIColor+Extention.swift in Sources */,
 				73B9A767283C7EE8003A8C25 /* AppDelegate.swift in Sources */,
 				73571FC6283E0CEF002F411F /* HeroImageCell.swift in Sources */,
