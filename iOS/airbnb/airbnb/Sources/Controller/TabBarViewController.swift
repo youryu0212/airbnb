@@ -12,7 +12,7 @@ final class TabBarViewController: UITabBarController {
     
     private let tabBarHeight: CGFloat = 95
    
-    private let searchVC = UINavigationController(rootViewController: SearchViewController())
+    private let searchVC = UINavigationController(rootViewController: HomeViewController())
     private let wishListVC = UINavigationController(rootViewController: WishListViewController())
     private let myReservationVC = UINavigationController(rootViewController: MyReservationViewController())
     

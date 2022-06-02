@@ -16,4 +16,5 @@ extension UIColor {
     static let grey6 = UIColor(red: 245 / 255, green: 245 / 255, blue: 247 / 255, alpha: 1)
     static let primary = UIColor(red: 232 / 255, green: 76 / 255, blue: 96 / 255, alpha: 1)
     static let secondary = UIColor(red: 17 / 255, green: 137 / 255, blue: 23 / 255, alpha: 1)
+    static let line = UIColor(red: 223 / 255, green: 223 / 255, blue: 223 / 255, alpha: 1)
 }

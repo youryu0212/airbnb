@@ -1,83 +1,75 @@
 //
 //  SearchViewController.swift
-//  airbnb
+//  
 //
-//  Created by Jihee hwang on 2022/05/25.
+//  Created by Jihee hwang on 2022/05/30.
 //
 
 import UIKit
 import SnapKit
 
 final class SearchViewController: UIViewController {
-
-    private let dataSource = SearchCollectionViewDataSource()
+    
+    private let searchTableView = UITableView(frame: .zero, style: .plain)
+    private let dataSource = SearchTableViewDataSource()
     private let searchBarDelegate = SearchBarDelegate()
     
     private let navigationBarUnderLineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .grey4
+        view.backgroundColor = .line
         return view
     }()
-
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 21, weight: .bold)
+        label.text = Title.searchBarTableViewTitle
+        return label
+    }()
+    
     private let searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: SearchTableViewController())
+        let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = Title.searchBarPlaceholder
         searchController.obscuresBackgroundDuringPresentation = true
         return searchController
-    }()
-
-    private let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = Logo.logoImage
-        let newSize = CGRect(x: 0, y: 0, width: 90, height: 28)
-        UIGraphicsBeginImageContext(CGSize(width: 90, height: 28))
-        imageView.image?.draw(in: newSize)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()?.withRenderingMode(.alwaysOriginal)
-        UIGraphicsEndImageContext()
-        imageView.image = newImage
-        return imageView
-    }()
-    
-    private let collectionView: UICollectionView = {
-        let layout = Layout.createLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        setCollectionView()
         layout()
     }
     
     private func configureView() {
+        title = "숙소 찾기"
         view.backgroundColor = .white
-        navigationItem.searchController = searchController
-        navigationItem.titleView = logoImageView
-
-        searchController.searchBar.delegate = searchBarDelegate
-    }
-    
-    private func setCollectionView() {
-        collectionView.dataSource = dataSource
         
-        collectionView.register(HeroImageCell.self, forCellWithReuseIdentifier: HeroImageCell.identifier)
-        collectionView.register(RecommendedTravelDestinationCell.self, forCellWithReuseIdentifier: RecommendedTravelDestinationCell.identifier)
-        collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.identifier)
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = searchBarDelegate
+        
+        searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        searchTableView.dataSource = dataSource
+        searchTableView.separatorStyle = .none
     }
     
     private func layout() {
         view.addSubview(navigationBarUnderLineView)
-        view.addSubview(collectionView)
-
+        view.addSubview(titleLabel)
+        view.addSubview(searchTableView)
+        
         navigationBarUnderLineView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(1)
         }
-
-        collectionView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(32)
+            $0.leading.equalTo(16)
+        }
+        
+        searchTableView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel).offset(40)
+            $0.bottom.leading.trailing.equalToSuperview()
         }
     }
 }

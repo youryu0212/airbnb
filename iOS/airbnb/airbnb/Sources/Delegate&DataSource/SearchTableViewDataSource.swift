@@ -9,7 +9,7 @@ import UIKit
 
 final class SearchTableViewDataSource: NSObject, UITableViewDataSource {
     
-    let data = Dummy.dataList
+    private let data = Dummy.dataList
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
@@ -20,6 +20,7 @@ final class SearchTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else {
             return UITableViewCell()
         }
