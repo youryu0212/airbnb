@@ -8,8 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchViewController: UIViewController {
-    let tt = SearchTableViewController()
+final class SearchViewController: UIViewController {
 
     private let navigationBarUnderLineView: UIView = {
         let view = UIView()

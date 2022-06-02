@@ -7,22 +7,22 @@
 
 import UIKit
 
-class Icon {
+enum Icon {
     static let searchTabBarIcon = UIImage(systemName: "magnifyingglass")
     static let wishListTabBarIcon = UIImage(systemName: "heart")
     static let myReservationTabBarIcon = UIImage(systemName: "person")
 }
 
-class Logo {
+enum Logo {
     static let logoImage = UIImage(named: "logo")
 }
 
-class Image {
+enum Image {
     static let placeImage = UIImage(named: "Rectangle 2")
     static let seoul = UIImage(named: "seoul")
 }
 
-class Title {
+enum Title {
     static let searchBarPlaceholder = "어디로 여행가세요?"
     static let searchTabBarTitle = "검색"
     static let wishListTabBarTitle = "위시리스트"
@@ -31,11 +31,11 @@ class Title {
     static let searchBarTableViewTitle = "근처의 인기 여행지"
 }
 
-class Size {
+enum Size {
     static let heroImageCell = CGSize(width: 250, height: 500)
 }
 
-class Layout {
+enum Layout {
     static let HeroImageLayout: NSCollectionLayoutSection = {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.4)))
         

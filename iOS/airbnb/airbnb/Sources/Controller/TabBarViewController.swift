@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TabBarViewController: UITabBarController {
+final class TabBarViewController: UITabBarController {
     
     private let tabBarHeight: CGFloat = 95
    

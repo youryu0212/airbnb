@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchTableViewController: UIViewController {
+final class SearchTableViewController: UIViewController {
     
     private let searchTableView = UITableView(frame: .zero, style: .plain)
     private let dataSource = SearchTableViewDataSource()
@@ -28,7 +28,6 @@ class SearchTableViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .white
-        navigationController?.navigationItem.title = "숙소 찾기"
         searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         searchTableView.dataSource = dataSource
         searchTableView.separatorStyle = .none

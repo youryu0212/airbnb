@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SearchTableViewCell: UITableViewCell {
+final class SearchTableViewCell: UITableViewCell {
     static let identifier = "SearchTableViewCell"
     
     private let cityImageView = UIImageView()

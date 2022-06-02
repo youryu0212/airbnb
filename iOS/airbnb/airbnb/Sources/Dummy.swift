@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dummy {
+final class Dummy {
     var city: String
     var distance: String
     var image: String
