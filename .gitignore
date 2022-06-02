@@ -89,93 +89,92 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-sidedish/sidedish/NoCommit/
-sidedish/Pods/
-sidedish/Podfile.lock
-airbnb/.swiftlint.yml
-airbnb/Pods/Manifest.lock
-airbnb/Pods/Pods.xcodeproj/project.pbxproj
-airbnb/Pods/SnapKit/LICENSE
-airbnb/Pods/SnapKit/README.md
-airbnb/Pods/SnapKit/Sources/Constraint.swift
-airbnb/Pods/SnapKit/Sources/ConstraintAttributes.swift
-airbnb/Pods/SnapKit/Sources/ConstraintConfig.swift
-airbnb/Pods/SnapKit/Sources/ConstraintConstantTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintDescription.swift
-airbnb/Pods/SnapKit/Sources/ConstraintDirectionalInsets.swift
-airbnb/Pods/SnapKit/Sources/ConstraintDirectionalInsetTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintDSL.swift
-airbnb/Pods/SnapKit/Sources/ConstraintInsets.swift
-airbnb/Pods/SnapKit/Sources/ConstraintInsetTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintItem.swift
-airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuide+Extensions.swift
-airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuide.swift
-airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuideDSL.swift
-airbnb/Pods/SnapKit/Sources/ConstraintLayoutSupport.swift
-airbnb/Pods/SnapKit/Sources/ConstraintLayoutSupportDSL.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMaker.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerEditable.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerExtendable.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerFinalizable.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerPrioritizable.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerRelatable+Extensions.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMakerRelatable.swift
-airbnb/Pods/SnapKit/Sources/ConstraintMultiplierTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintOffsetTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintPriority.swift
-airbnb/Pods/SnapKit/Sources/ConstraintPriorityTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintRelatableTarget.swift
-airbnb/Pods/SnapKit/Sources/ConstraintRelation.swift
-airbnb/Pods/SnapKit/Sources/ConstraintView+Extensions.swift
-airbnb/Pods/SnapKit/Sources/ConstraintView.swift
-airbnb/Pods/SnapKit/Sources/ConstraintViewDSL.swift
-airbnb/Pods/SnapKit/Sources/Debugging.swift
-airbnb/Pods/SnapKit/Sources/LayoutConstraint.swift
-airbnb/Pods/SnapKit/Sources/LayoutConstraintItem.swift
-airbnb/Pods/SnapKit/Sources/Typealiases.swift
-airbnb/Pods/SnapKit/Sources/UILayoutSupport+Extensions.swift
-airbnb/Pods/SwiftLint/LICENSE
-airbnb/Pods/SwiftLint/swiftlint
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-acknowledgements.markdown
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-acknowledgements.plist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-dummy.m
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Debug-input-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Debug-output-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Release-input-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Release-output-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks.sh
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-Info.plist
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-umbrella.h
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.debug.xcconfig
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.modulemap
-airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.release.xcconfig
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-acknowledgements.markdown
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-acknowledgements.plist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-dummy.m
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Debug-input-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Debug-output-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Release-input-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Release-output-files.xcfilelist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks.sh
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-Info.plist
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-umbrella.h
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.debug.xcconfig
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.modulemap
-airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.release.xcconfig
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-acknowledgements.markdown
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-acknowledgements.plist
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-dummy.m
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-Info.plist
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-umbrella.h
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.debug.xcconfig
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.modulemap
-airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.release.xcconfig
-airbnb/Pods/Target Support Files/SnapKit/SnapKit-dummy.m
-airbnb/Pods/Target Support Files/SnapKit/SnapKit-Info.plist
-airbnb/Pods/Target Support Files/SnapKit/SnapKit-prefix.pch
-airbnb/Pods/Target Support Files/SnapKit/SnapKit-umbrella.h
-airbnb/Pods/Target Support Files/SnapKit/SnapKit.debug.xcconfig
-airbnb/Pods/Target Support Files/SnapKit/SnapKit.modulemap
-airbnb/Pods/Target Support Files/SnapKit/SnapKit.release.xcconfig
-airbnb/Pods/Target Support Files/SwiftLint/SwiftLint.debug.xcconfig
-airbnb/Pods/Target Support Files/SwiftLint/SwiftLint.release.xcconfig
+iOS/.swiftlint.yml
+iOS/airbnb/Podfile
+iOS/airbnb/Podfile.lock
+iOS/airbnb/Pods/Manifest.lock
+iOS/airbnb/Pods/Pods.xcodeproj/project.pbxproj
+iOS/airbnb/Pods/SnapKit/LICENSE
+iOS/airbnb/Pods/SnapKit/README.md
+iOS/airbnb/Pods/SnapKit/Sources/Constraint.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintAttributes.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintConfig.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintConstantTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintDescription.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintDirectionalInsets.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintDirectionalInsetTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintDSL.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintInsets.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintInsetTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintItem.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuide+Extensions.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuide.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintLayoutGuideDSL.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintLayoutSupport.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintLayoutSupportDSL.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMaker.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerEditable.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerExtendable.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerFinalizable.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerPrioritizable.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerRelatable+Extensions.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMakerRelatable.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintMultiplierTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintOffsetTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintPriority.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintPriorityTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintRelatableTarget.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintRelation.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintView+Extensions.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintView.swift
+iOS/airbnb/Pods/SnapKit/Sources/ConstraintViewDSL.swift
+iOS/airbnb/Pods/SnapKit/Sources/Debugging.swift
+iOS/airbnb/Pods/SnapKit/Sources/LayoutConstraint.swift
+iOS/airbnb/Pods/SnapKit/Sources/LayoutConstraintItem.swift
+iOS/airbnb/Pods/SnapKit/Sources/Typealiases.swift
+iOS/airbnb/Pods/SnapKit/Sources/UILayoutSupport+Extensions.swift
+iOS/airbnb/Pods/SwiftLint/LICENSE
+iOS/airbnb/Pods/SwiftLint/swiftlint
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-acknowledgements.markdown
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-acknowledgements.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-dummy.m
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Debug-input-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Debug-output-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Release-input-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks-Release-output-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-frameworks.sh
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-Info.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb-umbrella.h
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.debug.xcconfig
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.modulemap
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb/Pods-airbnb.release.xcconfig
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-acknowledgements.markdown
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-acknowledgements.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-dummy.m
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Debug-input-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Debug-output-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Release-input-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks-Release-output-files.xcfilelist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-frameworks.sh
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-Info.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests-umbrella.h
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.debug.xcconfig
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.modulemap
+iOS/airbnb/Pods/Target Support Files/Pods-airbnb-airbnbUITests/Pods-airbnb-airbnbUITests.release.xcconfig
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-acknowledgements.markdown
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-acknowledgements.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-dummy.m
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-Info.plist
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests-umbrella.h
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.debug.xcconfig
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.modulemap
+iOS/airbnb/Pods/Target Support Files/Pods-airbnbTests/Pods-airbnbTests.release.xcconfig
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit-dummy.m
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit-Info.plist
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit-prefix.pch
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit-umbrella.h
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit.debug.xcconfig
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit.modulemap
+iOS/airbnb/Pods/Target Support Files/SnapKit/SnapKit.release.xcconfig
+iOS/airbnb/Pods/Target Support Files/SwiftLint/SwiftLint.debug.xcconfig
+iOS/airbnb/Pods/Target Support Files/SwiftLint/SwiftLint.release.xcconfig
