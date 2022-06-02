@@ -20,7 +20,7 @@ public class AccommodationRepository {
         LocalDate checkOutDate = basicSearchCondition.getCheckOutDate();
         int minPrice = basicSearchCondition.getMinPrice();
         int maxPrice = basicSearchCondition.getMaxPrice();
-        int countOfClient = basicSearchCondition.getCountOfClient();
+        int countOfGuest = basicSearchCondition.getCountOfGuest();
 
         /**
          * 현재 클라이언트가 체크아웃하려는 날짜에 체크인하는 예약이 있더라도 예약이 가능하다.
@@ -28,7 +28,7 @@ public class AccommodationRepository {
          */
         return em.createQuery("SELECT a FROM Accommodation a " +
                         "WHERE a.basicFee >= :minPrice AND a.basicFee <= :maxPrice " +
-                        "AND a.accommodationCondition.maxCountOfClient >= :countOfClient " +
+                        "AND a.accommodationCondition.maxCountOfGuest >= :countOfGuest " +
                         "AND a.id NOT IN (SELECT r.accommodation FROM Reservation r " +
                         "WHERE r.cancelled = false " +
                         "AND ((r.checkInDate >= :checkInDate AND r.checkInDate < :checkOutDate) " +
@@ -39,7 +39,7 @@ public class AccommodationRepository {
                 .setParameter("checkOutDate", checkOutDate)
                 .setParameter("minPrice", minPrice)
                 .setParameter("maxPrice", maxPrice)
-                .setParameter("countOfClient", countOfClient)
+                .setParameter("countOfGuest", countOfGuest)
                 .getResultList();
     }
 }

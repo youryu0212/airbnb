@@ -91,14 +91,14 @@ class SearchTest {
         assertThat(response4.body().as(List.class)).isEmpty();
     }
 
-    private Response sendBasicSearchRequest(String checkInDate, String checkOutDate, String minPrice, String maxPrice, String countOfClient) {
+    private Response sendBasicSearchRequest(String checkInDate, String checkOutDate, String minPrice, String maxPrice, String countOfGuest) {
         return given()
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .param("checkInDate", checkInDate)
                 .param("checkOutDate", checkOutDate)
                 .param("minPrice", minPrice)
                 .param("maxPrice", maxPrice)
-                .param("countOfClient", countOfClient)
+                .param("countOfGuest", countOfGuest)
                 .when()
                 .get("/accommodations");
     }

@@ -5,41 +5,40 @@ import com.codesquad.airbnb.reservation.web.dto.ReservationDetailDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationListResponseDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationRequestDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/reservations")
 @RestController
 public class ReservationController {
 
+    private static final String USER_ID = "USER_ID";
+
     private final ReservationService reservationService;
 
     @GetMapping
-    public List<ReservationListResponseDto> showReservations() {
-        /**
-         * 현재 유저가 예약한 목록을 보여준다.
-         * 현재 유저 정보는 JWT를 통해 받아온 정보를 통해 user ID를 세션에 저장하고 그걸 불러온다. (고민)
-         */
-        reservationService.findAll(null);
-        return null;
+    public List<ReservationListResponseDto> showReservations(HttpServletRequest request) {
+        Long userId = getUserId(request);
+        return reservationService.findAllByUserId(userId);
     }
 
     @PostMapping
-    public void createReservation(ReservationRequestDto dto) {
-        /**
-         * 유저 정보, 예약하려는 숙소 정보, 예약 정보를 받아와서 예약을 한다.
-         *
-         */
-        reservationService.create(dto);
+    public void createReservation(HttpServletRequest request, @RequestBody ReservationRequestDto dto) {
+        Long userId = getUserId(request);
+        reservationService.makeReservation(userId, dto);
     }
 
     @GetMapping("/{reservationId}")
     public ReservationDetailDto showDetail(@PathVariable long reservationId) {
-        /**
-         * 예약 id를 통해 예약 상세 페이지 정보 전달
-         */
         return reservationService.findById(reservationId);
+    }
+
+    private Long getUserId(HttpServletRequest request) {
+        return (Long) request.getAttribute(USER_ID);
     }
 }
