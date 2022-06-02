@@ -2,6 +2,7 @@ package com.codesquad.airbnb.reservation.domain;
 
 import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.common.BaseTime;
+import com.codesquad.airbnb.common.util.CalculatorUtils;
 import com.codesquad.airbnb.user.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -56,12 +55,6 @@ public class Reservation extends BaseTime {
         this.accommodation = accommodation;
         this.countOfGuest = countOfGuest;
         this.user = user;
-        this.fee = accommodation.calculateTotalFee(nights());
-    }
-
-    private int nights() {
-        LocalDateTime checkInDateTime = checkInDate.atStartOfDay();
-        LocalDateTime checkOutDateTime = checkOutDate.atStartOfDay();
-        return (int) Duration.between(checkInDateTime, checkOutDateTime).toDays();
+        this.fee = accommodation.calculateTotalFee(CalculatorUtils.calculateNights(checkInDate, checkOutDate));
     }
 }

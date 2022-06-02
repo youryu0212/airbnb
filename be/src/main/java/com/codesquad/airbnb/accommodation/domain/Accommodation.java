@@ -79,12 +79,12 @@ public class Accommodation extends BaseTime {
         return (1 - discountRate);
     }
 
-    public int calculateServiceFee(int subtotal) {
-        return (int) (subtotal * SERVICE_FEE_RATE);
+    public int calculateServiceFee(int nights) {
+        return (int) (calculateSubtotal(nights) * SERVICE_FEE_RATE);
     }
 
-    public int calculateTaxAndFee(int subtotal) {
-        return (int) (subtotal * TAX_AND_FEE_RATE);
+    public int calculateTaxAndFee(int nights) {
+        return (int) (calculateSubtotal(nights) * TAX_AND_FEE_RATE);
     }
 
     public String getMainImageLink() {

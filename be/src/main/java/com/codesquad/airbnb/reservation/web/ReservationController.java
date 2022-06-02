@@ -1,7 +1,9 @@
 package com.codesquad.airbnb.reservation.web;
 
+import com.codesquad.airbnb.reservation.service.ReservationPriceResponseDto;
 import com.codesquad.airbnb.reservation.service.ReservationService;
 import com.codesquad.airbnb.reservation.web.dto.ReservationDetailDto;
+import com.codesquad.airbnb.reservation.web.dto.ReservationPriceRequestDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationListResponseDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,13 @@ public class ReservationController {
     public List<ReservationListResponseDto> showReservations(HttpServletRequest request) {
         Long userId = getUserId(request);
         return reservationService.findAllByUserId(userId);
+    }
+
+    @GetMapping("/price/{accommodationId}")
+    public ReservationPriceResponseDto showPriceInformation(@PathVariable long accommodationId, ReservationPriceRequestDto dto) {
+        log.debug("ReservationController: {}", dto.getCheckInDate());
+        log.debug("ReservationController: {}", dto.getCheckOutDate());
+        return reservationService.getReservationInformation(accommodationId, dto);
     }
 
     @PostMapping

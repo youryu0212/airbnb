@@ -43,4 +43,8 @@ public class DiscountPolicy {
 
         return 0;
     }
+
+    public int getDiscountRateInPercent(int night) {
+        return (int) (getDiscountRate(night) * 100);
+    }
 }
