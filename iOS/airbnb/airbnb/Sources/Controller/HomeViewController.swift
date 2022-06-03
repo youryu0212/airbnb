@@ -10,14 +10,30 @@ import SnapKit
 
 final class HomeViewController: UIViewController {
 
-    private let dataSource = SearchCollectionViewDataSource()
+    private let dataSource = HomeCollectionViewDataSource()
+    
+    private let backButton: UIBarButtonItem = {
+        let buttonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: nil, action: nil)
+        buttonItem.tintColor = .black
+        return buttonItem
+    }()
 
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = Title.searchBarPlaceholder
-        return searchBar
+    private let searchBarController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = Title.searchBarPlaceholder
+        return searchController
     }()
     
+    private let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Logo.logoImage
+        imageView.snp.makeConstraints {
+            $0.width.equalTo(90)
+            $0.height.equalTo(28)
+        }
+        return imageView
+    }()
+
     private let collectionView: UICollectionView = {
         let layout = Layout.createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -34,8 +50,12 @@ final class HomeViewController: UIViewController {
     private func configureView() {
         view.backgroundColor = .white
         
-        navigationItem.titleView = searchBar
-        searchBar.delegate = self
+        navigationItem.searchController = searchBarController
+        navigationItem.titleView = logoImageView
+        navigationItem.backBarButtonItem = backButton
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchBarController.searchBar.delegate = self
     }
     
     private func setCollectionView() {
@@ -54,6 +74,8 @@ final class HomeViewController: UIViewController {
         }
     }
 }
+
+// MARK: - extension
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
