@@ -31,8 +31,12 @@ class AccommodationTest {
 
         // when
         int subtotal = accommodation.calculateSubtotal(nights);
-        int serviceFee = accommodation.calculateServiceFee(subtotal);
-        int taxAndFee = accommodation.calculateTaxAndFee(subtotal);
+        int serviceFee = accommodation.calculateServiceFee(nights);
+        int taxAndFee = accommodation.calculateTaxAndFee(nights);
+
+        System.out.println(subtotal);
+        System.out.println(serviceFee);
+        System.out.println(taxAndFee);
 
         // then
         assertThat(subtotal).isEqualTo(180000);
