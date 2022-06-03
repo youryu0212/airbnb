@@ -37,9 +37,9 @@ public class ReservationController {
     }
 
     @PostMapping
-    public void createReservation(HttpServletRequest request, @RequestBody ReservationRequestDto dto) {
+    public long createReservation(HttpServletRequest request, @RequestBody ReservationRequestDto dto) {
         Long userId = getUserId(request);
-        reservationService.makeReservation(userId, dto);
+        return reservationService.makeReservation(userId, dto);
     }
 
     @GetMapping("/{reservationId}")
@@ -48,6 +48,10 @@ public class ReservationController {
     }
 
     private Long getUserId(HttpServletRequest request) {
-        return (Long) request.getAttribute(USER_ID);
+        /**
+         * return (Long) request.getAttribute(USER_ID);
+         * 테스트용 메서드
+         */
+        return 1L;
     }
 }

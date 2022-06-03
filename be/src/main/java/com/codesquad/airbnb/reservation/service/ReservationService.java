@@ -36,7 +36,7 @@ public class ReservationService {
     }
 
     @Transactional
-    public void makeReservation(long userId, ReservationRequestDto dto) {
+    public long makeReservation(long userId, ReservationRequestDto dto) {
         long accommodationId = dto.getAccommodationId();
 
         Accommodation accommodation = findAccommodationById(accommodationId);
@@ -47,16 +47,18 @@ public class ReservationService {
         LocalDate checkInDate = dto.getCheckInDate();
         LocalDate checkOutDate = dto.getCheckOutDate();
         int countOfGuest = dto.getCountOfGuest();
+        int nights = CalculatorUtils.calculateNights(checkInDate, checkOutDate);
 
         Reservation reservation = Reservation.builder()
                 .accommodation(accommodation)
                 .checkInDate(checkInDate)
                 .checkOutDate(checkOutDate)
                 .countOfGuest(countOfGuest)
+                .fee(accommodation.calculateTotalFee(nights))
                 .user(user)
                 .build();
 
-        reservationCrudRepository.save(reservation);
+        return reservationCrudRepository.save(reservation).getId();
     }
 
     private Accommodation findAccommodationById(long accommodationId) {

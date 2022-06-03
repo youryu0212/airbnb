@@ -55,6 +55,7 @@ public class Accommodation extends BaseTime {
 
     private String description;
 
+    @JoinColumn
     @OneToOne
     private DiscountPolicy discountPolicy;
 
@@ -63,7 +64,7 @@ public class Accommodation extends BaseTime {
 
     public int calculateTotalFee(int nights) {
         int subtotal = calculateSubtotal(nights);
-        return subtotal + calculateServiceFee(subtotal) + calculateTaxAndFee(subtotal);
+        return subtotal + calculateServiceFee(nights) + calculateTaxAndFee(nights);
     }
 
     public int calculateSubtotal(int nights) {
