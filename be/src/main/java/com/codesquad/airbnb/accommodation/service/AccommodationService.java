@@ -12,13 +12,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 @Service
 public class AccommodationService {
 
     private final AccommodationRepository accommodationRepository;
 
-    @Transactional(readOnly = true)
     public List<AccommodationResponseDto> findByBasicSearch(BasicSearchCondition basicSearchCondition) {
         List<Accommodation> accommodations = accommodationRepository.findAllByBasicCondition(basicSearchCondition);
 
