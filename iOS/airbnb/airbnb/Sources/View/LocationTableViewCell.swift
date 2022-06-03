@@ -9,11 +9,12 @@ import UIKit
 import SnapKit
 
 final class LocationTableViewCell: UITableViewCell {
+    
     static let identifier = "LocationTableViewCell"
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 19, weight: .medium)
+        label.font = .systemFont(ofSize: 17, weight: .regular)
         return label
     }()
     
@@ -31,10 +32,14 @@ final class LocationTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints {
-            $0.edges.equalTo(contentView)
+            $0.top.equalTo(contentView).offset(12)
+            $0.leading.equalTo(contentView).offset(20)
+            $0.trailing.equalTo(contentView).offset(-20)
         }
     }
 }
+
+// MARK: - functions
 
 extension LocationTableViewCell {
     func setData(title: String) {
