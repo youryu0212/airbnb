@@ -2,8 +2,8 @@ import Calendar from "Components/Calendar/Calendar";
 import { getTodayDate } from "Helpers/utils";
 import { useState } from "react";
 import { DateType, EventType } from "Helpers/interface";
-import { useCalendar } from "Hook/useCalendar";
 import { useOutsideClick } from "Hook/useOutsideClick";
+import { useCalendar } from "Context/CalendarProvider";
 
 interface compareCheckInType extends DateType {
   checkIn: DateType;
@@ -15,20 +15,11 @@ interface dispatchType extends DateType {
 
 const { year: initYear, month: initMonth } = getTodayDate();
 
-export default function CalendarModal({ calendarRef }: any) {
+export default function CalendarModal({ calendarRef, calendarStyle }: any) {
   const [calendarData, setCalendarData] = useState({ year: initYear, month: initMonth });
   const [calendarState, dispatchCalendar] = useCalendar();
 
   const { checkIn, checkOut, isCalendarOpen } = calendarState;
-
-  const calendarModalStyle = `
-    background-color:#fff;
-    width: 916px;
-    margin-left: 262px;
-    margin-top: 40px;
-    padding: 88px;
-    border-radius: 40px;
-  `;
   const calendarShowCount = 2;
 
   const runDispatchCalendar = ({ year, month, day, type }: dispatchType) => {
@@ -90,7 +81,7 @@ export default function CalendarModal({ calendarRef }: any) {
         calendarRef={calendarRef}
         calendarShowCount={calendarShowCount}
         columnCount={2}
-        calendarModalStyle={calendarModalStyle}
+        calendarStyle={calendarStyle}
         checkIn={checkIn}
         checkOut={checkOut}
         calendarData={calendarData}
@@ -110,7 +101,7 @@ const isFasterThanCheckIn = ({ year, day, month, checkIn }: compareCheckInType) 
   if (year === checkIn.year && month < checkIn.month) {
     return true;
   }
-  if (year === checkIn.year && month === checkIn.month && day < checkIn.day) {
+  if (year === checkIn.year && month === checkIn.month && day <= checkIn.day) {
     return true;
   }
   return false;

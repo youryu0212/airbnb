@@ -7,29 +7,31 @@ import {
   ActiveContent,
   ContentHeader,
   ContentContainer,
+  SearchButtonArea,
 } from "./SearchBar.styled";
 import cancelButton from "Asset/cancelButton.svg";
 import searchButton from "Asset/searchButton.svg";
 import activeSearchButton from "Asset/activeSearchButton.svg";
 import { Img } from "Components/Common/styled";
-import { useCalendar } from "Hook/useCalendar";
 import { SEARCH_BAR_REF_IDX } from "Helpers/constant";
 import { useHeadCount } from "Context/HeadCountProvider";
+import { useCalendar } from "Context/CalendarProvider";
+import { NavLink } from "react-router-dom";
 
 interface SearchBarType {
+  searchBarStyle?: string;
   calendarRef?: React.MutableRefObject<HTMLElement[] | null[]>;
   headCountRef?: React.MutableRefObject<HTMLElement[] | null[]>;
 }
 
-export default function SearchBar({ calendarRef, headCountRef }: SearchBarType) {
+export default function SearchBar({ calendarRef, headCountRef, searchBarStyle }: SearchBarType) {
   const [calendarState, dispatchCalendar] = useCalendar();
   const [headCountState, dispatchHeadCount] = useHeadCount();
 
   const { isHeadCountOpen, adult, child, baby: babyCount } = headCountState;
   const guestCount = adult + child;
 
-  const headCountTemplate =
-    babyCount > 0 ? `게스트 ${guestCount}명 유아 ${babyCount}명` : `게스트 ${guestCount}명`;
+  const headCountTemplate = `게스트 ${guestCount}명 ${babyCount > 0 ? `유아 ${babyCount}명` : ""}`;
 
   const { isCalendarOpen, checkIn, checkOut } = calendarState;
 
@@ -45,7 +47,7 @@ export default function SearchBar({ calendarRef, headCountRef }: SearchBarType) 
   };
 
   return (
-    <Container flex={true} justify="space-between">
+    <Container flex={true} justify="space-between" searchBarStyle={searchBarStyle}>
       <DateArea
         ref={(el) => calendarRef && (calendarRef.current[SEARCH_BAR_REF_IDX] = el)}
         flex={true}
@@ -68,7 +70,7 @@ export default function SearchBar({ calendarRef, headCountRef }: SearchBarType) 
             <InActiveContent>날짜입력</InActiveContent>
           )}
         </ContentContainer>
-        {checkIn.day > 0 && checkOut.day > 0 && (
+        {isCalendarOpen && (
           <Img
             src={cancelButton}
             width="20px"
@@ -104,15 +106,25 @@ export default function SearchBar({ calendarRef, headCountRef }: SearchBarType) 
             <InActiveContent>게스트 추가</InActiveContent>
           )}
         </ContentContainer>
-        {guestCount > 0 && (
-          <Img src={cancelButton} width="20px" height="20px" onClick={() => handleReset(dispatchHeadCount)} />
-        )}
-        {isSearchBarOpen ? (
-          <Img src={activeSearchButton} width="90px" height="42px" />
-        ) : (
-          <Img src={searchButton} width="40px" height="40px" />
+        {isHeadCountOpen && (
+          <Img
+            src={cancelButton}
+            width="20px"
+            height="20px"
+            margin="0 100px 0 0"
+            onClick={() => handleReset(dispatchHeadCount)}
+          />
         )}
       </HeadCountArea>
+      <SearchButtonArea>
+        <NavLink to="/searchResult">
+          {isSearchBarOpen ? (
+            <Img src={activeSearchButton} width="90px" height="42px" />
+          ) : (
+            <Img src={searchButton} width="40px" height="40px" />
+          )}
+        </NavLink>
+      </SearchButtonArea>
     </Container>
   );
 }

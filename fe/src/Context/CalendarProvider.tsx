@@ -1,5 +1,5 @@
 import { useCalendarReducer } from "Hook/useCalendar";
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 // interface actionType {
 //   type: "OPEN" | "CLOSE" | "SET_CHECK_IN" | "SET_CHECK_OUT";
@@ -10,7 +10,7 @@ import { createContext } from "react";
 // Dispatch 타입, children 타입 보류중
 // Children : React.ReactNode 왜 안될까?
 
-export const CalendarContext = createContext({});
+export const CalendarContext: React.Context<{}> = createContext({});
 export const DispatchCalendarContext = createContext<any>(undefined);
 
 export default function CalendarProvider({ children }: any) {
@@ -22,3 +22,5 @@ export default function CalendarProvider({ children }: any) {
     </DispatchCalendarContext.Provider>
   );
 }
+
+export const useCalendar = () => [useContext(CalendarContext), useContext(DispatchCalendarContext)];
