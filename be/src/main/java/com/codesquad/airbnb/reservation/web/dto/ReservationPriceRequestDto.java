@@ -1,4 +1,4 @@
-package com.codesquad.airbnb.accommodation.web.dto;
+package com.codesquad.airbnb.reservation.web.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,14 +8,12 @@ import java.time.LocalDate;
 
 @Setter
 @Getter
-public class BasicSearchCondition {
+public class ReservationPriceRequestDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate checkInDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate checkOutDate;
 
-    private int minPrice;
-    private int maxPrice;
     private int countOfGuest;
 }

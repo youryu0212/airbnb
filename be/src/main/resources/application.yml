@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/airbnb
-    username: suntory
-    password: tksxhfl
+    url: jdbc:mysql://localhost:3307/airbnb?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: elql1004
   sql:
     init:
 #      schema-locations: classpath:schema.sql

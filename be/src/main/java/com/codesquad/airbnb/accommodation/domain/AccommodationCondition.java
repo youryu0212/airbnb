@@ -9,7 +9,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class AccommodationCondition {
 
-    private int maxCountOfClient;
+    private int maxCountOfGuest;
     private String roomType;
     private int countOfBed;
     private int countOfBathroom;
