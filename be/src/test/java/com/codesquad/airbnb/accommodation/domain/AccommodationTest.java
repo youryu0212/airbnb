@@ -25,7 +25,7 @@ class AccommodationTest {
 
 
     @Test
-    void 숙박요금이_정상적으로_계산된다() {
+    void 숙박일이_15일이면_요금소계와_수수료율이_고려된_금액이_계산된다() {
         // given
         int nights = 15;
 
@@ -45,7 +45,7 @@ class AccommodationTest {
     }
 
     @Test
-    void 할인정책이_적용된_숙박요금이_계산된다() {
+    void 일주일_이상_숙박을_하면_주간_할인정책이_적용된_금액이_계산된다() {
         // given
         int nights = 10;
 
