@@ -1,30 +1,8 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/airbnb?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: elql1004
-  sql:
-    init:
-#      schema-locations: classpath:schema.sql
-      data-locations: classpath:data.sql
-      mode: always
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-    database: mysql
-    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
-    defer-datasource-initialization: true
+  profiles:
+    default: ${profile}
 
 naver:
   client:
     id: qkrlu3uwvh
     secret: ${NAVER_SECRET_KEY}
-
-logging:
-  level.com.codesquad.airbnb: debug

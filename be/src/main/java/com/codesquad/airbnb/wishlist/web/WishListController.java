@@ -1,6 +1,7 @@
 package com.codesquad.airbnb.wishlist.web;
 
 import com.codesquad.airbnb.wishlist.service.WishListService;
+import com.codesquad.airbnb.wishlist.web.dto.WishListRequestDto;
 import com.codesquad.airbnb.wishlist.web.dto.WishListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class WishListController {
         return null;
     }
 
-    @PostMapping("/{accommodationId}")
-    public void addWishList(@PathVariable long accommodationId) {
+    @PostMapping()
+    public void addWishList(WishListRequestDto dto) {
         /**
          * 위시리스트 하고자 하는 숙소의 id를 받아서 위시리스트에 추가
          * DB 상에는 위시리스트를 관리하는 테이블을 별도로 둔다.
@@ -33,7 +34,7 @@ public class WishListController {
          * 이미 soft delete된 숙소를 다시 추가하는 경우에는 새 row를 추가할까? 아니면 soft deletion을 해제할까?
          * -> 반복되는 요청으로 인해 dummy data가 쌓이는 걸 방지하려면 전자가 낫다는 생각이 든다.
          */
-        wishListService.add(accommodationId);
+        wishListService.add(dto.getAccommodationId());
     }
 
     @DeleteMapping("/{accommodationId}")
