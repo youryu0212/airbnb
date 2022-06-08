@@ -24,3 +24,9 @@ spring:
 
 logging:
   level.com.codesquad.airbnb: debug
+
+oauth2:
+  provider:
+    github:
+      client_id: ${GITHUB_CLIENT_ID}
+      secret: ${GITHUB_CLIENT_SECRET}
