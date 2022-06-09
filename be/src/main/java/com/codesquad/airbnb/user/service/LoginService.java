@@ -1,5 +1,6 @@
 package com.codesquad.airbnb.user.service;
 
+import com.codesquad.airbnb.auth.JwtTokenProvider;
 import com.codesquad.airbnb.user.domain.User;
 import com.codesquad.airbnb.user.domain.UserCrudRepository;
 import com.codesquad.airbnb.user.web.dto.GitHubAccessToken;
