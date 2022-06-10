@@ -19,11 +19,10 @@ public class JwtTokenResolver {
         this.secret = secret;
     }
 
-    public Long getPayload(String token) {
+    public long getPayload(String token) {
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(secret)).build();
         DecodedJWT decodedJWT = jwtVerifier.verify(token);
-        Long id = decodedJWT.getClaim("id").asLong();
-
+        Long id = Long.parseLong(decodedJWT.getClaim("id").asString());
         return id;
     }
 }

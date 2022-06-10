@@ -2,6 +2,8 @@ package com.codesquad.airbnb.auth.interceptor;
 
 
 import com.codesquad.airbnb.auth.JwtTokenResolver;
+import com.codesquad.airbnb.user.domain.UserCrudRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -11,14 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @Slf4j
+@RequiredArgsConstructor
 @Component("authenticationInterceptor")
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
     private final JwtTokenResolver jwtTokenResolver;
-
-    public AuthenticationInterceptor(JwtTokenResolver jwtTokenResolver) {
-        this.jwtTokenResolver = jwtTokenResolver;
-    }
+    private final UserCrudRepository userCrudRepository;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -27,8 +27,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             throw new IllegalArgumentException("토큰이 없습니다. 로그인을 진행해주세요");
         }
 
-        Long id = jwtTokenResolver.getPayload(jwtToken.get());
+        long id = jwtTokenResolver.getPayload(jwtToken.get());
         log.debug("JwtInterceptor, payload: {}", id);
+
+        request.setAttribute("USER_ID", id);
 
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }

@@ -4,9 +4,11 @@ import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.accommodation.domain.DetailAddress;
 import com.codesquad.airbnb.reservation.domain.Reservation;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+@NoArgsConstructor
 @Getter
 public class ReservationListResponseDto {
 

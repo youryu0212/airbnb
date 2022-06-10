@@ -48,10 +48,6 @@ public class ReservationController {
     }
 
     private Long getUserId(HttpServletRequest request) {
-        /**
-         * return (Long) request.getAttribute(USER_ID);
-         * 테스트용 메서드
-         */
-        return 1L;
+        return (Long) request.getAttribute(USER_ID);
     }
 }
