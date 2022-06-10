@@ -1,6 +1,6 @@
 package com.codesquad.airbnb.reservation.web;
 
-import com.codesquad.airbnb.reservation.service.ReservationPriceResponseDto;
+import com.codesquad.airbnb.reservation.web.dto.ReservationPriceResponseDto;
 import com.codesquad.airbnb.reservation.service.ReservationService;
 import com.codesquad.airbnb.reservation.web.dto.ReservationDetailDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationPriceRequestDto;

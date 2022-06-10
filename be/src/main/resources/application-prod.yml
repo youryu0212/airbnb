@@ -4,3 +4,11 @@ spring:
     url: ${MYSQL_DATABASE_URL}
     username: ${MYSQL_DATABASE_USERNAME}
     password: ${MYSQL_DATABASE_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
+    defer-datasource-initialization: true
