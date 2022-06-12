@@ -1,7 +1,8 @@
 INSERT INTO user (id, username) values
 (1, "testuser1"),
 (2, "testuser2"),
-(3, "testuser3");
+(3, "testuser3"),
+(4, "testuser4");
 
 INSERT INTO discount_policy (id, weekly_discount_rate, monthly_discount_rate, yearly_discount_rate) VALUES
 (1, 0.05, 0.06, 0.07),

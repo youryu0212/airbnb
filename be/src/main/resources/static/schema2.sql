@@ -56,12 +56,15 @@ create table reservation (
 ) engine=InnoDB;
 
 create table user (
-    id bigint not null auto_increment,
-    created_date datetime,
-    modified_date datetime,
-    username varchar(255),
-    primary key (id)
-) engine=InnoDB;
+       id bigint not null auto_increment,
+        created_date datetime,
+        modified_date datetime,
+        email varchar(255),
+        oauth_id varchar(255),
+        token varchar(255),
+        username varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
 
 create table wish_list (
     id bigint not null auto_increment,

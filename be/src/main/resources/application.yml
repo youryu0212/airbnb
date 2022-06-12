@@ -6,3 +6,12 @@ naver:
   client:
     id: qkrlu3uwvh
     secret: ${NAVER_SECRET_KEY}
+
+oauth2:
+  provider:
+    github:
+      client_id: ${GITHUB_CLIENT_ID}
+      secret: ${GITHUB_CLIENT_SECRET}
+
+jwt:
+  secret: ${JWT_SECRET}

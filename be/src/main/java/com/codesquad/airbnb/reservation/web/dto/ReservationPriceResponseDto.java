@@ -1,4 +1,4 @@
-package com.codesquad.airbnb.reservation.service;
+package com.codesquad.airbnb.reservation.web.dto;
 
 import com.codesquad.airbnb.accommodation.domain.Accommodation;
 import com.codesquad.airbnb.accommodation.domain.DiscountPolicy;

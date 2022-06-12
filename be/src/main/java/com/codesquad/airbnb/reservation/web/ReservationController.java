@@ -1,6 +1,6 @@
 package com.codesquad.airbnb.reservation.web;
 
-import com.codesquad.airbnb.reservation.service.ReservationPriceResponseDto;
+import com.codesquad.airbnb.reservation.web.dto.ReservationPriceResponseDto;
 import com.codesquad.airbnb.reservation.service.ReservationService;
 import com.codesquad.airbnb.reservation.web.dto.ReservationDetailDto;
 import com.codesquad.airbnb.reservation.web.dto.ReservationPriceRequestDto;
@@ -48,10 +48,6 @@ public class ReservationController {
     }
 
     private Long getUserId(HttpServletRequest request) {
-        /**
-         * return (Long) request.getAttribute(USER_ID);
-         * 테스트용 메서드
-         */
-        return 1L;
+        return (Long) request.getAttribute(USER_ID);
     }
 }
